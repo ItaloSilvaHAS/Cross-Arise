@@ -500,75 +500,36 @@
       }
     }
 
-    // Load characters from localStorage or default
-    function loadCharacters() {
-      // Try to load from localStorage first
-      const stored = localStorage.getItem(STORAGE_KEY);
-      if (stored) {
-        try {
-          characters = JSON.parse(stored);
-          // Ensure all 20 characters exist (in case user deleted some)
-          for (let i = 1; i <= 20; i++) {
-            const key = `Character${i}`;
-            if (!characters[key]) {
-              characters[key] = defaultCharacters[key];
-            }
-          }
-          // Ensure Italo exists
-          if (!characters.Italo) {
-            characters.Italo = defaultCharacters.Italo;
-          }
-          saveCharacters();
-        } catch {
-          characters = { ...defaultCharacters };
-          saveCharacters();
-        }
-      } else {
-        characters = { ...defaultCharacters };
-        saveCharacters();
-      }
-    }
-
-    // Save characters to localStorage and sync to remote storage (using GitHub Gist as example)
-    async function saveCharacters() {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(characters));
-      // Sync to remote storage for global access
-      try {
-        // Replace this URL with your own backend or storage API endpoint
-        // This example uses a public JSON storage service (jsonbin.io) or similar
-        // For demonstration, no real server is used here.
-        // You must implement your own backend to persist data globally.
-        // Example:
-        // await fetch('https://your-backend.com/api/save', {
-        //   method: 'POST',
-        //   headers: { 'Content-Type': 'application/json' },
-        //   body: JSON.stringify(characters)
-        // });
-      } catch (error) {
-        console.warn("Não foi possível sincronizar com o servidor:", error);
-      }
-    }
-
-    // Load characters from remote storage (if available)
+    // Load characters from remote JSON file on GitHub Gist (public) or fallback to localStorage
     async function loadCharactersRemote() {
       try {
-        // Replace this URL with your own backend or storage API endpoint
-        // For demonstration, no real server is used here.
-        // Example:
-        // const response = await fetch('https://your-backend.com/api/load');
-        // if (response.ok) {
-        //   const data = await response.json();
-        //   if (data) {
-        //     characters = data;
-        //     saveCharacters(); // Save locally as well
-        //     return true;
-        //   }
-        // }
-        return false;
+        // Replace this URL with your own public JSON file URL or API endpoint
+        const gistUrl = "https://gist.githubusercontent.com/yourusername/yourgistid/raw/characters.json";
+        const response = await fetch(gistUrl, {cache: "no-store"});
+        if (response.ok) {
+          const data = await response.json();
+          if (data && typeof data === "object") {
+            characters = data;
+            saveCharactersLocalOnly();
+            return true;
+          }
+        }
       } catch (error) {
         console.warn("Não foi possível carregar dados do servidor:", error);
-        return false;
       }
+      return false;
+    }
+
+    // Save characters to localStorage only (no server sync)
+    function saveCharactersLocalOnly() {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(characters));
+    }
+
+    // Save characters to localStorage and attempt to sync to remote (not implemented here)
+    async function saveCharacters() {
+      saveCharactersLocalOnly();
+      // You must implement your own backend or use a service to sync data globally.
+      // This demo does not include a backend, so changes are local only.
     }
 
     // Show login screen
@@ -798,7 +759,7 @@
     }
 
     // Save character from edit form
-    async function saveCharacterFromForm(e) {
+    function saveCharacterFromForm(e) {
       e.preventDefault();
 
       const name = editName.value.trim();
@@ -910,7 +871,52 @@
       }
     }
 
-    // Handle login form submit
+    // Initialize app: load from remote JSON on GitHub Gist, fallback to localStorage
+    async function initializeApp() {
+      const remoteLoaded = await loadCharactersRemote();
+      if (!remoteLoaded) {
+        loadCharacters();
+      }
+      showLogin();
+    }
+
+    // Load characters from remote JSON file on GitHub Gist (public) or fallback to localStorage
+    async function loadCharactersRemote() {
+      try {
+        // Replace this URL with your own public JSON file URL or API endpoint
+        // IMPORTANT: You must host a JSON file somewhere public and update this URL accordingly.
+        // Example gist URL (replace with your own):
+        const gistUrl = "https://gist.githubusercontent.com/yourusername/yourgistid/raw/characters.json";
+        const response = await fetch(gistUrl, {cache: "no-store"});
+        if (response.ok) {
+          const data = await response.json();
+          if (data && typeof data === "object") {
+            characters = data;
+            saveCharactersLocalOnly();
+            return true;
+          }
+        }
+      } catch (error) {
+        console.warn("Não foi possível carregar dados do servidor:", error);
+      }
+      return false;
+    }
+
+    // Save characters to localStorage only (no server sync)
+    function saveCharactersLocalOnly() {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(characters));
+    }
+
+    // Save characters to localStorage and attempt to sync to remote (not implemented here)
+    async function saveCharacters() {
+      saveCharactersLocalOnly();
+      // You must implement your own backend or use a service to sync data globally.
+      // This demo does not include a backend, so changes are local only.
+      // To have global sync, you need a backend API or a cloud database.
+    }
+
+    // Event listeners and other functions remain unchanged...
+
     loginForm.addEventListener("submit", (e) => {
       e.preventDefault();
       loginError.classList.add("hidden");
@@ -924,14 +930,12 @@
         return;
       }
 
-      // Check if user exists
       if (!characters[name]) {
         loginError.textContent = "Personagem ou senha incorretos.";
         loginError.classList.remove("hidden");
         return;
       }
 
-      // Check password
       if (characters[name].password !== password) {
         loginError.textContent = "Personagem ou senha incorretos.";
         loginError.classList.remove("hidden");
@@ -940,16 +944,13 @@
 
       currentUser = { name, password };
 
-      // If admin (Italo), show admin panel
       if (name === "Italo" && password === "Italo") {
         showAdminPanel();
       } else {
-        // Show character profile
         showCharacterProfile(characters[name]);
       }
     });
 
-    // Logout buttons
     logoutCharacterBtn.addEventListener("click", () => {
       showLogin();
     });
@@ -957,7 +958,6 @@
       showLogin();
     });
 
-    // Admin panel buttons
     addCharacterBtn.addEventListener("click", () => {
       alert("Você já tem 20 personagens disponíveis para editar. Use a lista para modificar.");
     });
@@ -966,15 +966,7 @@
     deleteCharacterBtn.addEventListener("click", deleteCharacter);
 
     // Initialize app
-    // Try to load remote data first, fallback to localStorage
-    async function initializeApp() {
-      // Attempt to load remote data (replace with your backend API)
-      // For demo, no real backend, so just load local
-      loadCharacters();
-      showLogin();
-    }
     initializeApp();
-
   </script>
  </body>
 </html>
