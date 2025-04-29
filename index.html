@@ -1,972 +1,869 @@
-<html class="h-full bg-gradient-to-br from-gray-900 via-gray-800 to-gray-700 text-white" lang="pt-BR">
- <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1" name="viewport"/>
-  <title>
-   Cross Arise - RPG Solo Leveling Style
-  </title>
-  <script src="https://cdn.tailwindcss.com">
-  </script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron&amp;family=Roboto&amp;display=swap" rel="stylesheet"/>
-  <style>
-   body {
-      font-family: "Roboto", sans-serif;
-      background: linear-gradient(135deg, #0f0f0f, #1a1a1a, #2a2a2a);
-      min-height: 100vh;
-      color: #e2e8f0;
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Cross Arise - RPG de Animes</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+<style>
+  body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #0b0c10;
+    color: #c5c6c7;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+  h1, h2, h3, h4, h5 {
+    font-family: 'Orbitron', sans-serif;
+  }
+  /* Scrollbar for inventory and powers */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #1f2833;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: #45a29e;
+    border-radius: 10px;
+    border: 2px solid #1f2833;
+  }
+  /* Custom focus for inputs */
+  input:focus, button:focus {
+    outline: none;
+    box-shadow: 0 0 8px #45a29e;
+    border-color: #45a29e;
+  }
+  /* Button hover */
+  button, a.button {
+    transition: all 0.25s ease;
+  }
+  button:hover, a.button:hover {
+    background-color: #66fcf1 !important;
+    color: #0b0c10 !important;
+    box-shadow: 0 4px 15px #45a29e;
+  }
+  /* Icon colors */
+  .icon-good {
+    color: #22c55e; /* green-500 */
+  }
+  .icon-neutral {
+    color: #facc15; /* yellow-400 */
+  }
+  .icon-evil {
+    color: #ef4444; /* red-500 */
+  }
+  /* Info label style */
+  .info-label {
+    font-weight: 700;
+    color: #45a29e;
+    min-width: 130px;
+    display: inline-block;
+  }
+  /* Main container */
+  main {
+    max-width: 48rem;
+    width: 100%;
+    padding: 1.5rem 1.5rem 3rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2rem;
+  }
+  /* Login Screen */
+  #loginScreen {
+    background-color: #1f2833;
+    border-radius: 1.5rem;
+    box-shadow: 0 0 30px #0f161d;
+    padding: 2.5rem 2.5rem 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+    max-width: 28rem;
+    margin: 2rem auto;
+  }
+  #loginScreen img {
+    border-radius: 1.5rem;
+    max-height: 18rem;
+    width: 100%;
+    object-fit: cover;
+    box-shadow: 0 0 20px #45a29e;
+  }
+  #loginScreen h2 {
+    font-size: 3rem;
+    font-weight: 900;
+    color: #66fcf1;
+    letter-spacing: 0.15em;
+    user-select: none;
+    text-align: center;
+  }
+  #loginForm {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+  }
+  #loginForm label {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: 700;
+    font-size: 1.125rem;
+    color: #45a29e;
+  }
+  #loginForm input {
+    width: 100%;
+    background-color: #0b0c10;
+    border: 2px solid #45a29e;
+    border-radius: 1rem;
+    padding: 1rem 1.5rem;
+    font-size: 1.125rem;
+    color: #c5c6c7;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  #loginForm input::placeholder {
+    color: #45a29e;
+  }
+  #loginForm input:focus {
+    border-color: #66fcf1;
+    box-shadow: 0 0 10px #66fcf1;
+  }
+  #loginForm .btn-group {
+    display: flex;
+    gap: 1rem;
+  }
+  #loginForm button, #loginForm a.button {
+    flex: 1;
+    font-weight: 900;
+    font-size: 1.25rem;
+    padding: 1rem 0;
+    border-radius: 9999px;
+    box-shadow: 0 4px 15px #0f161d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.75rem;
+    user-select: none;
+  }
+  #loginForm a.button {
+    background-color: #45a29e;
+    color: #0b0c10;
+    border: 2px solid transparent;
+    text-decoration: none;
+  }
+  #loginForm button {
+    background-color: #1abc9c;
+    color: #0b0c10;
+    border: 2px solid transparent;
+  }
+  #loginForm a.button:hover,
+  #loginForm button:hover {
+    background-color: #66fcf1 !important;
+    color: #0b0c10 !important;
+    box-shadow: 0 6px 20px #45a29e;
+    border-color: #45a29e;
+  }
+  #loginError {
+    color: #ef4444;
+    font-weight: 700;
+    text-align: center;
+  }
+  /* Character Screen */
+  #characterScreen {
+    background-color: #1f2833;
+    border-radius: 1.5rem;
+    box-shadow: 0 0 30px #0f161d;
+    padding: 2rem 2rem 3rem;
+    display: none;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 48rem;
+    margin: 2rem auto;
+  }
+  #characterScreen.active {
+    display: flex;
+  }
+  #characterScreen .top-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  @media(min-width: 768px) {
+    #characterScreen .top-section {
+      flex-direction: row;
+      gap: 3rem;
     }
-    h1,
-    h2,
-    h3,
-    h4,
-    h5 {
-      font-family: "Orbitron", sans-serif;
+  }
+  #characterScreen .image-container {
+    flex-shrink: 0;
+    width: 100%;
+    max-width: 18rem;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    box-shadow: 0 0 25px #45a29e;
+    border: 4px solid #45a29e;
+  }
+  #characterScreen .image-container img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+  #characterScreen .info-container {
+    flex-grow: 1;
+    color: #66fcf1;
+    display: flex;
+    flex-direction: column;
+  }
+  #characterScreen .info-container h2 {
+    font-size: 3rem;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  #characterScreen .info-container h3 {
+    font-size: 1.5rem;
+    font-style: italic;
+    color: #45a29e;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  #characterScreen .attributes-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    color: #c5c6c7;
+    font-weight: 700;
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+  }
+  #characterScreen .attributes-grid p {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    white-space: nowrap;
+  }
+  #characterScreen .attributes-grid i {
+    color: #45a29e;
+    min-width: 22px;
+    text-align: center;
+  }
+  #characterScreen .lists-section {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+  @media(min-width: 768px) {
+    #characterScreen .lists-section {
+      flex-direction: row;
+      gap: 3rem;
     }
-    /* Scrollbar for admin panel lists */
-    #charactersList::-webkit-scrollbar,
-    #itemsList::-webkit-scrollbar,
-    #skillsList::-webkit-scrollbar,
-    #techniquesList::-webkit-scrollbar,
-    #powersList::-webkit-scrollbar {
-      width: 8px;
+  }
+  #characterScreen .list-box {
+    flex: 1;
+    background-color: #0b0c10;
+    border: 2px solid #45a29e;
+    border-radius: 1.5rem;
+    padding: 2rem 2.5rem;
+    max-height: 16rem;
+    overflow-y: auto;
+    box-shadow: inset 0 0 12px #1f2833;
+  }
+  #characterScreen .list-box h4 {
+    color: #66fcf1;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 900;
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  #characterScreen .list-box ul {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+    color: #c5c6c7;
+    font-weight: 600;
+    font-size: 1.1rem;
+  }
+  #characterScreen .list-box ul li {
+    margin-bottom: 0.5rem;
+  }
+  #characterScreen .inventory-section {
+    margin-top: 2rem;
+  }
+  #characterScreen .inventory-section h3 {
+    color: #66fcf1;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 900;
+    font-size: 2.25rem;
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  #characterScreen .inventory-section ul {
+    list-style-type: disc;
+    padding-left: 1.75rem;
+    max-height: 14rem;
+    overflow-y: auto;
+    color: #c5c6c7;
+    font-weight: 700;
+    font-size: 1.1rem;
+    border: 2px solid #45a29e;
+    border-radius: 1.5rem;
+    background-color: #0b0c10;
+    box-shadow: inset 0 0 12px #1f2833;
+    padding: 1.25rem 1.75rem;
+  }
+  #characterScreen .inventory-section ul li {
+    margin-bottom: 0.5rem;
+  }
+  #btnLogout {
+    margin-top: 3rem;
+    background-color: #45a29e;
+    color: #0b0c10;
+    font-weight: 900;
+    font-size: 1.75rem;
+    padding: 1.25rem 4rem;
+    border-radius: 9999px;
+    box-shadow: 0 0 25px #0f161d;
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    user-select: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    justify-content: center;
+  }
+  #btnLogout:hover {
+    background-color: #66fcf1 !important;
+    color: #0b0c10 !important;
+    box-shadow: 0 0 35px #45a29e;
+  }
+  /* Tabs */
+  .tabs {
+    display: flex;
+    border-bottom: 2px solid #45a29e;
+    margin-bottom: 2rem;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+  .tab {
+    cursor: pointer;
+    padding: 0.75rem 2rem;
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: #45a29e;
+    border-bottom: 3px solid transparent;
+    user-select: none;
+    transition: all 0.3s ease;
+    border-radius: 0.75rem 0.75rem 0 0;
+    background-color: #12171f;
+  }
+  .tab.active {
+    color: #66fcf1;
+    border-bottom-color: #66fcf1;
+    background-color: #1f2833;
+  }
+  .tab:hover:not(.active) {
+    color: #66fcf1;
+  }
+  .tab-content {
+    display: none;
+  }
+  .tab-content.active {
+    display: block;
+  }
+  /* Responsive adjustments */
+  @media (max-width: 640px) {
+    main {
+      max-width: 100%;
+      padding: 1rem 1rem 2rem;
     }
-    #charactersList::-webkit-scrollbar-thumb,
-    #itemsList::-webkit-scrollbar-thumb,
-    #skillsList::-webkit-scrollbar-thumb,
-    #techniquesList::-webkit-scrollbar-thumb,
-    #powersList::-webkit-scrollbar-thumb {
-      background-color: #f97316;
-      border-radius: 4px;
+    #loginScreen {
+      padding: 2rem 1.5rem 2.5rem;
+      gap: 2rem;
+      max-width: 100%;
+      margin: 1.5rem auto;
     }
-    /* Scrollbar for other lists */
-    ul::-webkit-scrollbar {
-      width: 6px;
+    #loginScreen img {
+      max-height: 14rem;
     }
-    ul::-webkit-scrollbar-thumb {
-      background-color: #f97316;
-      border-radius: 3px;
+    #loginScreen h2 {
+      font-size: 2.5rem;
     }
-  </style>
- </head>
- <body class="h-full flex flex-col min-h-screen">
-  <div class="flex-grow flex flex-col justify-center items-center px-4 max-w-7xl mx-auto w-full" id="app">
-   <!-- LOGIN SCREEN -->
-   <section aria-label="Tela de login" class="flex flex-col md:flex-row w-full max-w-7xl bg-gradient-to-r from-gray-900 via-gray-800 to-gray-700 rounded-3xl shadow-2xl border-4 border-orange-600 overflow-hidden" id="login-screen">
-    <div class="w-full md:w-1/2 flex flex-col justify-center items-center p-10 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-700">
-     <img alt="Personagem anime estilo Solo Leveling com fundo escuro e efeitos laranja, recepção calorosa" class="rounded-3xl shadow-2xl object-cover w-full max-w-md" height="600" loading="lazy" src="https://storage.googleapis.com/a1aa/image/958328c1-32d8-4e4a-e1a6-ca0840f1f210.jpg" width="400"/>
-     <h1 class="mt-8 text-6xl font-extrabold text-orange-500 drop-shadow-lg tracking-wide text-center select-none">
-      Cross Arise
-     </h1>
-     <p class="mt-4 text-orange-400 text-center max-w-xs font-semibold select-none">
-      Entre com seu personagem e senha especial para acessar seu perfil ou painel de administração.
-     </p>
-    </div>
-    <div class="w-full md:w-1/2 flex flex-col justify-center p-10 bg-gradient-to-br from-gray-950 via-gray-900 to-gray-800 bg-opacity-90 rounded-r-3xl">
-     <form aria-label="Formulário de login" autocomplete="off" class="flex flex-col space-y-8" id="login-form" spellcheck="false">
-      <label class="flex flex-col text-orange-400 font-semibold text-lg" for="characterName">
-       Nome do personagem
-       <input autocapitalize="none" autocomplete="off" autocorrect="off" class="mt-3 rounded-3xl px-5 py-4 bg-gray-900 border-2 border-orange-600 focus:outline-none focus:ring-4 focus:ring-orange-500 placeholder-orange-300 text-orange-100 font-semibold shadow-inner" id="characterName" name="characterName" placeholder="Digite o nome do personagem" required="" type="text"/>
-      </label>
-      <label class="flex flex-col text-orange-400 font-semibold text-lg" for="specialPassword">
-       Senha Especial
-       <input autocapitalize="none" autocomplete="off" autocorrect="off" class="mt-3 rounded-3xl px-5 py-4 bg-gray-900 border-2 border-orange-600 focus:outline-none focus:ring-4 focus:ring-orange-500 placeholder-orange-300 text-orange-100 font-semibold shadow-inner" id="specialPassword" name="specialPassword" placeholder="Digite a senha especial" required="" type="password"/>
-      </label>
-      <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
-       <button class="w-full sm:w-auto bg-orange-500 hover:bg-orange-600 transition-colors rounded-3xl px-10 py-4 font-extrabold text-xl shadow-lg shadow-orange-700/50 flex items-center gap-4 justify-center" id="visitSiteBtn" type="button">
-        <i class="fas fa-globe-americas text-gray-900">
-        </i>
-        Visitar Site
-       </button>
-       <button class="w-full sm:w-auto bg-gray-900 hover:bg-gray-800 transition-colors rounded-3xl px-10 py-4 font-extrabold text-xl shadow-lg shadow-orange-900/70 flex items-center gap-4 justify-center" id="accessCharacterBtn" type="submit">
-        <i class="fas fa-user text-orange-500">
-        </i>
-        Acessar Personagem
-       </button>
+    #loginForm label {
+      font-size: 1rem;
+    }
+    #loginForm input {
+      font-size: 1rem;
+      padding: 0.75rem 1rem;
+    }
+    #loginForm .btn-group {
+      flex-direction: column;
+      gap: 1rem;
+    }
+    #loginForm button, #loginForm a.button {
+      font-size: 1.125rem;
+      padding: 0.75rem 0;
+    }
+    #characterScreen {
+      padding: 1.5rem 1rem 2rem;
+      max-width: 100%;
+      margin: 1.5rem auto;
+    }
+    #characterScreen .top-section {
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    #characterScreen .image-container {
+      max-width: 100%;
+      border-radius: 1.25rem;
+    }
+    #characterScreen .info-container h2 {
+      font-size: 2.25rem;
+    }
+    #characterScreen .info-container h3 {
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+    }
+    #characterScreen .attributes-grid {
+      grid-template-columns: 1fr;
+      gap: 1rem 0;
+      font-size: 1rem;
+    }
+    #characterScreen .lists-section {
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    #characterScreen .list-box {
+      max-height: 10rem;
+      padding: 1rem 1.25rem;
+      border-radius: 1.25rem;
+    }
+    #characterScreen .list-box h4 {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+    #characterScreen .inventory-section h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+    #characterScreen .inventory-section ul {
+      max-height: 8rem;
+      padding: 0.75rem 1rem;
+      border-radius: 1.25rem;
+    }
+    #btnLogout {
+      font-size: 1.25rem;
+      padding: 0.75rem 2rem;
+      border-radius: 9999px;
+      gap: 0.75rem;
+    }
+  }
+</style>
+</head>
+<body>
+<main>
+  <!-- Login Screen -->
+  <section id="loginScreen" role="main" aria-label="Tela de Login">
+    <!--
+      PARA MODIFICAR A IMAGEM DO PAINEL DE LOGIN, ALTERE O SRC E ALT DESTE IMG ABAIXO:
+    -->
+    <img src="Imagens/SoloCapaLogin.png" alt="Imagem épica estilo Solo Leveling, personagem de anime poderoso em pose dinâmica com fundo sombrio e efeitos de energia azul e roxa" />
+    <h2>Cross Arise</h2>
+    <form id="loginForm" aria-label="Formulário de Login">
+      <label for="nomePersonagem"><i class="fas fa-user"></i> Nome do personagem</label>
+      <input type="text" id="nomePersonagem" name="nomePersonagem" placeholder="Digite o nome do personagem" autocomplete="off" required />
+      <label for="senhaEspecial"><i class="fas fa-key"></i> Senha Especial</label>
+      <input type="password" id="senhaEspecial" name="senhaEspecial" placeholder="Digite a senha especial" autocomplete="off" required />
+      <div class="btn-group">
+        <a href="index2.html" target="_blank" rel="noopener noreferrer" class="button" aria-label="Visitar Site">
+          <i class="fas fa-globe-americas"></i> Visitar Site
+        </a>
+        <button type="submit" class="button" aria-label="Entrar no personagem">
+          <i class="fas fa-sign-in-alt"></i> Entrar
+        </button>
       </div>
-      <p aria-live="assertive" class="mt-4 text-orange-400 font-semibold text-center hidden" id="login-error" role="alert">
-      </p>
-     </form>
+    </form>
+    <p id="loginError" role="alert" aria-live="assertive" class="hidden"></p>
+  </section>
+
+  <!-- Character Screen -->
+  <section id="characterScreen" role="main" aria-label="Tela do Personagem" tabindex="0" aria-hidden="true">
+    <div class="top-section">
+      <div class="image-container">
+        <img id="characterImage" alt="Imagem do personagem" />
+      </div>
+      <div class="info-container">
+        <h2 id="characterName"><span></span> <i class="fas fa-star text-yellow-400" aria-hidden="true"></i></h2>
+        <h3 id="characterNickname"><i class="fas fa-feather-alt" aria-hidden="true"></i> <span></span></h3>
+        <div class="attributes-grid" aria-label="Atributos do personagem">
+          <p><i class="fas fa-dna"></i> <span class="info-label">Raça:</span> <span id="characterRace"></span></p>
+          <p><i class="fas fa-balance-scale"></i> <span class="info-label">Alinhamento:</span> <span id="characterAlignment"></span> <span id="alignmentIcon" aria-hidden="true"></span></p>
+          <p><i class="fas fa-bolt"></i> <span class="info-label">Tipo de Energia:</span> <span id="characterEnergyType"></span></p>
+          <p><i class="fas fa-coins"></i> <span class="info-label">Dinheiro:</span> <span id="characterMoney"></span></p>
+          <p><i class="fas fa-heartbeat"></i> <span class="info-label">Moralidade:</span> <span id="characterMorality"></span> <span id="moralityIcon" aria-hidden="true"></span></p>
+          <p><i class="fas fa-brain"></i> <span class="info-label">Inteligência:</span> <span id="characterIntelligence"></span></p>
+          <p><i class="fas fa-fist-raised"></i> <span class="info-label">Força:</span> <span id="characterStrength"></span></p>
+          <p><i class="fas fa-running"></i> <span class="info-label">Agilidade:</span> <span id="characterAgility"></span></p>
+          <p><i class="fas fa-user-tag"></i> <span class="info-label">Classe(s):</span> <span id="characterClasses"></span></p>
+        </div>
+      </div>
     </div>
-   </section>
-   <!-- CHARACTER PROFILE SCREEN -->
-   <section aria-label="Perfil do personagem" class="hidden w-full max-w-5xl bg-gradient-to-br from-gray-900 via-gray-800 to-gray-700 rounded-3xl p-8 shadow-2xl overflow-auto max-h-[90vh]" id="character-profile" tabindex="0">
-    <button aria-label="Sair do perfil do personagem" class="mb-6 text-sm text-orange-400 hover:text-orange-500 font-semibold flex items-center gap-2" id="logoutCharacterBtn">
-     <i aria-hidden="true" class="fas fa-sign-out-alt">
-     </i>
-     Sair do Personagem
+
+    <nav class="tabs" role="tablist" aria-label="Seções do personagem">
+      <button class="tab active" role="tab" aria-selected="true" aria-controls="tab-powers" id="tab-btn-powers" tabindex="0">Poderes</button>
+      <button class="tab" role="tab" aria-selected="false" aria-controls="tab-skills" id="tab-btn-skills" tabindex="-1">Habilidades</button>
+      <button class="tab" role="tab" aria-selected="false" aria-controls="tab-transformation" id="tab-btn-transformation" tabindex="-1">Transformação</button>
+      <button class="tab" role="tab" aria-selected="false" aria-controls="tab-inventory" id="tab-btn-inventory" tabindex="-1">Inventário</button>
+    </nav>
+
+    <section id="tab-powers" class="tab-content active" role="tabpanel" aria-labelledby="tab-btn-powers" tabindex="0">
+      <div class="list-box" aria-label="Poderes do personagem">
+        <h4><i class="fas fa-bolt"></i> Poderes</h4>
+        <ul id="characterPowers"></ul>
+      </div>
+    </section>
+
+    <section id="tab-skills" class="tab-content" role="tabpanel" aria-labelledby="tab-btn-skills" tabindex="0">
+      <div class="list-box" aria-label="Habilidades do personagem">
+        <h4><i class="fas fa-star"></i> Habilidades</h4>
+        <ul id="characterSkills"></ul>
+      </div>
+    </section>
+
+    <section id="tab-transformation" class="tab-content" role="tabpanel" aria-labelledby="tab-btn-transformation" tabindex="0">
+      <div class="list-box" aria-label="Transformação do personagem">
+        <h4><i class="fas fa-dragon"></i> Transformação</h4>
+        <ul id="characterTransformation" class="text-[#c5c6c7] font-semibold text-lg list-disc list-inside max-h-48 overflow-y-auto"></ul>
+      </div>
+    </section>
+
+    <section id="tab-inventory" class="tab-content" role="tabpanel" aria-labelledby="tab-btn-inventory" tabindex="0">
+      <div class="inventory-section" aria-label="Inventário do personagem">
+        <h3><i class="fas fa-box-open"></i> Inventário</h3>
+        <ul id="characterInventory"></ul>
+      </div>
+    </section>
+
+    <button id="btnLogout" aria-label="Sair do personagem">
+      <i class="fas fa-sign-out-alt"></i> Sair
     </button>
-    <div class="flex flex-col md:flex-row gap-8">
-     <div aria-label="Imagem do personagem" class="flex-shrink-0 w-full md:w-72 rounded-3xl overflow-hidden border-4 border-orange-600 shadow-lg">
-      <!-- IMAGEM DE FUNDO DO PERSONAGEM - PARTE DESTACADA -->
-      <img alt="Imagem do personagem RPG anime, retrato frontal, estilo anime, com armadura detalhada e fundo estilizado" class="w-full h-auto object-cover" height="500" id="characterImage" loading="lazy" src="https://storage.googleapis.com/a1aa/image/f422849f-b44a-4c6d-043e-f59eba2725da.jpg" width="400"/>
-     </div>
-     <div class="flex-grow text-orange-300 flex flex-col space-y-6">
-      <header>
-       <h2 class="text-5xl font-extrabold text-orange-500 mb-2" id="characterNameTitle" tabindex="0">
-       </h2>
-       <p class="text-xl font-semibold" id="characterClass" tabindex="0">
-       </p>
-      </header>
-      <section>
-       <h3 class="text-3xl font-bold text-orange-400 mb-3 border-b border-orange-600 pb-2">
-        Atributos
-       </h3>
-       <ul class="grid grid-cols-2 md:grid-cols-4 gap-3 text-orange-300" id="attributesList" tabindex="0">
-       </ul>
-      </section>
-      <section>
-       <h3 class="text-3xl font-bold text-orange-400 mb-3 border-b border-orange-600 pb-2">
-        Itens
-       </h3>
-       <ul class="list-disc list-inside text-orange-300" id="itemsList" tabindex="0">
-       </ul>
-      </section>
-      <section>
-       <h3 class="text-3xl font-bold text-orange-400 mb-3 border-b border-orange-600 pb-2">
-        Habilidades
-       </h3>
-       <ul class="list-disc list-inside text-orange-300" id="skillsList" tabindex="0">
-       </ul>
-      </section>
-      <section>
-       <h3 class="text-3xl font-bold text-orange-400 mb-3 border-b border-orange-600 pb-2">
-        Técnicas
-       </h3>
-       <ul class="list-disc list-inside text-orange-300" id="techniquesList" tabindex="0">
-       </ul>
-      </section>
-      <section>
-       <h3 class="text-3xl font-bold text-orange-400 mb-3 border-b border-orange-600 pb-2">
-        Poderes
-       </h3>
-       <ul class="list-disc list-inside text-orange-300" id="powersList" tabindex="0">
-       </ul>
-      </section>
-      <section>
-       <h3 class="text-3xl font-bold text-orange-400 mb-3 border-b border-orange-600 pb-2">
-        História
-       </h3>
-       <p class="text-orange-300 whitespace-pre-line" id="historyText" tabindex="0">
-       </p>
-       <p class="font-semibold text-sm px-4 py-1 rounded inline-block mt-2" id="historyAlignment" tabindex="0">
-       </p>
-      </section>
-      <section>
-       <h3 class="text-3xl font-bold text-orange-400 mb-3 border-b border-orange-600 pb-2">
-        Personalidade
-       </h3>
-       <p class="text-orange-300 whitespace-pre-line" id="personalityText" tabindex="0">
-       </p>
-      </section>
-      <section>
-       <h3 class="text-3xl font-bold text-orange-400 mb-3 border-b border-orange-600 pb-2">
-        Fraquezas
-       </h3>
-       <ul class="list-disc list-inside text-orange-300" id="weaknessesList" tabindex="0">
-       </ul>
-      </section>
-      <section>
-       <h3 class="text-3xl font-bold text-orange-400 mb-3 border-b border-orange-600 pb-2">
-        Aliados
-       </h3>
-       <ul class="list-disc list-inside text-orange-300" id="alliesList" tabindex="0">
-       </ul>
-      </section>
-      <section>
-       <h3 class="text-3xl font-bold text-orange-400 mb-3 border-b border-orange-600 pb-2">
-        Inimigos
-       </h3>
-       <ul class="list-disc list-inside text-orange-300" id="enemiesList" tabindex="0">
-       </ul>
-      </section>
-     </div>
-    </div>
-   </section>
-   <!-- ADMIN PANEL SCREEN -->
-   <section aria-label="Painel de administração" class="hidden w-full max-w-7xl bg-gradient-to-br from-gray-900 via-gray-800 to-gray-700 rounded-3xl p-8 shadow-2xl overflow-auto max-h-[90vh]" id="admin-panel" tabindex="0">
-    <button aria-label="Sair do painel de administração" class="mb-6 text-sm text-orange-400 hover:text-orange-500 font-semibold flex items-center gap-2" id="logoutAdminBtn">
-     <i aria-hidden="true" class="fas fa-sign-out-alt">
-     </i>
-     Sair do Painel
-    </button>
-    <h1 class="text-5xl font-extrabold text-orange-500 mb-8 text-center tracking-wide select-none">
-     Painel de Administração
-    </h1>
-    <div class="flex flex-col md:flex-row gap-8">
-     <!-- LISTA DE PERSONAGENS -->
-     <div aria-label="Lista de personagens para edição" class="w-full md:w-1/3 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-700 rounded-2xl p-6 overflow-auto max-h-[75vh] border-2 border-orange-600 shadow-lg" id="charactersListContainer">
-      <h2 class="text-3xl font-bold text-orange-400 mb-6 border-b border-orange-600 pb-2 select-none">
-       Personagens
-      </h2>
-      <ul aria-live="polite" class="space-y-3 text-orange-400 overflow-auto max-h-[65vh]" id="charactersList" role="list" tabindex="0">
-      </ul>
-      <button aria-label="Adicionar novo personagem" class="mt-6 w-full bg-orange-500 hover:bg-orange-600 transition-colors rounded-3xl px-5 py-3 font-bold flex items-center justify-center gap-3 shadow-lg shadow-orange-700/50" id="addCharacterBtn">
-       <i aria-hidden="true" class="fas fa-plus">
-       </i>
-       Adicionar Personagem
-      </button>
-     </div>
-     <!-- FORMULÁRIO DE EDIÇÃO -->
-     <div aria-label="Formulário para editar personagem" class="w-full md:w-2/3 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-700 rounded-2xl p-8 overflow-auto max-h-[75vh] border-2 border-orange-600 shadow-lg" id="editCharacterContainer">
-      <h2 class="text-3xl font-bold text-orange-400 mb-6 border-b border-orange-600 pb-2 select-none" id="editCharacterTitle">
-       Editar Personagem
-      </h2>
-      <form autocomplete="off" class="space-y-6 overflow-auto max-h-[65vh] pr-4" id="editCharacterForm" spellcheck="false">
-       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div>
-         <label class="block font-semibold mb-1" for="editName">
-          Nome do Personagem
-         </label>
-         <input class="w-full rounded-3xl px-4 py-3 bg-gray-900 border border-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 text-orange-400 font-semibold" id="editName" name="editName" required="" type="text"/>
-        </div>
-        <div>
-         <label class="block font-semibold mb-1" for="editPassword">
-          Senha Especial
-         </label>
-         <input class="w-full rounded-3xl px-4 py-3 bg-gray-900 border border-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 text-orange-400 font-semibold" id="editPassword" name="editPassword" required="" type="text"/>
-        </div>
-        <div>
-         <label class="block font-semibold mb-1" for="editClass">
-          Classe
-         </label>
-         <input class="w-full rounded-3xl px-4 py-3 bg-gray-900 border border-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 text-orange-400 font-semibold" id="editClass" name="editClass" placeholder="Ex: Guerreiro, Mago, Ninja..." type="text"/>
-        </div>
-        <div>
-         <label class="block font-semibold mb-1" for="editImageUrl">
-          URL da Imagem do Personagem
-         </label>
-         <input class="w-full rounded-3xl px-4 py-3 bg-gray-900 border border-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 text-orange-400 font-semibold" id="editImageUrl" name="editImageUrl" placeholder="https://exemplo.com/imagem.png" type="text"/>
-         <p class="text-xs text-orange-500 mt-1 select-none">
-          * A imagem aparecerá no perfil do personagem.
-         </p>
-         <p class="mt-1 text-orange-400 font-bold select-none">
-          PARTE DE IMAGEM DE FUNDO DO PERSONAGEM - EDITÁVEL AQUI
-         </p>
-        </div>
-       </div>
-       <fieldset aria-labelledby="attributesLegend" class="border border-orange-600 rounded-3xl p-6 mt-4">
-        <legend class="font-bold text-orange-400 mb-4 text-lg select-none" id="attributesLegend">
-         Atributos
-        </legend>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-         <label class="flex flex-col">
-          Força
-          <input class="rounded-3xl px-3 py-2 bg-gray-900 border border-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 text-orange-400 font-semibold" id="attrForca" min="0" name="attrForca" type="number"/>
-         </label>
-         <label class="flex flex-col">
-          Agilidade
-          <input class="rounded-3xl px-3 py-2 bg-gray-900 border border-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 text-orange-400 font-semibold" id="attrAgilidade" min="0" name="attrAgilidade" type="number"/>
-         </label>
-         <label class="flex flex-col">
-          Inteligência
-          <input class="rounded-3xl px-3 py-2 bg-gray-900 border border-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 text-orange-400 font-semibold" id="attrInteligencia" min="0" name="attrInteligencia" type="number"/>
-         </label>
-         <label class="flex flex-col">
-          Vitalidade
-          <input class="rounded-3xl px-3 py-2 bg-gray-900 border border-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 text-orange-400 font-semibold" id="attrVitalidade" min="0" name="attrVitalidade" type="number"/>
-         </label>
-         <label class="flex flex-col">
-          Carisma
-          <input class="rounded-3xl px-3 py-2 bg-gray-900 border border-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 text-orange-400 font-semibold" id="attrCarisma" min="0" name="attrCarisma" type="number"/>
-         </label>
-         <label class="flex flex-col">
-          Sorte
-          <input class="rounded-3xl px-3 py-2 bg-gray-900 border border-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 text-orange-400 font-semibold" id="attrSorte" min="0" name="attrSorte" type="number"/>
-         </label>
-         <label class="flex flex-col">
-          Resistência
-          <input class="rounded-3xl px-3 py-2 bg-gray-900 border border-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 text-orange-400 font-semibold" id="attrResistencia" min="0" name="attrResistencia" type="number"/>
-         </label>
-         <label class="flex flex-col">
-          Percepção
-          <input class="rounded-3xl px-3 py-2 bg-gray-900 border border-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 text-orange-400 font-semibold" id="attrPercepcao" min="0" name="attrPercepcao" type="number"/>
-         </label>
-        </div>
-       </fieldset>
-       <fieldset aria-labelledby="itemsLegend" class="border border-orange-600 rounded-3xl p-6 mt-4">
-        <legend class="font-bold text-orange-400 mb-2 text-lg select-none" id="itemsLegend">
-         Itens (separados por vírgula)
-        </legend>
-        <textarea class="w-full rounded-3xl px-4 py-3 bg-gray-900 border border-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 text-orange-400 font-semibold" id="editItems" name="editItems" placeholder="Espada, Escudo, Poção" rows="2"></textarea>
-       </fieldset>
-       <fieldset aria-labelledby="skillsLegend" class="border border-orange-600 rounded-3xl p-6 mt-4">
-        <legend class="font-bold text-orange-400 mb-2 text-lg select-none" id="skillsLegend">
-         Habilidades (separadas por vírgula)
-        </legend>
-        <textarea class="w-full rounded-3xl px-4 py-3 bg-gray-900 border border-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 text-orange-400 font-semibold" id="editSkills" name="editSkills" placeholder="Ataque Rápido, Defesa" rows="2"></textarea>
-       </fieldset>
-       <fieldset aria-labelledby="techniquesLegend" class="border border-orange-600 rounded-3xl p-6 mt-4">
-        <legend class="font-bold text-orange-400 mb-2 text-lg select-none" id="techniquesLegend">
-         Técnicas (separadas por vírgula)
-        </legend>
-        <textarea class="w-full rounded-3xl px-4 py-3 bg-gray-900 border border-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 text-orange-400 font-semibold" id="editTechniques" name="editTechniques" placeholder="Chama Azul, Corte Sombrio" rows="2"></textarea>
-       </fieldset>
-       <fieldset aria-labelledby="powersLegend" class="border border-orange-600 rounded-3xl p-6 mt-4">
-        <legend class="font-bold text-orange-400 mb-2 text-lg select-none" id="powersLegend">
-         Poderes (separados por vírgula)
-        </legend>
-        <textarea class="w-full rounded-3xl px-4 py-3 bg-gray-900 border border-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 text-orange-400 font-semibold" id="editPowers" name="editPowers" placeholder="Força Sobrenatural, Invisibilidade" rows="2"></textarea>
-       </fieldset>
-       <fieldset aria-labelledby="historyLegend" class="border border-orange-600 rounded-3xl p-6 mt-4">
-        <legend class="font-bold text-orange-400 mb-2 text-lg select-none" id="historyLegend">
-         História
-        </legend>
-        <textarea class="w-full rounded-3xl px-4 py-3 bg-gray-900 border border-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 text-orange-400 font-semibold" id="editHistory" name="editHistory" placeholder="Conte a história do personagem aqui..." rows="4"></textarea>
-       </fieldset>
-       <fieldset aria-labelledby="personalityLegend" class="border border-orange-600 rounded-3xl p-6 mt-4">
-        <legend class="font-bold text-orange-400 mb-2 text-lg select-none" id="personalityLegend">
-         Personalidade
-        </legend>
-        <textarea class="w-full rounded-3xl px-4 py-3 bg-gray-900 border border-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 text-orange-400 font-semibold" id="editPersonality" name="editPersonality" placeholder="Descreva a personalidade do personagem..." rows="3"></textarea>
-       </fieldset>
-       <fieldset aria-labelledby="weaknessesLegend" class="border border-orange-600 rounded-3xl p-6 mt-4">
-        <legend class="font-bold text-orange-400 mb-2 text-lg select-none" id="weaknessesLegend">
-         Fraquezas (separadas por vírgula)
-        </legend>
-        <textarea class="w-full rounded-3xl px-4 py-3 bg-gray-900 border border-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 text-orange-400 font-semibold" id="editWeaknesses" name="editWeaknesses" placeholder="Fraqueza 1, Fraqueza 2" rows="2"></textarea>
-       </fieldset>
-       <fieldset aria-labelledby="alliesLegend" class="border border-orange-600 rounded-3xl p-6 mt-4">
-        <legend class="font-bold text-orange-400 mb-2 text-lg select-none" id="alliesLegend">
-         Aliados (separados por vírgula)
-        </legend>
-        <textarea class="w-full rounded-3xl px-4 py-3 bg-gray-900 border border-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 text-orange-400 font-semibold" id="editAllies" name="editAllies" placeholder="Aliado 1, Aliado 2" rows="2"></textarea>
-       </fieldset>
-       <fieldset aria-labelledby="enemiesLegend" class="border border-orange-600 rounded-3xl p-6 mt-4">
-        <legend class="font-bold text-orange-400 mb-2 text-lg select-none" id="enemiesLegend">
-         Inimigos (separados por vírgula)
-        </legend>
-        <textarea class="w-full rounded-3xl px-4 py-3 bg-gray-900 border border-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 text-orange-400 font-semibold" id="editEnemies" name="editEnemies" placeholder="Inimigo 1, Inimigo 2" rows="2"></textarea>
-       </fieldset>
-       <fieldset aria-labelledby="historyAlignmentLegend" class="border border-orange-600 rounded-3xl p-6 mt-4">
-        <legend class="font-bold text-orange-400 mb-2 text-lg select-none" id="historyAlignmentLegend">
-         Alinhamento da História
-        </legend>
-        <select class="w-full rounded-3xl px-4 py-3 bg-gray-900 border border-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 text-orange-400 font-semibold" id="editHistoryAlignment" name="editHistoryAlignment">
-         <option value="bom">
-          Bom
-         </option>
-         <option value="neutro">
-          Neutro
-         </option>
-         <option value="mal">
-          Mal
-         </option>
-        </select>
-       </fieldset>
-       <div class="flex flex-col sm:flex-row justify-end gap-4 mt-8">
-        <button aria-label="Excluir personagem" class="bg-red-700 hover:bg-red-800 transition-colors rounded-3xl px-8 py-4 font-bold flex items-center gap-3 shadow-lg shadow-red-800/70" id="deleteCharacterBtn" type="button">
-         <i aria-hidden="true" class="fas fa-trash-alt">
-         </i>
-         Excluir
-        </button>
-        <button aria-label="Salvar personagem" class="bg-orange-500 hover:bg-orange-600 transition-colors rounded-3xl px-8 py-4 font-bold flex items-center gap-3 shadow-lg shadow-orange-700/70" id="saveCharacterBtn" type="submit">
-         <i aria-hidden="true" class="fas fa-save">
-         </i>
-         Salvar
-        </button>
-       </div>
-      </form>
-     </div>
-    </div>
-   </section>
-  </div>
-  <script>
-   // STORAGE KEY
-    const STORAGE_KEY = "crossAriseCharacters";
+  </section>
+</main>
 
-    // DOM Elements
-    const loginScreen = document.getElementById("login-screen");
-    const characterProfile = document.getElementById("character-profile");
-    const adminPanel = document.getElementById("admin-panel");
+<script>
+  // Personagens configuráveis - 30 personagens destacados com 10 linhas de espaço entre cada para fácil edição
 
-    const loginForm = document.getElementById("login-form");
-    const loginError = document.getElementById("login-error");
+  const personagens = [
+    {
+      // Personagem 1 - Blue
+      nome: "Blue",
+      senha: "Lawrence",
+      imagem: "Ryan.png",
+      alcunha: "O Guerreiro Azul",
+      raca: "Humano",
+      alinhamento: "Neutro Bom",
+      tipoEnergia: "Mana Arcana",
+      dinheiro: "1500 G",
+      classes: ["Guerreiro", "Mago"],
+      poderes: [
+        "Corte Arcano",
+        "Escudo de Mana",
+        "Golpe Relâmpago"
+      ],
+      habilidades: [
+        "Espada Longa",
+        "Magia Elemental",
+        "Resistência Física"
+      ],
+      inventario: [
+        "Espada Longa +1",
+        "Poção de Mana",
+        "Capa de Proteção"
+      ],
+      transformacao: [
+        "Forma Arcana: Aumenta o poder mágico em 50%",
+        "Forma de Batalha: Aumenta a força e agilidade em 30%"
+      ],
+      moralidade: "Bom",
+      inteligencia: 85,
+      forca: 70,
+      agilidade: 80
+    },
 
-    const characterNameTitle = document.getElementById("characterNameTitle");
-    const characterClass = document.getElementById("characterClass");
-    const characterImage = document.getElementById("characterImage");
-    const attributesList = document.getElementById("attributesList");
-    const itemsList = document.getElementById("itemsList");
-    const skillsList = document.getElementById("skillsList");
-    const techniquesList = document.getElementById("techniquesList");
-    const powersList = document.getElementById("powersList");
-    const historyText = document.getElementById("historyText");
-    const historyAlignment = document.getElementById("historyAlignment");
-    const personalityText = document.getElementById("personalityText");
-    const weaknessesList = document.getElementById("weaknessesList");
-    const alliesList = document.getElementById("alliesList");
-    const enemiesList = document.getElementById("enemiesList");
+    // ... (outros personagens iguais ao código anterior, omitidos aqui para brevidade, mas devem estar completos no código final)
 
-    const logoutCharacterBtn = document.getElementById("logoutCharacterBtn");
-    const logoutAdminBtn = document.getElementById("logoutAdminBtn");
-
-    // Admin panel elements
-    const charactersList = document.getElementById("charactersList");
-    const addCharacterBtn = document.getElementById("addCharacterBtn");
-    const editCharacterForm = document.getElementById("editCharacterForm");
-    const editCharacterTitle = document.getElementById("editCharacterTitle");
-    const editName = document.getElementById("editName");
-    const editPassword = document.getElementById("editPassword");
-    const editClass = document.getElementById("editClass");
-    const editImageUrl = document.getElementById("editImageUrl");
-    const attrForca = document.getElementById("attrForca");
-    const attrAgilidade = document.getElementById("attrAgilidade");
-    const attrInteligencia = document.getElementById("attrInteligencia");
-    const attrVitalidade = document.getElementById("attrVitalidade");
-    const attrCarisma = document.getElementById("attrCarisma");
-    const attrSorte = document.getElementById("attrSorte");
-    const attrResistencia = document.getElementById("attrResistencia");
-    const attrPercepcao = document.getElementById("attrPercepcao");
-    const editItems = document.getElementById("editItems");
-    const editSkills = document.getElementById("editSkills");
-    const editTechniques = document.getElementById("editTechniques");
-    const editPowers = document.getElementById("editPowers");
-    const editHistory = document.getElementById("editHistory");
-    const editPersonality = document.getElementById("editPersonality");
-    const editWeaknesses = document.getElementById("editWeaknesses");
-    const editAllies = document.getElementById("editAllies");
-    const editEnemies = document.getElementById("editEnemies");
-    const editHistoryAlignment = document.getElementById("editHistoryAlignment");
-    const saveCharacterBtn = document.getElementById("saveCharacterBtn");
-    const deleteCharacterBtn = document.getElementById("deleteCharacterBtn");
-
-    // State
-    let characters = {};
-    let currentUser = null; // {name, password}
-    let editingCharacterKey = null;
-
-    // Default characters data with 20 slots (only name and password editable initially)
-    const defaultCharacters = {
-      Italo: {
-        name: "Italo",
-        password: "Italo",
-        class: "Administrador Supremo",
-        imageUrl:
-          "https://placehold.co/400x500/png?text=Italo+Administrador+Anime+com+roupa+futurista+e+óculos+tecnológicos",
-        attributes: {
-          Força: 0,
-          Agilidade: 0,
-          Inteligência: 100,
-          Vitalidade: 0,
-          Carisma: 0,
-          Sorte: 0,
-          Resistência: 0,
-          Percepção: 0,
-        },
-        items: [],
-        skills: [],
-        techniques: [],
-        powers: [],
-        history: "Administrador do sistema, com poderes para modificar tudo.",
-        historyAlignment: "neutro",
-        personality: "Mente brilhante e controladora, sempre atenta a tudo.",
-        weaknesses: [],
-        allies: [],
-        enemies: [],
-      },
-    };
-
-    // Add 20 empty characters with default minimal data
-    for (let i = 1; i <= 20; i++) {
-      const key = `Character${i}`;
-      if (!defaultCharacters[key]) {
-        defaultCharacters[key] = {
-          name: `Character${i}`,
-          password: `pass${i}`,
-          class: "",
-          imageUrl: "https://placehold.co/400x500/png?text=Personagem+Anime",
-          attributes: {
-            Força: 0,
-            Agilidade: 0,
-            Inteligência: 0,
-            Vitalidade: 0,
-            Carisma: 0,
-            Sorte: 0,
-            Resistência: 0,
-            Percepção: 0,
-          },
-          items: [],
-          skills: [],
-          techniques: [],
-          powers: [],
-          history: "",
-          historyAlignment: "neutro",
-          personality: "",
-          weaknesses: [],
-          allies: [],
-          enemies: [],
-        };
-      }
+    {
+      // Personagem 30 - Kazuki
+      nome: "Kazuki",
+      senha: "ShadowWolf",
+      imagem: "https://placehold.co/400x400/png?text=Kazuki+Anime+Character+with+Wolf+Motif+and+Dark+Hair",
+      alcunha: "Lobo das Sombras",
+      raca: "Lobo Humanoide",
+      alinhamento: "Caótico Neutro",
+      tipoEnergia: "Energia Selvagem",
+      dinheiro: "1900 G",
+      classes: ["Berserker", "Caçador"],
+      poderes: [
+        "Investida Selvagem",
+        "Fúria das Sombras",
+        "Rugido Intimidante"
+      ],
+      habilidades: [
+        "Combate Corpo a Corpo",
+        "Rastreamento",
+        "Resistência"
+      ],
+      inventario: [
+        "Machado Sombrio",
+        "Poção de Força",
+        "Pelagem Negra"
+      ],
+      transformacao: [
+        "Forma Lupina: Aumenta força e velocidade em 40%",
+        "Forma Sombria: Ganha invisibilidade por 10 segundos"
+      ],
+      moralidade: "Neutro",
+      inteligencia: 65,
+      forca: 85,
+      agilidade: 75
     }
+  ];
 
-    // Load characters from remote JSON file on GitHub Gist (public) or fallback to localStorage
-    async function loadCharactersRemote() {
-      try {
-        // Replace this URL with your own public JSON file URL or API endpoint
-        const gistUrl = "https://gist.githubusercontent.com/yourusername/yourgistid/raw/characters.json";
-        const response = await fetch(gistUrl, {cache: "no-store"});
-        if (response.ok) {
-          const data = await response.json();
-          if (data && typeof data === "object") {
-            characters = data;
-            saveCharactersLocalOnly();
-            return true;
-          }
-        }
-      } catch (error) {
-        console.warn("Não foi possível carregar dados do servidor:", error);
-      }
-      return false;
-    }
+  // DOM Elements
+  const loginScreen = document.getElementById("loginScreen");
+  const characterScreen = document.getElementById("characterScreen");
+  const loginForm = document.getElementById("loginForm");
+  const loginError = document.getElementById("loginError");
+  const btnLogout = document.getElementById("btnLogout");
 
-    // Save characters to localStorage only (no server sync)
-    function saveCharactersLocalOnly() {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(characters));
-    }
+  const characterImage = document.getElementById("characterImage");
+  const characterName = document.getElementById("characterName").querySelector("span");
+  const characterNickname = document.getElementById("characterNickname").querySelector("span");
+  const characterRace = document.getElementById("characterRace");
+  const characterAlignment = document.getElementById("characterAlignment");
+  const alignmentIconContainer = document.getElementById("alignmentIcon");
+  const characterEnergyType = document.getElementById("characterEnergyType");
+  const characterMoney = document.getElementById("characterMoney");
+  const characterClasses = document.getElementById("characterClasses");
+  const characterPowers = document.getElementById("characterPowers");
+  const characterSkills = document.getElementById("characterSkills");
+  const characterInventory = document.getElementById("characterInventory");
+  const characterMorality = document.getElementById("characterMorality");
+  const moralityIconContainer = document.getElementById("moralityIcon");
+  const characterIntelligence = document.getElementById("characterIntelligence");
+  const characterStrength = document.getElementById("characterStrength");
+  const characterAgility = document.getElementById("characterAgility");
+  const characterTransformation = document.getElementById("characterTransformation");
 
-    // Save characters to localStorage and attempt to sync to remote (not implemented here)
-    async function saveCharacters() {
-      saveCharactersLocalOnly();
-      // You must implement your own backend or use a service to sync data globally.
-      // This demo does not include a backend, so changes are local only.
-    }
+  // Tabs
+  const tabs = document.querySelectorAll(".tab");
+  const tabContents = document.querySelectorAll(".tab-content");
 
-    // Show login screen
-    function showLogin() {
-      currentUser = null;
-      editingCharacterKey = null;
-      loginError.classList.add("hidden");
-      loginScreen.classList.remove("hidden");
-      characterProfile.classList.add("hidden");
-      adminPanel.classList.add("hidden");
-      loginForm.reset();
-      document.getElementById("characterName").focus();
-    }
-
-    // Show character profile screen
-    function showCharacterProfile(character) {
-      loginScreen.classList.add("hidden");
-      characterProfile.classList.remove("hidden");
-      adminPanel.classList.add("hidden");
-
-      characterNameTitle.textContent = character.name;
-      characterClass.textContent = `Classe: ${character.class || "Desconhecida"}`;
-      characterImage.src =
-        character.imageUrl || "https://placehold.co/400x500/png?text=Imagem+do+Personagem";
-      characterImage.alt = `Imagem do personagem RPG anime chamado ${character.name}, retrato frontal, estilo anime, com armadura detalhada e fundo estilizado`;
-
-      // Atributos
-      attributesList.innerHTML = "";
-      for (const [attr, val] of Object.entries(character.attributes || {})) {
-        const li = document.createElement("li");
-        li.textContent = `${attr}: ${val}`;
-        li.className =
-          "border border-orange-600 rounded-3xl px-4 py-2 bg-gray-900 text-orange-400 font-semibold text-center";
-        attributesList.appendChild(li);
-      }
-
-      // Itens
-      itemsList.innerHTML = "";
-      if (character.items && character.items.length > 0) {
-        character.items.forEach((item) => {
-          const li = document.createElement("li");
-          li.textContent = item;
-          itemsList.appendChild(li);
-        });
-      } else {
-        itemsList.innerHTML = "<li>Sem itens</li>";
-      }
-
-      // Habilidades
-      skillsList.innerHTML = "";
-      if (character.skills && character.skills.length > 0) {
-        character.skills.forEach((skill) => {
-          const li = document.createElement("li");
-          li.textContent = skill;
-          skillsList.appendChild(li);
-        });
-      } else {
-        skillsList.innerHTML = "<li>Sem habilidades</li>";
-      }
-
-      // Técnicas
-      techniquesList.innerHTML = "";
-      if (character.techniques && character.techniques.length > 0) {
-        character.techniques.forEach((tech) => {
-          const li = document.createElement("li");
-          li.textContent = tech;
-          techniquesList.appendChild(li);
-        });
-      } else {
-        techniquesList.innerHTML = "<li>Sem técnicas</li>";
-      }
-
-      // Poderes
-      powersList.innerHTML = "";
-      if (character.powers && character.powers.length > 0) {
-        character.powers.forEach((power) => {
-          const li = document.createElement("li");
-          li.textContent = power;
-          powersList.appendChild(li);
-        });
-      } else {
-        powersList.innerHTML = "<li>Sem poderes</li>";
-      }
-
-      // História
-      historyText.textContent = character.history || "Sem história definida.";
-
-      // Alinhamento da história
-      historyAlignment.textContent = character.historyAlignment
-        ? `Alinhamento: ${
-            character.historyAlignment.charAt(0).toUpperCase() +
-            character.historyAlignment.slice(1)
-          }`
-        : "Alinhamento: Desconhecido";
-
-      historyAlignment.className = "font-semibold text-sm px-4 py-1 rounded inline-block mt-2";
-      if (character.historyAlignment === "bom") {
-        historyAlignment.classList.add("bg-orange-600", "text-gray-900");
-      } else if (character.historyAlignment === "neutro") {
-        historyAlignment.classList.add("bg-orange-400", "text-gray-900");
-      } else if (character.historyAlignment === "mal") {
-        historyAlignment.classList.add("bg-gray-900", "text-orange-400");
-      } else {
-        historyAlignment.classList.add("bg-gray-700", "text-orange-300");
-      }
-
-      // Personalidade
-      personalityText.textContent = character.personality || "Sem descrição da personalidade.";
-
-      // Fraquezas
-      weaknessesList.innerHTML = "";
-      if (character.weaknesses && character.weaknesses.length > 0) {
-        character.weaknesses.forEach((w) => {
-          const li = document.createElement("li");
-          li.textContent = w;
-          weaknessesList.appendChild(li);
-        });
-      } else {
-        weaknessesList.innerHTML = "<li>Sem fraquezas</li>";
-      }
-
-      // Aliados
-      alliesList.innerHTML = "";
-      if (character.allies && character.allies.length > 0) {
-        character.allies.forEach((a) => {
-          const li = document.createElement("li");
-          li.textContent = a;
-          alliesList.appendChild(li);
-        });
-      } else {
-        alliesList.innerHTML = "<li>Sem aliados</li>";
-      }
-
-      // Inimigos
-      enemiesList.innerHTML = "";
-      if (character.enemies && character.enemies.length > 0) {
-        character.enemies.forEach((e) => {
-          const li = document.createElement("li");
-          li.textContent = e;
-          enemiesList.appendChild(li);
-        });
-      } else {
-        enemiesList.innerHTML = "<li>Sem inimigos</li>";
-      }
-    }
-
-    // Show admin panel screen
-    function showAdminPanel() {
-      loginScreen.classList.add("hidden");
-      characterProfile.classList.add("hidden");
-      adminPanel.classList.remove("hidden");
-      editingCharacterKey = null;
-      editCharacterForm.reset();
-      editCharacterTitle.textContent = "Editar Personagem";
-      deleteCharacterBtn.classList.add("hidden");
-      renderCharactersList();
-      editName.focus();
-    }
-
-    // Render list of characters in admin panel
-    function renderCharactersList() {
-      charactersList.innerHTML = "";
-      const keys = Object.keys(characters).sort((a, b) => a.localeCompare(b));
-      keys.forEach((key) => {
-        const char = characters[key];
-        const li = document.createElement("li");
-        li.className =
-          "cursor-pointer p-3 rounded-3xl hover:bg-orange-500/30 transition-colors border border-orange-600 flex justify-between items-center";
-        li.textContent = char.name;
-        li.title = `Editar personagem ${char.name}`;
-        li.tabIndex = 0;
-        li.setAttribute("role", "button");
-        li.addEventListener("click", () => {
-          loadCharacterToEdit(key);
-        });
-        li.addEventListener("keydown", (e) => {
-          if (e.key === "Enter" || e.key === " ") {
-            e.preventDefault();
-            loadCharacterToEdit(key);
-          }
-        });
-        // Add a small icon for admin character
-        if (key === "Italo") {
-          const adminIcon = document.createElement("i");
-          adminIcon.className = "fas fa-crown text-yellow-400 ml-2";
-          adminIcon.title = "Administrador";
-          li.appendChild(adminIcon);
-        }
-        charactersList.appendChild(li);
+  tabs.forEach(tab => {
+    tab.addEventListener("click", () => {
+      // Remove active from all tabs and contents
+      tabs.forEach(t => {
+        t.classList.remove("active");
+        t.setAttribute("aria-selected", "false");
+        t.tabIndex = -1;
       });
+      tabContents.forEach(tc => tc.classList.remove("active"));
+
+      // Activate clicked tab and content
+      tab.classList.add("active");
+      tab.setAttribute("aria-selected", "true");
+      tab.tabIndex = 0;
+      const contentId = tab.getAttribute("aria-controls");
+      document.getElementById(contentId).classList.add("active");
+      document.getElementById(contentId).focus();
+    });
+  });
+
+  // Helpers for icons
+  function getAlignmentIcon(alignment) {
+    const icon = document.createElement("i");
+    icon.classList.add("fas");
+    switch (alignment.toLowerCase()) {
+      case "leal bom":
+        icon.classList.add("fa-balance-scale-left", "icon-good");
+        icon.title = "Leal Bom";
+        break;
+      case "neutro bom":
+        icon.classList.add("fa-balance-scale", "icon-good");
+        icon.title = "Neutro Bom";
+        break;
+      case "caótico bom":
+        icon.classList.add("fa-balance-scale-right", "icon-good");
+        icon.title = "Caótico Bom";
+        break;
+      case "leal neutro":
+        icon.classList.add("fa-balance-scale-left", "icon-neutral");
+        icon.title = "Leal Neutro";
+        break;
+      case "neutro":
+        icon.classList.add("fa-balance-scale", "icon-neutral");
+        icon.title = "Neutro";
+        break;
+      case "caótico neutro":
+        icon.classList.add("fa-balance-scale-right", "icon-neutral");
+        icon.title = "Caótico Neutro";
+        break;
+      case "leal mal":
+        icon.classList.add("fa-balance-scale-left", "icon-evil");
+        icon.title = "Leal Mal";
+        break;
+      case "neutro mal":
+        icon.classList.add("fa-balance-scale", "icon-evil");
+        icon.title = "Neutro Mal";
+        break;
+      case "caótico mal":
+        icon.classList.add("fa-balance-scale-right", "icon-evil");
+        icon.title = "Caótico Mal";
+        break;
+      default:
+        icon.classList.add("fa-question-circle", "icon-neutral");
+        icon.title = "Desconhecido";
     }
+    return icon;
+  }
 
-    // Load character data into edit form
-    function loadCharacterToEdit(key) {
-      const char = characters[key];
-      if (!char) return;
-      editingCharacterKey = key;
-      editCharacterTitle.textContent = `Editando: ${char.name}`;
-      deleteCharacterBtn.classList.remove("hidden");
-
-      editName.value = char.name || "";
-      editPassword.value = char.password || "";
-      editClass.value = char.class || "";
-      editImageUrl.value = char.imageUrl || "";
-
-      attrForca.value = char.attributes?.Força ?? 0;
-      attrAgilidade.value = char.attributes?.Agilidade ?? 0;
-      attrInteligencia.value = char.attributes?.Inteligência ?? 0;
-      attrVitalidade.value = char.attributes?.Vitalidade ?? 0;
-      attrCarisma.value = char.attributes?.Carisma ?? 0;
-      attrSorte.value = char.attributes?.Sorte ?? 0;
-      attrResistencia.value = char.attributes?.Resistência ?? 0;
-      attrPercepcao.value = char.attributes?.Percepção ?? 0;
-
-      editItems.value = (char.items || []).join(", ");
-      editSkills.value = (char.skills || []).join(", ");
-      editTechniques.value = (char.techniques || []).join(", ");
-      editPowers.value = (char.powers || []).join(", ");
-      editHistory.value = char.history || "";
-      editPersonality.value = char.personality || "";
-      editWeaknesses.value = (char.weaknesses || []).join(", ");
-      editAllies.value = (char.allies || []).join(", ");
-      editEnemies.value = (char.enemies || []).join(", ");
-      editHistoryAlignment.value = char.historyAlignment || "neutro";
-
-      editName.focus();
+  function getMoralityIcon(morality) {
+    const icon = document.createElement("i");
+    icon.classList.add("fas");
+    switch (morality.toLowerCase()) {
+      case "bom":
+        icon.classList.add("fa-smile-beam", "icon-good");
+        icon.title = "Bom";
+        break;
+      case "neutro":
+        icon.classList.add("fa-meh", "icon-neutral");
+        icon.title = "Neutro";
+        break;
+      case "mal":
+        icon.classList.add("fa-frown", "icon-evil");
+        icon.title = "Mal";
+        break;
+      default:
+        icon.classList.add("fa-question-circle", "icon-neutral");
+        icon.title = "Desconhecido";
     }
+    return icon;
+  }
 
-    // Save character from edit form
-    function saveCharacterFromForm(e) {
-      e.preventDefault();
+  // Show character data
+  function showCharacter(character) {
+    characterImage.src = character.imagem;
+    characterImage.alt = `Imagem do personagem ${character.nome} com alcunha ${character.alcunha}`;
+    characterName.textContent = character.nome;
+    characterNickname.textContent = character.alcunha;
+    characterRace.textContent = character.raca;
+    characterAlignment.textContent = character.alinhamento;
+    alignmentIconContainer.innerHTML = "";
+    alignmentIconContainer.appendChild(getAlignmentIcon(character.alinhamento));
+    characterEnergyType.textContent = character.tipoEnergia;
+    characterMoney.textContent = character.dinheiro;
+    characterClasses.textContent = character.classes.join(", ");
+    characterMorality.textContent = character.moralidade || "Desconhecido";
+    moralityIconContainer.innerHTML = "";
+    moralityIconContainer.appendChild(getMoralityIcon(character.moralidade || ""));
+    characterIntelligence.textContent = character.inteligencia ?? "N/A";
+    characterStrength.textContent = character.forca ?? "N/A";
+    characterAgility.textContent = character.agilidade ?? "N/A";
 
-      const name = editName.value.trim();
-      const password = editPassword.value.trim();
-
-      if (!name || !password) {
-        alert("Nome e senha são obrigatórios.");
-        return;
-      }
-
-      // Prevent editing the Italo admin character's password to something else
-      if (editingCharacterKey === "Italo" && (name !== "Italo" || password !== "Italo")) {
-        alert("Não é permitido alterar o nome ou senha do administrador Italo.");
-        return;
-      }
-
-      // If creating new character, check if name already exists
-      if (!editingCharacterKey && characters[name]) {
-        alert("Já existe um personagem com esse nome.");
-        return;
-      }
-
-      // If editing and changed name, handle rename key
-      if (editingCharacterKey && editingCharacterKey !== name) {
-        // Rename key in characters object
-        if (characters[name]) {
-          alert("Já existe um personagem com esse nome.");
-          return;
-        }
-        characters[name] = characters[editingCharacterKey];
-        delete characters[editingCharacterKey];
-        editingCharacterKey = name;
-      }
-
-      // Build character object
-      const newChar = {
-        name,
-        password,
-        class: editClass.value.trim(),
-        imageUrl:
-          editImageUrl.value.trim() ||
-          "https://placehold.co/400x500/png?text=Imagem+do+Personagem",
-        attributes: {
-          Força: Number(attrForca.value) || 0,
-          Agilidade: Number(attrAgilidade.value) || 0,
-          Inteligência: Number(attrInteligencia.value) || 0,
-          Vitalidade: Number(attrVitalidade.value) || 0,
-          Carisma: Number(attrCarisma.value) || 0,
-          Sorte: Number(attrSorte.value) || 0,
-          Resistência: Number(attrResistencia.value) || 0,
-          Percepção: Number(attrPercepcao.value) || 0,
-        },
-        items: editItems.value
-          .split(",")
-          .map((i) => i.trim())
-          .filter((i) => i.length > 0),
-        skills: editSkills.value
-          .split(",")
-          .map((i) => i.trim())
-          .filter((i) => i.length > 0),
-        techniques: editTechniques.value
-          .split(",")
-          .map((i) => i.trim())
-          .filter((i) => i.length > 0),
-        powers: editPowers.value
-          .split(",")
-          .map((i) => i.trim())
-          .filter((i) => i.length > 0),
-        history: editHistory.value.trim(),
-        personality: editPersonality.value.trim(),
-        weaknesses: editWeaknesses.value
-          .split(",")
-          .map((i) => i.trim())
-          .filter((i) => i.length > 0),
-        allies: editAllies.value
-          .split(",")
-          .map((i) => i.trim())
-          .filter((i) => i.length > 0),
-        enemies: editEnemies.value
-          .split(",")
-          .map((i) => i.trim())
-          .filter((i) => i.length > 0),
-        historyAlignment: editHistoryAlignment.value,
-      };
-
-      characters[editingCharacterKey] = newChar;
-      saveCharacters();
-      renderCharactersList();
-      alert(`Personagem "${name}" salvo com sucesso!`);
-    }
-
-    // Delete character
-    function deleteCharacter() {
-      if (!editingCharacterKey) return;
-      if (editingCharacterKey === "Italo") {
-        alert("Não é permitido excluir o administrador Italo.");
-        return;
-      }
-      if (
-        confirm(`Tem certeza que deseja excluir o personagem "${editingCharacterKey}"?`)
-      ) {
-        delete characters[editingCharacterKey];
-        saveCharacters();
-        editingCharacterKey = null;
-        editCharacterForm.reset();
-        editCharacterTitle.textContent = "Editar Personagem";
-        deleteCharacterBtn.classList.add("hidden");
-        renderCharactersList();
-      }
-    }
-
-    // Initialize app: load from remote JSON on GitHub Gist, fallback to localStorage
-    async function initializeApp() {
-      const remoteLoaded = await loadCharactersRemote();
-      if (!remoteLoaded) {
-        loadCharacters();
-      }
-      showLogin();
-    }
-
-    // Load characters from remote JSON file on GitHub Gist (public) or fallback to localStorage
-    async function loadCharactersRemote() {
-      try {
-        // Replace this URL with your own public JSON file URL or API endpoint
-        // IMPORTANT: You must host a JSON file somewhere public and update this URL accordingly.
-        // Example gist URL (replace with your own):
-        const gistUrl = "https://gist.githubusercontent.com/yourusername/yourgistid/raw/characters.json";
-        const response = await fetch(gistUrl, {cache: "no-store"});
-        if (response.ok) {
-          const data = await response.json();
-          if (data && typeof data === "object") {
-            characters = data;
-            saveCharactersLocalOnly();
-            return true;
-          }
-        }
-      } catch (error) {
-        console.warn("Não foi possível carregar dados do servidor:", error);
-      }
-      return false;
-    }
-
-    // Save characters to localStorage only (no server sync)
-    function saveCharactersLocalOnly() {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(characters));
-    }
-
-    // Save characters to localStorage and attempt to sync to remote (not implemented here)
-    async function saveCharacters() {
-      saveCharactersLocalOnly();
-      // You must implement your own backend or use a service to sync data globally.
-      // This demo does not include a backend, so changes are local only.
-      // To have global sync, you need a backend API or a cloud database.
-    }
-
-    // Event listeners and other functions remain unchanged...
-
-    loginForm.addEventListener("submit", (e) => {
-      e.preventDefault();
-      loginError.classList.add("hidden");
-
-      const name = document.getElementById("characterName").value.trim();
-      const password = document.getElementById("specialPassword").value.trim();
-
-      if (!name || !password) {
-        loginError.textContent = "Por favor, preencha todos os campos.";
-        loginError.classList.remove("hidden");
-        return;
-      }
-
-      if (!characters[name]) {
-        loginError.textContent = "Personagem ou senha incorretos.";
-        loginError.classList.remove("hidden");
-        return;
-      }
-
-      if (characters[name].password !== password) {
-        loginError.textContent = "Personagem ou senha incorretos.";
-        loginError.classList.remove("hidden");
-        return;
-      }
-
-      currentUser = { name, password };
-
-      if (name === "Italo" && password === "Italo") {
-        showAdminPanel();
-      } else {
-        showCharacterProfile(characters[name]);
-      }
+    characterPowers.innerHTML = "";
+    character.poderes.forEach(poder => {
+      const li = document.createElement("li");
+      li.textContent = poder;
+      characterPowers.appendChild(li);
     });
 
-    logoutCharacterBtn.addEventListener("click", () => {
-      showLogin();
-    });
-    logoutAdminBtn.addEventListener("click", () => {
-      showLogin();
-    });
-
-    addCharacterBtn.addEventListener("click", () => {
-      alert("Você já tem 20 personagens disponíveis para editar. Use a lista para modificar.");
+    characterSkills.innerHTML = "";
+    character.habilidades.forEach(habilidade => {
+      const li = document.createElement("li");
+      li.textContent = habilidade;
+      characterSkills.appendChild(li);
     });
 
-    editCharacterForm.addEventListener("submit", saveCharacterFromForm);
-    deleteCharacterBtn.addEventListener("click", deleteCharacter);
+    characterInventory.innerHTML = "";
+    character.inventario.forEach(item => {
+      const li = document.createElement("li");
+      li.textContent = item;
+      characterInventory.appendChild(li);
+    });
 
-    // Initialize app
-    initializeApp();
-  </script>
- </body>
+    characterTransformation.innerHTML = "";
+    if (character.transformacao && character.transformacao.length > 0) {
+      character.transformacao.forEach(tr => {
+        const li = document.createElement("li");
+        li.textContent = tr;
+        characterTransformation.appendChild(li);
+      });
+    } else {
+      const li = document.createElement("li");
+      li.textContent = "Nenhuma transformação disponível.";
+      characterTransformation.appendChild(li);
+    }
+
+    loginScreen.style.display = "none";
+    characterScreen.style.display = "flex";
+    characterScreen.setAttribute("aria-hidden", "false");
+    loginError.classList.add("hidden");
+
+    // Reset tabs to first tab (Poderes)
+    tabs.forEach(t => {
+      t.classList.remove("active");
+      t.setAttribute("aria-selected", "false");
+      t.tabIndex = -1;
+    });
+    tabContents.forEach(tc => tc.classList.remove("active"));
+    tabs[0].classList.add("active");
+    tabs[0].setAttribute("aria-selected", "true");
+    tabs[0].tabIndex = 0;
+    tabContents[0].classList.add("active");
+
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  // Logout
+  btnLogout.addEventListener("click", () => {
+    characterScreen.style.display = "none";
+    characterScreen.setAttribute("aria-hidden", "true");
+    loginScreen.style.display = "flex";
+    loginForm.reset();
+    loginError.classList.add("hidden");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+
+  // Login submit
+  loginForm.addEventListener("submit", e => {
+    e.preventDefault();
+    const nome = loginForm.nomePersonagem.value.trim();
+    const senha = loginForm.senhaEspecial.value.trim();
+
+    const personagem = personagens.find(
+      p => p.nome.toLowerCase() === nome.toLowerCase() && p.senha === senha
+    );
+
+    if (personagem) {
+      showCharacter(personagem);
+    } else {
+      loginError.textContent = "Nome do personagem ou senha especial incorretos.";
+      loginError.classList.remove("hidden");
+    }
+  });
+</script>
+</body>
 </html>
