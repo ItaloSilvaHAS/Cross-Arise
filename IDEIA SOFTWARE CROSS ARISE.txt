@@ -1,0 +1,16 @@
+Prompt:
+
+mas agora a interface inicial ta horrivel, junto com a interface do interior apos o entrar também.
+ Faça o Seguinte, quero que o site seja como um aplicativo, a tela de login, deve pedir "Nome do personagem" e "Senha Especial". 
+Dependendo do que for prenchido no campo, deve levar pra uma coisa diferente. 
+Como, "Blue" e a senha "Lawrence" leva pra tela de personagem que tem uma foto do Arthur Leywin de THE BEGINNING AFTER THE END e mostrando seus atributos, classes e itens.
+ Quero também que se nos campos de login a resposta for "Italo" e a senha "Italo" eu acesso o painel de administrador, aonde posso mudar e adicionar coisas nos playes.
+ como por exemplo mecher nos atributos do Blue. Assim que eu acessar o painel do blue vai ta diferente, de acordo com oque eu mudei no painel de administrador. 
+
+
+
+ Ta quase pronto.
+ So quero agora, que adicione mais coisas no perfil dos personagens.
+ Coisas como "Habildiades", "Tecnicas", "Poderes", "Historia" e muito mais.
+ Até o lado da historia (se é bom, neutro ou mal), seja criativo IA. E no painel de administrador, bote tudo isso pra eu poder modificar pra gerenciar tudo.
+ Quero que destaque no codigo também, bem destacado, aonde esta a parte que eu coloco imagens pra fica la no fundo.

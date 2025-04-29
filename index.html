@@ -1,0 +1,938 @@
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <title>Cross Arise! - App RPG Personalizado</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    rel="stylesheet"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    body {
+      font-family: "Montserrat", "Roboto", sans-serif;
+      background: #0f172a;
+      color: #f8fafc;
+      min-height: 100vh;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem;
+      overflow-x: hidden;
+    }
+    button:focus,
+    input:focus,
+    select:focus,
+    textarea:focus {
+      outline: none;
+      box-shadow: 0 0 0 3px #2563eb;
+      border-color: #2563eb;
+    }
+    /* Scrollbar for admin panel */
+    #adminPlayersList {
+      max-height: 300px;
+      overflow-y: auto;
+    }
+    #adminPlayersList::-webkit-scrollbar {
+      width: 8px;
+    }
+    #adminPlayersList::-webkit-scrollbar-thumb {
+      background-color: #2563eb;
+      border-radius: 4px;
+    }
+    /* Scrollbar for attribute/class/item containers */
+    #editAttributesContainer,
+    #editClassesContainer,
+    #editItemsContainer {
+      max-height: 180px;
+      overflow-y: auto;
+    }
+    #editAttributesContainer::-webkit-scrollbar,
+    #editClassesContainer::-webkit-scrollbar,
+    #editItemsContainer::-webkit-scrollbar {
+      width: 6px;
+    }
+    #editAttributesContainer::-webkit-scrollbar-thumb,
+    #editClassesContainer::-webkit-scrollbar-thumb,
+    #editItemsContainer::-webkit-scrollbar-thumb {
+      background-color: #2563eb;
+      border-radius: 3px;
+    }
+    /* Background animation for login */
+    #loginBackground {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      overflow: hidden;
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    }
+    .floating-anime {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      opacity: 0.15;
+      animation: floatUpDown 6s ease-in-out infinite;
+      filter: drop-shadow(0 0 4px #3b82f6);
+      user-select: none;
+      pointer-events: none;
+    }
+    .floating-anime:nth-child(1) {
+      left: 10%;
+      top: 80%;
+      animation-delay: 0s;
+      width: 100px;
+      height: 100px;
+      opacity: 0.2;
+    }
+    .floating-anime:nth-child(2) {
+      left: 30%;
+      top: 90%;
+      animation-delay: 2s;
+      width: 70px;
+      height: 70px;
+    }
+    .floating-anime:nth-child(3) {
+      left: 50%;
+      top: 85%;
+      animation-delay: 4s;
+      width: 90px;
+      height: 90px;
+      opacity: 0.18;
+    }
+    .floating-anime:nth-child(4) {
+      left: 70%;
+      top: 88%;
+      animation-delay: 1s;
+      width: 80px;
+      height: 80px;
+      opacity: 0.15;
+    }
+    .floating-anime:nth-child(5) {
+      left: 85%;
+      top: 80%;
+      animation-delay: 3s;
+      width: 60px;
+      height: 60px;
+      opacity: 0.12;
+    }
+    @keyframes floatUpDown {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-20px);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Background Anime Floating Images -->
+  <div id="loginBackground" aria-hidden="true">
+    <img src="https://static.wikia.nocookie.net/tbta/images/7/7a/Arthur_Leywin_Anime.png" alt="" class="floating-anime" style="bottom:10%;"/>
+    <img src="https://static.wikia.nocookie.net/tbta/images/7/7a/Arthur_Leywin_Anime.png" alt="" class="floating-anime" style="bottom:15%;"/>
+    <img src="https://static.wikia.nocookie.net/tbta/images/7/7a/Arthur_Leywin_Anime.png" alt="" class="floating-anime" style="bottom:12%;"/>
+    <img src="https://static.wikia.nocookie.net/tbta/images/7/7a/Arthur_Leywin_Anime.png" alt="" class="floating-anime" style="bottom:14%;"/>
+    <img src="https://static.wikia.nocookie.net/tbta/images/7/7a/Arthur_Leywin_Anime.png" alt="" class="floating-anime" style="bottom:11%;"/>
+  </div>
+
+  <!-- Login Screen with improved layout for mobile and epic anime background -->
+  <section
+    id="loginScreen"
+    class="max-w-6xl w-full rounded-lg p-8 shadow-lg flex flex-col md:flex-row items-center gap-12 relative overflow-hidden bg-transparent"
+    aria-label="Tela de login"
+  >
+    <div class="md:w-1/2 text-center md:text-left relative z-10">
+      <h1 class="text-4xl font-extrabold mb-6 drop-shadow-lg">Cross Arise! - Login</h1>
+      <form id="loginForm" class="space-y-6 max-w-md mx-auto md:mx-0" novalidate>
+        <div>
+          <label
+            for="nomePersonagem"
+            class="block mb-2 font-semibold text-gray-300 drop-shadow"
+            >Nome do personagem</label
+          >
+          <input
+            type="text"
+            id="nomePersonagem"
+            name="nomePersonagem"
+            placeholder="Digite seu nome"
+            required
+            autocomplete="off"
+            class="w-full rounded-md px-3 py-2 text-gray-900"
+          />
+        </div>
+        <div>
+          <label
+            for="senhaEspecial"
+            class="block mb-2 font-semibold text-gray-300 drop-shadow"
+            >Senha especial</label
+          >
+          <input
+            type="password"
+            id="senhaEspecial"
+            name="senhaEspecial"
+            placeholder="Digite sua senha"
+            required
+            autocomplete="off"
+            class="w-full rounded-md px-3 py-2 text-gray-900"
+          />
+        </div>
+        <p
+          id="loginError"
+          class="text-red-500 text-center text-sm hidden drop-shadow"
+          role="alert"
+        ></p>
+        <button
+          type="submit"
+          class="w-full bg-blue-700 hover:bg-blue-800 transition rounded-md py-3 font-semibold text-white drop-shadow-lg"
+        >
+          Acessar Personagem
+        </button>
+      </form>
+      <!--
+        **********************************************************************
+        * COLOQUE AQUI O LINK PARA O SEU OUTRO HTML (SITE DO RPG)              *
+        * EXEMPLO: href="index2.html"                                         *
+        **********************************************************************
+      -->
+      <a
+        href="index2.html"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="mt-6 inline-block w-full max-w-md text-center bg-green-600 hover:bg-green-700 transition rounded-md py-3 font-semibold text-white cursor-pointer drop-shadow-lg relative z-10"
+        id="btnVisitarSite"
+      >
+        Visitar Site
+      </a>
+    </div>
+    <div class="md:w-1/2 flex justify-center relative z-10">
+      <img
+        src="https://static.wikia.nocookie.net/tbta/images/7/7a/Arthur_Leywin_Anime.png"
+        alt="Ilustração do personagem Arthur Leywin de THE BEGINNING AFTER THE END, estilo anime, pose heroica com fundo dramático"
+        class="rounded-lg shadow-lg max-w-full h-auto max-h-[480px]"
+        id="loginCharacterImage"
+      />
+    </div>
+  </section>
+
+  <!-- Player Screen -->
+  <section
+    id="playerScreen"
+    class="hidden max-w-4xl w-full bg-gray-900 rounded-lg p-8 shadow-lg flex flex-col md:flex-row gap-8"
+    aria-label="Tela do personagem"
+  >
+    <div class="flex-shrink-0 w-full md:w-1/3 flex flex-col items-center gap-4">
+      <img
+        id="playerImage"
+        alt="Imagem do personagem"
+        class="rounded-lg shadow-lg w-full object-cover max-h-96"
+        src=""
+        width="400"
+        height="500"
+      />
+      <!-- Upload removido da tela do player conforme pedido -->
+    </div>
+    <div class="flex-grow text-gray-100">
+      <h2 id="playerName" class="text-4xl font-extrabold mb-4"></h2>
+      <div class="mb-6">
+        <h3 class="text-2xl font-semibold mb-2">Atributos</h3>
+        <ul id="playerAttributes" class="list-disc list-inside space-y-1"></ul>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-2xl font-semibold mb-2">Classes</h3>
+        <ul id="playerClasses" class="list-disc list-inside space-y-1"></ul>
+      </div>
+      <div>
+        <h3 class="text-2xl font-semibold mb-2">Itens</h3>
+        <ul id="playerItems" class="list-disc list-inside space-y-1"></ul>
+      </div>
+      <button
+        id="btnLogoutPlayer"
+        class="mt-8 bg-red-600 hover:bg-red-700 transition rounded-md py-2 px-4 font-semibold text-white"
+      >
+        Sair
+      </button>
+    </div>
+  </section>
+
+  <!-- Admin Panel -->
+  <section
+    id="adminPanel"
+    class="hidden max-w-5xl w-full bg-gray-900 rounded-lg p-8 shadow-lg flex flex-col gap-6"
+    aria-label="Painel de administrador"
+  >
+    <h1 class="text-3xl font-extrabold mb-4 text-center text-white">
+      Painel de Administrador
+    </h1>
+    <button
+      id="btnLogoutAdmin"
+      class="self-end bg-red-600 hover:bg-red-700 transition rounded-md py-2 px-4 font-semibold text-white"
+    >
+      Sair
+    </button>
+    <div class="flex flex-col md:flex-row gap-6">
+      <!-- Lista de players -->
+      <div class="md:w-1/3 bg-gray-800 rounded p-4 flex flex-col">
+        <h2 class="text-xl font-semibold mb-4 text-white">Jogadores</h2>
+        <ul
+          id="adminPlayersList"
+          class="space-y-3 text-gray-200 max-h-96 overflow-y-auto flex-grow"
+        >
+          <!-- Players list items inserted dynamically -->
+        </ul>
+        <button
+          id="btnAddPlayer"
+          class="mt-4 w-full bg-green-600 hover:bg-green-700 transition rounded-md py-2 font-semibold text-white"
+        >
+          Adicionar Jogador
+        </button>
+      </div>
+      <!-- Editor de player -->
+      <div class="md:w-2/3 bg-gray-800 rounded p-6 text-gray-200 overflow-auto max-h-[600px]">
+        <h2 id="adminEditTitle" class="text-xl font-semibold mb-4">
+          Selecione um jogador para editar
+        </h2>
+        <form id="adminEditForm" class="space-y-4 hidden" novalidate>
+          <div>
+            <label for="editName" class="block mb-1 font-semibold">Nome</label>
+            <input
+              type="text"
+              id="editName"
+              name="editName"
+              class="w-full rounded-md px-3 py-2 text-gray-900"
+              required
+            />
+          </div>
+          <div>
+            <label for="editPassword" class="block mb-1 font-semibold"
+              >Senha Especial</label
+            >
+            <input
+              type="text"
+              id="editPassword"
+              name="editPassword"
+              class="w-full rounded-md px-3 py-2 text-gray-900"
+              placeholder="Senha para login"
+              required
+            />
+          </div>
+          <div>
+            <label for="editImage" class="block mb-1 font-semibold"
+              >Alterar Foto do Personagem (URL ou arquivo)</label
+            >
+            <input
+              type="url"
+              id="editImage"
+              name="editImage"
+              class="w-full rounded-md px-3 py-2 text-gray-900 mb-2"
+              placeholder="https://..."
+              required
+            />
+            <input
+              type="file"
+              id="editImageFile"
+              accept="image/*"
+              class="w-full rounded-md px-3 py-2 text-gray-900"
+              aria-label="Upload de imagem do personagem"
+            />
+          </div>
+          <div>
+            <label class="block mb-1 font-semibold">Atributos</label>
+            <div id="editAttributesContainer" class="space-y-2 max-h-48 overflow-auto border border-gray-700 rounded p-2"></div>
+            <button
+              type="button"
+              id="btnAddAttribute"
+              class="mt-2 bg-blue-600 hover:bg-blue-700 transition rounded-md py-1 px-3 font-semibold"
+            >
+              + Adicionar atributo
+            </button>
+          </div>
+          <div>
+            <label class="block mb-1 font-semibold">Classes</label>
+            <div id="editClassesContainer" class="space-y-2 max-h-32 overflow-auto border border-gray-700 rounded p-2"></div>
+            <button
+              type="button"
+              id="btnAddClass"
+              class="mt-2 bg-blue-600 hover:bg-blue-700 transition rounded-md py-1 px-3 font-semibold"
+            >
+              + Adicionar classe
+            </button>
+          </div>
+          <div>
+            <label class="block mb-1 font-semibold">Itens</label>
+            <div id="editItemsContainer" class="space-y-2 max-h-32 overflow-auto border border-gray-700 rounded p-2"></div>
+            <button
+              type="button"
+              id="btnAddItem"
+              class="mt-2 bg-blue-600 hover:bg-blue-700 transition rounded-md py-1 px-3 font-semibold"
+            >
+              + Adicionar item
+            </button>
+          </div>
+          <div class="flex flex-col md:flex-row gap-4 mt-6">
+            <button
+              type="submit"
+              class="flex-grow bg-green-600 hover:bg-green-700 transition rounded-md py-2 px-4 font-semibold text-white"
+            >
+              Salvar
+            </button>
+            <button
+              type="button"
+              id="btnDeletePlayer"
+              class="flex-grow bg-red-600 hover:bg-red-700 transition rounded-md py-2 px-4 font-semibold text-white"
+            >
+              Excluir Jogador
+            </button>
+          </div>
+          <p id="adminMessage" class="mt-4 text-green-400 font-semibold hidden"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Função para salvar playersData no localStorage
+    function salvarPlayersLocalStorage() {
+      localStorage.setItem("crossArisePlayers", JSON.stringify(playersData));
+    }
+
+    // Função para carregar playersData do localStorage
+    function carregarPlayersLocalStorage() {
+      const data = localStorage.getItem("crossArisePlayers");
+      if (data) {
+        try {
+          const parsed = JSON.parse(data);
+          // Atualiza playersData mantendo referência para o objeto original
+          Object.keys(playersData).forEach((key) => delete playersData[key]);
+          Object.assign(playersData, parsed);
+        } catch {
+          // Se erro, mantém dados padrão
+        }
+      }
+    }
+
+    // Dados iniciais dos jogadores
+    const playersData = {
+      Blue: {
+        name: "Blue",
+        password: "Lawrence",
+        image:
+          "https://static.wikia.nocookie.net/tbta/images/7/7a/Arthur_Leywin_Anime.png",
+        attributes: {
+          Força: 18,
+          Agilidade: 15,
+          Inteligência: 20,
+          Carisma: 12,
+          Resistência: 17,
+        },
+        classes: ["Mago", "Guerreiro"],
+        items: ["Espada Lendária", "Capa Mágica", "Anel do Poder"],
+      },
+      Italo: {
+        name: "Italo",
+        password: "Italo",
+        image:
+          "https://cdn-icons-png.flaticon.com/512/149/149071.png",
+        attributes: {
+          Força: 0,
+          Agilidade: 0,
+          Inteligência: 0,
+          Carisma: 0,
+          Resistência: 0,
+        },
+        classes: [],
+        items: [],
+      },
+    };
+
+    // Estado atual
+    let currentUser = null; // "Blue" ou "Italo" ou outro player
+    let editingPlayer = null; // player key being edited in admin
+
+    // Elementos DOM
+    const loginScreen = document.getElementById("loginScreen");
+    const loginForm = document.getElementById("loginForm");
+    const loginError = document.getElementById("loginError");
+
+    const playerScreen = document.getElementById("playerScreen");
+    const playerNameEl = document.getElementById("playerName");
+    const playerImageEl = document.getElementById("playerImage");
+    const playerAttributesEl = document.getElementById("playerAttributes");
+    const playerClassesEl = document.getElementById("playerClasses");
+    const playerItemsEl = document.getElementById("playerItems");
+    const btnLogoutPlayer = document.getElementById("btnLogoutPlayer");
+    const loginCharacterImage = document.getElementById("loginCharacterImage");
+
+    const adminPanel = document.getElementById("adminPanel");
+    const btnLogoutAdmin = document.getElementById("btnLogoutAdmin");
+    const adminPlayersList = document.getElementById("adminPlayersList");
+    const btnAddPlayer = document.getElementById("btnAddPlayer");
+    const adminEditTitle = document.getElementById("adminEditTitle");
+    const adminEditForm = document.getElementById("adminEditForm");
+    const adminMessage = document.getElementById("adminMessage");
+    const btnDeletePlayer = document.getElementById("btnDeletePlayer");
+
+    const editNameInput = document.getElementById("editName");
+    const editPasswordInput = document.getElementById("editPassword");
+    const editImageInput = document.getElementById("editImage");
+    const editImageFileInput = document.getElementById("editImageFile");
+    const editAttributesContainer = document.getElementById(
+      "editAttributesContainer"
+    );
+    const editClassesContainer = document.getElementById("editClassesContainer");
+    const editItemsContainer = document.getElementById("editItemsContainer");
+
+    const btnAddAttribute = document.getElementById("btnAddAttribute");
+    const btnAddClass = document.getElementById("btnAddClass");
+    const btnAddItem = document.getElementById("btnAddItem");
+
+    // Função para limpar container de inputs
+    function clearContainer(container) {
+      while (container.firstChild) {
+        container.removeChild(container.firstChild);
+      }
+    }
+
+    // Cria input para atributo (nome e valor)
+    function createAttributeInput(name = "", value = "") {
+      const wrapper = document.createElement("div");
+      wrapper.className = "flex gap-2";
+
+      const inputName = document.createElement("input");
+      inputName.type = "text";
+      inputName.placeholder = "Nome do atributo";
+      inputName.value = name;
+      inputName.required = true;
+      inputName.className =
+        "flex-grow rounded-md px-3 py-2 text-gray-900 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-600";
+
+      const inputValue = document.createElement("input");
+      inputValue.type = "number";
+      inputValue.min = "0";
+      inputValue.placeholder = "Valor";
+      inputValue.value = value;
+      inputValue.required = true;
+      inputValue.className =
+        "w-20 rounded-md px-3 py-2 text-gray-900 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-600";
+
+      const btnRemove = document.createElement("button");
+      btnRemove.type = "button";
+      btnRemove.innerHTML = '<i class="fas fa-trash-alt"></i>';
+      btnRemove.title = "Remover atributo";
+      btnRemove.className =
+        "text-red-600 hover:text-red-800 transition px-2";
+      btnRemove.addEventListener("click", () => {
+        wrapper.remove();
+      });
+
+      wrapper.appendChild(inputName);
+      wrapper.appendChild(inputValue);
+      wrapper.appendChild(btnRemove);
+
+      return wrapper;
+    }
+
+    // Cria input para classe (texto)
+    function createClassInput(value = "") {
+      const wrapper = document.createElement("div");
+      wrapper.className = "flex gap-2 items-center";
+
+      const inputClass = document.createElement("input");
+      inputClass.type = "text";
+      inputClass.placeholder = "Classe";
+      inputClass.value = value;
+      inputClass.required = true;
+      inputClass.className =
+        "flex-grow rounded-md px-3 py-2 text-gray-900 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-600";
+
+      const btnRemove = document.createElement("button");
+      btnRemove.type = "button";
+      btnRemove.innerHTML = '<i class="fas fa-trash-alt"></i>';
+      btnRemove.title = "Remover classe";
+      btnRemove.className =
+        "text-red-600 hover:text-red-800 transition px-2";
+      btnRemove.addEventListener("click", () => {
+        wrapper.remove();
+      });
+
+      wrapper.appendChild(inputClass);
+      wrapper.appendChild(btnRemove);
+
+      return wrapper;
+    }
+
+    // Cria input para item (texto)
+    function createItemInput(value = "") {
+      const wrapper = document.createElement("div");
+      wrapper.className = "flex gap-2 items-center";
+
+      const inputItem = document.createElement("input");
+      inputItem.type = "text";
+      inputItem.placeholder = "Item";
+      inputItem.value = value;
+      inputItem.required = true;
+      inputItem.className =
+        "flex-grow rounded-md px-3 py-2 text-gray-900 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-600";
+
+      const btnRemove = document.createElement("button");
+      btnRemove.type = "button";
+      btnRemove.innerHTML = '<i class="fas fa-trash-alt"></i>';
+      btnRemove.title = "Remover item";
+      btnRemove.className =
+        "text-red-600 hover:text-red-800 transition px-2";
+      btnRemove.addEventListener("click", () => {
+        wrapper.remove();
+      });
+
+      wrapper.appendChild(inputItem);
+      wrapper.appendChild(btnRemove);
+
+      return wrapper;
+    }
+
+    // Atualiza a lista de jogadores no painel admin
+    function atualizarListaJogadores() {
+      clearContainer(adminPlayersList);
+      Object.keys(playersData).forEach((key) => {
+        const player = playersData[key];
+        const li = document.createElement("li");
+        li.className =
+          "cursor-pointer rounded p-2 hover:bg-blue-700 transition flex items-center gap-3";
+        li.tabIndex = 0;
+        li.textContent = player.name;
+        li.title = `Editar ${player.name}`;
+        li.addEventListener("click", () => {
+          abrirEdicaoJogador(key);
+        });
+        li.addEventListener("keydown", (e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            abrirEdicaoJogador(key);
+          }
+        });
+        adminPlayersList.appendChild(li);
+      });
+    }
+
+    // Abre edição de jogador no painel admin
+    function abrirEdicaoJogador(key) {
+      editingPlayer = key;
+      const player = playersData[key];
+      adminEditTitle.textContent = `Editando: ${player.name}`;
+      adminEditForm.classList.remove("hidden");
+      adminMessage.classList.add("hidden");
+      adminMessage.textContent = "";
+
+      editNameInput.value = player.name;
+      editPasswordInput.value = player.password || "";
+      editImageInput.value = player.image;
+      editImageFileInput.value = "";
+
+      // Atributos
+      clearContainer(editAttributesContainer);
+      Object.entries(player.attributes).forEach(([attrName, attrValue]) => {
+        editAttributesContainer.appendChild(
+          createAttributeInput(attrName, attrValue)
+        );
+      });
+
+      // Classes
+      clearContainer(editClassesContainer);
+      player.classes.forEach((cls) => {
+        editClassesContainer.appendChild(createClassInput(cls));
+      });
+
+      // Itens
+      clearContainer(editItemsContainer);
+      player.items.forEach((item) => {
+        editItemsContainer.appendChild(createItemInput(item));
+      });
+    }
+
+    // Salvar edição do jogador ou adicionar novo jogador
+    adminEditForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const nome = editNameInput.value.trim();
+      const senha = editPasswordInput.value.trim();
+      const imagem = editImageInput.value.trim();
+
+      if (!nome) {
+        alert("O nome do jogador não pode estar vazio.");
+        return;
+      }
+      if (!senha) {
+        alert("A senha especial não pode estar vazia.");
+        return;
+      }
+      if (!imagem) {
+        alert("A URL da imagem não pode estar vazia.");
+        return;
+      }
+
+      // Atributos
+      const novosAtributos = {};
+      const attrDivs = editAttributesContainer.querySelectorAll("div");
+      for (const div of attrDivs) {
+        const inputs = div.querySelectorAll("input");
+        const nomeAttr = inputs[0].value.trim();
+        const valorAttr = Number(inputs[1].value);
+        if (nomeAttr && !isNaN(valorAttr)) {
+          novosAtributos[nomeAttr] = valorAttr;
+        }
+      }
+
+      // Classes
+      const novasClasses = [];
+      const classInputs = editClassesContainer.querySelectorAll("input");
+      classInputs.forEach((input) => {
+        const val = input.value.trim();
+        if (val) novasClasses.push(val);
+      });
+
+      // Itens
+      const novosItens = [];
+      const itemInputs = editItemsContainer.querySelectorAll("input");
+      itemInputs.forEach((input) => {
+        const val = input.value.trim();
+        if (val) novosItens.push(val);
+      });
+
+      if (editingPlayer) {
+        // Atualiza dados do jogador existente
+        playersData[editingPlayer] = {
+          name: nome,
+          password: senha,
+          image: imagem,
+          attributes: novosAtributos,
+          classes: novasClasses,
+          items: novosItens,
+        };
+        adminMessage.textContent = "Jogador salvo com sucesso!";
+      } else {
+        // Verifica se já existe jogador com mesmo nome (case insensitive)
+        const existe = Object.values(playersData).some(
+          (p) => p.name.toLowerCase() === nome.toLowerCase()
+        );
+        if (existe) {
+          alert("Já existe um jogador com esse nome.");
+          return;
+        }
+        // Cria nova chave única para o jogador (ex: nome sem espaços e minusculo)
+        let newKey = nome.replace(/\s+/g, "").toLowerCase();
+        // Garante que a chave seja única
+        let suffix = 1;
+        while (playersData[newKey]) {
+          newKey = nome.replace(/\s+/g, "").toLowerCase() + suffix;
+          suffix++;
+        }
+        playersData[newKey] = {
+          name: nome,
+          password: senha,
+          image: imagem,
+          attributes: novosAtributos,
+          classes: novasClasses,
+          items: novosItens,
+        };
+        adminMessage.textContent = "Jogador adicionado com sucesso!";
+        editingPlayer = newKey;
+      }
+
+      adminMessage.classList.remove("hidden");
+      atualizarListaJogadores();
+      salvarPlayersLocalStorage();
+
+      // Atualiza tela player se for o usuário atual
+      if (currentUser === editingPlayer) {
+        mostrarPlayerScreen(editingPlayer);
+      }
+    });
+
+    // Upload de imagem via arquivo no painel admin
+    editImageFileInput.addEventListener("change", (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+      if (!file.type.startsWith("image/")) {
+        alert("Por favor, selecione um arquivo de imagem válido.");
+        return;
+      }
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        const dataUrl = event.target.result;
+        editImageInput.value = dataUrl;
+      };
+      reader.readAsDataURL(file);
+      // Limpa o input para permitir re-upload do mesmo arquivo se quiser
+      e.target.value = "";
+    });
+
+    // Botões para adicionar campos
+    btnAddAttribute.addEventListener("click", () => {
+      editAttributesContainer.appendChild(createAttributeInput());
+    });
+    btnAddClass.addEventListener("click", () => {
+      editClassesContainer.appendChild(createClassInput());
+    });
+    btnAddItem.addEventListener("click", () => {
+      editItemsContainer.appendChild(createItemInput());
+    });
+
+    // Botão para adicionar novo jogador (abre formulário vazio e prepara para salvar)
+    btnAddPlayer.addEventListener("click", () => {
+      editingPlayer = null;
+      adminEditTitle.textContent = "Adicionar novo jogador";
+      adminEditForm.classList.remove("hidden");
+      adminMessage.classList.add("hidden");
+      adminMessage.textContent = "";
+
+      editNameInput.value = "";
+      editPasswordInput.value = "";
+      editImageInput.value = "";
+      editImageFileInput.value = "";
+      clearContainer(editAttributesContainer);
+      clearContainer(editClassesContainer);
+      clearContainer(editItemsContainer);
+    });
+
+    // Botão excluir jogador
+    btnDeletePlayer.addEventListener("click", () => {
+      if (!editingPlayer) return;
+      if (
+        confirm(
+          `Tem certeza que deseja excluir o jogador "${playersData[editingPlayer].name}"?`
+        )
+      ) {
+        delete playersData[editingPlayer];
+        editingPlayer = null;
+        adminEditForm.classList.add("hidden");
+        adminEditTitle.textContent = "Selecione um jogador para editar";
+        adminMessage.classList.add("hidden");
+        adminMessage.textContent = "";
+        atualizarListaJogadores();
+        salvarPlayersLocalStorage();
+      }
+    });
+
+    // Mostrar tela do player com dados atualizados
+    function mostrarPlayerScreen(playerKey) {
+      const player = playersData[playerKey];
+      if (!player) return;
+
+      playerNameEl.textContent = player.name;
+      playerImageEl.src = player.image;
+      playerImageEl.alt = `Imagem do personagem ${player.name}`;
+      loginCharacterImage.src = player.image;
+      loginCharacterImage.alt = `Ilustração do personagem ${player.name}`;
+
+      // Atributos
+      playerAttributesEl.innerHTML = "";
+      Object.entries(player.attributes).forEach(([attr, val]) => {
+        const li = document.createElement("li");
+        li.textContent = `${attr}: ${val}`;
+        playerAttributesEl.appendChild(li);
+      });
+
+      // Classes
+      playerClassesEl.innerHTML = "";
+      player.classes.forEach((cls) => {
+        const li = document.createElement("li");
+        li.textContent = cls;
+        playerClassesEl.appendChild(li);
+      });
+
+      // Itens
+      playerItemsEl.innerHTML = "";
+      player.items.forEach((item) => {
+        const li = document.createElement("li");
+        li.textContent = item;
+        playerItemsEl.appendChild(li);
+      });
+
+      // Mostrar player screen e esconder login/admin
+      loginScreen.classList.add("hidden");
+      adminPanel.classList.add("hidden");
+      playerScreen.classList.remove("hidden");
+      currentUser = playerKey;
+    }
+
+    // Mostrar painel admin
+    function mostrarAdminPanel() {
+      loginScreen.classList.add("hidden");
+      playerScreen.classList.add("hidden");
+      adminPanel.classList.remove("hidden");
+      currentUser = "Italo";
+      atualizarListaJogadores();
+      editingPlayer = null;
+      adminEditForm.classList.add("hidden");
+      adminEditTitle.textContent = "Selecione um jogador para editar";
+      adminMessage.classList.add("hidden");
+      adminMessage.textContent = "";
+    }
+
+    // Logout player
+    btnLogoutPlayer.addEventListener("click", () => {
+      currentUser = null;
+      playerScreen.classList.add("hidden");
+      loginScreen.classList.remove("hidden");
+      loginForm.reset();
+      loginError.classList.add("hidden");
+      loginError.textContent = "";
+    });
+
+    // Logout admin
+    btnLogoutAdmin.addEventListener("click", () => {
+      currentUser = null;
+      adminPanel.classList.add("hidden");
+      loginScreen.classList.remove("hidden");
+      loginForm.reset();
+      loginError.classList.add("hidden");
+      loginError.textContent = "";
+    });
+
+    // Login form submit
+    loginForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      loginError.classList.add("hidden");
+      loginError.textContent = "";
+
+      const nome = loginForm.nomePersonagem.value.trim();
+      const senha = loginForm.senhaEspecial.value.trim();
+
+      if (!nome || !senha) {
+        loginError.textContent = "Preencha ambos os campos.";
+        loginError.classList.remove("hidden");
+        return;
+      }
+
+      // Verifica credenciais
+      const playerKey = Object.keys(playersData).find(
+        (key) =>
+          playersData[key].name.toLowerCase() === nome.toLowerCase() &&
+          playersData[key].password === senha
+      );
+
+      if (playerKey) {
+        if (playerKey === "Italo") {
+          mostrarAdminPanel();
+        } else {
+          mostrarPlayerScreen(playerKey);
+        }
+      } else {
+        loginError.textContent = "Nome ou senha incorretos.";
+        loginError.classList.remove("hidden");
+      }
+    });
+
+    // Ao carregar, carrega dados do localStorage e foca no campo nome
+    window.addEventListener("load", () => {
+      carregarPlayersLocalStorage();
+      document.getElementById("nomePersonagem").focus();
+    });
+  </script>
+</body>
+</html>
