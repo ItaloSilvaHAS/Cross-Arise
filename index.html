@@ -500,36 +500,37 @@
       }
     }
 
-    // Load characters from remote JSON file on GitHub Gist (public) or fallback to localStorage
-    async function loadCharactersRemote() {
-      try {
-        // Replace this URL with your own public JSON file URL or API endpoint
-        const gistUrl = "https://gist.githubusercontent.com/yourusername/yourgistid/raw/characters.json";
-        const response = await fetch(gistUrl, {cache: "no-store"});
-        if (response.ok) {
-          const data = await response.json();
-          if (data && typeof data === "object") {
-            characters = data;
-            saveCharactersLocalOnly();
-            return true;
+    // Load characters from localStorage or default
+    function loadCharacters() {
+      const stored = localStorage.getItem(STORAGE_KEY);
+      if (stored) {
+        try {
+          characters = JSON.parse(stored);
+          // Ensure all 20 characters exist (in case user deleted some)
+          for (let i = 1; i <= 20; i++) {
+            const key = `Character${i}`;
+            if (!characters[key]) {
+              characters[key] = defaultCharacters[key];
+            }
           }
+          // Ensure Italo exists
+          if (!characters.Italo) {
+            characters.Italo = defaultCharacters.Italo;
+          }
+          saveCharactersLocalOnly();
+        } catch {
+          characters = { ...defaultCharacters };
+          saveCharactersLocalOnly();
         }
-      } catch (error) {
-        console.warn("Não foi possível carregar dados do servidor:", error);
+      } else {
+        characters = { ...defaultCharacters };
+        saveCharactersLocalOnly();
       }
-      return false;
     }
 
-    // Save characters to localStorage only (no server sync)
+    // Save characters to localStorage only
     function saveCharactersLocalOnly() {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(characters));
-    }
-
-    // Save characters to localStorage and attempt to sync to remote (not implemented here)
-    async function saveCharacters() {
-      saveCharactersLocalOnly();
-      // You must implement your own backend or use a service to sync data globally.
-      // This demo does not include a backend, so changes are local only.
     }
 
     // Show login screen
@@ -846,7 +847,7 @@
       };
 
       characters[editingCharacterKey] = newChar;
-      saveCharacters();
+      saveCharactersLocalOnly();
       renderCharactersList();
       alert(`Personagem "${name}" salvo com sucesso!`);
     }
@@ -862,7 +863,7 @@
         confirm(`Tem certeza que deseja excluir o personagem "${editingCharacterKey}"?`)
       ) {
         delete characters[editingCharacterKey];
-        saveCharacters();
+        saveCharactersLocalOnly();
         editingCharacterKey = null;
         editCharacterForm.reset();
         editCharacterTitle.textContent = "Editar Personagem";
@@ -871,102 +872,9 @@
       }
     }
 
-    // Initialize app: load from remote JSON on GitHub Gist, fallback to localStorage
-    async function initializeApp() {
-      const remoteLoaded = await loadCharactersRemote();
-      if (!remoteLoaded) {
-        loadCharacters();
-      }
-      showLogin();
-    }
-
-    // Load characters from remote JSON file on GitHub Gist (public) or fallback to localStorage
-    async function loadCharactersRemote() {
-      try {
-        // Replace this URL with your own public JSON file URL or API endpoint
-        // IMPORTANT: You must host a JSON file somewhere public and update this URL accordingly.
-        // Example gist URL (replace with your own):
-        const gistUrl = "https://gist.githubusercontent.com/yourusername/yourgistid/raw/characters.json";
-        const response = await fetch(gistUrl, {cache: "no-store"});
-        if (response.ok) {
-          const data = await response.json();
-          if (data && typeof data === "object") {
-            characters = data;
-            saveCharactersLocalOnly();
-            return true;
-          }
-        }
-      } catch (error) {
-        console.warn("Não foi possível carregar dados do servidor:", error);
-      }
-      return false;
-    }
-
-    // Save characters to localStorage only (no server sync)
-    function saveCharactersLocalOnly() {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(characters));
-    }
-
-    // Save characters to localStorage and attempt to sync to remote (not implemented here)
-    async function saveCharacters() {
-      saveCharactersLocalOnly();
-      // You must implement your own backend or use a service to sync data globally.
-      // This demo does not include a backend, so changes are local only.
-      // To have global sync, you need a backend API or a cloud database.
-    }
-
-    // Event listeners and other functions remain unchanged...
-
-    loginForm.addEventListener("submit", (e) => {
-      e.preventDefault();
-      loginError.classList.add("hidden");
-
-      const name = document.getElementById("characterName").value.trim();
-      const password = document.getElementById("specialPassword").value.trim();
-
-      if (!name || !password) {
-        loginError.textContent = "Por favor, preencha todos os campos.";
-        loginError.classList.remove("hidden");
-        return;
-      }
-
-      if (!characters[name]) {
-        loginError.textContent = "Personagem ou senha incorretos.";
-        loginError.classList.remove("hidden");
-        return;
-      }
-
-      if (characters[name].password !== password) {
-        loginError.textContent = "Personagem ou senha incorretos.";
-        loginError.classList.remove("hidden");
-        return;
-      }
-
-      currentUser = { name, password };
-
-      if (name === "Italo" && password === "Italo") {
-        showAdminPanel();
-      } else {
-        showCharacterProfile(characters[name]);
-      }
-    });
-
-    logoutCharacterBtn.addEventListener("click", () => {
-      showLogin();
-    });
-    logoutAdminBtn.addEventListener("click", () => {
-      showLogin();
-    });
-
-    addCharacterBtn.addEventListener("click", () => {
-      alert("Você já tem 20 personagens disponíveis para editar. Use a lista para modificar.");
-    });
-
-    editCharacterForm.addEventListener("submit", saveCharacterFromForm);
-    deleteCharacterBtn.addEventListener("click", deleteCharacter);
-
     // Initialize app
-    initializeApp();
+    loadCharacters();
+    showLogin();
   </script>
  </body>
 </html>
