@@ -2,210 +2,259 @@
 <html lang="pt-br">
 <head>
     <style>
-        body {
+        * {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #121212;
+  color: #f1f1f1;
   font-family: 'Inter', sans-serif;
-  background: linear-gradient(to right, #1e1e2f, #2a2a3d);
-  color: #f0f0f0;
 }
 
 header {
-  background: rgba(0, 0, 0, 0.4);
-  padding: 1rem;
+  background: #2e2e2e;
+  padding: 20px;
   text-align: center;
-  border-bottom: 1px solid #444;
+  border-bottom: 3px solid #555;
 }
 
 header h1 {
-  margin: 0;
-  font-size: 2rem;
-  color: #ffffff;
-}
-
-nav {
-  margin-top: 0.5rem;
+  color: #f4a300;
+  font-size: 2.5rem;
 }
 
 nav a {
-  color: #ffffff;
   text-decoration: none;
-  margin: 0 10px;
-  padding: 6px 12px;
-  border-radius: 8px;
-  background-color: rgba(255, 255, 255, 0.1);
-  transition: background 0.3s;
+  color: #f4a300;
+  font-size: 1.2rem;
+  margin-top: 1rem;
+  display: inline-block;
+  transition: color 0.3s;
 }
 
 nav a:hover {
-  background-color: rgba(255, 255, 255, 0.2);
+  color: #ff6600;
 }
 
 main.store {
-  padding: 2rem;
+  padding: 3rem;
   max-width: 1200px;
-  margin: auto;
+  margin: 0 auto;
 }
 
 section {
-  margin-bottom: 3rem;
-  background-color: rgba(255, 255, 255, 0.05);
+  margin-bottom: 2rem;
+  background: rgba(255, 255, 255, 0.05);
   padding: 1.5rem;
-  border-radius: 12px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
 }
 
 section h2 {
-  border-bottom: 2px solid #555;
-  padding-bottom: 0.5rem;
-  margin-bottom: 1rem;
-  font-size: 1.8rem;
-  color: #ffc857;
+  color: #ff6600;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
 }
 
 ul {
   list-style: none;
-  padding: 0;
-  margin: 0;
 }
 
 li {
-  background-color: rgba(255, 255, 255, 0.03);
-  padding: 1rem;
-  margin-bottom: 1rem;
-  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 8px;
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 15px;
+  transition: background 0.3s;
+}
+
+li:hover {
+  background: rgba(255, 255, 255, 0.2);
 }
 
 li img {
-  width: 64px;
-  height: 64px;
+  width: 70px;
+  height: 70px;
   object-fit: contain;
-  border-radius: 6px;
-  border: 1px solid #444;
-  background-color: #222;
+  border-radius: 5px;
+  border: 2px solid #444;
 }
 
-li strong {
-  color: #ffffff;
-  font-weight: bold;
+li div {
+  flex-grow: 1;
+}
+
+strong {
+  font-size: 1.2rem;
+  color: #fff;
+}
+
+.price {
+  font-size: 1.1rem;
+  color: #ffcc00;
 }
 
 footer {
+  background: #2e2e2e;
   text-align: center;
-  padding: 1rem;
-  border-top: 1px solid #444;
-  background: rgba(0, 0, 0, 0.3);
-  margin-top: 3rem;
-  font-size: 0.9rem;
+  padding: 15px;
+  margin-top: 2rem;
+  font-size: 1rem;
   color: #aaa;
 }
 
     </style>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Loja - Cross Arise</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loja - Solo Leveling RPG</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
-    <h1>Loja de Cross Arise</h1>
-    <nav>
-      <a href="index2.html">Início</a>
-      <a href="historia.html">História</a>
-    </nav>
+    <div class="container">
+      <h1>Loja de Equipamentos</h1>
+      <nav>
+        <a href="index2.html">Voltar ao Início</a>
+      </nav>
+    </div>
   </header>
 
   <main class="store">
-    <!-- Poções -->
     <section>
       <h2>Poções</h2>
       <ul>
-        <li><strong>Poção de Cura Simples</strong> – Restaura 50 de HP – 30G</li>
-        <li><strong>Poção de Cura Avançada</strong> – Restaura 150 de HP – 90G</li>
-        <li><strong>Poção de Mana</strong> – Recupera 40 de MP – 40G</li>
-        <li><strong>Poção de Vigor</strong> – Restaura Stamina – 35G</li>
-        <li><strong>Elixir de Velocidade</strong> – Aumenta velocidade por 1 minuto – 75G</li>
-        <li><strong>Elixir da Fúria</strong> – Aumenta dano por 30 segundos – 85G</li>
-        <li><strong>Poção Antiveneno</strong> – Remove veneno – 25G</li>
-        <li><strong>Poção de Invisibilidade</strong> – Invisível por 10 segundos – 200G</li>
-        <li><strong>Poção de Resistência</strong> – Reduz dano recebido por 1 min – 90G</li>
-        <li><strong>Elixir do Espírito</strong> – Aumenta regeneração de MP – 100G</li>
+        <li>
+          <img src="imagens/pocao_cura.png" alt="Poção de Cura" />
+          <div>
+            <strong>Poção de Cura</strong> - Restaura 50 HP - <span class="price">30G</span>
+          </div>
+        </li>
+        <li>
+          <img src="imagens/pocao_mana.png" alt="Poção de Mana" />
+          <div>
+            <strong>Poção de Mana</strong> - Restaura 50 MP - <span class="price">40G</span>
+          </div>
+        </li>
+        <li>
+          <img src="imagens/pocao_ressurgir.png" alt="Poção de Ressurgir" />
+          <div>
+            <strong>Poção de Ressurgir</strong> - Revive o jogador com 25% de HP - <span class="price">150G</span>
+          </div>
+        </li>
+        <!-- Adicione mais itens conforme necessário -->
       </ul>
     </section>
 
-    <!-- Armas -->
     <section>
       <h2>Armas</h2>
       <ul>
-        <li><strong>Espada de Ferro</strong> – Dano básico – 50G</li>
-        <li><strong>Machado Rústico</strong> – Forte, mas lento – 60G</li>
-        <li><strong>Adaga de Sombra</strong> – Bônus em ataques furtivos – 90G</li>
-        <li><strong>Lança Longa</strong> – Aumenta alcance – 80G</li>
-        <li><strong>Arco de Caçador</strong> – Longo alcance – 75G</li>
-        <li><strong>Espada Longa de Prata</strong> – Eficaz contra criaturas sombrias – 120G</li>
-        <li><strong>Martelo de Guerra</strong> – Atordoa oponentes – 100G</li>
-        <li><strong>Cajado de Aprendiz</strong> – Canaliza magia – 65G</li>
-        <li><strong>Espada Flamejante</strong> – Causa dano de fogo – 200G</li>
-        <li><strong>Arco do Vento</strong> – Disparo rápido e leve – 150G</li>
+        <li>
+          <img src="imagens/espada_legendaria.png" alt="Espada Lendária" />
+          <div>
+            <strong>Espada Lendária</strong> - Ataque +200 - <span class="price">500G</span>
+          </div>
+        </li>
+        <li>
+          <img src="imagens/glaive_imperial.png" alt="Glaive Imperial" />
+          <div>
+            <strong>Glaive Imperial</strong> - Ataque +180 - <span class="price">450G</span>
+          </div>
+        </li>
+        <li>
+          <img src="imagens/arco_fantasma.png" alt="Arco Fantasma" />
+          <div>
+            <strong>Arco Fantasma</strong> - Ataque +150 - <span class="price">400G</span>
+          </div>
+        </li>
+        <!-- Adicione mais itens conforme necessário -->
       </ul>
     </section>
 
-    <!-- Armaduras -->
     <section>
       <h2>Armaduras</h2>
       <ul>
-        <li><strong>Armadura de Couro</strong> – Leve, pouca defesa – 40G</li>
-        <li><strong>Armadura de Ferro</strong> – Boa defesa – 80G</li>
-        <li><strong>Armadura de Escamas</strong> – Resistente a fogo – 120G</li>
-        <li><strong>Armadura de Sombra</strong> – Dificulta detecção – 100G</li>
-        <li><strong>Cota de Malha</strong> – Defesa equilibrada – 70G</li>
-        <li><strong>Escudo de Carvalho</strong> – Bloqueio eficiente – 60G</li>
-        <li><strong>Armadura Dourada</strong> – Muito resistente – 200G</li>
-        <li><strong>Elmo de Guerreiro</strong> – Proteção extra para a cabeça – 50G</li>
-        <li><strong>Botas do Caminhante</strong> – Aumenta velocidade de movimento – 90G</li>
-        <li><strong>Manto do Mago</strong> – Bônus em conjuração – 100G</li>
+        <li>
+          <img src="imagens/armadura_dragao.png" alt="Armadura de Dragão" />
+          <div>
+            <strong>Armadura de Dragão</strong> - Defesa +200 - <span class="price">800G</span>
+          </div>
+        </li>
+        <li>
+          <img src="imagens/armadura_sombra.png" alt="Armadura das Sombras" />
+          <div>
+            <strong>Armadura das Sombras</strong> - Defesa +150 - <span class="price">650G</span>
+          </div>
+        </li>
+        <li>
+          <img src="imagens/armadura_eterna.png" alt="Armadura Eterna" />
+          <div>
+            <strong>Armadura Eterna</strong> - Defesa +300 - <span class="price">1000G</span>
+          </div>
+        </li>
+        <!-- Adicione mais itens conforme necessário -->
       </ul>
     </section>
 
-    <!-- Itens Amaldiçoados -->
     <section>
       <h2>Itens Amaldiçoados</h2>
       <ul>
-        <li><strong>Anel da Perdição</strong> – Aumenta poder, mas consome vida – 0G</li>
-        <li><strong>Espada Sussurrante</strong> – Fala com o portador – 0G</li>
-        <li><strong>Máscara de Trevas</strong> – Visão no escuro, mas instabilidade mental – 0G</li>
-        <li><strong>Luvas do Traidor</strong> – Fortalece ataque, mas desvia aliados – 0G</li>
-        <li><strong>Colar do Lamento</strong> – Atrai espíritos – 0G</li>
-        <li><strong>Botas da Loucura</strong> – Movimento aleatório – 0G</li>
-        <li><strong>Livro Negro</strong> – Magias proibidas – 0G</li>
-        <li><strong>Elmo Sussurrante</strong> – Revela segredos, mas enlouquece – 0G</li>
-        <li><strong>Espelho Trincado</strong> – Mostra futuros sombrios – 0G</li>
-        <li><strong>Moeda da Morte</strong> – Traz azar eterno – 0G</li>
+        <li>
+          <img src="imagens/anel_amaldicoado.png" alt="Anel Amaldiçoado" />
+          <div>
+            <strong>Anel Amaldiçoado</strong> - Reduz HP em 5% mas aumenta ataque - <span class="price">300G</span>
+          </div>
+        </li>
+        <li>
+          <img src="imagens/bracelete_negro.png" alt="Bracelete Negro" />
+          <div>
+            <strong>Bracelete Negro</strong> - Reduz defesa em 10%, mas aumenta a velocidade - <span class="price">400G</span>
+          </div>
+        </li>
+        <li>
+          <img src="imagens/escudo_derrotado.png" alt="Escudo Derrotado" />
+          <div>
+            <strong>Escudo Derrotado</strong> - Defesa +50, mas reduz resistência mágica - <span class="price">350G</span>
+          </div>
+        </li>
+        <!-- Adicione mais itens conforme necessário -->
       </ul>
     </section>
 
-    <!-- Itens Sagrados -->
     <section>
       <h2>Itens Sagrados</h2>
       <ul>
-        <li><strong>Anel da Luz</strong> – Cura passiva – 300G</li>
-        <li><strong>Espada Celestial</strong> – Bônus contra o mal – 500G</li>
-        <li><strong>Manto da Pureza</strong> – Resiste a venenos – 250G</li>
-        <li><strong>Elmo da Verdade</strong> – Imune a ilusões – 350G</li>
-        <li><strong>Amuleto da Fé</strong> – Proteção mágica – 200G</li>
-        <li><strong>Cajado dos Anjos</strong> – Cura aliados – 450G</li>
-        <li><strong>Botas da Graça</strong> – Passos silenciosos – 220G</li>
-        <li><strong>Escudo da Aurora</strong> – Reflete magias – 400G</li>
-        <li><strong>Tiara da Visão Clara</strong> – Detecta o mal – 280G</li>
-        <li><strong>Fragmento da Luz Divina</strong> – Ressuscita um aliado – 1000G</li>
+        <li>
+          <img src="imagens/amuletosagrada.png" alt="Amuleto Sagrado" />
+          <div>
+            <strong>Amuleto Sagrado</strong> - Protege contra maldições - <span class="price">700G</span>
+          </div>
+        </li>
+        <li>
+          <img src="imagens/palavradefensiva.png" alt="Palavra Defensiva" />
+          <div>
+            <strong>Palavra Defensiva</strong> - Aumenta defesa em 50% por 1 hora - <span class="price">600G</span>
+          </div>
+        </li>
+        <li>
+          <img src="imagens/cinto_luz.png" alt="Cinto de Luz" />
+          <div>
+            <strong>Cinto de Luz</strong> - Aumenta resistência mágica - <span class="price">650G</span>
+          </div>
+        </li>
+        <!-- Adicione mais itens conforme necessário -->
       </ul>
     </section>
   </main>
 
   <footer>
-    <p>© 2025 Cross Arise - Todos os direitos reservados</p>
+    <p>&copy; 2025 Solo Leveling RPG | Todos os direitos reservados</p>
   </footer>
 </body>
 </html>
