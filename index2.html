@@ -3,71 +3,71 @@
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1" name="viewport"/>
   <title>
-   RPG Anime - Mundo Imersivo
+   Cross Arise - Início
   </title>
   <script src="https://cdn.tailwindcss.com">
   </script>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&amp;family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&amp;family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"/>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
   <style>
    body {
       font-family: 'Roboto', sans-serif;
-      background-color: #0f172a;
-      color: #e0e7ff;
+      background: #0a0a0a;
+      color: #f0f0f0;
     }
-    h1, h2, h3 {
+    h1, h2, h3, h4, h5, h6 {
       font-family: 'Orbitron', sans-serif;
     }
-    /* Scrollbar for desktop */
+    /* Scrollbar for modern browsers */
     ::-webkit-scrollbar {
       width: 8px;
     }
     ::-webkit-scrollbar-track {
-      background: #1e293b;
+      background: #1a1a1a;
     }
     ::-webkit-scrollbar-thumb {
-      background-color: #6366f1;
+      background-color: #e03e36;
       border-radius: 10px;
-      border: 2px solid #1e293b;
+      border: 2px solid #1a1a1a;
     }
   </style>
  </head>
  <body class="min-h-screen flex flex-col">
   <!-- Navbar -->
-  <nav class="bg-gradient-to-r from-indigo-900 via-indigo-800 to-indigo-900 fixed w-full z-50 shadow-lg">
+  <nav class="bg-gradient-to-r from-[#e03e36] via-[#a72f2a] to-[#6a1b17] fixed w-full z-30 top-0 shadow-lg">
    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16">
-     <div class="flex items-center space-x-3">
-      <img alt="Logo do RPG anime com espada e escudo estilizados em azul e roxo" class="h-12 w-12 rounded-md" height="48" src="https://storage.googleapis.com/a1aa/image/994af1f5-231f-42ac-a109-23863f08192b.jpg" width="48"/>
-      <a class="text-2xl font-orbitron text-indigo-300 hover:text-indigo-100 transition" href="#inicio">
-       RPG Anime
-      </a>
-     </div>
-     <div class="hidden md:flex space-x-8 font-semibold text-indigo-200">
-      <a class="hover:text-indigo-100 transition" href="#inicio">
+     <a class="flex items-center space-x-2" href="index.html">
+      <img alt="Logo do Cross Arise, símbolo estilizado com espada e aura vermelha intensa" class="h-10 w-10 rounded-md" height="80" src="https://storage.googleapis.com/a1aa/image/50e868ba-d2ba-4d11-0250-5a5e58b93a1f.jpg" width="80"/>
+      <span class="text-white text-2xl font-orbitron tracking-wide select-none">
+       Cross Arise
+      </span>
+     </a>
+     <div class="hidden md:flex space-x-8 font-semibold text-[#f0f0f0]">
+      <a class="hover:text-[#e03e36] transition-colors duration-300 border-b-2 border-transparent hover:border-[#e03e36] py-2" href="index.html">
        Início
       </a>
-      <a class="hover:text-indigo-100 transition" href="#historia">
+      <a class="hover:text-[#e03e36] transition-colors duration-300 border-b-2 border-transparent hover:border-[#e03e36] py-2" href="historia.html">
        História
       </a>
-      <a class="hover:text-indigo-100 transition" href="#loja">
+      <a class="hover:text-[#e03e36] transition-colors duration-300 border-b-2 border-transparent hover:border-[#e03e36] py-2" href="loja.html">
        Loja
       </a>
-      <a class="hover:text-indigo-100 transition" href="#racas">
+      <a class="hover:text-[#e03e36] transition-colors duration-300 border-b-2 border-transparent hover:border-[#e03e36] py-2" href="racas.html">
        Raças
       </a>
-      <a class="hover:text-indigo-100 transition" href="#classes">
+      <a class="hover:text-[#e03e36] transition-colors duration-300 border-b-2 border-transparent hover:border-[#e03e36] py-2" href="classes.html">
        Classes
       </a>
-      <a class="hover:text-indigo-100 transition" href="#mapa">
+      <a class="hover:text-[#e03e36] transition-colors duration-300 border-b-2 border-transparent hover:border-[#e03e36] py-2" href="mapa.html">
        Mapa
       </a>
-      <a class="hover:text-indigo-100 transition" href="#sistemas">
+      <a class="hover:text-[#e03e36] transition-colors duration-300 border-b-2 border-transparent hover:border-[#e03e36] py-2" href="sistemas.html">
        Sistemas
       </a>
      </div>
      <div class="md:hidden">
-      <button aria-label="Abrir menu" class="text-indigo-300 hover:text-indigo-100 focus:outline-none focus:ring-2 focus:ring-indigo-400" id="menu-btn">
+      <button aria-label="Abrir menu" class="text-[#f0f0f0] hover:text-[#e03e36] focus:outline-none focus:ring-2 focus:ring-[#e03e36]" id="menu-btn">
        <i class="fas fa-bars fa-lg">
        </i>
       </button>
@@ -75,353 +75,180 @@
     </div>
    </div>
    <!-- Mobile menu -->
-   <div class="hidden md:hidden bg-indigo-900/95 backdrop-blur-sm" id="mobile-menu">
-    <a class="block px-6 py-3 border-b border-indigo-700 text-indigo-200 hover:bg-indigo-800 transition" href="#inicio">
+   <div class="hidden md:hidden bg-[#1a1a1a]/95 backdrop-blur-sm" id="mobile-menu">
+    <a class="block px-6 py-3 border-b border-[#6a1b17] text-[#f0f0f0] hover:bg-[#6a1b17] hover:text-[#e03e36] font-semibold" href="index.html">
      Início
     </a>
-    <a class="block px-6 py-3 border-b border-indigo-700 text-indigo-200 hover:bg-indigo-800 transition" href="#historia">
+    <a class="block px-6 py-3 border-b border-[#6a1b17] text-[#f0f0f0] hover:bg-[#6a1b17] hover:text-[#e03e36] font-semibold" href="historia.html">
      História
     </a>
-    <a class="block px-6 py-3 border-b border-indigo-700 text-indigo-200 hover:bg-indigo-800 transition" href="#loja">
+    <a class="block px-6 py-3 border-b border-[#6a1b17] text-[#f0f0f0] hover:bg-[#6a1b17] hover:text-[#e03e36] font-semibold" href="loja.html">
      Loja
     </a>
-    <a class="block px-6 py-3 border-b border-indigo-700 text-indigo-200 hover:bg-indigo-800 transition" href="#racas">
+    <a class="block px-6 py-3 border-b border-[#6a1b17] text-[#f0f0f0] hover:bg-[#6a1b17] hover:text-[#e03e36] font-semibold" href="racas.html">
      Raças
     </a>
-    <a class="block px-6 py-3 border-b border-indigo-700 text-indigo-200 hover:bg-indigo-800 transition" href="#classes">
+    <a class="block px-6 py-3 border-b border-[#6a1b17] text-[#f0f0f0] hover:bg-[#6a1b17] hover:text-[#e03e36] font-semibold" href="classes.html">
      Classes
     </a>
-    <a class="block px-6 py-3 border-b border-indigo-700 text-indigo-200 hover:bg-indigo-800 transition" href="#mapa">
+    <a class="block px-6 py-3 border-b border-[#6a1b17] text-[#f0f0f0] hover:bg-[#6a1b17] hover:text-[#e03e36] font-semibold" href="mapa.html">
      Mapa
     </a>
-    <a class="block px-6 py-3 text-indigo-200 hover:bg-indigo-800 transition" href="#sistemas">
+    <a class="block px-6 py-3 text-[#f0f0f0] hover:bg-[#6a1b17] hover:text-[#e03e36] font-semibold" href="sistemas.html">
      Sistemas
     </a>
    </div>
   </nav>
-  <main class="flex-grow pt-16">
-   <!-- Início -->
-   <section class="relative bg-gradient-to-b from-indigo-900 via-indigo-800 to-indigo-900 min-h-[90vh] flex flex-col justify-center items-center text-center px-6 sm:px-12" id="inicio">
-    <h1 class="text-5xl sm:text-6xl font-orbitron text-indigo-300 drop-shadow-lg mb-6">
-     Bem-vindo ao Mundo do RPG Anime
+  <!-- Hero Banner -->
+  <header class="relative mt-16 w-full max-w-full overflow-hidden">
+   <!-- COLOQUE AQUI A IMAGEM DO BANNER - Substitua o src abaixo pela URL da sua imagem -->
+   <img alt="Banner do Cross Arise - imagem personalizada do herói anime com armadura vermelha brilhante e espada flamejante em cenário épico" class="w-full h-auto object-cover max-h-[40vh] sm:max-h-[60vh] md:max-h-[70vh] lg:max-h-[80vh]" decoding="async" height="700" loading="eager" src="https://storage.googleapis.com/a1aa/image/c39ea396-09e7-488b-2a94-33ce428ea449.jpg" width="1920"/>
+   <div aria-hidden="true" class="absolute inset-0 bg-gradient-to-t from-[#6a1b17] via-transparent to-transparent flex flex-col justify-end p-6 sm:p-12 lg:p-20">
+    <h1 class="text-4xl sm:text-5xl md:text-6xl font-orbitron font-extrabold text-white drop-shadow-lg max-w-3xl leading-tight">
+     Bem-vindo ao
+     <span class="text-[#e03e36]">
+      Cross Arise
+     </span>
     </h1>
-    <p class="max-w-3xl text-indigo-200 text-lg sm:text-xl mb-10 leading-relaxed">
-     Mergulhe em uma aventura épica, onde raças místicas, classes poderosas e sistemas inovadores se unem para criar uma experiência imersiva e inesquecível.
+    <p class="mt-4 max-w-xl text-[#f0b1aa] text-lg sm:text-xl drop-shadow-md">
+     Mergulhe em um mundo épico de aventuras, raças fantásticas e batalhas lendárias.
     </p>
-    <a class="inline-flex items-center px-8 py-4 bg-indigo-600 hover:bg-indigo-700 rounded-lg text-white font-semibold text-lg shadow-lg transition" href="#historia">
-     Começar a Jornada
+    <a class="mt-8 inline-flex items-center px-6 py-3 bg-[#e03e36] hover:bg-[#b32a23] active:bg-[#8a201a] rounded-full text-white font-semibold text-lg shadow-lg transition" href="#explore">
+     Explorar Início
      <i class="fas fa-arrow-right ml-3">
      </i>
     </a>
-    <img alt="Grupo de heróis de anime em batalha épica com magias e espadas brilhando em um cenário fantástico" class="mt-12 rounded-lg shadow-2xl w-full max-w-4xl object-cover" height="400" src="https://storage.googleapis.com/a1aa/image/761834ef-4051-48e6-910f-e7bddbf793a2.jpg" width="600"/>
-   </section>
-   <!-- História -->
-   <section class="bg-indigo-800 py-16 px-6 sm:px-12" id="historia">
-    <div class="max-w-6xl mx-auto">
-     <h2 class="text-4xl font-orbitron text-indigo-300 mb-8 text-center">
-      História
-     </h2>
-     <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-      <img alt="Ruínas antigas com símbolos místicos e personagens de anime explorando com lanternas e armas" class="rounded-lg shadow-lg object-cover w-full" height="400" src="https://storage.googleapis.com/a1aa/image/98d097ce-4f7a-4329-752e-5df4e40dfd46.jpg" width="600"/>
-      <div class="text-indigo-200 text-lg leading-relaxed space-y-6">
-       <p>
-        Em um mundo onde a magia e a tecnologia coexistem, antigas profecias despertam forças esquecidas. As raças ancestrais lutam para proteger seus segredos enquanto novas alianças são forjadas.
-       </p>
-       <p>
-        Descubra a origem dos conflitos, as lendas dos heróis e os mistérios que moldam o destino deste universo anime repleto de emoção e aventura.
-       </p>
-       <p>
-        Cada capítulo da história é uma peça fundamental para entender o poder que você pode controlar e os desafios que enfrentará.
-       </p>
-      </div>
+   </div>
+  </header>
+  <!-- Main Content -->
+  <main class="flex-grow max-w-7xl mx-auto px-6 sm:px-12 py-12 space-y-16" id="explore">
+   <!-- Destaques Início -->
+   <section aria-label="Destaques do Cross Arise" class="grid grid-cols-1 md:grid-cols-3 gap-10">
+    <article class="bg-[#1a1a1a] rounded-2xl shadow-lg overflow-hidden hover:scale-[1.03] transition-transform duration-300 border border-[#e03e36]">
+     <!-- COLOQUE AQUI A IMAGEM DA HISTÓRIA - Substitua o src abaixo pela URL da sua imagem -->
+     <img alt="Ilustração épica de castelo antigo em ruínas com dragões voando ao fundo, representando a história do Cross Arise" class="w-full h-48 object-cover" decoding="async" height="400" loading="lazy" src="https://storage.googleapis.com/a1aa/image/f4822e51-7b6a-4333-0f72-8d5125dcae4c.jpg" width="600"/>
+     <div class="p-6">
+      <h2 class="text-2xl font-orbitron font-bold text-[#e03e36] mb-2">
+       História
+      </h2>
+      <p class="text-[#f0b1aa] mb-4">
+       Descubra as origens do mundo, as lendas dos heróis e os segredos que moldaram este universo.
+      </p>
+      <a aria-label="Ir para a página História" class="inline-block text-[#e03e36] hover:text-[#b32a23] font-semibold transition-colors" href="historia.html">
+       Saiba mais
+       <i class="fas fa-book-open ml-2">
+       </i>
+      </a>
      </div>
-    </div>
-   </section>
-   <!-- Loja -->
-   <section class="bg-indigo-900 py-16 px-6 sm:px-12" id="loja">
-    <div class="max-w-7xl mx-auto">
-     <h2 class="text-4xl font-orbitron text-indigo-300 mb-10 text-center">
-      Loja
-     </h2>
-     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-      <div class="bg-indigo-800 rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
-       <img alt="Espada lendária com runas brilhantes em uma empunhadura ornamentada, estilo anime" class="w-full h-48 object-cover" height="300" src="https://storage.googleapis.com/a1aa/image/9477d3ca-c519-43fe-9c5a-f91d13e90621.jpg" width="400"/>
-       <div class="p-4 text-indigo-200">
-        <h3 class="text-xl font-semibold mb-2">
-         Espada Lendária
-        </h3>
-        <p class="text-sm mb-4">
-         Uma espada antiga com poderes místicos que aumentam a força do portador.
-        </p>
-        <button class="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-2 rounded font-semibold transition">
-         Comprar
-        </button>
-       </div>
-      </div>
-      <div class="bg-indigo-800 rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
-       <img alt="Armadura de dragão escamosa com brilho azul, estilo anime, detalhada e imponente" class="w-full h-48 object-cover" height="300" src="https://storage.googleapis.com/a1aa/image/fd7f54e6-d39a-4910-953a-107a8371af8f.jpg" width="400"/>
-       <div class="p-4 text-indigo-200">
-        <h3 class="text-xl font-semibold mb-2">
-         Armadura de Dragão
-        </h3>
-        <p class="text-sm mb-4">
-         Proteção máxima com escamas de dragão, resistente a ataques mágicos e físicos.
-        </p>
-        <button class="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-2 rounded font-semibold transition">
-         Comprar
-        </button>
-       </div>
-      </div>
-      <div class="bg-indigo-800 rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
-       <img alt="Poção de mana azul brilhante em frasco de vidro com detalhes dourados, estilo anime" class="w-full h-48 object-cover" height="300" src="https://storage.googleapis.com/a1aa/image/f134d8ea-7608-49e3-9bad-b59d6bc2a702.jpg" width="400"/>
-       <div class="p-4 text-indigo-200">
-        <h3 class="text-xl font-semibold mb-2">
-         Poção de Mana
-        </h3>
-        <p class="text-sm mb-4">
-         Restaura instantaneamente a energia mágica para lançar feitiços poderosos.
-        </p>
-        <button class="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-2 rounded font-semibold transition">
-         Comprar
-        </button>
-       </div>
-      </div>
-      <div class="bg-indigo-800 rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
-       <img alt="Arco élfico com flechas luminosas, detalhes em prata e verde, estilo anime" class="w-full h-48 object-cover" height="300" src="https://storage.googleapis.com/a1aa/image/06820a59-78dc-4ffa-1257-fcdbf339d3ae.jpg" width="400"/>
-       <div class="p-4 text-indigo-200">
-        <h3 class="text-xl font-semibold mb-2">
-         Arco Élfico
-        </h3>
-        <p class="text-sm mb-4">
-         Precisão e agilidade para ataques à distância com flechas encantadas.
-        </p>
-        <button class="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-2 rounded font-semibold transition">
-         Comprar
-        </button>
-       </div>
-      </div>
-      <div class="bg-indigo-800 rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
-       <img alt="Livro de feitiços antigo com capa de couro marrom e símbolos mágicos dourados, estilo anime" class="w-full h-48 object-cover" height="300" src="https://storage.googleapis.com/a1aa/image/8b1165dc-a862-49c2-1cf2-c3a6d92aec61.jpg" width="400"/>
-       <div class="p-4 text-indigo-200">
-        <h3 class="text-xl font-semibold mb-2">
-         Livro de Feitiços
-        </h3>
-        <p class="text-sm mb-4">
-         Contém magias poderosas para magos e feiticeiros em treinamento.
-        </p>
-        <button class="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-2 rounded font-semibold transition">
-         Comprar
-        </button>
-       </div>
-      </div>
-      <div class="bg-indigo-800 rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
-       <img alt="Elmo de guerreiro com chifres decorativos e detalhes metálicos, estilo anime" class="w-full h-48 object-cover" height="300" src="https://storage.googleapis.com/a1aa/image/d42edaef-fedd-4d9b-7102-1895cf15da61.jpg" width="400"/>
-       <div class="p-4 text-indigo-200">
-        <h3 class="text-xl font-semibold mb-2">
-         Elmo de Guerreiro
-        </h3>
-        <p class="text-sm mb-4">
-         Proteção para a cabeça com design intimidante para batalhas ferozes.
-        </p>
-        <button class="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-2 rounded font-semibold transition">
-         Comprar
-        </button>
-       </div>
-      </div>
+    </article>
+    <article class="bg-[#1a1a1a] rounded-2xl shadow-lg overflow-hidden hover:scale-[1.03] transition-transform duration-300 border border-[#e03e36]">
+     <!-- COLOQUE AQUI A IMAGEM DA LOJA - Substitua o src abaixo pela URL da sua imagem -->
+     <img alt="Exposição de armas e itens mágicos brilhantes, representando a loja do Cross Arise" class="w-full h-48 object-cover" decoding="async" height="400" loading="lazy" src="https://storage.googleapis.com/a1aa/image/e5093367-f6e8-4c1c-d394-23f97fa2c9df.jpg" width="600"/>
+     <div class="p-6">
+      <h2 class="text-2xl font-orbitron font-bold text-[#e03e36] mb-2">
+       Loja
+      </h2>
+      <p class="text-[#f0b1aa] mb-4">
+       Equipe seu personagem com armas, armaduras e artefatos mágicos para dominar as batalhas.
+      </p>
+      <a aria-label="Ir para a página Loja" class="inline-block text-[#e03e36] hover:text-[#b32a23] font-semibold transition-colors" href="loja.html">
+       Visite a loja
+       <i class="fas fa-shopping-cart ml-2">
+       </i>
+      </a>
      </div>
-    </div>
-   </section>
-   <!-- Raças -->
-   <section class="bg-indigo-800 py-16 px-6 sm:px-12" id="racas">
-    <div class="max-w-7xl mx-auto">
-     <h2 class="text-4xl font-orbitron text-indigo-300 mb-10 text-center">
-      Raças
-     </h2>
-     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
-      <div class="bg-indigo-900 rounded-xl shadow-lg p-6 flex flex-col items-center text-center hover:scale-105 transform transition duration-300">
-       <img alt="Elfo místico com orelhas pontudas, olhos verdes brilhantes e roupas elegantes estilo anime" class="w-40 h-40 rounded-full object-cover mb-4 border-4 border-indigo-600" height="200" src="https://storage.googleapis.com/a1aa/image/afa94296-0cd2-4a67-1b5e-e7983fb37230.jpg" width="200"/>
-       <h3 class="text-2xl font-semibold text-indigo-300 mb-2">
-        Elfos
-       </h3>
-       <p class="text-indigo-200 text-sm">
-        Seres ágeis e sábios, com afinidade natural para magia e conexão com a natureza.
-       </p>
-      </div>
-      <div class="bg-indigo-900 rounded-xl shadow-lg p-6 flex flex-col items-center text-center hover:scale-105 transform transition duration-300">
-       <img alt="Anão robusto com barba longa e armadura pesada, estilo anime, expressão determinada" class="w-40 h-40 rounded-full object-cover mb-4 border-4 border-indigo-600" height="200" src="https://storage.googleapis.com/a1aa/image/5ab5bd09-41f6-43d5-222a-9b6d16a5dca7.jpg" width="200"/>
-       <h3 class="text-2xl font-semibold text-indigo-300 mb-2">
-        Anões
-       </h3>
-       <p class="text-indigo-200 text-sm">
-        Mestres ferreiros e guerreiros resistentes, conhecidos por sua força e coragem.
-       </p>
-      </div>
-      <div class="bg-indigo-900 rounded-xl shadow-lg p-6 flex flex-col items-center text-center hover:scale-105 transform transition duration-300">
-       <img alt="Humano versátil com capa e espada curta, estilo anime, olhar confiante" class="w-40 h-40 rounded-full object-cover mb-4 border-4 border-indigo-600" height="200" src="https://storage.googleapis.com/a1aa/image/f0496ccf-3d4a-4a9d-d8d5-764a624918c8.jpg" width="200"/>
-       <h3 class="text-2xl font-semibold text-indigo-300 mb-2">
-        Humanos
-       </h3>
-       <p class="text-indigo-200 text-sm">
-        Adaptáveis e determinados, com grande potencial para qualquer caminho ou classe.
-       </p>
-      </div>
-      <div class="bg-indigo-900 rounded-xl shadow-lg p-6 flex flex-col items-center text-center hover:scale-105 transform transition duration-300">
-       <img alt="Demônio sombrio com chifres e olhos vermelhos brilhantes, estilo anime, expressão ameaçadora" class="w-40 h-40 rounded-full object-cover mb-4 border-4 border-indigo-600" height="200" src="https://storage.googleapis.com/a1aa/image/cef5a857-f734-4780-b995-36f9a46e8edf.jpg" width="200"/>
-       <h3 class="text-2xl font-semibold text-indigo-300 mb-2">
-        Demônios
-       </h3>
-       <p class="text-indigo-200 text-sm">
-        Criaturas poderosas das sombras, com habilidades únicas e força sobrenatural.
-       </p>
-      </div>
-      <div class="bg-indigo-900 rounded-xl shadow-lg p-6 flex flex-col items-center text-center hover:scale-105 transform transition duration-300">
-       <img alt="Dragão humanoide com escamas azuis e asas abertas, estilo anime, postura imponente" class="w-40 h-40 rounded-full object-cover mb-4 border-4 border-indigo-600" height="200" src="https://storage.googleapis.com/a1aa/image/edd1b938-7a5b-409a-ef48-7d9c33317ce9.jpg" width="200"/>
-       <h3 class="text-2xl font-semibold text-indigo-300 mb-2">
-        Draconianos
-       </h3>
-       <p class="text-indigo-200 text-sm">
-        Guerreiros dracônicos com força e resistência excepcionais, capazes de voar e cuspir fogo.
-       </p>
-      </div>
-      <div class="bg-indigo-900 rounded-xl shadow-lg p-6 flex flex-col items-center text-center hover:scale-105 transform transition duration-300">
-       <img alt="Fada luminosa com asas translúcidas e aura brilhante, estilo anime, expressão alegre" class="w-40 h-40 rounded-full object-cover mb-4 border-4 border-indigo-600" height="200" src="https://storage.googleapis.com/a1aa/image/ecd94c74-5fdc-487b-d1bc-e829ecaad630.jpg" width="200"/>
-       <h3 class="text-2xl font-semibold text-indigo-300 mb-2">
-        Fadas
-       </h3>
-       <p class="text-indigo-200 text-sm">
-        Pequenas e mágicas, com poderes de cura e manipulação da luz.
-       </p>
-      </div>
+    </article>
+    <article class="bg-[#1a1a1a] rounded-2xl shadow-lg overflow-hidden hover:scale-[1.03] transition-transform duration-300 border border-[#e03e36]">
+     <!-- COLOQUE AQUI A IMAGEM DAS RAÇAS - Substitua o src abaixo pela URL da sua imagem -->
+     <img alt="Criaturas fantásticas e diversas em cenário vibrante, representando as raças do Cross Arise" class="w-full h-48 object-cover" decoding="async" height="400" loading="lazy" src="https://storage.googleapis.com/a1aa/image/bf8e1939-4fd0-48dd-3dab-45ccab17f12c.jpg" width="600"/>
+     <div class="p-6">
+      <h2 class="text-2xl font-orbitron font-bold text-[#e03e36] mb-2">
+       Raças
+      </h2>
+      <p class="text-[#f0b1aa] mb-4">
+       Explore as diferentes raças, desde humanos até seres místicos, cada uma com suas habilidades únicas.
+      </p>
+      <a aria-label="Ir para a página Raças" class="inline-block text-[#e03e36] hover:text-[#b32a23] font-semibold transition-colors" href="racas.html">
+       Conheça as raças
+       <i class="fas fa-users ml-2">
+       </i>
+      </a>
      </div>
-    </div>
+    </article>
    </section>
-   <!-- Classes -->
-   <section class="bg-indigo-900 py-16 px-6 sm:px-12" id="classes">
-    <div class="max-w-7xl mx-auto">
-     <h2 class="text-4xl font-orbitron text-indigo-300 mb-10 text-center">
-      Classes
-     </h2>
-     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
-      <div class="bg-indigo-800 rounded-xl shadow-lg p-6 hover:scale-105 transform transition duration-300">
-       <img alt="Samurai com armadura tradicional japonesa e katana em posição de combate, estilo anime" class="w-full h-40 object-cover rounded-md mb-4" height="250" src="https://storage.googleapis.com/a1aa/image/2d3f9a03-3d5f-4f8b-b901-c8ca035f87b4.jpg" width="400"/>
-       <h3 class="text-2xl font-semibold text-indigo-300 mb-2">
-        Samurai
-       </h3>
-       <p class="text-indigo-200 text-sm">
-        Guerreiros disciplinados com habilidades excepcionais em combate corpo a corpo e honra inabalável.
-       </p>
-      </div>
-      <div class="bg-indigo-800 rounded-xl shadow-lg p-6 hover:scale-105 transform transition duration-300">
-       <img alt="Mago com roupas místicas e cajado luminoso conjurando magia, estilo anime" class="w-full h-40 object-cover rounded-md mb-4" height="250" src="https://storage.googleapis.com/a1aa/image/d518599f-e826-4f16-bcbe-038a900aa8d3.jpg" width="400"/>
-       <h3 class="text-2xl font-semibold text-indigo-300 mb-2">
-        Mago
-       </h3>
-       <p class="text-indigo-200 text-sm">
-        Mestres das artes arcanas, capazes de manipular elementos e lançar feitiços devastadores.
-       </p>
-      </div>
-      <div class="bg-indigo-800 rounded-xl shadow-lg p-6 hover:scale-105 transform transition duration-300">
-       <img alt="Assassino com capuz e adagas ocultas, em pose furtiva, estilo anime" class="w-full h-40 object-cover rounded-md mb-4" height="250" src="https://storage.googleapis.com/a1aa/image/1ae51def-b733-4101-1e68-aa74b084aaa3.jpg" width="400"/>
-       <h3 class="text-2xl font-semibold text-indigo-300 mb-2">
-        Assassino
-       </h3>
-       <p class="text-indigo-200 text-sm">
-        Especialistas em furtividade e ataques rápidos, eliminando inimigos antes que percebam.
-       </p>
-      </div>
-      <div class="bg-indigo-800 rounded-xl shadow-lg p-6 hover:scale-105 transform transition duration-300">
-       <img alt="Arqueiro com arco longo e flechas encantadas, mirando no alvo, estilo anime" class="w-full h-40 object-cover rounded-md mb-4" height="250" src="https://storage.googleapis.com/a1aa/image/b1ec9c5f-4cfc-4bce-c195-a4ed01395286.jpg" width="400"/>
-       <h3 class="text-2xl font-semibold text-indigo-300 mb-2">
-        Arqueiro
-       </h3>
-       <p class="text-indigo-200 text-sm">
-        Atiradores precisos que dominam ataques à distância com rapidez e agilidade.
-       </p>
-      </div>
-      <div class="bg-indigo-800 rounded-xl shadow-lg p-6 hover:scale-105 transform transition duration-300">
-       <img alt="Clérigo com armadura leve e símbolo sagrado brilhante, estilo anime" class="w-full h-40 object-cover rounded-md mb-4" height="250" src="https://storage.googleapis.com/a1aa/image/d4a67d49-c12b-4454-e78e-753114e584b3.jpg" width="400"/>
-       <h3 class="text-2xl font-semibold text-indigo-300 mb-2">
-        Clérigo
-       </h3>
-       <p class="text-indigo-200 text-sm">
-        Curandeiros e protetores que utilizam poderes divinos para apoiar aliados e repelir o mal.
-       </p>
-      </div>
-      <div class="bg-indigo-800 rounded-xl shadow-lg p-6 hover:scale-105 transform transition duration-300">
-       <img alt="Berserker com machado gigante e expressão furiosa, estilo anime" class="w-full h-40 object-cover rounded-md mb-4" height="250" src="https://storage.googleapis.com/a1aa/image/c6054899-079e-4a55-0b25-4c9f309eef7d.jpg" width="400"/>
-       <h3 class="text-2xl font-semibold text-indigo-300 mb-2">
-        Berserker
-       </h3>
-       <p class="text-indigo-200 text-sm">
-        Guerreiros selvagens que entram em fúria, aumentando força e resistência em combate.
-       </p>
-      </div>
+   <!-- Classes & Mapa & Sistemas -->
+   <section aria-label="Classes, Mapa e Sistemas do Cross Arise" class="grid grid-cols-1 md:grid-cols-3 gap-10">
+    <article class="bg-[#1a1a1a] rounded-2xl shadow-lg overflow-hidden hover:scale-[1.03] transition-transform duration-300 border border-[#e03e36]">
+     <!-- COLOQUE AQUI A IMAGEM DAS CLASSES - Substitua o src abaixo pela URL da sua imagem -->
+     <img alt="Personagens com armaduras e habilidades diversas, representando as classes do Cross Arise" class="w-full h-48 object-cover" decoding="async" height="400" loading="lazy" src="https://storage.googleapis.com/a1aa/image/63c01273-1fe3-4ff1-74f1-b203d7450862.jpg" width="600"/>
+     <div class="p-6">
+      <h2 class="text-2xl font-orbitron font-bold text-[#e03e36] mb-2">
+       Classes
+      </h2>
+      <p class="text-[#f0b1aa] mb-4">
+       Escolha entre guerreiros, magos, arqueiros e outras classes para definir seu estilo de jogo.
+      </p>
+      <a aria-label="Ir para a página Classes" class="inline-block text-[#e03e36] hover:text-[#b32a23] font-semibold transition-colors" href="classes.html">
+       Veja as classes
+       <i class="fas fa-chess-knight ml-2">
+       </i>
+      </a>
      </div>
-    </div>
-   </section>
-   <!-- Mapa -->
-   <section class="bg-indigo-800 py-16 px-6 sm:px-12" id="mapa">
-    <div class="max-w-7xl mx-auto text-center">
-     <h2 class="text-4xl font-orbitron text-indigo-300 mb-10">
-      Mapa do Mundo
-     </h2>
-     <p class="text-indigo-200 max-w-3xl mx-auto mb-12 text-lg leading-relaxed">
-      Explore o vasto mundo do RPG Anime, desde florestas encantadas até montanhas geladas e cidades vibrantes. Cada região possui desafios únicos e segredos a serem descobertos.
-     </p>
-     <img alt="Mapa fantástico do mundo do RPG anime mostrando florestas, montanhas, rios, cidades e territórios diversos em estilo anime" class="mx-auto rounded-lg shadow-2xl w-full max-w-5xl object-cover" height="500" src="https://storage.googleapis.com/a1aa/image/0492fb09-8171-429a-e355-5d33151ba374.jpg" width="900"/>
-    </div>
-   </section>
-   <!-- Sistemas -->
-   <section class="bg-indigo-900 py-16 px-6 sm:px-12" id="sistemas">
-    <div class="max-w-7xl mx-auto">
-     <h2 class="text-4xl font-orbitron text-indigo-300 mb-10 text-center">
-      Sistemas
-     </h2>
-     <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-      <div class="bg-indigo-800 rounded-xl shadow-lg p-6 hover:shadow-indigo-600 transition-shadow duration-300">
-       <div class="flex items-center justify-center mb-6 text-indigo-400 text-5xl">
-        <i class="fas fa-dice-d20">
-        </i>
-       </div>
-       <h3 class="text-2xl font-semibold text-indigo-300 mb-4 text-center">
-        Sistema de Combate
-       </h3>
-       <p class="text-indigo-200 text-sm leading-relaxed">
-        Combates dinâmicos e estratégicos com rolagem de dados, habilidades especiais e combos únicos para cada classe.
-       </p>
-      </div>
-      <div class="bg-indigo-800 rounded-xl shadow-lg p-6 hover:shadow-indigo-600 transition-shadow duration-300">
-       <div class="flex items-center justify-center mb-6 text-indigo-400 text-5xl">
-        <i class="fas fa-users">
-        </i>
-       </div>
-       <h3 class="text-2xl font-semibold text-indigo-300 mb-4 text-center">
-        Sistema de Alianças
-       </h3>
-       <p class="text-indigo-200 text-sm leading-relaxed">
-        Forme grupos, crie guildas e participe de eventos cooperativos para conquistar territórios e recompensas exclusivas.
-       </p>
-      </div>
-      <div class="bg-indigo-800 rounded-xl shadow-lg p-6 hover:shadow-indigo-600 transition-shadow duration-300">
-       <div class="flex items-center justify-center mb-6 text-indigo-400 text-5xl">
-        <i class="fas fa-scroll">
-        </i>
-       </div>
-       <h3 class="text-2xl font-semibold text-indigo-300 mb-4 text-center">
-        Sistema de Progressão
-       </h3>
-       <p class="text-indigo-200 text-sm leading-relaxed">
-        Evolua seu personagem com níveis, talentos, equipamentos e missões que expandem sua história e poder.
-       </p>
-      </div>
+    </article>
+    <article class="bg-[#1a1a1a] rounded-2xl shadow-lg overflow-hidden hover:scale-[1.03] transition-transform duration-300 border border-[#e03e36]">
+     <!-- COLOQUE AQUI A IMAGEM DO MAPA - Substitua o src abaixo pela URL da sua imagem -->
+     <img alt="Mapa fantástico com montanhas, florestas e cidades luminosas, representando o mapa do Cross Arise" class="w-full h-48 object-cover" decoding="async" height="400" loading="lazy" src="https://storage.googleapis.com/a1aa/image/24ac7e2b-c175-4376-de43-a1e9a82484e1.jpg" width="600"/>
+     <div class="p-6">
+      <h2 class="text-2xl font-orbitron font-bold text-[#e03e36] mb-2">
+       Mapa
+      </h2>
+      <p class="text-[#f0b1aa] mb-4">
+       Navegue pelo vasto mundo do RPG, descubra locais secretos e planeje suas aventuras.
+      </p>
+      <a aria-label="Ir para a página Mapa" class="inline-block text-[#e03e36] hover:text-[#b32a23] font-semibold transition-colors" href="mapa.html">
+       Explore o mapa
+       <i class="fas fa-map-marked-alt ml-2">
+       </i>
+      </a>
      </div>
-    </div>
+    </article>
+    <article class="bg-[#1a1a1a] rounded-2xl shadow-lg overflow-hidden hover:scale-[1.03] transition-transform duration-300 border border-[#e03e36]">
+     <!-- COLOQUE AQUI A IMAGEM DOS SISTEMAS - Substitua o src abaixo pela URL da sua imagem -->
+     <img alt="Interface de combate e magia com efeitos visuais, representando os sistemas do Cross Arise" class="w-full h-48 object-cover" decoding="async" height="400" loading="lazy" src="https://storage.googleapis.com/a1aa/image/26cbc6b9-b19e-41f3-1646-9c1ba9d60625.jpg" width="600"/>
+     <div class="p-6">
+      <h2 class="text-2xl font-orbitron font-bold text-[#e03e36] mb-2">
+       Sistemas
+      </h2>
+      <p class="text-[#f0b1aa] mb-4">
+       Conheça as mecânicas de combate, magia, evolução e muito mais para dominar o jogo.
+      </p>
+      <a aria-label="Ir para a página Sistemas" class="inline-block text-[#e03e36] hover:text-[#b32a23] font-semibold transition-colors" href="sistemas.html">
+       Saiba mais
+       <i class="fas fa-cogs ml-2">
+       </i>
+      </a>
+     </div>
+    </article>
+   </section>
+   <!-- Botão Retorna ao Login -->
+   <section class="flex justify-center mt-12">
+    <a aria-label="Retornar ao Login" class="inline-flex items-center px-8 py-4 bg-[#e03e36] hover:bg-[#b32a23] active:bg-[#8a201a] rounded-full text-white font-orbitron font-bold text-xl shadow-lg transition" href="index.html">
+     <i class="fas fa-sign-in-alt mr-3">
+     </i>
+     Retorna ao Login
+    </a>
    </section>
   </main>
   <!-- Footer -->
-  <footer class="bg-indigo-900 text-indigo-300 py-8 text-center text-sm select-none">
-   <p>
-    © 2024 RPG Anime. Todos os direitos reservados.
+  <footer class="bg-[#6a1b17] text-[#f0b1aa] text-center py-8 mt-16 select-none">
+   <p class="text-sm sm:text-base">
+    © 2024 Cross Arise. Todos os direitos reservados.
+   </p>
+   <p class="mt-2 text-xs sm:text-sm">
+    Desenvolvido com
+    <i class="fas fa-heart text-red-600 mx-1">
+    </i>
+    por Italo.
    </p>
   </footer>
   <script>
@@ -430,12 +257,16 @@
 
     menuBtn.addEventListener('click', () => {
       mobileMenu.classList.toggle('hidden');
+      menuBtn.querySelector('i').classList.toggle('fa-bars');
+      menuBtn.querySelector('i').classList.toggle('fa-times');
     });
 
     // Close mobile menu on link click
     mobileMenu.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         mobileMenu.classList.add('hidden');
+        menuBtn.querySelector('i').classList.add('fa-bars');
+        menuBtn.querySelector('i').classList.remove('fa-times');
       });
     });
   </script>
