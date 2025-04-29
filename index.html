@@ -502,6 +502,7 @@
 
     // Load characters from localStorage or default
     function loadCharacters() {
+      // Try to load from localStorage first
       const stored = localStorage.getItem(STORAGE_KEY);
       if (stored) {
         try {
@@ -528,19 +529,45 @@
       }
     }
 
-    // Save characters to localStorage and sync to server if available
-    function saveCharacters() {
+    // Save characters to localStorage and sync to remote storage (using GitHub Gist as example)
+    async function saveCharacters() {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(characters));
-      // Attempt to sync with server if available
-      if (window.fetch && window.location.hostname !== "localhost" && window.location.hostname !== "") {
-        // Replace with your real API endpoint if you have one
-        // For demo, no real server, so no sync
+      // Sync to remote storage for global access
+      try {
+        // Replace this URL with your own backend or storage API endpoint
+        // This example uses a public JSON storage service (jsonbin.io) or similar
+        // For demonstration, no real server is used here.
+        // You must implement your own backend to persist data globally.
         // Example:
-        // fetch('https://your-api.com/saveCharacters', {
+        // await fetch('https://your-backend.com/api/save', {
         //   method: 'POST',
         //   headers: { 'Content-Type': 'application/json' },
         //   body: JSON.stringify(characters)
         // });
+      } catch (error) {
+        console.warn("Não foi possível sincronizar com o servidor:", error);
+      }
+    }
+
+    // Load characters from remote storage (if available)
+    async function loadCharactersRemote() {
+      try {
+        // Replace this URL with your own backend or storage API endpoint
+        // For demonstration, no real server is used here.
+        // Example:
+        // const response = await fetch('https://your-backend.com/api/load');
+        // if (response.ok) {
+        //   const data = await response.json();
+        //   if (data) {
+        //     characters = data;
+        //     saveCharacters(); // Save locally as well
+        //     return true;
+        //   }
+        // }
+        return false;
+      } catch (error) {
+        console.warn("Não foi possível carregar dados do servidor:", error);
+        return false;
       }
     }
 
@@ -771,7 +798,7 @@
     }
 
     // Save character from edit form
-    function saveCharacterFromForm(e) {
+    async function saveCharacterFromForm(e) {
       e.preventDefault();
 
       const name = editName.value.trim();
@@ -939,8 +966,15 @@
     deleteCharacterBtn.addEventListener("click", deleteCharacter);
 
     // Initialize app
-    loadCharacters();
-    showLogin();
+    // Try to load remote data first, fallback to localStorage
+    async function initializeApp() {
+      // Attempt to load remote data (replace with your backend API)
+      // For demo, no real backend, so just load local
+      loadCharacters();
+      showLogin();
+    }
+    initializeApp();
+
   </script>
  </body>
 </html>
