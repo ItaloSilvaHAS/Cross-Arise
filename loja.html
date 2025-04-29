@@ -3,1551 +3,607 @@
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1" name="viewport"/>
   <title>
-   Loja - Cross Arise RPG
+   Loja Cross Arise
   </title>
   <script src="https://cdn.tailwindcss.com">
   </script>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&amp;family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"/>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&amp;family=Roboto&amp;display=swap" rel="stylesheet"/>
   <style>
    body {
-      font-family: "Roboto", sans-serif;
-      background: #121212;
-      color: #f0f0f0;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
+      font-family: 'Roboto', sans-serif;
+      background-color: #1a0a0a;
+      color: #f9f9f9;
     }
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      font-family: "Orbitron", sans-serif;
+    h1, h2, h3 {
+      font-family: 'Orbitron', sans-serif;
     }
-    a {
-      color: #e03e36;
-      transition: color 0.3s;
+    /* Scrollbar for cart */
+    #cartItems::-webkit-scrollbar {
+      width: 8px;
     }
-    a:hover {
-      color: #b32a23;
-    }
-    header {
-      background: #2e2e2e;
-      padding: 1.5rem 1rem;
-      text-align: center;
-      border-bottom: 3px solid #6a1b17;
-      box-shadow: 0 4px 8px rgb(224 62 54 / 0.5);
-      position: sticky;
-      top: 0;
-      z-index: 50;
-    }
-    header h1 {
-      color: #e03e36;
-      font-size: 2.75rem;
-      letter-spacing: 0.05em;
-      text-shadow: 0 0 8px #e03e36;
-    }
-    nav a {
-      font-size: 1.25rem;
-      margin-top: 1rem;
-      display: inline-block;
-      font-weight: 700;
-      text-shadow: 0 0 6px #b32a23;
-    }
-    nav a:hover {
-      color: #ff4c3b;
-      text-shadow: 0 0 12px #ff4c3b;
-    }
-    main.store {
-      padding: 3rem 1rem 4rem;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-    section {
-      margin-bottom: 3rem;
-      background: rgba(255, 255, 255, 0.05);
-      padding: 2rem 2rem 2.5rem;
-      border-radius: 15px;
-      box-shadow: 0 0 25px rgba(224, 62, 54, 0.6);
-      border: 1px solid #6a1b17;
-    }
-    section h2 {
-      color: #e03e36;
-      font-size: 2.5rem;
-      margin-bottom: 2rem;
-      text-transform: uppercase;
-      font-weight: 900;
-      letter-spacing: 0.1em;
-      text-align: center;
-      text-shadow: 0 0 10px #e03e36;
-    }
-    ul {
-      list-style: none;
-      padding-left: 0;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 1.5rem 2rem;
-    }
-    li {
-      background: rgba(255, 255, 255, 0.1);
-      padding: 1rem 1rem 1rem 1rem;
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      transition: background 0.3s, transform 0.3s;
-      box-shadow: 0 0 8px rgba(224, 62, 54, 0.4);
-      border: 1.5px solid transparent;
-      cursor: default;
-    }
-    li:hover {
-      background: rgba(255, 255, 255, 0.2);
-      transform: translateY(-4px);
-      border-color: #e03e36;
-      box-shadow: 0 0 15px #e03e36;
-    }
-    li img {
-      width: 80px;
-      height: 80px;
-      object-fit: contain;
-      border-radius: 8px;
-      border: 2px solid #6a1b17;
-      background: #1a1a1a;
-      padding: 6px;
-      box-shadow: 0 0 8px #6a1b17 inset;
-      flex-shrink: 0;
-    }
-    li div {
-      flex-grow: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-    strong {
-      font-size: 1.3rem;
-      color: #fff;
-      font-weight: 900;
-      letter-spacing: 0.02em;
-      text-shadow: 0 0 6px #b32a23;
-    }
-    .desc {
-      font-size: 0.9rem;
-      color: #f0b1aa;
-      margin: 0.25rem 0 0.5rem;
-      font-weight: 500;
-      line-height: 1.2;
-      min-height: 2.4rem;
-    }
-    .price {
-      font-size: 1.15rem;
-      color: #ffcc00;
-      font-weight: 700;
-      letter-spacing: 0.03em;
-      text-shadow: 0 0 6px #ffcc00;
-    }
-    footer {
-      background: #2e2e2e;
-      text-align: center;
-      padding: 1rem 1rem;
-      margin-top: 3rem;
-      font-size: 1rem;
-      color: #aaa;
-      user-select: none;
-      box-shadow: 0 -4px 8px rgb(224 62 54 / 0.5);
-    }
-    @media (max-width: 640px) {
-      li {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-      }
-      li img {
-        width: 100px;
-        height: 100px;
-        margin-bottom: 0.5rem;
-      }
-      li div {
-        justify-content: center;
-      }
+    #cartItems::-webkit-scrollbar-thumb {
+      background-color: #b91c1c;
+      border-radius: 4px;
     }
   </style>
  </head>
- <body>
-  <header>
-   <div class="container">
-    <h1>
-     Loja de Equipamentos
+ <body class="min-h-screen flex flex-col">
+  <header class="bg-red-900 shadow-md sticky top-0 z-50">
+   <div class="max-w-7xl mx-auto flex items-center justify-between px-4 py-3">
+    <button aria-label="Voltar para a página inicial" class="text-white hover:text-red-300 transition flex items-center gap-2 text-lg font-semibold" id="btnBack">
+     <i class="fas fa-arrow-left">
+     </i>
+     Voltar
+    </button>
+    <h1 class="text-2xl sm:text-3xl font-extrabold tracking-wide select-none text-red-400">
+     Cross Arise - Loja
     </h1>
-    <nav>
-     <a aria-label="Voltar ao Início do site Cross Arise" href="index.html">
-      ← Voltar ao Início
-     </a>
-    </nav>
+    <button aria-label="Abrir carrinho de compras" class="relative text-white hover:text-red-300 transition text-lg" id="btnCartOpen">
+     <i class="fas fa-shopping-cart fa-lg">
+     </i>
+     <span class="absolute -top-2 -right-3 bg-red-600 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center font-bold select-none" id="cartCount">
+      0
+     </span>
+    </button>
    </div>
   </header>
-  <main aria-label="Loja de equipamentos do Cross Arise RPG" class="store" role="main">
-   <!-- Poções -->
-   <section aria-labelledby="potions-title">
-    <h2 id="potions-title">
-     Poções
+  <main class="flex-grow max-w-7xl mx-auto px-4 py-6">
+   <section>
+    <h2 class="text-red-400 text-3xl font-bold mb-6 border-b-2 border-red-600 pb-2 select-none">
+     Itens para venda
     </h2>
-    <ul>
-     <li>
-      <img alt="Poção de Cura, frasco de vidro vermelho brilhante com líquido mágico" height="80" src="https://storage.googleapis.com/a1aa/image/6c1d6cb3-3b74-42f2-68a3-2f587f4ee9a8.jpg" width="80"/>
-      <div>
-       <strong>
-        Poção de Cura
-       </strong>
-       <p class="desc">
-        Restaura 50 HP instantaneamente.
-       </p>
-       <span class="price">
-        30G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Poção de Mana, frasco azul translúcido com líquido brilhante" height="80" src="https://storage.googleapis.com/a1aa/image/3f765892-a89c-4ee1-f557-644ebb56001f.jpg" width="80"/>
-      <div>
-       <strong>
-        Poção de Mana
-       </strong>
-       <p class="desc">
-        Restaura 50 MP para magias e habilidades.
-       </p>
-       <span class="price">
-        40G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Poção de Ressurgir, frasco dourado com brilho mágico" height="80" src="https://storage.googleapis.com/a1aa/image/6483a029-4308-4cdb-27f4-32b369e42e61.jpg" width="80"/>
-      <div>
-       <strong>
-        Poção de Ressurgir
-       </strong>
-       <p class="desc">
-        Revive o jogador com 25% de HP.
-       </p>
-       <span class="price">
-        150G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Poção da Força, frasco vermelho com aura brilhante" height="80" src="https://storage.googleapis.com/a1aa/image/dcd55259-cdd3-4ff6-022d-eeeebafaf3b5.jpg" width="80"/>
-      <div>
-       <strong>
-        Poção da Força
-       </strong>
-       <p class="desc">
-        Aumenta o ataque em 20% por 10 minutos.
-       </p>
-       <span class="price">
-        120G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Poção da Velocidade, frasco verde com líquido cintilante" height="80" src="https://storage.googleapis.com/a1aa/image/b6d4ad82-359d-42f5-c72f-a3095d68fd46.jpg" width="80"/>
-      <div>
-       <strong>
-        Poção da Velocidade
-       </strong>
-       <p class="desc">
-        Aumenta a velocidade em 25% por 5 minutos.
-       </p>
-       <span class="price">
-        110G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Poção da Resistência, frasco cinza com brilho metálico" height="80" src="https://storage.googleapis.com/a1aa/image/7c427d1a-3efb-46a9-6c5f-dc846697c254.jpg" width="80"/>
-      <div>
-       <strong>
-        Poção da Resistência
-       </strong>
-       <p class="desc">
-        Reduz dano recebido em 15% por 10 minutos.
-       </p>
-       <span class="price">
-        130G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Poção da Invisibilidade, frasco transparente com brilho azulado" height="80" src="https://storage.googleapis.com/a1aa/image/aa9ff7cc-cc2f-498f-22b8-e417f5102315.jpg" width="80"/>
-      <div>
-       <strong>
-        Poção da Invisibilidade
-       </strong>
-       <p class="desc">
-        Torna o usuário invisível por 30 segundos.
-       </p>
-       <span class="price">
-        300G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Poção Regenerativa, frasco verde claro com bolhas" height="80" src="https://storage.googleapis.com/a1aa/image/0dea583c-e086-4a1e-03a8-78a7c76b472a.jpg" width="80"/>
-      <div>
-       <strong>
-        Poção Regenerativa
-       </strong>
-       <p class="desc">
-        Regenera 5 HP por segundo durante 30 segundos.
-       </p>
-       <span class="price">
-        180G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Poção Anti Veneno, frasco roxo com líquido brilhante" height="80" src="https://storage.googleapis.com/a1aa/image/52755903-e0f1-4166-925c-4759a7871800.jpg" width="80"/>
-      <div>
-       <strong>
-        Poção Anti Veneno
-       </strong>
-       <p class="desc">
-        Remove efeitos de veneno instantaneamente.
-       </p>
-       <span class="price">
-        90G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Poção de Fogo, frasco vermelho com chamas dentro" height="80" src="https://storage.googleapis.com/a1aa/image/0815d2c0-7448-439b-cb0e-690c15db158e.jpg" width="80"/>
-      <div>
-       <strong>
-        Poção de Fogo
-       </strong>
-       <p class="desc">
-        Adiciona dano de fogo aos ataques por 5 minutos.
-       </p>
-       <span class="price">
-        160G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Poção de Gelo, frasco azul claro com cristais congelados" height="80" src="https://storage.googleapis.com/a1aa/image/2508a7de-86a1-46ca-5575-82a33077eddb.jpg" width="80"/>
-      <div>
-       <strong>
-        Poção de Gelo
-       </strong>
-       <p class="desc">
-        Adiciona dano de gelo e chance de congelar inimigos.
-       </p>
-       <span class="price">
-        160G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Poção Elétrica, frasco amarelo com faíscas dentro" height="80" src="https://storage.googleapis.com/a1aa/image/82bc9725-15fe-4c73-015c-503efda8f3af.jpg" width="80"/>
-      <div>
-       <strong>
-        Poção Elétrica
-       </strong>
-       <p class="desc">
-        Adiciona dano elétrico e chance de atordoar.
-       </p>
-       <span class="price">
-        170G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Poção da Fortaleza, frasco marrom com aura dourada" height="80" src="https://storage.googleapis.com/a1aa/image/676fc51a-4407-405b-8399-64b60529f5cf.jpg" width="80"/>
-      <div>
-       <strong>
-        Poção da Fortaleza
-       </strong>
-       <p class="desc">
-        Aumenta defesa física em 30% por 10 minutos.
-       </p>
-       <span class="price">
-        200G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Poção da Sorte, frasco dourado com brilho cintilante" height="80" src="https://storage.googleapis.com/a1aa/image/ff95681b-61f2-40c1-f74f-7c94b0c30a16.jpg" width="80"/>
-      <div>
-       <strong>
-        Poção da Sorte
-       </strong>
-       <p class="desc">
-        Aumenta chance de crítico em 20% por 15 minutos.
-       </p>
-       <span class="price">
-        220G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Poção da Furtividade, frasco cinza com fumaça" height="80" src="https://storage.googleapis.com/a1aa/image/a19f3e80-8998-4020-0bb0-1a1cee4cd3d3.jpg" width="80"/>
-      <div>
-       <strong>
-        Poção da Furtividade
-       </strong>
-       <p class="desc">
-        Reduz detecção inimiga por 5 minutos.
-       </p>
-       <span class="price">
-        140G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Poção Anti Magia, frasco preto com brilho roxo" height="80" src="https://storage.googleapis.com/a1aa/image/2f59aa92-ec48-465a-146a-ecb9112e0e89.jpg" width="80"/>
-      <div>
-       <strong>
-        Poção Anti Magia
-       </strong>
-       <p class="desc">
-        Bloqueia magias inimigas por 10 segundos.
-       </p>
-       <span class="price">
-        250G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Poção Regenerativa Avançada, frasco verde brilhante com bolhas" height="80" src="https://storage.googleapis.com/a1aa/image/cdd85bda-592a-48da-98c5-8d202ba3f112.jpg" width="80"/>
-      <div>
-       <strong>
-        Poção Regenerativa Avançada
-       </strong>
-       <p class="desc">
-        Regenera 10 HP por segundo durante 30 segundos.
-       </p>
-       <span class="price">
-        320G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Poção Explosiva, frasco vermelho com fumaça e faíscas" height="80" src="https://storage.googleapis.com/a1aa/image/bd57aa5a-656a-4e48-cdff-eb717d3bb312.jpg" width="80"/>
-      <div>
-       <strong>
-        Poção Explosiva
-       </strong>
-       <p class="desc">
-        Causa dano em área ao ser lançada.
-       </p>
-       <span class="price">
-        280G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Poção de Escudo, frasco azul com aura protetora" height="80" src="https://storage.googleapis.com/a1aa/image/24f443bb-6cdc-4cb0-7e3d-1d6bf1ea1c90.jpg" width="80"/>
-      <div>
-       <strong>
-        Poção de Escudo
-       </strong>
-       <p class="desc">
-        Cria um escudo que absorve 100 de dano por 20 segundos.
-       </p>
-       <span class="price">
-        350G
-       </span>
-      </div>
-     </li>
-    </ul>
-   </section>
-   <!-- Armas -->
-   <section aria-labelledby="weapons-title">
-    <h2 id="weapons-title">
-     Armas
-    </h2>
-    <ul>
-     <li>
-      <img alt="Espada Lendária, espada longa com lâmina brilhante e cabo ornamentado" height="80" src="https://storage.googleapis.com/a1aa/image/852b6588-21b9-48a3-0fc0-e55a6b4bbb33.jpg" width="80"/>
-      <div>
-       <strong>
-        Espada Lendária
-       </strong>
-       <p class="desc">
-        Ataque +200, lâmina encantada com fogo.
-       </p>
-       <span class="price">
-        500G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Glaive Imperial, arma longa com lâmina curva e detalhes dourados" height="80" src="https://storage.googleapis.com/a1aa/image/bfb34206-20ee-45fa-c9ac-0b9624416478.jpg" width="80"/>
-      <div>
-       <strong>
-        Glaive Imperial
-       </strong>
-       <p class="desc">
-        Ataque +180, alcance estendido e dano cortante.
-       </p>
-       <span class="price">
-        450G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Arco Fantasma, arco elegante com corda tensionada e detalhes sombrios" height="80" src="https://storage.googleapis.com/a1aa/image/9d03bbb5-dcf3-44ff-6fd1-f53c73e55570.jpg" width="80"/>
-      <div>
-       <strong>
-        Arco Fantasma
-       </strong>
-       <p class="desc">
-        Ataque +150, flechas que atravessam inimigos.
-       </p>
-       <span class="price">
-        400G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Machado Rúnico, machado pesado com inscrições brilhantes" height="80" src="https://storage.googleapis.com/a1aa/image/038c3f5a-8af4-45d8-58d7-19049009eb36.jpg" width="80"/>
-      <div>
-       <strong>
-        Machado Rúnico
-       </strong>
-       <p class="desc">
-        Ataque +220, dano extra contra monstros.
-       </p>
-       <span class="price">
-        550G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Adaga Sombria, arma pequena com lâmina negra e cabo ornamentado" height="80" src="https://storage.googleapis.com/a1aa/image/bfc1d192-f684-4297-b249-f5dd1a410bac.jpg" width="80"/>
-      <div>
-       <strong>
-        Adaga Sombria
-       </strong>
-       <p class="desc">
-        Ataque +130, chance de crítico aumentada.
-       </p>
-       <span class="price">
-        320G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Martelo de Guerra, arma pesada com cabeça metálica e cabo reforçado" height="80" src="https://storage.googleapis.com/a1aa/image/6c23a274-acb0-4243-cfc0-8477f413a634.jpg" width="80"/>
-      <div>
-       <strong>
-        Martelo de Guerra
-       </strong>
-       <p class="desc">
-        Ataque +210, chance de atordoar inimigos.
-       </p>
-       <span class="price">
-        530G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Espada de Gelo, lâmina azul com aura congelante" height="80" src="https://storage.googleapis.com/a1aa/image/448702bd-d146-4275-6416-af00e254b7c7.jpg" width="80"/>
-      <div>
-       <strong>
-        Espada de Gelo
-       </strong>
-       <p class="desc">
-        Ataque +190, chance de congelar inimigos.
-       </p>
-       <span class="price">
-        480G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Arco Longo Élfico, arma leve com detalhes prateados" height="80" src="https://storage.googleapis.com/a1aa/image/746d52be-3249-417a-ad4d-65d8b8bdd8fd.jpg" width="80"/>
-      <div>
-       <strong>
-        Arco Longo Élfico
-       </strong>
-       <p class="desc">
-        Ataque +170, alta precisão e alcance.
-       </p>
-       <span class="price">
-        460G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Foice Sombria, arma curva com lâmina negra e aura maligna" height="80" src="https://storage.googleapis.com/a1aa/image/1ba76fb2-0c54-4fd5-4656-aaf5bb2a9c71.jpg" width="80"/>
-      <div>
-       <strong>
-        Foice Sombria
-       </strong>
-       <p class="desc">
-        Ataque +200, dano extra contra mortos-vivos.
-       </p>
-       <span class="price">
-        520G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Clava de Ferro, arma pesada com cabeça de ferro maciço" height="80" src="https://storage.googleapis.com/a1aa/image/d1085c35-11d1-41c8-d0b1-8d21f596228e.jpg" width="80"/>
-      <div>
-       <strong>
-        Clava de Ferro
-       </strong>
-       <p class="desc">
-        Ataque +180, chance de quebrar armaduras.
-       </p>
-       <span class="price">
-        470G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Espada Elétrica, lâmina com faíscas azuis e brilho intenso" height="80" src="https://storage.googleapis.com/a1aa/image/dc298f95-db7d-4d32-84d8-dab47683f2a9.jpg" width="80"/>
-      <div>
-       <strong>
-        Espada Elétrica
-       </strong>
-       <p class="desc">
-        Ataque +195, chance de atordoar inimigos.
-       </p>
-       <span class="price">
-        510G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Arco de Fogo, arma com detalhes flamejantes e corda vermelha" height="80" src="https://storage.googleapis.com/a1aa/image/0db2eaf7-c13b-4b8d-ba81-05b96ca9a9c4.jpg" width="80"/>
-      <div>
-       <strong>
-        Arco de Fogo
-       </strong>
-       <p class="desc">
-        Ataque +175, flechas incendiárias.
-       </p>
-       <span class="price">
-        480G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Machado de Gelo, arma com lâmina azul e aura congelante" height="80" src="https://storage.googleapis.com/a1aa/image/70bb24cf-6043-4298-2495-4d9bb65aee61.jpg" width="80"/>
-      <div>
-       <strong>
-        Machado de Gelo
-       </strong>
-       <p class="desc">
-        Ataque +210, chance de congelar inimigos.
-       </p>
-       <span class="price">
-        540G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Adaga Venenosa, lâmina pequena com líquido verde brilhante" height="80" src="https://storage.googleapis.com/a1aa/image/db999ff5-069d-4865-301a-11e3b9a8a712.jpg" width="80"/>
-      <div>
-       <strong>
-        Adaga Venenosa
-       </strong>
-       <p class="desc">
-        Ataque +140, aplica veneno por 10 segundos.
-       </p>
-       <span class="price">
-        350G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Martelo de Trovão, arma com detalhes elétricos e brilho azul" height="80" src="https://storage.googleapis.com/a1aa/image/0172043f-5796-4b6b-0381-dfc79fa948ad.jpg" width="80"/>
-      <div>
-       <strong>
-        Martelo de Trovão
-       </strong>
-       <p class="desc">
-        Ataque +230, dano elétrico em área.
-       </p>
-       <span class="price">
-        600G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Espada Sagrada, lâmina branca com aura dourada" height="80" src="https://storage.googleapis.com/a1aa/image/5202aa41-c368-46db-40b7-588a94ddce73.jpg" width="80"/>
-      <div>
-       <strong>
-        Espada Sagrada
-       </strong>
-       <p class="desc">
-        Ataque +210, dano extra contra demônios.
-       </p>
-       <span class="price">
-        580G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Arco Celestial, arma com detalhes brilhantes e corda dourada" height="80" src="https://storage.googleapis.com/a1aa/image/f803405c-d75f-495c-d42d-d71256347133.jpg" width="80"/>
-      <div>
-       <strong>
-        Arco Celestial
-       </strong>
-       <p class="desc">
-        Ataque +190, flechas que ignoram armadura.
-       </p>
-       <span class="price">
-        570G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Foice Vampírica, arma curva com aura vermelha e negra" height="80" src="https://storage.googleapis.com/a1aa/image/2b57eb35-267f-4c46-526b-22ae05477564.jpg" width="80"/>
-      <div>
-       <strong>
-        Foice Vampírica
-       </strong>
-       <p class="desc">
-        Ataque +220, recupera vida ao causar dano.
-       </p>
-       <span class="price">
-        620G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Clava de Ferro Negra, arma pesada com detalhes sombrios" height="80" src="https://storage.googleapis.com/a1aa/image/1269c68b-c51f-44e9-626d-0e0a00bd4d10.jpg" width="80"/>
-      <div>
-       <strong>
-        Clava de Ferro Negra
-       </strong>
-       <p class="desc">
-        Ataque +200, chance de causar sangramento.
-       </p>
-       <span class="price">
-        560G
-       </span>
-      </div>
-     </li>
-    </ul>
-   </section>
-   <!-- Armaduras -->
-   <section aria-labelledby="armors-title">
-    <h2 id="armors-title">
-     Armaduras
-    </h2>
-    <ul>
-     <li>
-      <img alt="Armadura de Dragão, armadura pesada com escamas vermelhas e detalhes metálicos" height="80" src="https://storage.googleapis.com/a1aa/image/6f9c1db0-5c90-4655-4b6e-6017e7383141.jpg" width="80"/>
-      <div>
-       <strong>
-        Armadura de Dragão
-       </strong>
-       <p class="desc">
-        Defesa +200, resistência a fogo aumentada.
-       </p>
-       <span class="price">
-        800G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Armadura das Sombras, armadura escura com detalhes furtivos e elegantes" height="80" src="https://storage.googleapis.com/a1aa/image/05891b57-bd00-4bdd-b46a-488f726c90d5.jpg" width="80"/>
-      <div>
-       <strong>
-        Armadura das Sombras
-       </strong>
-       <p class="desc">
-        Defesa +150, aumenta furtividade.
-       </p>
-       <span class="price">
-        650G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Armadura Eterna, armadura brilhante com detalhes dourados e runas" height="80" src="https://storage.googleapis.com/a1aa/image/ef436b53-e8fa-4123-5b8d-25cecc4f05b0.jpg" width="80"/>
-      <div>
-       <strong>
-        Armadura Eterna
-       </strong>
-       <p class="desc">
-        Defesa +300, regeneração de vida passiva.
-       </p>
-       <span class="price">
-        1000G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Elmo do Guardião, elmo robusto com detalhes vermelhos e prata" height="80" src="https://storage.googleapis.com/a1aa/image/bb6c4766-1530-48f1-4e42-299ec6dfaeef.jpg" width="80"/>
-      <div>
-       <strong>
-        Elmo do Guardião
-       </strong>
-       <p class="desc">
-        Defesa +90, aumenta percepção e resistência a atordoamento.
-       </p>
-       <span class="price">
-        400G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Escudo do Valente, escudo redondo com brasão vermelho e detalhes dourados" height="80" src="https://storage.googleapis.com/a1aa/image/5f3ff24e-e3af-4da1-00e7-28ff4e864cd6.jpg" width="80"/>
-      <div>
-       <strong>
-        Escudo do Valente
-       </strong>
-       <p class="desc">
-        Defesa +110, bloqueia ataques físicos.
-       </p>
-       <span class="price">
-        450G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Couraça de Ferro, armadura pesada com acabamento metálico" height="80" src="https://storage.googleapis.com/a1aa/image/a3f87f46-345c-46b1-c4ec-70ac7cf5647b.jpg" width="80"/>
-      <div>
-       <strong>
-        Couraça de Ferro
-       </strong>
-       <p class="desc">
-        Defesa +180, alta resistência física.
-       </p>
-       <span class="price">
-        700G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Armadura Leve Élfica, armadura leve com detalhes verdes e prateados" height="80" src="https://storage.googleapis.com/a1aa/image/de05c68a-244b-468d-bed1-498a59476b1b.jpg" width="80"/>
-      <div>
-       <strong>
-        Armadura Leve Élfica
-       </strong>
-       <p class="desc">
-        Defesa +120, aumenta agilidade e furtividade.
-       </p>
-       <span class="price">
-        600G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Armadura de Placas, armadura pesada com placas metálicas reforçadas" height="80" src="https://storage.googleapis.com/a1aa/image/fad223d6-7c68-4e6b-07c0-a98b5885cb30.jpg" width="80"/>
-      <div>
-       <strong>
-        Armadura de Placas
-       </strong>
-       <p class="desc">
-        Defesa +250, máxima proteção contra ataques físicos.
-       </p>
-       <span class="price">
-        900G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Capacete de Batalha, capacete robusto com detalhes vermelhos" height="80" src="https://storage.googleapis.com/a1aa/image/e51129b2-f1b5-4380-77f0-f79ba73464a3.jpg" width="80"/>
-      <div>
-       <strong>
-        Capacete de Batalha
-       </strong>
-       <p class="desc">
-        Defesa +100, protege contra ataques críticos.
-       </p>
-       <span class="price">
-        420G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Escudo de Aço, escudo resistente com acabamento metálico" height="80" src="https://storage.googleapis.com/a1aa/image/b881ac92-80fb-41ab-8031-c7adeb1b1c28.jpg" width="80"/>
-      <div>
-       <strong>
-        Escudo de Aço
-       </strong>
-       <p class="desc">
-        Defesa +130, bloqueia ataques físicos e mágicos.
-       </p>
-       <span class="price">
-        480G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Armadura de Couro, armadura leve feita de couro reforçado" height="80" src="https://storage.googleapis.com/a1aa/image/39d651c9-e2ee-469c-89ca-4cb9466ba15d.jpg" width="80"/>
-      <div>
-       <strong>
-        Armadura de Couro
-       </strong>
-       <p class="desc">
-        Defesa +90, aumenta mobilidade e resistência a venenos.
-       </p>
-       <span class="price">
-        350G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Armadura Mágica, armadura com runas brilhantes e aura azul" height="80" src="https://storage.googleapis.com/a1aa/image/b6f8e834-871f-43a1-b1f2-44e9b5c0d1ca.jpg" width="80"/>
-      <div>
-       <strong>
-        Armadura Mágica
-       </strong>
-       <p class="desc">
-        Defesa +160, aumenta resistência mágica.
-       </p>
-       <span class="price">
-        720G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Elmo de Dragão, elmo com escamas vermelhas e detalhes metálicos" height="80" src="https://storage.googleapis.com/a1aa/image/e86710f3-71be-4598-bdac-d697aa66338c.jpg" width="80"/>
-      <div>
-       <strong>
-        Elmo de Dragão
-       </strong>
-       <p class="desc">
-        Defesa +110, resistência a fogo aumentada.
-       </p>
-       <span class="price">
-        460G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Escudo Sagrado, escudo com símbolos dourados e aura protetora" height="80" src="https://storage.googleapis.com/a1aa/image/03b71710-ed85-4e5a-c682-55fb034285fd.jpg" width="80"/>
-      <div>
-       <strong>
-        Escudo Sagrado
-       </strong>
-       <p class="desc">
-        Defesa +140, protege contra maldições.
-       </p>
-       <span class="price">
-        520G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Couraça de Ferro Negra, armadura pesada com detalhes sombrios" height="80" src="https://storage.googleapis.com/a1aa/image/acff722d-71ce-42a5-5d57-25d3fba0ff01.jpg" width="80"/>
-      <div>
-       <strong>
-        Couraça de Ferro Negra
-       </strong>
-       <p class="desc">
-        Defesa +210, resistência a ataques sombrios.
-       </p>
-       <span class="price">
-        850G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Armadura de Gelo, armadura azul clara com cristais congelados" height="80" src="https://storage.googleapis.com/a1aa/image/588ab1c8-1a4a-40b8-ca7b-3e5cade6a508.jpg" width="80"/>
-      <div>
-       <strong>
-        Armadura de Gelo
-       </strong>
-       <p class="desc">
-        Defesa +190, chance de congelar atacantes.
-       </p>
-       <span class="price">
-        780G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Capacete do Guardião, capacete robusto com detalhes vermelhos" height="80" src="https://storage.googleapis.com/a1aa/image/33514886-5eaf-4c45-8aeb-dce9cfd8de4a.jpg" width="80"/>
-      <div>
-       <strong>
-        Capacete do Guardião
-       </strong>
-       <p class="desc">
-        Defesa +95, aumenta resistência a atordoamento.
-       </p>
-       <span class="price">
-        430G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Escudo de Fogo, escudo com detalhes flamejantes" height="80" src="https://storage.googleapis.com/a1aa/image/2b8036dc-4006-4053-1578-7ebaaeb22d6b.jpg" width="80"/>
-      <div>
-       <strong>
-        Escudo de Fogo
-       </strong>
-       <p class="desc">
-        Defesa +130, dano de fogo ao bloquear ataques.
-       </p>
-       <span class="price">
-        540G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Armadura de Luz, armadura branca com detalhes dourados" height="80" src="https://storage.googleapis.com/a1aa/image/8c8d39ab-e8cc-4901-bf19-384fe7033b53.jpg" width="80"/>
-      <div>
-       <strong>
-        Armadura de Luz
-       </strong>
-       <p class="desc">
-        Defesa +220, aumenta resistência mágica e cura.
-       </p>
-       <span class="price">
-        900G
-       </span>
-      </div>
-     </li>
-    </ul>
-   </section>
-   <!-- Itens Amaldiçoados -->
-   <section aria-labelledby="cursed-items-title">
-    <h2 id="cursed-items-title">
-     Itens Amaldiçoados
-    </h2>
-    <ul>
-     <li>
-      <img alt="Anel Amaldiçoado, anel negro com pedras vermelhas brilhantes" height="80" src="https://storage.googleapis.com/a1aa/image/06cf8679-12d3-4fbf-d244-60e2e8b59ba8.jpg" width="80"/>
-      <div>
-       <strong>
-        Anel Amaldiçoado
-       </strong>
-       <p class="desc">
-        Reduz HP em 5% mas aumenta ataque em 30.
-       </p>
-       <span class="price">
-        300G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Bracelete Negro, bracelete escuro com detalhes místicos" height="80" src="https://storage.googleapis.com/a1aa/image/aa66f637-49f6-492b-003d-59bc03c93cd0.jpg" width="80"/>
-      <div>
-       <strong>
-        Bracelete Negro
-       </strong>
-       <p class="desc">
-        Reduz defesa em 10%, mas aumenta velocidade em 20%.
-       </p>
-       <span class="price">
-        400G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Escudo Derrotado, escudo com aparência desgastada e símbolos antigos" height="80" src="https://storage.googleapis.com/a1aa/image/74c7af6f-2356-443b-fbfb-e5306bd5ed97.jpg" width="80"/>
-      <div>
-       <strong>
-        Escudo Derrotado
-       </strong>
-       <p class="desc">
-        Defesa +50, mas reduz resistência mágica em 15%.
-       </p>
-       <span class="price">
-        350G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Espada Maldita, lâmina negra com aura vermelha" height="80" src="https://storage.googleapis.com/a1aa/image/e9d3f2de-9ef7-444c-c9d9-ae8dd012a4a8.jpg" width="80"/>
-      <div>
-       <strong>
-        Espada Maldita
-       </strong>
-       <p class="desc">
-        Ataque +250, mas drena 10 HP por ataque.
-       </p>
-       <span class="price">
-        600G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Amuleto Sombrio, amuleto negro com pedra vermelha" height="80" src="https://storage.googleapis.com/a1aa/image/989e9105-bc71-4a8e-ed6d-390fe3f5225f.jpg" width="80"/>
-      <div>
-       <strong>
-        Amuleto Sombrio
-       </strong>
-       <p class="desc">
-        Aumenta magia negra, mas reduz defesa física.
-       </p>
-       <span class="price">
-        450G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Capacete Corrompido, capacete com detalhes sombrios e rachaduras" height="80" src="https://storage.googleapis.com/a1aa/image/082a8c5d-3d79-41cf-40b5-8263eaee8597.jpg" width="80"/>
-      <div>
-       <strong>
-        Capacete Corrompido
-       </strong>
-       <p class="desc">
-        Defesa +100, mas reduz resistência mágica.
-       </p>
-       <span class="price">
-        480G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Botas Malditas, botas negras com correntes" height="80" src="https://storage.googleapis.com/a1aa/image/5577d8e1-8974-4665-c83e-57035f9ccc2e.jpg" width="80"/>
-      <div>
-       <strong>
-        Botas Malditas
-       </strong>
-       <p class="desc">
-        Aumenta velocidade, mas causa dano contínuo.
-       </p>
-       <span class="price">
-        420G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Capa Sombria, capa preta com bordas vermelhas" height="80" src="https://storage.googleapis.com/a1aa/image/7f050a58-5da2-4776-20bd-ba293819d7d5.jpg" width="80"/>
-      <div>
-       <strong>
-        Capa Sombria
-       </strong>
-       <p class="desc">
-        Aumenta furtividade, mas reduz defesa mágica.
-       </p>
-       <span class="price">
-        460G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Anel de Sangue, anel vermelho com gotas de sangue" height="80" src="https://storage.googleapis.com/a1aa/image/8a660f06-d20f-4f2e-f700-16e36a65383d.jpg" width="80"/>
-      <div>
-       <strong>
-        Anel de Sangue
-       </strong>
-       <p class="desc">
-        Aumenta ataque, mas drena vida lentamente.
-       </p>
-       <span class="price">
-        390G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Bracelete de Dor, bracelete com espinhos e aura vermelha" height="80" src="https://storage.googleapis.com/a1aa/image/a470e5b7-d5ff-4f60-fff6-c8aa78d5314c.jpg" width="80"/>
-      <div>
-       <strong>
-        Bracelete de Dor
-       </strong>
-       <p class="desc">
-        Aumenta dano, mas causa dor ao usuário.
-       </p>
-       <span class="price">
-        410G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Escudo Corrompido, escudo com rachaduras e aura negra" height="80" src="https://storage.googleapis.com/a1aa/image/a833950b-6f74-495c-e011-be690b936c04.jpg" width="80"/>
-      <div>
-       <strong>
-        Escudo Corrompido
-       </strong>
-       <p class="desc">
-        Defesa +90, mas reduz resistência a luz.
-       </p>
-       <span class="price">
-        430G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Espada Sombria, lâmina negra com aura vermelha pulsante" height="80" src="https://storage.googleapis.com/a1aa/image/ccdd2ae2-2f63-4841-ff9a-5f197659e639.jpg" width="80"/>
-      <div>
-       <strong>
-        Espada Sombria
-       </strong>
-       <p class="desc">
-        Ataque +230, chance de causar maldição.
-       </p>
-       <span class="price">
-        580G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Amuleto de Dor, amuleto com pedra vermelha brilhante" height="80" src="https://storage.googleapis.com/a1aa/image/edee41ee-8554-453b-5364-21ea6eaafba9.jpg" width="80"/>
-      <div>
-       <strong>
-        Amuleto de Dor
-       </strong>
-       <p class="desc">
-        Aumenta dano, mas causa dor constante.
-       </p>
-       <span class="price">
-        470G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Capacete Maldito, capacete com aura negra e detalhes vermelhos" height="80" src="https://storage.googleapis.com/a1aa/image/2a61547e-5fd7-4467-aca3-1ba65b0c416a.jpg" width="80"/>
-      <div>
-       <strong>
-        Capacete Maldito
-       </strong>
-       <p class="desc">
-        Defesa +120, mas reduz velocidade.
-       </p>
-       <span class="price">
-        520G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Botas de Sangue, botas vermelhas com detalhes sombrios" height="80" src="https://storage.googleapis.com/a1aa/image/0ea2fa00-f276-42c1-0861-a419241f083c.jpg" width="80"/>
-      <div>
-       <strong>
-        Botas de Sangue
-       </strong>
-       <p class="desc">
-        Aumenta velocidade, mas drena HP ao correr.
-       </p>
-       <span class="price">
-        480G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Capa Maldita, capa preta com bordas vermelhas e aura sombria" height="80" src="https://storage.googleapis.com/a1aa/image/b44c1a22-8317-49be-a09c-bebe045cbb82.jpg" width="80"/>
-      <div>
-       <strong>
-        Capa Maldita
-       </strong>
-       <p class="desc">
-        Aumenta furtividade, mas reduz defesa física.
-       </p>
-       <span class="price">
-        460G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Anel de Correntes, anel com correntes negras e pedras vermelhas" height="80" src="https://storage.googleapis.com/a1aa/image/1238452b-2c41-4bd6-8a23-ad54515cd341.jpg" width="80"/>
-      <div>
-       <strong>
-        Anel de Correntes
-       </strong>
-       <p class="desc">
-        Aumenta ataque, mas reduz mobilidade.
-       </p>
-       <span class="price">
-        400G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Bracelete de Sangue, bracelete vermelho com detalhes sombrios" height="80" src="https://storage.googleapis.com/a1aa/image/3e14f66b-eb03-4cc7-b3f6-c6088d0c2bb4.jpg" width="80"/>
-      <div>
-       <strong>
-        Bracelete de Sangue
-       </strong>
-       <p class="desc">
-        Aumenta dano, mas drena HP ao atacar.
-       </p>
-       <span class="price">
-        430G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Escudo de Sangue, escudo vermelho com aura sombria" height="80" src="https://storage.googleapis.com/a1aa/image/96eb9ee7-2eaa-438f-6f60-89565f7556d0.jpg" width="80"/>
-      <div>
-       <strong>
-        Escudo de Sangue
-       </strong>
-       <p class="desc">
-        Defesa +100, mas reduz resistência mágica.
-       </p>
-       <span class="price">
-        450G
-       </span>
-      </div>
-     </li>
-    </ul>
-   </section>
-   <!-- Itens Sagrados -->
-   <section aria-labelledby="sacred-items-title">
-    <h2 id="sacred-items-title">
-     Itens Sagrados
-    </h2>
-    <ul>
-     <li>
-      <img alt="Amuleto Sagrado, amuleto dourado com uma gema brilhante no centro" height="80" src="https://storage.googleapis.com/a1aa/image/5842bf2d-5c62-44e4-6fe0-937e25caee27.jpg" width="80"/>
-      <div>
-       <strong>
-        Amuleto Sagrado
-       </strong>
-       <p class="desc">
-        Protege contra maldições e aumenta resistência mágica.
-       </p>
-       <span class="price">
-        700G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Palavra Defensiva, pergaminho antigo com runas brilhantes" height="80" src="https://storage.googleapis.com/a1aa/image/d0f360c8-a799-4c81-ecd4-14f8f91505e6.jpg" width="80"/>
-      <div>
-       <strong>
-        Palavra Defensiva
-       </strong>
-       <p class="desc">
-        Aumenta defesa em 50% por 1 hora.
-       </p>
-       <span class="price">
-        600G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Cinto de Luz, cinto com detalhes dourados e brilho mágico" height="80" src="https://storage.googleapis.com/a1aa/image/57fc8065-8439-469f-405e-92fbb5b33302.jpg" width="80"/>
-      <div>
-       <strong>
-        Cinto de Luz
-       </strong>
-       <p class="desc">
-        Aumenta resistência mágica e regeneração de mana.
-       </p>
-       <span class="price">
-        650G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Escudo Sagrado, escudo com símbolos dourados e aura protetora" height="80" src="https://storage.googleapis.com/a1aa/image/03b71710-ed85-4e5a-c682-55fb034285fd.jpg" width="80"/>
-      <div>
-       <strong>
-        Escudo Sagrado
-       </strong>
-       <p class="desc">
-        Defesa +140, protege contra maldições e magias negras.
-       </p>
-       <span class="price">
-        720G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Elmo da Luz, elmo branco com detalhes dourados e brilho intenso" height="80" src="https://storage.googleapis.com/a1aa/image/b19883ce-dafe-4a5f-778e-cca8f0e82a6f.jpg" width="80"/>
-      <div>
-       <strong>
-        Elmo da Luz
-       </strong>
-       <p class="desc">
-        Defesa +110, aumenta resistência a magias negras.
-       </p>
-       <span class="price">
-        580G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Armadura Sagrada, armadura branca com detalhes dourados e runas" height="80" src="https://storage.googleapis.com/a1aa/image/3677321e-7a3b-4d60-2039-272ca6e7a740.jpg" width="80"/>
-      <div>
-       <strong>
-        Armadura Sagrada
-       </strong>
-       <p class="desc">
-        Defesa +250, aumenta regeneração de vida e mana.
-       </p>
-       <span class="price">
-        950G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Anel da Proteção, anel dourado com pedra azul brilhante" height="80" src="https://storage.googleapis.com/a1aa/image/b7d73d52-5dd8-436b-2631-6eed0912f2f4.jpg" width="80"/>
-      <div>
-       <strong>
-        Anel da Proteção
-       </strong>
-       <p class="desc">
-        Reduz dano mágico recebido em 20%.
-       </p>
-       <span class="price">
-        620G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Bracelete da Luz, bracelete dourado com detalhes brilhantes" height="80" src="https://storage.googleapis.com/a1aa/image/c2fd2d40-6133-464c-771b-ed87fb441026.jpg" width="80"/>
-      <div>
-       <strong>
-        Bracelete da Luz
-       </strong>
-       <p class="desc">
-        Aumenta velocidade de recuperação de mana.
-       </p>
-       <span class="price">
-        580G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Capa Sagrada, capa branca com bordas douradas e brilho suave" height="80" src="https://storage.googleapis.com/a1aa/image/d540589f-5361-4778-3dff-2eae2bc4510f.jpg" width="80"/>
-      <div>
-       <strong>
-        Capa Sagrada
-       </strong>
-       <p class="desc">
-        Aumenta resistência a magias e maldições.
-       </p>
-       <span class="price">
-        640G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Escudo da Luz, escudo branco com símbolos dourados" height="80" src="https://storage.googleapis.com/a1aa/image/bf4a9b01-f4ee-47c0-0792-20aa8c1ac443.jpg" width="80"/>
-      <div>
-       <strong>
-        Escudo da Luz
-       </strong>
-       <p class="desc">
-        Defesa +150, bloqueia magias negras.
-       </p>
-       <span class="price">
-        700G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Espada Sagrada, lâmina branca com aura dourada" height="80" src="https://storage.googleapis.com/a1aa/image/5202aa41-c368-46db-40b7-588a94ddce73.jpg" width="80"/>
-      <div>
-       <strong>
-        Espada Sagrada
-       </strong>
-       <p class="desc">
-        Ataque +210, dano extra contra demônios e mortos-vivos.
-       </p>
-       <span class="price">
-        900G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Arco Celestial, arma com detalhes brilhantes e corda dourada" height="80" src="https://storage.googleapis.com/a1aa/image/f803405c-d75f-495c-d42d-d71256347133.jpg" width="80"/>
-      <div>
-       <strong>
-        Arco Celestial
-       </strong>
-       <p class="desc">
-        Ataque +190, flechas que ignoram armadura.
-       </p>
-       <span class="price">
-        870G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Anel da Vida, anel dourado com pedra verde brilhante" height="80" src="https://storage.googleapis.com/a1aa/image/0ea3170b-41da-4b74-8bee-92cc8d102f08.jpg" width="80"/>
-      <div>
-       <strong>
-        Anel da Vida
-       </strong>
-       <p class="desc">
-        Regenera 5 HP por segundo durante 30 segundos.
-       </p>
-       <span class="price">
-        650G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Amuleto da Força, amuleto dourado com aura vermelha" height="80" src="https://storage.googleapis.com/a1aa/image/361939be-adef-4262-11bd-1b5c503ecc36.jpg" width="80"/>
-      <div>
-       <strong>
-        Amuleto da Força
-       </strong>
-       <p class="desc">
-        Aumenta ataque em 25% por 10 minutos.
-       </p>
-       <span class="price">
-        700G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Bracelete da Força, bracelete dourado com detalhes vermelhos" height="80" src="https://storage.googleapis.com/a1aa/image/0f81112f-a04f-4509-37d5-d925c295ebdb.jpg" width="80"/>
-      <div>
-       <strong>
-        Bracelete da Força
-       </strong>
-       <p class="desc">
-        Aumenta força e resistência física.
-       </p>
-       <span class="price">
-        680G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Cinto da Vitalidade, cinto dourado com pedras verdes" height="80" src="https://storage.googleapis.com/a1aa/image/7d4d4dda-d9ca-43ae-48b2-ae2d3c3442e4.jpg" width="80"/>
-      <div>
-       <strong>
-        Cinto da Vitalidade
-       </strong>
-       <p class="desc">
-        Aumenta HP máximo em 20%.
-       </p>
-       <span class="price">
-        720G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Capacete da Luz, capacete branco com detalhes dourados" height="80" src="https://storage.googleapis.com/a1aa/image/013ba058-b6de-4b2c-7267-d5f93880470f.jpg" width="80"/>
-      <div>
-       <strong>
-        Capacete da Luz
-       </strong>
-       <p class="desc">
-        Aumenta resistência a magias e ataques críticos.
-       </p>
-       <span class="price">
-        600G
-       </span>
-      </div>
-     </li>
-     <li>
-      <img alt="Botas da Luz, botas brancas com detalhes dourados" height="80" src="https://storage.googleapis.com/a1aa/image/0e95eee6-6cda-4732-b36a-e3b823ff2b2d.jpg" width="80"/>
-      <div>
-       <strong>
-        Botas da Luz
-       </strong>
-       <p class="desc">
-        Aumenta velocidade e regeneração de mana.
-       </p>
-       <span class="price">
-        580G
-       </span>
-      </div>
-     </li>
-    </ul>
+    <div class="grid gap-10">
+     <!-- Categoria Poções -->
+     <div>
+      <h3 class="text-red-500 text-2xl font-semibold mb-4 select-none border-b border-red-700 pb-1">
+       Poções
+      </h3>
+      <div aria-label="Lista de poções para compra" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6" role="list">
+       <article class="bg-red-900 rounded-lg shadow-lg p-4 flex flex-col items-center text-center" role="listitem" tabindex="0">
+        <img alt="Poção de Vida anime girl com cabelo vermelho segurando uma poção vermelha brilhante" class="w-40 h-40 object-contain mb-3 rounded-md border border-red-700" height="200" loading="lazy" src="https://storage.googleapis.com/a1aa/image/0194c747-a1aa-4cab-79d5-a78e6a52367e.jpg" width="200"/>
+        <h4 class="text-lg font-semibold text-red-300 mb-1 select-none">
+         Poção de Vida
+        </h4>
+        <p class="text-red-400 font-mono mb-3 select-none">
+         50 G
+        </p>
+        <button aria-label="Adicionar Poção de Vida ao carrinho" class="bg-red-700 hover:bg-red-600 text-white font-semibold py-2 px-5 rounded-md transition focus:outline-none focus:ring-2 focus:ring-red-400" data-name="Poção de Vida" data-price="50">
+         Comprar
+        </button>
+       </article>
+       <article class="bg-red-900 rounded-lg shadow-lg p-4 flex flex-col items-center text-center" role="listitem" tabindex="0">
+        <img alt="Poção de Mana anime garoto com cabelo azul segurando uma poção azul brilhante" class="w-40 h-40 object-contain mb-3 rounded-md border border-red-700" height="200" loading="lazy" src="https://storage.googleapis.com/a1aa/image/24a505fa-2591-4d57-3f87-c8e1ff4b0272.jpg" width="200"/>
+        <h4 class="text-lg font-semibold text-red-300 mb-1 select-none">
+         Poção de Mana
+        </h4>
+        <p class="text-red-400 font-mono mb-3 select-none">
+         70 G
+        </p>
+        <button aria-label="Adicionar Poção de Mana ao carrinho" class="bg-red-700 hover:bg-red-600 text-white font-semibold py-2 px-5 rounded-md transition focus:outline-none focus:ring-2 focus:ring-red-400" data-name="Poção de Mana" data-price="70">
+         Comprar
+        </button>
+       </article>
+       <article class="bg-red-900 rounded-lg shadow-lg p-4 flex flex-col items-center text-center" role="listitem" tabindex="0">
+        <img alt="Poção de Força anime guerreira segurando uma poção vermelha com efeito de fogo" class="w-40 h-40 object-contain mb-3 rounded-md border border-red-700" height="200" loading="lazy" src="https://storage.googleapis.com/a1aa/image/f4dc31b3-1e16-40e2-7951-2f07dd9dcd30.jpg" width="200"/>
+        <h4 class="text-lg font-semibold text-red-300 mb-1 select-none">
+         Poção de Força
+        </h4>
+        <p class="text-red-400 font-mono mb-3 select-none">
+         120 G
+        </p>
+        <button aria-label="Adicionar Poção de Força ao carrinho" class="bg-red-700 hover:bg-red-600 text-white font-semibold py-2 px-5 rounded-md transition focus:outline-none focus:ring-2 focus:ring-red-400" data-name="Poção de Força" data-price="120">
+         Comprar
+        </button>
+       </article>
+       <article class="bg-red-900 rounded-lg shadow-lg p-4 flex flex-col items-center text-center" role="listitem" tabindex="0">
+        <img alt="Poção de Velocidade anime personagem correndo segurando uma poção vermelha" class="w-40 h-40 object-contain mb-3 rounded-md border border-red-700" height="200" loading="lazy" src="https://storage.googleapis.com/a1aa/image/3d902edf-9888-4654-469c-8248fa38833b.jpg" width="200"/>
+        <h4 class="text-lg font-semibold text-red-300 mb-1 select-none">
+         Poção de Velocidade
+        </h4>
+        <p class="text-red-400 font-mono mb-3 select-none">
+         90 G
+        </p>
+        <button aria-label="Adicionar Poção de Velocidade ao carrinho" class="bg-red-700 hover:bg-red-600 text-white font-semibold py-2 px-5 rounded-md transition focus:outline-none focus:ring-2 focus:ring-red-400" data-name="Poção de Velocidade" data-price="90">
+         Comprar
+        </button>
+       </article>
+      </div>
+     </div>
+     <!-- Categoria Armas -->
+     <div>
+      <h3 class="text-red-500 text-2xl font-semibold mb-4 select-none border-b border-red-700 pb-1">
+       Armas
+      </h3>
+      <div aria-label="Lista de armas para compra" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6" role="list">
+       <article class="bg-red-900 rounded-lg shadow-lg p-4 flex flex-col items-center text-center" role="listitem" tabindex="0">
+        <img alt="Espada Longa anime espada com runas vermelhas brilhantes" class="w-40 h-40 object-contain mb-3 rounded-md border border-red-700" height="200" loading="lazy" src="https://storage.googleapis.com/a1aa/image/20643108-c656-4317-94de-550a4e9a196a.jpg" width="200"/>
+        <h4 class="text-lg font-semibold text-red-300 mb-1 select-none">
+         Espada Longa
+        </h4>
+        <p class="text-red-400 font-mono mb-3 select-none">
+         350 G
+        </p>
+        <button aria-label="Adicionar Espada Longa ao carrinho" class="bg-red-700 hover:bg-red-600 text-white font-semibold py-2 px-5 rounded-md transition focus:outline-none focus:ring-2 focus:ring-red-400" data-name="Espada Longa" data-price="350">
+         Comprar
+        </button>
+       </article>
+       <article class="bg-red-900 rounded-lg shadow-lg p-4 flex flex-col items-center text-center" role="listitem" tabindex="0">
+        <img alt="Arco anime arqueiro com arco e flecha vermelhos" class="w-40 h-40 object-contain mb-3 rounded-md border border-red-700" height="200" loading="lazy" src="https://storage.googleapis.com/a1aa/image/dd14eda9-7446-4310-ec8f-d0c44894093e.jpg" width="200"/>
+        <h4 class="text-lg font-semibold text-red-300 mb-1 select-none">
+         Arco
+        </h4>
+        <p class="text-red-400 font-mono mb-3 select-none">
+         280 G
+        </p>
+        <button aria-label="Adicionar Arco ao carrinho" class="bg-red-700 hover:bg-red-600 text-white font-semibold py-2 px-5 rounded-md transition focus:outline-none focus:ring-2 focus:ring-red-400" data-name="Arco" data-price="280">
+         Comprar
+        </button>
+       </article>
+       <article class="bg-red-900 rounded-lg shadow-lg p-4 flex flex-col items-center text-center" role="listitem" tabindex="0">
+        <img alt="Machado anime guerreiro com machado vermelho" class="w-40 h-40 object-contain mb-3 rounded-md border border-red-700" height="200" loading="lazy" src="https://storage.googleapis.com/a1aa/image/8c67537f-4126-42ba-4531-68959a7eeaa9.jpg" width="200"/>
+        <h4 class="text-lg font-semibold text-red-300 mb-1 select-none">
+         Machado
+        </h4>
+        <p class="text-red-400 font-mono mb-3 select-none">
+         320 G
+        </p>
+        <button aria-label="Adicionar Machado ao carrinho" class="bg-red-700 hover:bg-red-600 text-white font-semibold py-2 px-5 rounded-md transition focus:outline-none focus:ring-2 focus:ring-red-400" data-name="Machado" data-price="320">
+         Comprar
+        </button>
+       </article>
+       <article class="bg-red-900 rounded-lg shadow-lg p-4 flex flex-col items-center text-center" role="listitem" tabindex="0">
+        <img alt="Adaga anime ladino com adaga vermelha" class="w-40 h-40 object-contain mb-3 rounded-md border border-red-700" height="200" loading="lazy" src="https://storage.googleapis.com/a1aa/image/98f8ebff-98e5-4c38-05cd-e272dbfe779f.jpg" width="200"/>
+        <h4 class="text-lg font-semibold text-red-300 mb-1 select-none">
+         Adaga
+        </h4>
+        <p class="text-red-400 font-mono mb-3 select-none">
+         150 G
+        </p>
+        <button aria-label="Adicionar Adaga ao carrinho" class="bg-red-700 hover:bg-red-600 text-white font-semibold py-2 px-5 rounded-md transition focus:outline-none focus:ring-2 focus:ring-red-400" data-name="Adaga" data-price="150">
+         Comprar
+        </button>
+       </article>
+      </div>
+     </div>
+     <!-- Categoria Armaduras -->
+     <div>
+      <h3 class="text-red-500 text-2xl font-semibold mb-4 select-none border-b border-red-700 pb-1">
+       Armaduras
+      </h3>
+      <div aria-label="Lista de armaduras para compra" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6" role="list">
+       <article class="bg-red-900 rounded-lg shadow-lg p-4 flex flex-col items-center text-center" role="listitem" tabindex="0">
+        <img alt="Armadura de Placas anime cavaleiro com armadura vermelha" class="w-40 h-40 object-contain mb-3 rounded-md border border-red-700" height="200" loading="lazy" src="https://storage.googleapis.com/a1aa/image/6c0a3e76-e505-451c-ed5f-8aa0258c30b0.jpg" width="200"/>
+        <h4 class="text-lg font-semibold text-red-300 mb-1 select-none">
+         Armadura de Placas
+        </h4>
+        <p class="text-red-400 font-mono mb-3 select-none">
+         600 G
+        </p>
+        <button aria-label="Adicionar Armadura de Placas ao carrinho" class="bg-red-700 hover:bg-red-600 text-white font-semibold py-2 px-5 rounded-md transition focus:outline-none focus:ring-2 focus:ring-red-400" data-name="Armadura de Placas" data-price="600">
+         Comprar
+        </button>
+       </article>
+       <article class="bg-red-900 rounded-lg shadow-lg p-4 flex flex-col items-center text-center" role="listitem" tabindex="0">
+        <img alt="Armadura de Couro anime ladino vestindo armadura de couro vermelha" class="w-40 h-40 object-contain mb-3 rounded-md border border-red-700" height="200" loading="lazy" src="https://storage.googleapis.com/a1aa/image/ca9c1b42-3df6-4b6e-c353-87a4381640f0.jpg" width="200"/>
+        <h4 class="text-lg font-semibold text-red-300 mb-1 select-none">
+         Armadura de Couro
+        </h4>
+        <p class="text-red-400 font-mono mb-3 select-none">
+         350 G
+        </p>
+        <button aria-label="Adicionar Armadura de Couro ao carrinho" class="bg-red-700 hover:bg-red-600 text-white font-semibold py-2 px-5 rounded-md transition focus:outline-none focus:ring-2 focus:ring-red-400" data-name="Armadura de Couro" data-price="350">
+         Comprar
+        </button>
+       </article>
+       <article class="bg-red-900 rounded-lg shadow-lg p-4 flex flex-col items-center text-center" role="listitem" tabindex="0">
+        <img alt="Elmo anime capacete vermelho com olhos brilhantes" class="w-40 h-40 object-contain mb-3 rounded-md border border-red-700" height="200" loading="lazy" src="https://storage.googleapis.com/a1aa/image/34b58289-8563-41ae-b630-888175098599.jpg" width="200"/>
+        <h4 class="text-lg font-semibold text-red-300 mb-1 select-none">
+         Elmo
+        </h4>
+        <p class="text-red-400 font-mono mb-3 select-none">
+         200 G
+        </p>
+        <button aria-label="Adicionar Elmo ao carrinho" class="bg-red-700 hover:bg-red-600 text-white font-semibold py-2 px-5 rounded-md transition focus:outline-none focus:ring-2 focus:ring-red-400" data-name="Elmo" data-price="200">
+         Comprar
+        </button>
+       </article>
+       <article class="bg-red-900 rounded-lg shadow-lg p-4 flex flex-col items-center text-center" role="listitem" tabindex="0">
+        <img alt="Escudo anime escudo vermelho com emblema flamejante" class="w-40 h-40 object-contain mb-3 rounded-md border border-red-700" height="200" loading="lazy" src="https://storage.googleapis.com/a1aa/image/f92f7282-5344-4ae0-3b72-5aa5b41143e6.jpg" width="200"/>
+        <h4 class="text-lg font-semibold text-red-300 mb-1 select-none">
+         Escudo
+        </h4>
+        <p class="text-red-400 font-mono mb-3 select-none">
+         250 G
+        </p>
+        <button aria-label="Adicionar Escudo ao carrinho" class="bg-red-700 hover:bg-red-600 text-white font-semibold py-2 px-5 rounded-md transition focus:outline-none focus:ring-2 focus:ring-red-400" data-name="Escudo" data-price="250">
+         Comprar
+        </button>
+       </article>
+      </div>
+     </div>
+     <!-- Categoria Itens Amaldiçoados -->
+     <div>
+      <h3 class="text-red-500 text-2xl font-semibold mb-4 select-none border-b border-red-700 pb-1">
+       Itens Amaldiçoados
+      </h3>
+      <div aria-label="Lista de itens amaldiçoados para compra" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6" role="list">
+       <article class="bg-red-900 rounded-lg shadow-lg p-4 flex flex-col items-center text-center border border-red-700" role="listitem" tabindex="0">
+        <img alt="Espada Amaldiçoada anime espada escura com brilho vermelho" class="w-40 h-40 object-contain mb-3 rounded-md" height="200" loading="lazy" src="https://storage.googleapis.com/a1aa/image/4f700b07-db6e-4dab-1dcc-8406697f8cb5.jpg" width="200"/>
+        <h4 class="text-lg font-semibold text-red-300 mb-1 select-none">
+         Espada Amaldiçoada
+        </h4>
+        <p class="text-red-400 font-mono mb-3 select-none">
+         900 G
+        </p>
+        <button aria-label="Adicionar Espada Amaldiçoada ao carrinho" class="bg-red-800 hover:bg-red-700 text-white font-semibold py-2 px-5 rounded-md transition focus:outline-none focus:ring-2 focus:ring-red-500" data-name="Espada Amaldiçoada" data-price="900">
+         Comprar
+        </button>
+       </article>
+       <article class="bg-red-900 rounded-lg shadow-lg p-4 flex flex-col items-center text-center border border-red-700" role="listitem" tabindex="0">
+        <img alt="Anel Amaldiçoado anime anel com energia vermelha e escura" class="w-40 h-40 object-contain mb-3 rounded-md" height="200" loading="lazy" src="https://storage.googleapis.com/a1aa/image/4b6bf586-1145-475a-70e9-cdb062249807.jpg" width="200"/>
+        <h4 class="text-lg font-semibold text-red-300 mb-1 select-none">
+         Anel Amaldiçoado
+        </h4>
+        <p class="text-red-400 font-mono mb-3 select-none">
+         700 G
+        </p>
+        <button aria-label="Adicionar Anel Amaldiçoado ao carrinho" class="bg-red-800 hover:bg-red-700 text-white font-semibold py-2 px-5 rounded-md transition focus:outline-none focus:ring-2 focus:ring-red-500" data-name="Anel Amaldiçoado" data-price="700">
+         Comprar
+        </button>
+       </article>
+       <article class="bg-red-900 rounded-lg shadow-lg p-4 flex flex-col items-center text-center border border-red-700" role="listitem" tabindex="0">
+        <img alt="Amuleto Amaldiçoado anime amuleto com brilho vermelho escuro" class="w-40 h-40 object-contain mb-3 rounded-md" height="200" loading="lazy" src="https://storage.googleapis.com/a1aa/image/f04a40c4-4a57-4f8a-d0e5-973cd4f89956.jpg" width="200"/>
+        <h4 class="text-lg font-semibold text-red-300 mb-1 select-none">
+         Amuleto Amaldiçoado
+        </h4>
+        <p class="text-red-400 font-mono mb-3 select-none">
+         850 G
+        </p>
+        <button aria-label="Adicionar Amuleto Amaldiçoado ao carrinho" class="bg-red-800 hover:bg-red-700 text-white font-semibold py-2 px-5 rounded-md transition focus:outline-none focus:ring-2 focus:ring-red-500" data-name="Amuleto Amaldiçoado" data-price="850">
+         Comprar
+        </button>
+       </article>
+       <article class="bg-red-900 rounded-lg shadow-lg p-4 flex flex-col items-center text-center border border-red-700" role="listitem" tabindex="0">
+        <img alt="Livro Amaldiçoado anime grimório escuro com símbolos vermelhos" class="w-40 h-40 object-contain mb-3 rounded-md" height="200" loading="lazy" src="https://storage.googleapis.com/a1aa/image/d4498490-e134-4e7d-70a7-b864c8249948.jpg" width="200"/>
+        <h4 class="text-lg font-semibold text-red-300 mb-1 select-none">
+         Livro Amaldiçoado
+        </h4>
+        <p class="text-red-400 font-mono mb-3 select-none">
+         1000 G
+        </p>
+        <button aria-label="Adicionar Livro Amaldiçoado ao carrinho" class="bg-red-800 hover:bg-red-700 text-white font-semibold py-2 px-5 rounded-md transition focus:outline-none focus:ring-2 focus:ring-red-500" data-name="Livro Amaldiçoado" data-price="1000">
+         Comprar
+        </button>
+       </article>
+      </div>
+     </div>
+     <!-- Categoria Itens Abençoados -->
+     <div>
+      <h3 class="text-red-500 text-2xl font-semibold mb-4 select-none border-b border-red-700 pb-1">
+       Itens Abençoados
+      </h3>
+      <div aria-label="Lista de itens abençoados para compra" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6" role="list">
+       <article class="bg-red-900 rounded-lg shadow-lg p-4 flex flex-col items-center text-center border border-red-400" role="listitem" tabindex="0">
+        <img alt="Espada Abençoada anime espada vermelha brilhante com luz" class="w-40 h-40 object-contain mb-3 rounded-md" height="200" loading="lazy" src="https://storage.googleapis.com/a1aa/image/9b6bdd7d-f2fe-4c2c-d396-3d920efd7df8.jpg" width="200"/>
+        <h4 class="text-lg font-semibold text-red-300 mb-1 select-none">
+         Espada Abençoada
+        </h4>
+        <p class="text-red-400 font-mono mb-3 select-none">
+         1200 G
+        </p>
+        <button aria-label="Adicionar Espada Abençoada ao carrinho" class="bg-red-600 hover:bg-red-500 text-white font-semibold py-2 px-5 rounded-md transition focus:outline-none focus:ring-2 focus:ring-red-300" data-name="Espada Abençoada" data-price="1200">
+         Comprar
+        </button>
+       </article>
+       <article class="bg-red-900 rounded-lg shadow-lg p-4 flex flex-col items-center text-center border border-red-400" role="listitem" tabindex="0">
+        <img alt="Escudo Abençoado anime escudo vermelho com luz sagrada" class="w-40 h-40 object-contain mb-3 rounded-md" height="200" loading="lazy" src="https://storage.googleapis.com/a1aa/image/aae06b21-f679-454f-bb05-5b4a7e9a66bd.jpg" width="200"/>
+        <h4 class="text-lg font-semibold text-red-300 mb-1 select-none">
+         Escudo Abençoado
+        </h4>
+        <p class="text-red-400 font-mono mb-3 select-none">
+         1100 G
+        </p>
+        <button aria-label="Adicionar Escudo Abençoado ao carrinho" class="bg-red-600 hover:bg-red-500 text-white font-semibold py-2 px-5 rounded-md transition focus:outline-none focus:ring-2 focus:ring-red-300" data-name="Escudo Abençoado" data-price="1100">
+         Comprar
+        </button>
+       </article>
+       <article class="bg-red-900 rounded-lg shadow-lg p-4 flex flex-col items-center text-center border border-red-400" role="listitem" tabindex="0">
+        <img alt="Anel Abençoado anime anel com brilho sagrado vermelho" class="w-40 h-40 object-contain mb-3 rounded-md" height="200" loading="lazy" src="https://storage.googleapis.com/a1aa/image/cb347064-2e7d-412d-1880-e91455c3df3d.jpg" width="200"/>
+        <h4 class="text-lg font-semibold text-red-300 mb-1 select-none">
+         Anel Abençoado
+        </h4>
+        <p class="text-red-400 font-mono mb-3 select-none">
+         950 G
+        </p>
+        <button aria-label="Adicionar Anel Abençoado ao carrinho" class="bg-red-600 hover:bg-red-500 text-white font-semibold py-2 px-5 rounded-md transition focus:outline-none focus:ring-2 focus:ring-red-300" data-name="Anel Abençoado" data-price="950">
+         Comprar
+        </button>
+       </article>
+       <article class="bg-red-900 rounded-lg shadow-lg p-4 flex flex-col items-center text-center border border-red-400" role="listitem" tabindex="0">
+        <img alt="Amuleto Abençoado anime amuleto com luz sagrada vermelha" class="w-40 h-40 object-contain mb-3 rounded-md" height="200" loading="lazy" src="https://storage.googleapis.com/a1aa/image/9eaddfd3-837c-4bdf-4c7e-f4b41d7c0653.jpg" width="200"/>
+        <h4 class="text-lg font-semibold text-red-300 mb-1 select-none">
+         Amuleto Abençoado
+        </h4>
+        <p class="text-red-400 font-mono mb-3 select-none">
+         1000 G
+        </p>
+        <button aria-label="Adicionar Amuleto Abençoado ao carrinho" class="bg-red-600 hover:bg-red-500 text-white font-semibold py-2 px-5 rounded-md transition focus:outline-none focus:ring-2 focus:ring-red-300" data-name="Amuleto Abençoado" data-price="1000">
+         Comprar
+        </button>
+       </article>
+      </div>
+     </div>
+     <!-- Categoria Outros Itens -->
+     <div>
+      <h3 class="text-red-500 text-2xl font-semibold mb-4 select-none border-b border-red-700 pb-1">
+       Outros Itens
+      </h3>
+      <div aria-label="Lista de outros itens para compra" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6" role="list">
+       <article class="bg-red-900 rounded-lg shadow-lg p-4 flex flex-col items-center text-center" role="listitem" tabindex="0">
+        <img alt="Pergaminho anime pergaminho vermelho com símbolos mágicos" class="w-40 h-40 object-contain mb-3 rounded-md border border-red-700" height="200" loading="lazy" src="https://storage.googleapis.com/a1aa/image/f94cca20-927f-42fa-bcc0-57bfba38341a.jpg" width="200"/>
+        <h4 class="text-lg font-semibold text-red-300 mb-1 select-none">
+         Pergaminho Mágico
+        </h4>
+        <p class="text-red-400 font-mono mb-3 select-none">
+         400 G
+        </p>
+        <button aria-label="Adicionar Pergaminho Mágico ao carrinho" class="bg-red-700 hover:bg-red-600 text-white font-semibold py-2 px-5 rounded-md transition focus:outline-none focus:ring-2 focus:ring-red-400" data-name="Pergaminho Mágico" data-price="400">
+         Comprar
+        </button>
+       </article>
+       <article class="bg-red-900 rounded-lg shadow-lg p-4 flex flex-col items-center text-center" role="listitem" tabindex="0">
+        <img alt="Chave anime chave vermelha com efeito brilhante" class="w-40 h-40 object-contain mb-3 rounded-md border border-red-700" height="200" loading="lazy" src="https://storage.googleapis.com/a1aa/image/ce801cf9-c9f9-4508-f7ca-bde4e1b4155c.jpg" width="200"/>
+        <h4 class="text-lg font-semibold text-red-300 mb-1 select-none">
+         Chave Misteriosa
+        </h4>
+        <p class="text-red-400 font-mono mb-3 select-none">
+         300 G
+        </p>
+        <button aria-label="Adicionar Chave Misteriosa ao carrinho" class="bg-red-700 hover:bg-red-600 text-white font-semibold py-2 px-5 rounded-md transition focus:outline-none focus:ring-2 focus:ring-red-400" data-name="Chave Misteriosa" data-price="300">
+         Comprar
+        </button>
+       </article>
+       <article class="bg-red-900 rounded-lg shadow-lg p-4 flex flex-col items-center text-center" role="listitem" tabindex="0">
+        <img alt="Moeda anime moeda de ouro com brilho vermelho" class="w-40 h-40 object-contain mb-3 rounded-md border border-red-700" height="200" loading="lazy" src="https://storage.googleapis.com/a1aa/image/155913da-bdfb-41cf-11a3-55dc3d80c757.jpg" width="200"/>
+        <h4 class="text-lg font-semibold text-red-300 mb-1 select-none">
+         Moeda Antiga
+        </h4>
+        <p class="text-red-400 font-mono mb-3 select-none">
+         150 G
+        </p>
+        <button aria-label="Adicionar Moeda Antiga ao carrinho" class="bg-red-700 hover:bg-red-600 text-white font-semibold py-2 px-5 rounded-md transition focus:outline-none focus:ring-2 focus:ring-red-400" data-name="Moeda Antiga" data-price="150">
+         Comprar
+        </button>
+       </article>
+       <article class="bg-red-900 rounded-lg shadow-lg p-4 flex flex-col items-center text-center" role="listitem" tabindex="0">
+        <img alt="Elixir anime frasco vermelho com líquido brilhante" class="w-40 h-40 object-contain mb-3 rounded-md border border-red-700" height="200" loading="lazy" src="https://storage.googleapis.com/a1aa/image/e22f8d91-68d6-4a51-0495-586cc07ee281.jpg" width="200"/>
+        <h4 class="text-lg font-semibold text-red-300 mb-1 select-none">
+         Elixir da Vida
+        </h4>
+        <p class="text-red-400 font-mono mb-3 select-none">
+         500 G
+        </p>
+        <button aria-label="Adicionar Elixir da Vida ao carrinho" class="bg-red-700 hover:bg-red-600 text-white font-semibold py-2 px-5 rounded-md transition focus:outline-none focus:ring-2 focus:ring-red-400" data-name="Elixir da Vida" data-price="500">
+         Comprar
+        </button>
+       </article>
+      </div>
+     </div>
+    </div>
    </section>
   </main>
-  <footer>
-   <p>
-    © 2024 Cross Arise RPG | Todos os direitos reservados
-   </p>
-  </footer>
+  <!-- Carrinho Modal -->
+  <div aria-labelledby="cartTitle" aria-modal="true" class="fixed inset-0 bg-black bg-opacity-80 backdrop-blur-sm flex items-center justify-center p-4 z-50 hidden" id="cartModal" role="dialog">
+   <div class="bg-red-900 rounded-lg max-w-3xl w-full max-h-[90vh] flex flex-col shadow-2xl">
+    <header class="flex justify-between items-center border-b border-red-700 px-6 py-4">
+     <h2 class="text-red-400 text-2xl font-extrabold select-none" id="cartTitle">
+      Carrinho de Compras
+     </h2>
+     <button aria-label="Fechar carrinho" class="text-red-400 hover:text-red-200 transition text-2xl font-bold" id="btnCartClose">
+      ×
+     </button>
+    </header>
+    <section aria-live="polite" aria-relevant="additions removals" class="flex-grow overflow-y-auto px-6 py-4 space-y-4" id="cartItems" tabindex="0">
+     <p class="text-red-400 select-none">
+      Seu carrinho está vazio.
+     </p>
+    </section>
+    <footer class="border-t border-red-700 px-6 py-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+     <div class="text-red-300 font-mono text-lg select-none">
+      Total:
+      <span id="cartTotal">
+       0
+      </span>
+      G
+     </div>
+     <div class="flex gap-3">
+      <button class="bg-red-700 hover:bg-red-600 text-white font-semibold py-2 px-5 rounded-md transition focus:outline-none focus:ring-2 focus:ring-red-400" id="btnClearCart">
+       Limpar Carrinho
+      </button>
+      <button class="bg-red-600 hover:bg-red-500 text-white font-semibold py-2 px-5 rounded-md transition focus:outline-none focus:ring-2 focus:ring-red-300 disabled:opacity-50 disabled:cursor-not-allowed" disabled="" id="btnCheckout">
+       Finalizar Compra
+      </button>
+     </div>
+    </footer>
+   </div>
+  </div>
+  <script>
+   // Voltar para index2.html
+    document.getElementById('btnBack').addEventListener('click', () => {
+      window.location.href = 'index2.html';
+    });
+
+    // Carrinho
+    const cartModal = document.getElementById('cartModal');
+    const btnCartOpen = document.getElementById('btnCartOpen');
+    const btnCartClose = document.getElementById('btnCartClose');
+    const cartItemsContainer = document.getElementById('cartItems');
+    const cartCount = document.getElementById('cartCount');
+    const cartTotal = document.getElementById('cartTotal');
+    const btnClearCart = document.getElementById('btnClearCart');
+    const btnCheckout = document.getElementById('btnCheckout');
+
+    let cart = [];
+
+    function updateCartUI() {
+      if (cart.length === 0) {
+        cartItemsContainer.innerHTML =
+          '<p class="text-red-400 select-none">Seu carrinho está vazio.</p>';
+        btnCheckout.disabled = true;
+        cartCount.textContent = '0';
+        cartTotal.textContent = '0';
+        return;
+      }
+
+      btnCheckout.disabled = false;
+      cartCount.textContent = cart.reduce((acc, item) => acc + item.quantity, 0);
+
+      cartItemsContainer.innerHTML = '';
+      cart.forEach((item, index) => {
+        const itemDiv = document.createElement('div');
+        itemDiv.className =
+          'flex items-center gap-4 bg-red-800 rounded-md p-3 shadow-md';
+        itemDiv.setAttribute('tabindex', '0');
+        itemDiv.setAttribute('role', 'listitem');
+
+        const img = document.createElement('img');
+        img.src = item.image;
+        img.alt = item.alt;
+        img.className = 'w-16 h-16 object-contain rounded-md border border-red-700';
+        img.loading = 'lazy';
+
+        const infoDiv = document.createElement('div');
+        infoDiv.className = 'flex-grow';
+
+        const nameP = document.createElement('p');
+        nameP.textContent = item.name;
+        nameP.className = 'font-semibold text-red-300 select-none';
+
+        const priceP = document.createElement('p');
+        priceP.textContent = `${item.price} G`;
+        priceP.className = 'font-mono text-red-400 select-none';
+
+        const quantityDiv = document.createElement('div');
+        quantityDiv.className = 'flex items-center gap-2 mt-1';
+
+        const btnDecrease = document.createElement('button');
+        btnDecrease.className =
+          'bg-red-700 hover:bg-red-600 text-white rounded px-2 py-1 font-bold focus:outline-none focus:ring-2 focus:ring-red-400';
+        btnDecrease.setAttribute('aria-label', `Diminuir quantidade de ${item.name}`);
+        btnDecrease.textContent = '-';
+        btnDecrease.addEventListener('click', () => {
+          if (item.quantity > 1) {
+            item.quantity--;
+          } else {
+            cart.splice(index, 1);
+          }
+          updateCartUI();
+        });
+
+        const quantitySpan = document.createElement('span');
+        quantitySpan.textContent = item.quantity;
+        quantitySpan.className = 'text-red-300 font-semibold select-none';
+
+        const btnIncrease = document.createElement('button');
+        btnIncrease.className =
+          'bg-red-700 hover:bg-red-600 text-white rounded px-2 py-1 font-bold focus:outline-none focus:ring-2 focus:ring-red-400';
+        btnIncrease.setAttribute('aria-label', `Aumentar quantidade de ${item.name}`);
+        btnIncrease.textContent = '+';
+        btnIncrease.addEventListener('click', () => {
+          item.quantity++;
+          updateCartUI();
+        });
+
+        quantityDiv.appendChild(btnDecrease);
+        quantityDiv.appendChild(quantitySpan);
+        quantityDiv.appendChild(btnIncrease);
+
+        infoDiv.appendChild(nameP);
+        infoDiv.appendChild(priceP);
+        infoDiv.appendChild(quantityDiv);
+
+        itemDiv.appendChild(img);
+        itemDiv.appendChild(infoDiv);
+
+        cartItemsContainer.appendChild(itemDiv);
+      });
+
+      const totalPrice = cart.reduce(
+        (acc, item) => acc + item.price * item.quantity,
+        0
+      );
+      cartTotal.textContent = totalPrice;
+    }
+
+    // Adicionar evento para todos botões comprar
+    document.querySelectorAll('button[data-name]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const name = btn.getAttribute('data-name');
+        const price = Number(btn.getAttribute('data-price'));
+        const card = btn.closest('article');
+        const img = card.querySelector('img');
+        const alt = img.alt;
+        const image = img.src;
+
+        const existingItem = cart.find((item) => item.name === name);
+        if (existingItem) {
+          existingItem.quantity++;
+        } else {
+          cart.push({ name, price, quantity: 1, image, alt });
+        }
+        updateCartUI();
+      });
+    });
+
+    btnCartOpen.addEventListener('click', () => {
+      cartModal.classList.remove('hidden');
+      cartModal.focus();
+    });
+
+    btnCartClose.addEventListener('click', () => {
+      cartModal.classList.add('hidden');
+    });
+
+    btnClearCart.addEventListener('click', () => {
+      cart = [];
+      updateCartUI();
+    });
+
+    btnCheckout.addEventListener('click', () => {
+      alert('Tire um print');
+      cartModal.classList.add('hidden');
+    });
+
+    // Close modal on Escape key
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !cartModal.classList.contains('hidden')) {
+        cartModal.classList.add('hidden');
+      }
+    });
+
+    // Trap focus inside modal when open
+    cartModal.addEventListener('keydown', (e) => {
+      if (e.key === 'Tab') {
+        const focusableElements = cartModal.querySelectorAll(
+          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+        );
+        const firstElement = focusableElements[0];
+        const lastElement = focusableElements[focusableElements.length - 1];
+
+        if (e.shiftKey) {
+          if (document.activeElement === firstElement) {
+            e.preventDefault();
+            lastElement.focus();
+          }
+        } else {
+          if (document.activeElement === lastElement) {
+            e.preventDefault();
+            firstElement.focus();
+          }
+        }
+      }
+    });
+  </script>
  </body>
 </html>
