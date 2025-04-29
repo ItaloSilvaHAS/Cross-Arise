@@ -26,6 +26,17 @@
       background-color: #b91c1c;
       border-radius: 4px;
     }
+    /* Fix images to fill square container with object-fit cover */
+    .img-square {
+      width: 10rem; /* 40 */
+      height: 10rem; /* 40 */
+      border-radius: 0.375rem; /* rounded-md */
+      border: 1px solid #7f1d1d; /* border-red-700 */
+      object-fit: cover;
+      object-position: center;
+      margin-bottom: 0.75rem; /* mb-3 */
+      flex-shrink: 0;
+    }
   </style>
  </head>
  <body class="min-h-screen flex flex-col">
@@ -61,7 +72,7 @@
       </h3>
       <div aria-label="Lista de poções para compra" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6" role="list">
        <article class="bg-red-900 rounded-lg shadow-lg p-4 flex flex-col items-center text-center" role="listitem" tabindex="0">
-        <img src="Imagens-Loja/Poção-Vida.jpg" class="w-40 h-40 object-contain mb-3 rounded-md border border-red-700" height="200" loading="lazy" src="https://storage.googleapis.com/a1aa/image/0194c747-a1aa-4cab-79d5-a78e6a52367e.jpg" width="200"/>
+        <img src="Imagens-Loja/Poção-Vida.jpg" alt="Poção de Vida anime girl com cabelo vermelho segurando uma poção vermelha brilhante" class="img-square" height="200" loading="lazy" width="200"/>
         <h4 class="text-lg font-semibold text-red-300 mb-1 select-none">
          Poção de Vida
         </h4>
@@ -76,7 +87,7 @@
         </button>
        </article>
        <article class="bg-red-900 rounded-lg shadow-lg p-4 flex flex-col items-center text-center" role="listitem" tabindex="0">
-        <img src="Imagens-Loja/Poção-Mana.jpg" class="w-40 h-40 object-contain mb-3 rounded-md border border-red-700" height="200" loading="lazy" src="https://storage.googleapis.com/a1aa/image/24a505fa-2591-4d57-3f87-c8e1ff4b0272.jpg" width="200"/>
+        <img src="Imagens-Loja/Poção-Mana.jpg" alt="Poção de Mana anime garoto com cabelo azul segurando uma poção azul brilhante" class="img-square" height="200" loading="lazy" width="200"/>
         <h4 class="text-lg font-semibold text-red-300 mb-1 select-none">
          Poção de Mana
         </h4>
@@ -91,7 +102,7 @@
         </button>
        </article>
        <article class="bg-red-900 rounded-lg shadow-lg p-4 flex flex-col items-center text-center" role="listitem" tabindex="0">
-        <img src="Imagens-Loja/Poção-Força.jpg" class="w-40 h-40 object-contain mb-3 rounded-md border border-red-700" height="200" loading="lazy" src="https://storage.googleapis.com/a1aa/image/f4dc31b3-1e16-40e2-7951-2f07dd9dcd30.jpg" width="200"/>
+        <img src="Imagens-Loja/Poção-Força.jpg" alt="Poção de Força anime guerreira segurando uma poção vermelha com efeito de fogo" class="img-square" height="200" loading="lazy" width="200"/>
         <h4 class="text-lg font-semibold text-red-300 mb-1 select-none">
          Poção de Força
         </h4>
@@ -106,7 +117,7 @@
         </button>
        </article>
        <article class="bg-red-900 rounded-lg shadow-lg p-4 flex flex-col items-center text-center" role="listitem" tabindex="0">
-        <img src="Imagens-Loja/Poção-Velocidade.png" class="w-40 h-40 object-contain mb-3 rounded-md border border-red-700" height="200" loading="lazy" src="https://storage.googleapis.com/a1aa/image/3d902edf-9888-4654-469c-8248fa38833b.jpg" width="200"/>
+        <img src="Imagens-Loja/Poção-Velocidade.png" alt="Poção de Velocidade anime personagem correndo segurando uma poção vermelha" class="img-square" height="200" loading="lazy" width="200"/>
         <h4 class="text-lg font-semibold text-red-300 mb-1 select-none">
          Poção de Velocidade
         </h4>
@@ -133,7 +144,7 @@
       </h3>
       <div aria-label="Lista de armas para compra" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6" role="list">
        <article class="bg-red-900 rounded-lg shadow-lg p-4 flex flex-col items-center text-center" role="listitem" tabindex="0">
-        <img alt="Espada Longa anime espada com runas vermelhas brilhantes" class="w-40 h-40 object-contain mb-3 rounded-md border border-red-700" height="200" loading="lazy" src="https://storage.googleapis.com/a1aa/image/20643108-c656-4317-94de-550a4e9a196a.jpg" width="200"/>
+        <img alt="Espada Longa anime espada com runas vermelhas brilhantes" class="img-square" height="200" loading="lazy" src="https://storage.googleapis.com/a1aa/image/20643108-c656-4317-94de-550a4e9a196a.jpg" width="200"/>
         <h4 class="text-lg font-semibold text-red-300 mb-1 select-none">
          Espada Longa
         </h4>
@@ -148,7 +159,7 @@
         </button>
        </article>
        <article class="bg-red-900 rounded-lg shadow-lg p-4 flex flex-col items-center text-center" role="listitem" tabindex="0">
-        <img src="Imagens-Loja/Arco.jpg" class="w-40 h-40 object-contain mb-3 rounded-md border border-red-700" height="200" loading="lazy" src="https://storage.googleapis.com/a1aa/image/dd14eda9-7446-4310-ec8f-d0c44894093e.jpg" width="200"/>
+        <img src="Imagens-Loja/Arco.jpg" alt="Arco anime arqueiro com arco e flecha vermelhos" class="img-square" height="200" loading="lazy" width="200"/>
         <h4 class="text-lg font-semibold text-red-300 mb-1 select-none">
          Arco
         </h4>
@@ -163,7 +174,7 @@
         </button>
        </article>
        <article class="bg-red-900 rounded-lg shadow-lg p-4 flex flex-col items-center text-center" role="listitem" tabindex="0">
-        <img src="Imagens-Loja/Machado.jpg" class="w-40 h-40 object-contain mb-3 rounded-md border border-red-700" height="200" loading="lazy" src="https://storage.googleapis.com/a1aa/image/8c67537f-4126-42ba-4531-68959a7eeaa9.jpg" width="200"/>
+        <img src="Imagens-Loja/Machado.jpg" alt="Machado anime guerreiro com machado vermelho" class="img-square" height="200" loading="lazy" width="200"/>
         <h4 class="text-lg font-semibold text-red-300 mb-1 select-none">
          Machado
         </h4>
@@ -178,7 +189,7 @@
         </button>
        </article>
        <article class="bg-red-900 rounded-lg shadow-lg p-4 flex flex-col items-center text-center" role="listitem" tabindex="0">
-        <img src="Imagens-Loja/Adaga.webp" class="w-40 h-40 object-contain mb-3 rounded-md border border-red-700" height="200" loading="lazy" src="https://storage.googleapis.com/a1aa/image/98f8ebff-98e5-4c38-05cd-e272dbfe779f.jpg" width="200"/>
+        <img src="Imagens-Loja/Adaga.webp" alt="Adaga rápida e silenciosa, ideal para ataques furtivos. +2 Agilidade, +2 Força" class="img-square" height="200" loading="lazy" width="200"/>
         <h4 class="text-lg font-semibold text-red-300 mb-1 select-none">
          Adaga
         </h4>
@@ -201,7 +212,7 @@
       </h3>
       <div aria-label="Lista de armaduras para compra" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6" role="list">
        <article class="bg-red-900 rounded-lg shadow-lg p-4 flex flex-col items-center text-center" role="listitem" tabindex="0">
-        <img src="Imagens-Loja/Armadura.jpg" class="w-40 h-40 object-contain mb-3 rounded-md border border-red-700" height="200" loading="lazy" src="https://storage.googleapis.com/a1aa/image/6c0a3e76-e505-451c-ed5f-8aa0258c30b0.jpg" width="200"/>
+        <img src="Imagens-Loja/Armadura.jpg" alt="Armadura pesada que oferece alta proteção física. +4 Defesa" class="img-square" height="200" loading="lazy" width="200"/>
         <h4 class="text-lg font-semibold text-red-300 mb-1 select-none">
          Armadura De Placas
         </h4>
@@ -216,7 +227,7 @@
         </button>
        </article>
        <article class="bg-red-900 rounded-lg shadow-lg p-4 flex flex-col items-center text-center" role="listitem" tabindex="0">
-        <img src="Imagens-Loja/Berserk.webp" class="w-40 h-40 object-contain mb-3 rounded-md border border-red-700" height="200" loading="lazy" src="https://storage.googleapis.com/a1aa/image/ca9c1b42-3df6-4b6e-c353-87a4381640f0.jpg" width="200"/>
+        <img src="Imagens-Loja/Berserk.webp" alt="Armadura que permite maior mobilidade para o ataque, mas menos proteção. +2 Defesa, +2 Força" class="img-square" height="200" loading="lazy" width="200"/>
         <h4 class="text-lg font-semibold text-red-300 mb-1 select-none">
          Armadura Berserk
         </h4>
@@ -231,7 +242,7 @@
         </button>
        </article>
        <article class="bg-red-900 rounded-lg shadow-lg p-4 flex flex-col items-center text-center" role="listitem" tabindex="0">
-        <img src="Imagens-Loja/Armadura Placa.jpeg" class="w-40 h-40 object-contain mb-3 rounded-md border border-red-700" height="200" loading="lazy" src="https://storage.googleapis.com/a1aa/image/34b58289-8563-41ae-b630-888175098599.jpg" width="200"/>
+        <img src="Imagens-Loja/Armadura Placa.jpeg" alt="Armadura de ferro que oferece proteção média. +3 Defesa" class="img-square" height="200" loading="lazy" width="200"/>
         <h4 class="text-lg font-semibold text-red-300 mb-1 select-none">
          Armadura De Ferro 
         </h4>
@@ -246,7 +257,7 @@
         </button>
        </article>
        <article class="bg-red-900 rounded-lg shadow-lg p-4 flex flex-col items-center text-center" role="listitem" tabindex="0">
-        <img src="Imagens-Loja/Escudo.webp" class="w-40 h-40 object-contain mb-3 rounded-md border border-red-700" height="200" loading="lazy" src="https://storage.googleapis.com/a1aa/image/f92f7282-5344-4ae0-3b72-5aa5b41143e6.jpg" width="200"/>
+        <img src="Imagens-Loja/Escudo.webp" alt="Escudo robusto que bloqueia ataques inimigos. +4 Defesa" class="img-square" height="200" loading="lazy" width="200"/>
         <h4 class="text-lg font-semibold text-red-300 mb-1 select-none">
          Escudo
         </h4>
@@ -269,7 +280,7 @@
       </h3>
       <div aria-label="Lista de itens amaldiçoados para compra" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6" role="list">
        <article class="bg-red-900 rounded-lg shadow-lg p-4 flex flex-col items-center text-center border border-red-700" role="listitem" tabindex="0">
-        <img alt="Espada Amaldiçoada anime espada escura com brilho vermelho" class="w-40 h-40 object-contain mb-3 rounded-md" height="200" loading="lazy" src="https://storage.googleapis.com/a1aa/image/4f700b07-db6e-4dab-1dcc-8406697f8cb5.jpg" width="200"/>
+        <img alt="Espada Amaldiçoada anime espada escura com brilho vermelho" class="img-square" height="200" loading="lazy" width="200"/>
         <h4 class="text-lg font-semibold text-red-300 mb-1 select-none">
          Espada Amaldiçoada
         </h4>
@@ -284,7 +295,7 @@
         </button>
        </article>
        <article class="bg-red-900 rounded-lg shadow-lg p-4 flex flex-col items-center text-center border border-red-700" role="listitem" tabindex="0">
-        <img src="Imagens-Loja/YutaAnel.webp" class="w-40 h-40 object-contain mb-3 rounded-md" height="200" loading="lazy" src="https://storage.googleapis.com/a1aa/image/4b6bf586-1145-475a-70e9-cdb062249807.jpg" width="200"/>
+        <img src="Imagens-Loja/YutaAnel.webp" alt="Anel que concede um poder misterioso, mas drena sua energia vital." class="img-square" height="200" loading="lazy" width="200"/>
         <h4 class="text-lg font-semibold text-red-300 mb-1 select-none">
          Anel Amaldiçoado
         </h4>
@@ -299,7 +310,7 @@
         </button>
        </article>
        <article class="bg-red-900 rounded-lg shadow-lg p-4 flex flex-col items-center text-center border border-red-700" role="listitem" tabindex="0">
-        <img alt="Amuleto Amaldiçoado anime amuleto com brilho vermelho escuro" class="w-40 h-40 object-contain mb-3 rounded-md" height="200" loading="lazy" src="https://storage.googleapis.com/a1aa/image/f04a40c4-4a57-4f8a-d0e5-973cd4f89956.jpg" width="200"/>
+        <img alt="Amuleto Amaldiçoado anime amuleto com brilho vermelho escuro" class="img-square" height="200" loading="lazy" width="200"/>
         <h4 class="text-lg font-semibold text-red-300 mb-1 select-none">
          Amuleto Amaldiçoado
         </h4>
@@ -314,7 +325,7 @@
         </button>
        </article>
        <article class="bg-red-900 rounded-lg shadow-lg p-4 flex flex-col items-center text-center border border-red-700" role="listitem" tabindex="0">
-        <img src="Imagens-Loja/Grimorio.webp" class="w-40 h-40 object-contain mb-3 rounded-md" height="200" loading="lazy" src="https://storage.googleapis.com/a1aa/image/d4498490-e134-4e7d-70a7-b864c8249948.jpg" width="200"/>
+        <img src="Imagens-Loja/Grimorio.webp" alt="Grimório com feitiços poderosos, mas perigoso de usar. A energia vital do usuário é drenada." class="img-square" height="200" loading="lazy" width="200"/>
         <h4 class="text-lg font-semibold text-red-300 mb-1 select-none">
          Livro Amaldiçoado
         </h4>
@@ -337,7 +348,7 @@
       </h3>
       <div aria-label="Lista de itens abençoados para compra" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6" role="list">
        <article class="bg-red-900 rounded-lg shadow-lg p-4 flex flex-col items-center text-center border border-red-400" role="listitem" tabindex="0">
-        <img alt="Espada Abençoada anime espada vermelha brilhante com luz" class="w-40 h-40 object-contain mb-3 rounded-md" height="200" loading="lazy" src="https://storage.googleapis.com/a1aa/image/9b6bdd7d-f2fe-4c2c-d396-3d920efd7df8.jpg" width="200"/>
+        <img alt="Espada Abençoada anime espada vermelha brilhante com luz" class="img-square" height="200" loading="lazy" width="200"/>
         <h4 class="text-lg font-semibold text-red-300 mb-1 select-none">
          Espada Abençoada
         </h4>
@@ -352,7 +363,7 @@
         </button>
        </article>
        <article class="bg-red-900 rounded-lg shadow-lg p-4 flex flex-col items-center text-center border border-red-400" role="listitem" tabindex="0">
-        <img alt="Escudo Abençoado anime escudo vermelho com luz sagrada" class="w-40 h-40 object-contain mb-3 rounded-md" height="200" loading="lazy" src="https://storage.googleapis.com/a1aa/image/aae06b21-f679-454f-bb05-5b4a7e9a66bd.jpg" width="200"/>
+        <img alt="Escudo Abençoado anime escudo vermelho com luz sagrada" class="img-square" height="200" loading="lazy" width="200"/>
         <h4 class="text-lg font-semibold text-red-300 mb-1 select-none">
          Escudo Abençoado
         </h4>
@@ -367,7 +378,7 @@
         </button>
        </article>
        <article class="bg-red-900 rounded-lg shadow-lg p-4 flex flex-col items-center text-center border border-red-400" role="listitem" tabindex="0">
-        <img src="Imagens-Loja/Anel.png" class="w-40 h-40 object-contain mb-3 rounded-md" height="200" loading="lazy" src="https://storage.googleapis.com/a1aa/image/cb347064-2e7d-412d-1880-e91455c3df3d.jpg" width="200"/>
+        <img src="Imagens-Loja/Anel.png" alt="Anel que protege contra maldições e venenos." class="img-square" height="200" loading="lazy" width="200"/>
         <h4 class="text-lg font-semibold text-red-300 mb-1 select-none">
          Anel Abençoado
         </h4>
@@ -382,7 +393,7 @@
         </button>
        </article>
        <article class="bg-red-900 rounded-lg shadow-lg p-4 flex flex-col items-center text-center border border-red-400" role="listitem" tabindex="0">
-        <img alt="Amuleto Abençoado anime amuleto com luz sagrada vermelha" class="w-40 h-40 object-contain mb-3 rounded-md" height="200" loading="lazy" src="https://storage.googleapis.com/a1aa/image/9eaddfd3-837c-4bdf-4c7e-f4b41d7c0653.jpg" width="200"/>
+        <img alt="Amuleto Abençoado anime amuleto com luz sagrada vermelha" class="img-square" height="200" loading="lazy" width="200"/>
         <h4 class="text-lg font-semibold text-red-300 mb-1 select-none">
          Amuleto Abençoado
         </h4>
@@ -405,7 +416,7 @@
       </h3>
       <div aria-label="Lista de outros itens para compra" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6" role="list">
        <article class="bg-red-900 rounded-lg shadow-lg p-4 flex flex-col items-center text-center" role="listitem" tabindex="0">
-        <img src="Imagens-Loja/Pergaminho_de_Diagrama_Alterador_de_Terreno.PNG.webp" class="w-40 h-40 object-contain mb-3 rounded-md border border-red-700" height="200" loading="lazy" src="https://storage.googleapis.com/a1aa/image/f94cca20-927f-42fa-bcc0-57bfba38341a.jpg" width="200"/>
+        <img src="Imagens-Loja/Pergaminho_de_Diagrama_Alterador_de_Terreno.PNG.webp" alt="Pergaminho anime pergaminho vermelho com símbolos mágicos" class="img-square" height="200" loading="lazy" width="200"/>
         <h4 class="text-lg font-semibold text-red-300 mb-1 select-none">
          Pergaminho Mágico
         </h4>
@@ -420,7 +431,7 @@
         </button>
        </article>
        <article class="bg-red-900 rounded-lg shadow-lg p-4 flex flex-col items-center text-center" role="listitem" tabindex="0">
-        <img src="Imagens-Loja/Chaves de Ouro de Fairy Tail.jpg" class="w-40 h-40 object-contain mb-3 rounded-md border border-red-700" height="200" loading="lazy" src="https://storage.googleapis.com/a1aa/image/ce801cf9-c9f9-4508-f7ca-bde4e1b4155c.jpg" width="200"/>
+        <img src="Imagens-Loja/Chaves de Ouro de Fairy Tail.jpg" alt="Chave anime chave vermelha com efeito brilhante" class="img-square" height="200" loading="lazy" width="200"/>
         <h4 class="text-lg font-semibold text-red-300 mb-1 select-none">
          Chave Misteriosa
         </h4>
@@ -435,7 +446,7 @@
         </button>
        </article>
        <article class="bg-red-900 rounded-lg shadow-lg p-4 flex flex-col items-center text-center" role="listitem" tabindex="0">
-        <img src="Imagens-Loja/oldmoeda.jpg" class="w-40 h-40 object-contain mb-3 rounded-md border border-red-700" height="200" loading="lazy" src="https://storage.googleapis.com/a1aa/image/155913da-bdfb-41cf-11a3-55dc3d80c757.jpg" width="200"/>
+        <img src="Imagens-Loja/oldmoeda.jpg" alt="Moeda anime moeda de ouro com brilho vermelho" class="img-square" height="200" loading="lazy" width="200"/>
         <h4 class="text-lg font-semibold text-red-300 mb-1 select-none">
          Moeda Antiga
         </h4>
@@ -450,7 +461,7 @@
         </button>
        </article>
        <article class="bg-red-900 rounded-lg shadow-lg p-4 flex flex-col items-center text-center" role="listitem" tabindex="0">
-        <img src="Imagens-Loja/Elixir.png" class="w-40 h-40 object-contain mb-3 rounded-md border border-red-700" height="200" loading="lazy" src="https://storage.googleapis.com/a1aa/image/e22f8d91-68d6-4a51-0495-586cc07ee281.jpg" width="200"/>
+        <img src="Imagens-Loja/Elixir.png" alt="Elixir anime frasco vermelho com líquido brilhante" class="img-square" height="200" loading="lazy" width="200"/>
         <h4 class="text-lg font-semibold text-red-300 mb-1 select-none">
          Elixir da Vida
         </h4>
@@ -546,7 +557,7 @@
         const img = document.createElement('img');
         img.src = item.image;
         img.alt = item.alt;
-        img.className = 'w-16 h-16 object-contain rounded-md border border-red-700';
+        img.className = 'w-16 h-16 object-cover rounded-md border border-red-700';
         img.loading = 'lazy';
 
         const infoDiv = document.createElement('div');
