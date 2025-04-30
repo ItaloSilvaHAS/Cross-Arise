@@ -1,0 +1,541 @@
+<html class="scroll-smooth" lang="pt-BR">
+ <head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <title>Raças - Cross Arise</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+   rel="stylesheet"
+  />
+  <link
+   href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap"
+   rel="stylesheet"
+  />
+  <style>
+   body {
+    font-family: "Roboto", sans-serif;
+   }
+  </style>
+ </head>
+ <body class="bg-gray-900 text-gray-100 min-h-screen flex flex-col">
+  <header class="bg-gray-800 shadow-md">
+   <div
+    class="container mx-auto px-4 py-4 flex items-center justify-between relative"
+   >
+    <h1 class="text-2xl font-extrabold tracking-wide text-yellow-400">
+     Cross Arise - Raças Cross Arise 
+    </h1>
+    <button
+     id="menu-btn"
+     aria-label="Abrir menu"
+     class="block md:hidden text-yellow-400 focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded"
+    >
+     <i class="fas fa-bars text-2xl"></i>
+    </button>
+    <nav
+     id="menu"
+     class="hidden md:flex md:items-center md:space-x-6 text-yellow-300 font-semibold text-sm md:text-base absolute md:static top-full left-0 w-full md:w-auto bg-gray-800 md:bg-transparent z-50 md:z-auto"
+    >
+     <a
+      href="index2.html"
+      class="block px-4 py-3 md:py-0 md:px-0 hover:text-yellow-400 border-b border-gray-700 md:border-none flex items-center gap-2"
+      ><i class="fas fa-home"></i> Voltar ao Início</a
+     >
+     <a
+      href="#humano"
+      class="block px-4 py-3 md:py-0 md:px-0 hover:text-yellow-400 border-b border-gray-700 md:border-none"
+      >Humano</a
+     >
+     <a
+      href="#demonio"
+      class="block px-4 py-3 md:py-0 md:px-0 hover:text-yellow-400 border-b border-gray-700 md:border-none"
+      >Demônio</a
+     >
+     <a
+      href="#vampiro"
+      class="block px-4 py-3 md:py-0 md:px-0 hover:text-yellow-400 border-b border-gray-700 md:border-none"
+      >Vampiro</a
+     >
+     <a
+      href="#lobisomen"
+      class="block px-4 py-3 md:py-0 md:px-0 hover:text-yellow-400 border-b border-gray-700 md:border-none"
+      >Lobisomem</a
+     >
+     <a
+      href="#slime"
+      class="block px-4 py-3 md:py-0 md:px-0 hover:text-yellow-400 border-b border-gray-700 md:border-none"
+      >Slime</a
+     >
+     <a
+      href="#dragao"
+      class="block px-4 py-3 md:py-0 md:px-0 hover:text-yellow-400 border-b border-gray-700 md:border-none"
+      >Dragão</a
+     >
+     <a
+      href="#mestico"
+      class="block px-4 py-3 md:py-0 md:px-0 hover:text-yellow-400 border-b border-gray-700 md:border-none"
+      >Mestiço</a
+     >
+    </nav>
+   </div>
+  </header>
+  <main class="container mx-auto px-4 py-8 flex-grow max-w-5xl">
+   <!-- Humano -->
+   <section class="mb-16 scroll-mt-24" id="humano">
+    <h2
+     class="text-3xl sm:text-4xl font-bold text-yellow-400 mb-6 flex items-center gap-3"
+    >
+     <i class="fas fa-user text-yellow-400 text-xl sm:text-2xl"></i> Humano
+    </h2>
+    <div class="flex flex-col md:flex-row md:gap-10 items-center">
+     <img
+      alt="Humano detalhado com armadura leve e olhar determinado, postura confiante, fundo neutro"
+      class="w-full max-w-xs sm:max-w-sm rounded-lg shadow-lg mb-6 md:mb-0"
+      height="400"
+      src="https://storage.googleapis.com/a1aa/image/5e0b2c65-3e7f-470f-e3c5-4863ad22b0a6.jpg"
+      width="400"
+     />
+     <div class="text-base sm:text-lg max-w-xl space-y-6 px-2 sm:px-0">
+      <p>
+       Humanos são a raça mais versátil e adaptável do mundo, conhecidos por sua
+       determinação, criatividade e resiliência. Apesar de não possuírem poderes
+       sobrenaturais natos, sua força de vontade e capacidade de aprendizado os
+       tornam formidáveis em qualquer situação.
+      </p>
+      <h3 class="text-xl sm:text-2xl font-semibold text-yellow-300 mb-3">
+       Habilidades Especiais
+      </h3>
+      <ul class="list-disc list-inside space-y-3">
+       <li>
+        <strong>Adaptabilidade:</strong> Humanos conseguem se adaptar rapidamente a
+        diferentes ambientes e situações, ganhando um bônus de +2 em qualquer
+        atributo (força, resistência ou velocidade) por 1 hora após exposição a
+        condições adversas.
+       </li>
+       <li>
+        <strong>Determinação Inabalável:</strong> Quando estão próximos de desistir,
+        humanos podem ativar sua determinação para recuperar 20% de sua energia
+        vital instantaneamente e ganhar +1 em todos os atributos por 5 minutos.
+       </li>
+       <li>
+        <strong>Treinamento Versátil:</strong> Humanos possuem facilidade para
+        aprender novas habilidades e magias, reduzindo o tempo de aprendizado em
+        30% e aumentando a eficácia de magias não inatas em 10%.
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div
+     class="mt-8 flex flex-wrap gap-4 items-center justify-center sm:justify-start px-2 sm:px-0"
+    >
+     <a
+      class="inline-flex items-center gap-2 text-yellow-400 hover:text-yellow-300 font-semibold transition"
+      href="#top"
+      ><i class="fas fa-arrow-up"></i> Voltar ao topo</a
+     >
+     <a
+      class="inline-flex items-center gap-2 bg-yellow-400 text-gray-900 font-semibold px-4 py-2 rounded-md shadow hover:bg-yellow-500 transition"
+      href="index2.html"
+      title="Voltar ao início do Cross Arise"
+      ><i class="fas fa-home"></i> Voltar ao Início</a
+     >
+    </div>
+   </section>
+   <!-- Demônio -->
+   <section class="mb-16 scroll-mt-24" id="demonio">
+    <h2
+     class="text-3xl sm:text-4xl font-bold text-red-600 mb-6 flex items-center gap-3"
+    >
+     <i class="fas fa-fire text-red-600 text-xl sm:text-2xl"></i> Demônio
+    </h2>
+    <div class="flex flex-col md:flex-row md:gap-10 items-center">
+     <img
+      alt="Demônio imponente com chifres, olhos vermelhos ardentes, pele escura e musculosa, em pose agressiva"
+      class="w-full max-w-xs sm:max-w-sm rounded-lg shadow-lg mb-6 md:mb-0"
+      height="400"
+      src="https://storage.googleapis.com/a1aa/image/fd5e5c47-3b9c-423c-4d0d-b26bbe8991c8.jpg"
+      width="400"
+     />
+     <div class="text-base sm:text-lg max-w-xl space-y-6 px-2 sm:px-0">
+      <p>
+       Demônios são seres poderosos oriundos de planos infernais, dotados de força
+       bruta e habilidades sobrenaturais. Sua conexão com o fogo e as trevas lhes
+       concede poderes devastadores, mas também um preço a pagar.
+      </p>
+      <h3 class="text-xl sm:text-2xl font-semibold text-red-400 mb-3">
+       Habilidades Especiais
+      </h3>
+      <ul class="list-disc list-inside space-y-4">
+       <li>
+        <strong>Devil Trigger:</strong> Ao ativar esta habilidade, o demônio entra
+        em um estado de fúria demoníaca que dura 3 minutos. Durante esse período,
+        sua força, resistência e velocidade aumentam em +3 cada, além de ganhar
+        regeneração acelerada de vida (5% da vida máxima por segundo). O uso só
+        pode ser feito uma vez por combate.
+       </li>
+       <li>
+        <strong>Contrato Demoníaco:</strong> Demônios podem firmar contratos com
+        mortais, concedendo-lhes poderes temporários em troca de algo valioso.
+        Esses contratos podem variar desde aumento de força até habilidades
+        mágicas exclusivas, mas sempre possuem uma cláusula que pode ser
+        explorada pelo demônio para benefício próprio.
+       </li>
+       <li>
+        <strong>Manipulação das Sombras:</strong> Permite ao demônio se fundir às
+        sombras, tornando-se invisível e intangível por até 30 segundos, ideal para
+        emboscadas ou fugas rápidas. A habilidade tem cooldown de 5 minutos.
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div
+     class="mt-8 flex flex-wrap gap-4 items-center justify-center sm:justify-start px-2 sm:px-0"
+    >
+     <a
+      class="inline-flex items-center gap-2 text-red-400 hover:text-red-300 font-semibold transition"
+      href="#top"
+      ><i class="fas fa-arrow-up"></i> Voltar ao topo</a
+     >
+     <a
+      class="inline-flex items-center gap-2 bg-red-600 text-gray-100 font-semibold px-4 py-2 rounded-md shadow hover:bg-red-700 transition"
+      href="index2.html"
+      title="Voltar ao início do Cross Arise"
+      ><i class="fas fa-home"></i> Voltar ao Início</a
+     >
+    </div>
+   </section>
+   <!-- Vampiro -->
+   <section class="mb-16 scroll-mt-24" id="vampiro">
+    <h2
+     class="text-3xl sm:text-4xl font-bold text-purple-600 mb-6 flex items-center gap-3"
+    >
+     <i class="fas fa-moon text-purple-600 text-xl sm:text-2xl"></i> Vampiro
+    </h2>
+    <div class="flex flex-col md:flex-row md:gap-10 items-center">
+     <img
+      alt="Vampiro elegante com pele pálida, olhos vermelhos penetrantes, capa preta e presas visíveis, em ambiente sombrio"
+      class="w-full max-w-xs sm:max-w-sm rounded-lg shadow-lg mb-6 md:mb-0"
+      height="400"
+      src="https://storage.googleapis.com/a1aa/image/383a4acc-4c35-4604-36b3-3ae2335d4201.jpg"
+      width="400"
+     />
+     <div class="text-base sm:text-lg max-w-xl space-y-6 px-2 sm:px-0">
+      <p>
+       Vampiros são criaturas noturnas imortais que se alimentam do sangue dos vivos.
+       Sua agilidade e sentidos aguçados os tornam caçadores formidáveis, e sua
+       natureza sobrenatural lhes concede poderes únicos.
+      </p>
+      <h3 class="text-xl sm:text-2xl font-semibold text-purple-400 mb-3">
+       Habilidades Especiais
+      </h3>
+      <ul class="list-disc list-inside space-y-4">
+       <li>
+        <strong>Regeneração Rápida:</strong> Vampiros curam ferimentos rapidamente,
+        recuperando 10% da vida máxima a cada 10 segundos, desde que não estejam
+        expostos à luz solar direta.
+       </li>
+       <li>
+        <strong>Hipnose:</strong> Podem controlar temporariamente a mente de uma
+        criatura por até 1 minuto, fazendo-a agir conforme sua vontade. A vítima
+        pode resistir com um teste de vontade difícil.
+       </li>
+       <li>
+        <strong>Transformação em Névoa:</strong> Permite ao vampiro se transformar
+        em uma névoa densa, tornando-se intangível e capaz de atravessar pequenas
+        aberturas por até 2 minutos. Durante a transformação, não pode atacar ou
+        interagir fisicamente.
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div
+     class="mt-8 flex flex-wrap gap-4 items-center justify-center sm:justify-start px-2 sm:px-0"
+    >
+     <a
+      class="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 font-semibold transition"
+      href="#top"
+      ><i class="fas fa-arrow-up"></i> Voltar ao topo</a
+     >
+     <a
+      class="inline-flex items-center gap-2 bg-purple-600 text-gray-100 font-semibold px-4 py-2 rounded-md shadow hover:bg-purple-700 transition"
+      href="index2.html"
+      title="Voltar ao início do Cross Arise"
+      ><i class="fas fa-home"></i> Voltar ao Início</a
+     >
+    </div>
+   </section>
+   <!-- Lobisomem -->
+   <section class="mb-16 scroll-mt-24" id="lobisomen">
+    <h2
+     class="text-3xl sm:text-4xl font-bold text-green-600 mb-6 flex items-center gap-3"
+    >
+     <i class="fas fa-wolf-pack-battalion text-green-600 text-xl sm:text-2xl"></i>
+     Lobisomem
+    </h2>
+    <div class="flex flex-col md:flex-row md:gap-10 items-center">
+     <img
+      alt="Lobisomem feroz em meia transformação, com pelo cinza, garras afiadas, olhos amarelos brilhantes, em floresta noturna"
+      class="w-full max-w-xs sm:max-w-sm rounded-lg shadow-lg mb-6 md:mb-0"
+      height="400"
+      src="https://storage.googleapis.com/a1aa/image/e75dac49-7258-42a5-12d5-c58111b5eccd.jpg"
+      width="400"
+     />
+     <div class="text-base sm:text-lg max-w-xl space-y-6 px-2 sm:px-0">
+      <p>
+       Lobisomens são humanos amaldiçoados que se transformam em bestas poderosas
+       durante a lua cheia. Sua força e sentidos são amplificados, tornando-os
+       caçadores implacáveis e protetores ferozes.
+      </p>
+      <h3 class="text-xl sm:text-2xl font-semibold text-green-400 mb-3">
+       Habilidades Especiais
+      </h3>
+      <ul class="list-disc list-inside space-y-4">
+       <li>
+        <strong>Transformação Completa:</strong> Durante a lua cheia, o lobisomem
+        pode se transformar completamente em uma besta com força, resistência e
+        velocidade aumentadas em +4. Nesta forma, possui garras e dentes afiados
+        que causam dano extra.
+       </li>
+       <li>
+        <strong>Sentidos Aguçados:</strong> Mesmo em forma humana, o lobisomem tem
+        audição, olfato e visão noturna extremamente desenvolvidos, podendo detectar
+        inimigos a até 200 metros de distância.
+       </li>
+       <li>
+        <strong>Fúria Lupina:</strong> Quando ferido gravemente, o lobisomem pode
+        entrar em um estado de fúria que dura 1 minuto, aumentando seu dano em +50%
+        e reduzindo o dano recebido em 25%.
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div
+     class="mt-8 flex flex-wrap gap-4 items-center justify-center sm:justify-start px-2 sm:px-0"
+    >
+     <a
+      class="inline-flex items-center gap-2 text-green-400 hover:text-green-300 font-semibold transition"
+      href="#top"
+      ><i class="fas fa-arrow-up"></i> Voltar ao topo</a
+     >
+     <a
+      class="inline-flex items-center gap-2 bg-green-600 text-gray-100 font-semibold px-4 py-2 rounded-md shadow hover:bg-green-700 transition"
+      href="index2.html"
+      title="Voltar ao início do Cross Arise"
+      ><i class="fas fa-home"></i> Voltar ao Início</a
+     >
+    </div>
+   </section>
+   <!-- Slime -->
+   <section class="mb-16 scroll-mt-24" id="slime">
+    <h2
+     class="text-3xl sm:text-4xl font-bold text-cyan-400 mb-6 flex items-center gap-3"
+    >
+     <i class="fas fa-droplet text-cyan-400 text-xl sm:text-2xl"></i> Slime
+    </h2>
+    <div class="flex flex-col md:flex-row md:gap-10 items-center">
+     <img
+      alt="Slime translúcido azul com olhos grandes e expressivos, corpo gelatinoso e brilhante, em ambiente de caverna úmida"
+      class="w-full max-w-xs sm:max-w-sm rounded-lg shadow-lg mb-6 md:mb-0"
+      height="400"
+      src="https://storage.googleapis.com/a1aa/image/bf974431-81a1-4009-fffb-87999fb236da.jpg"
+      width="400"
+     />
+     <div class="text-base sm:text-lg max-w-xl space-y-6 px-2 sm:px-0">
+      <p>
+       Slimes são criaturas gelatinosas e maleáveis, capazes de alterar sua forma e
+       absorver ataques físicos. Apesar de sua aparência simples, possuem habilidades
+       únicas que os tornam difíceis de derrotar.
+      </p>
+      <h3 class="text-xl sm:text-2xl font-semibold text-cyan-300 mb-3">
+       Habilidades Especiais
+      </h3>
+      <ul class="list-disc list-inside space-y-4">
+       <li>
+        <strong>Corpo Gelatinoso:</strong> O slime pode deformar seu corpo para
+        absorver ataques físicos, reduzindo o dano recebido em 40%. Ataques cortantes
+        são menos eficazes, causando 50% menos dano.
+       </li>
+       <li>
+        <strong>Divisão:</strong> Quando atingido por dano crítico, o slime pode se
+        dividir em duas criaturas menores, cada uma com metade da vida e força do
+        original. A divisão pode ocorrer até 3 vezes, mas as slimes menores têm
+        habilidades reduzidas.
+       </li>
+       <li>
+        <strong>Absorção Elemental:</strong> Slimes podem absorver elementos do
+        ambiente (como água, fogo ou terra) para ganhar resistência temporária e
+        ataques elementais relacionados por 2 minutos.
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div
+     class="mt-8 flex flex-wrap gap-4 items-center justify-center sm:justify-start px-2 sm:px-0"
+    >
+     <a
+      class="inline-flex items-center gap-2 text-cyan-300 hover:text-cyan-200 font-semibold transition"
+      href="#top"
+      ><i class="fas fa-arrow-up"></i> Voltar ao topo</a
+     >
+     <a
+      class="inline-flex items-center gap-2 bg-cyan-400 text-gray-900 font-semibold px-4 py-2 rounded-md shadow hover:bg-cyan-500 transition"
+      href="index2.html"
+      title="Voltar ao início do Cross Arise"
+      ><i class="fas fa-home"></i> Voltar ao Início</a
+     >
+    </div>
+   </section>
+   <!-- Dragão -->
+   <section class="mb-16 scroll-mt-24" id="dragao">
+    <h2
+     class="text-3xl sm:text-4xl font-bold text-orange-500 mb-6 flex items-center gap-3"
+    >
+     <i class="fas fa-dragon text-orange-500 text-xl sm:text-2xl"></i> Dragão
+    </h2>
+    <div class="flex flex-col md:flex-row md:gap-10 items-center">
+     <img
+      alt="Dragão majestoso com escamas douradas, asas imponentes abertas, olhos brilhantes e chamas saindo das narinas, em montanha rochosa"
+      class="w-full max-w-xs sm:max-w-sm rounded-lg shadow-lg mb-6 md:mb-0"
+      height="400"
+      src="https://storage.googleapis.com/a1aa/image/bd59c970-8e47-439e-be40-e00423aa5c65.jpg"
+      width="400"
+     />
+     <div class="text-base sm:text-lg max-w-xl space-y-6 px-2 sm:px-0">
+      <p>
+       Dragões são seres lendários de imenso poder, conhecidos por sua inteligência,
+       longevidade e habilidades mágicas. Sua presença impõe respeito e temor em
+       qualquer campo de batalha.
+      </p>
+      <h3 class="text-xl sm:text-2xl font-semibold text-orange-400 mb-3">
+       Habilidades Especiais
+      </h3>
+      <ul class="list-disc list-inside space-y-4">
+       <li>
+        <strong>Sopro Elemental:</strong> Dragões podem exalar um poderoso sopro de
+        fogo, gelo, ácido ou eletricidade, causando dano em área e efeitos
+        secundários como queimaduras, congelamento ou paralisia. O tipo de sopro
+        depende da linhagem do dragão.
+       </li>
+       <li>
+        <strong>Escamas Imponentes:</strong> Suas escamas conferem resistência
+        natural, reduzindo o dano físico recebido em 50% e dano mágico em 30%.
+       </li>
+       <li>
+        <strong>Voo Majestoso:</strong> Dragões podem voar com grande velocidade e
+        agilidade, permitindo ataques aéreos e evasão rápida. Durante o voo, ganham
+        bônus de +3 em velocidade e +2 em esquiva.
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div
+     class="mt-8 flex flex-wrap gap-4 items-center justify-center sm:justify-start px-2 sm:px-0"
+    >
+     <a
+      class="inline-flex items-center gap-2 text-orange-400 hover:text-orange-300 font-semibold transition"
+      href="#top"
+      ><i class="fas fa-arrow-up"></i> Voltar ao topo</a
+     >
+     <a
+      class="inline-flex items-center gap-2 bg-orange-500 text-gray-900 font-semibold px-4 py-2 rounded-md shadow hover:bg-orange-600 transition"
+      href="index2.html"
+      title="Voltar ao início do Cross Arise"
+      ><i class="fas fa-home"></i> Voltar ao Início</a
+     >
+    </div>
+   </section>
+   <!-- Mestiço -->
+   <section class="mb-16 scroll-mt-24" id="mestico">
+    <h2
+     class="text-3xl sm:text-4xl font-bold text-pink-500 mb-6 flex items-center gap-3"
+    >
+     <i class="fas fa-dna text-pink-500 text-xl sm:text-2xl"></i> Mestiço
+    </h2>
+    <div class="flex flex-col md:flex-row md:gap-10 items-center">
+     <img
+      alt="Mestiço com traços humanos e elementos da raça sobrenatural, como olhos brilhantes e marcas místicas no corpo, em fundo neutro"
+      class="w-full max-w-xs sm:max-w-sm rounded-lg shadow-lg mb-6 md:mb-0"
+      height="400"
+      src="https://storage.googleapis.com/a1aa/image/08734704-7586-4a90-d893-fb5ade463e72.jpg"
+      width="400"
+     />
+     <div class="text-base sm:text-lg max-w-xl space-y-6 px-2 sm:px-0">
+      <p>
+       Mestiços são descendentes diretos de humanos com outra raça sobrenatural,
+       herdando características e habilidades únicas de ambos os lados. Essa
+       combinação lhes confere versatilidade e poderes especiais que variam conforme
+       a linhagem.
+      </p>
+      <h3 class="text-xl sm:text-2xl font-semibold text-pink-400 mb-3">
+       Habilidades Especiais
+      </h3>
+      <ul class="list-disc list-inside space-y-4">
+       <li>
+        <strong>Herança Sobrenatural:</strong> Mestiços recebem um conjunto de
+        habilidades baseadas na raça sobrenatural de seu progenitor, porém com
+        limitações menores, podendo usar essas habilidades com maior controle e
+        menos efeitos colaterais.
+       </li>
+       <li>
+        <strong>Resiliência Humana:</strong> Herdam a adaptabilidade e resistência
+        dos humanos, ganhando +2 em resistência e +1 em força, além de uma recuperação
+        de energia 15% mais rápida que a média das raças sobrenaturais.
+       </li>
+       <li>
+        <strong>Transformação Parcial:</strong> Podem ativar uma transformação parcial
+        que lhes concede temporariamente uma habilidade especial da raça sobrenatural
+        (como garras, asas, ou sentidos aguçados) por até 10 minutos, com cooldown
+        de 30 minutos.
+       </li>
+      </ul>
+      <p class="italic text-sm text-pink-300">
+       * Exemplo: Um mestiço filho de humano e demônio pode ativar uma forma com
+       chifres e aumento de força, mas sem entrar no estado completo do Devil Trigger.
+      </p>
+     </div>
+    </div>
+    <div
+     class="mt-8 flex flex-wrap gap-4 items-center justify-center sm:justify-start px-2 sm:px-0"
+    >
+     <a
+      class="inline-flex items-center gap-2 text-pink-400 hover:text-pink-300 font-semibold transition"
+      href="#top"
+      ><i class="fas fa-arrow-up"></i> Voltar ao topo</a
+     >
+     <a
+      class="inline-flex items-center gap-2 bg-pink-500 text-gray-900 font-semibold px-4 py-2 rounded-md shadow hover:bg-pink-600 transition"
+      href="index2.html"
+      title="Voltar ao início do Cross Arise"
+      ><i class="fas fa-home"></i> Voltar ao Início</a
+     >
+    </div>
+   </section>
+  </main>
+  <footer class="bg-gray-800 text-gray-400 py-6 text-center text-sm">
+   © 2024 Cross Arise. Todos os direitos reservados.
+  </footer>
+  <script>
+   const btn = document.getElementById("menu-btn");
+   const menu = document.getElementById("menu");
+
+   btn.addEventListener("click", () => {
+    menu.classList.toggle("hidden");
+    btn.setAttribute(
+     "aria-label",
+     menu.classList.contains("hidden") ? "Abrir menu" : "Fechar menu"
+    );
+   });
+
+   // Close menu on link click (mobile)
+   document.querySelectorAll("#menu a").forEach((link) => {
+    link.addEventListener("click", () => {
+     if (window.innerWidth < 768) {
+      menu.classList.add("hidden");
+      btn.setAttribute("aria-label", "Abrir menu");
+     }
+    });
+   });
+  </script>
+ </body>
+</html>
