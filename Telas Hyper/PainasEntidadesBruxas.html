@@ -1,0 +1,858 @@
+<html class="scroll-smooth" lang="pt-BR">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Entidades para Pactos - RPG
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&amp;family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"/>
+  <style>
+   body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #0b0c10;
+      color: #d1d5db;
+    }
+    h1, h2 {
+      font-family: 'Orbitron', sans-serif;
+      color: #66fcf1;
+      text-shadow: 0 0 8px #45a29e;
+    }
+    .card {
+      background: linear-gradient(145deg, #1f2833, #162029);
+      border-radius: 1rem;
+      box-shadow: 0 0 15px #45a29e;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 0 25px #66fcf1;
+    }
+    /* Scrollbar for table */
+    .table-container {
+      overflow-x: auto;
+    }
+    /* Scrollbar styling */
+    .table-container::-webkit-scrollbar {
+      height: 8px;
+    }
+    .table-container::-webkit-scrollbar-track {
+      background: #0b0c10;
+    }
+    .table-container::-webkit-scrollbar-thumb {
+      background-color: #45a29e;
+      border-radius: 10px;
+    }
+  </style>
+ </head>
+ <body class="min-h-screen flex flex-col items-center px-4 py-8 max-w-7xl mx-auto bg-[#0b0c10] text-[#d1d5db]">
+  <nav class="w-full max-w-7xl flex items-center justify-between mb-12 px-4 sm:px-8 py-3 bg-[#1f2833] rounded-lg shadow-lg relative z-50">
+   <button aria-label="Voltar para Classes" class="text-cyan-400 hover:text-cyan-300 font-semibold flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-cyan-400 rounded" onclick="location.href='Classes.html'">
+    <i class="fas fa-arrow-left">
+    </i>
+    Voltar
+   </button>
+   <h1 class="text-3xl font-extrabold text-cyan-400 select-none hidden sm:block">
+    Entidades para Pactos
+   </h1>
+   <button aria-label="Abrir menu" class="sm:hidden text-cyan-400 hover:text-cyan-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 rounded" id="menu-btn">
+    <i class="fas fa-bars fa-lg">
+    </i>
+   </button>
+   <div class="absolute top-full right-4 mt-2 w-48 bg-[#1f2833] rounded-lg shadow-lg py-2 hidden flex-col" id="menu">
+    <a class="block px-4 py-2 text-cyan-400 hover:bg-cyan-500 hover:text-[#0b0c10] font-semibold transition-colors" href="#rivalidades">
+     Rivalidades dos Deuses
+    </a>
+   </div>
+  </nav>
+  <main class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
+   <!-- Deuses Cards -->
+   <section class="card p-6 flex flex-col items-center text-center">
+    <img alt="Retrato da Deusa do Conhecimento, uma mulher etérea com olhos brilhantes e um livro antigo flutuando ao seu lado, em um ambiente místico azul e prateado" class="w-40 h-40 rounded-full mb-4 object-cover shadow-lg" height="200" loading="lazy" src="https://storage.googleapis.com/a1aa/image/df60a3d8-540b-4301-7426-300f6dd0594c.jpg" width="200"/>
+    <h2 class="text-2xl font-bold mb-2">
+     Deusa do Conhecimento
+    </h2>
+    <p class="mb-3 italic text-cyan-300">
+     A sábia e enigmática guardiã dos segredos do tempo.
+    </p>
+    <p class="mb-2 text-left max-w-md">
+     <span class="font-semibold">
+      Sacrifício:
+     </span>
+     Você deve arrancar um momento precioso da sua vida, uma memória que jamais poderá ser recuperada. Essa perda é dolorosa e deixa um vazio emocional, pois é um fragmento da sua essência que se vai para que o futuro se revele.
+    </p>
+    <p class="text-left max-w-md">
+     <span class="font-semibold">
+      Oferta:
+     </span>
+     Em troca, a Deusa concede um vislumbre claro e detalhado de um acontecimento futuro, permitindo que você se prepare para desafios ou aproveite oportunidades que ainda estão por vir. Esse conhecimento pode alterar seu destino, mas cuidado para não se perder no tempo.
+    </p>
+   </section>
+   <section class="card p-6 flex flex-col items-center text-center">
+    <img alt="Imagem da Deusa da Fertilidade, uma mulher radiante com flores e frutos ao redor, em um campo dourado sob um céu alaranjado" class="w-40 h-40 rounded-full mb-4 object-cover shadow-lg" height="200" loading="lazy" src="https://storage.googleapis.com/a1aa/image/8f551caf-580f-4e6e-0ecb-c5a38f5cc02c.jpg" width="200"/>
+    <h2 class="text-2xl font-bold mb-2">
+     Deusa da Fertilidade
+    </h2>
+    <p class="mb-3 italic text-green-400">
+     Generosa e maternal, traz vida e prosperidade onde passa.
+    </p>
+    <p class="mb-2 text-left max-w-md">
+     <span class="font-semibold">
+      Sacrifício:
+     </span>
+     Sua energia vital será drenada temporariamente, causando cansaço profundo, fraqueza muscular e uma sensação de vulnerabilidade. Esse sacrifício reflete o custo da criação e do crescimento que a Deusa oferece.
+    </p>
+    <p class="text-left max-w-md">
+     <span class="font-semibold">
+      Oferta:
+     </span>
+     Em troca, você recebe fertilidade abundante, que se manifesta em colheitas fartas, saúde vigorosa e crescimento acelerado de plantas, animais ou até mesmo de seres vivos próximos a você.
+    </p>
+   </section>
+   <section class="card p-6 flex flex-col items-center text-center">
+    <img alt="Imagem do Deus da Guerra, um guerreiro imponente com armadura escura e olhos flamejantes, segurando uma espada flamejante em um campo de batalha" class="w-40 h-40 rounded-full mb-4 object-cover shadow-lg" height="200" loading="lazy" src="https://storage.googleapis.com/a1aa/image/aec5bc18-f3db-425d-7fcf-5f5a28b94490.jpg" width="200"/>
+    <h2 class="text-2xl font-bold mb-2">
+     Deus da Guerra
+    </h2>
+    <p class="mb-3 italic text-red-500">
+     Feroz e impetuoso, incita a raiva e a fúria nos corações dos mortais.
+    </p>
+    <p class="mb-2 text-left max-w-md">
+     <span class="font-semibold">
+      Sacrifício:
+     </span>
+     Você perde temporariamente o controle emocional, tornando-se mais agressivo, impulsivo e propenso a conflitos. Essa instabilidade pode prejudicar suas relações e decisões fora do campo de batalha.
+    </p>
+    <p class="text-left max-w-md">
+     <span class="font-semibold">
+      Oferta:
+     </span>
+     Em troca, recebe força e coragem sobre-humanas, resistência a ferimentos e a capacidade de incitar fúria nos inimigos, tornando-se um guerreiro temido e implacável.
+    </p>
+   </section>
+   <section class="card p-6 flex flex-col items-center text-center">
+    <img alt="Imagem da Deusa da Lua, uma figura feminina prateada com cabelos longos e prateados, rodeada por um halo lunar e estrelas brilhantes" class="w-40 h-40 rounded-full mb-4 object-cover shadow-lg" height="200" loading="lazy" src="https://storage.googleapis.com/a1aa/image/21690a5c-380b-4588-5857-67459502d78d.jpg" width="200"/>
+    <h2 class="text-2xl font-bold mb-2">
+     Deusa da Lua
+    </h2>
+    <p class="mb-3 italic text-indigo-400">
+     Misteriosa e calma, guia os sonhos e os segredos da noite.
+    </p>
+    <p class="mb-2 text-left max-w-md">
+     <span class="font-semibold">
+      Sacrifício:
+     </span>
+     Você perde fragmentos do seu sono, sofrendo de insônia e sonhos perturbadores que podem afetar sua sanidade e concentração.
+    </p>
+    <p class="text-left max-w-md">
+     <span class="font-semibold">
+      Oferta:
+     </span>
+     Em troca, ganha controle sobre ilusões, podendo manipular os sonhos alheios e criar ambientes oníricos para enganar ou proteger.
+    </p>
+   </section>
+   <section class="card p-6 flex flex-col items-center text-center">
+    <img alt="Imagem do Deus da Tempestade, um homem poderoso com cabelos e barba esvoaçantes, envolto em nuvens negras e relâmpagos" class="w-40 h-40 rounded-full mb-4 object-cover shadow-lg" height="200" loading="lazy" src="https://storage.googleapis.com/a1aa/image/cba01baa-a7a2-4994-2e5d-1bf9f3cac888.jpg" width="200"/>
+    <h2 class="text-2xl font-bold mb-2">
+     Deus da Tempestade
+    </h2>
+    <p class="mb-3 italic text-blue-400">
+     Imprevisível e tempestuoso, domina os ventos e trovões.
+    </p>
+    <p class="mb-2 text-left max-w-md">
+     <span class="font-semibold">
+      Sacrifício:
+     </span>
+     Você sente uma inquietação constante, nervosismo e dificuldade para se manter calmo, como se uma tempestade interior nunca cessasse.
+    </p>
+    <p class="text-left max-w-md">
+     <span class="font-semibold">
+      Oferta:
+     </span>
+     Em troca, recebe o poder para controlar tempestades, ventos e eletricidade, podendo devastar seus inimigos com a fúria dos céus.
+    </p>
+   </section>
+   <section class="card p-6 flex flex-col items-center text-center">
+    <img alt="Imagem da Deusa da Morte, uma figura sombria com capa preta e olhos brilhantes, segurando uma foice em um cenário sombrio" class="w-40 h-40 rounded-full mb-4 object-cover shadow-lg" height="200" loading="lazy" src="https://storage.googleapis.com/a1aa/image/56f8b179-220f-45c6-b116-6a9e79523900.jpg" width="200"/>
+    <h2 class="text-2xl font-bold mb-2">
+     Deusa da Morte
+    </h2>
+    <p class="mb-3 italic text-gray-400">
+     Fria e implacável, guia as almas para o além.
+    </p>
+    <p class="mb-2 text-left max-w-md">
+     <span class="font-semibold">
+      Sacrifício:
+     </span>
+     Você sofre um envelhecimento acelerado temporário em partes do corpo, sentindo dores e fraquezas que lembram a fragilidade da vida.
+    </p>
+    <p class="text-left max-w-md">
+     <span class="font-semibold">
+      Oferta:
+     </span>
+     Em troca, ganha controle sobre a morte, podendo ceifar vidas ou evitar a própria, manipulando o limiar entre vida e morte.
+    </p>
+   </section>
+   <section class="card p-6 flex flex-col items-center text-center">
+    <img alt="Imagem do Deus da Ilusão, um homem sorridente com olhos brilhantes e um manto colorido, em um cenário surreal e distorcido" class="w-40 h-40 rounded-full mb-4 object-cover shadow-lg" height="200" loading="lazy" src="https://storage.googleapis.com/a1aa/image/e26fc65c-17e1-414f-314d-1d7e6f8151f9.jpg" width="200"/>
+    <h2 class="text-2xl font-bold mb-2">
+     Deus da Ilusão
+    </h2>
+    <p class="mb-3 italic text-purple-400">
+     Enganador e brincalhão, mestre das aparências falsas.
+    </p>
+    <p class="mb-2 text-left max-w-md">
+     <span class="font-semibold">
+      Sacrifício:
+     </span>
+     Você passa a ter dificuldade em distinguir realidade de fantasia, sofrendo confusão mental e dúvidas constantes sobre o que é verdadeiro.
+    </p>
+    <p class="text-left max-w-md">
+     <span class="font-semibold">
+      Oferta:
+     </span>
+     Em troca, pode criar ilusões realistas e manipular a percepção alheia, confundindo inimigos e aliados.
+    </p>
+   </section>
+   <section class="card p-6 flex flex-col items-center text-center">
+    <img alt="Imagem da Deusa da Sabedoria, uma mulher idosa com olhos penetrantes e um cajado, sentada em uma biblioteca antiga" class="w-40 h-40 rounded-full mb-4 object-cover shadow-lg" height="200" loading="lazy" src="https://storage.googleapis.com/a1aa/image/0f4de6f8-f60c-4270-e00f-80abccbfc35f.jpg" width="200"/>
+    <h2 class="text-2xl font-bold mb-2">
+     Deusa da Sabedoria
+    </h2>
+    <p class="mb-3 italic text-yellow-400">
+     Paciente e justa, fonte de conhecimento e discernimento.
+    </p>
+    <p class="mb-2 text-left max-w-md">
+     <span class="font-semibold">
+      Sacrifício:
+     </span>
+     Você perde temporariamente a capacidade de agir impulsivamente, tornando-se mais cauteloso e lento para tomar decisões, o que pode ser um fardo em situações urgentes.
+    </p>
+    <p class="text-left max-w-md">
+     <span class="font-semibold">
+      Oferta:
+     </span>
+     Em troca, recebe clareza mental, aumento da inteligência e uma capacidade estratégica superior para resolver problemas complexos.
+    </p>
+   </section>
+   <section class="card p-6 flex flex-col items-center text-center">
+    <img alt="Imagem do Deus da Caça, um homem robusto com arco e flechas, rodeado por animais da floresta em um cenário verdejante" class="w-40 h-40 rounded-full mb-4 object-cover shadow-lg" height="200" loading="lazy" src="https://storage.googleapis.com/a1aa/image/79e07e72-8bc7-4653-2be6-94a12a640870.jpg" width="200"/>
+    <h2 class="text-2xl font-bold mb-2">
+     Deus da Caça
+    </h2>
+    <p class="mb-3 italic text-amber-400">
+     Determinado e silencioso, mestre da paciência e precisão.
+    </p>
+    <p class="mb-2 text-left max-w-md">
+     <span class="font-semibold">
+      Sacrifício:
+     </span>
+     Sua velocidade de recuperação física após ferimentos é reduzida, fazendo com que cicatrizes e dores persistam por mais tempo.
+    </p>
+    <p class="text-left max-w-md">
+     <span class="font-semibold">
+      Oferta:
+     </span>
+     Em troca, ganha habilidades aprimoradas em rastreamento, mira perfeita e furtividade, tornando-se um caçador imbatível.
+    </p>
+   </section>
+   <section class="card p-6 flex flex-col items-center text-center">
+    <img alt="Imagem da Deusa do Tempo, uma mulher com relógios flutuantes ao redor, vestida com roupas que parecem feitas de areia do tempo" class="w-40 h-40 rounded-full mb-4 object-cover shadow-lg" height="200" loading="lazy" src="https://storage.googleapis.com/a1aa/image/a0fcba05-001c-4691-0881-fa83fb77a630.jpg" width="200"/>
+    <h2 class="text-2xl font-bold mb-2">
+     Deusa do Tempo
+    </h2>
+    <p class="mb-3 italic text-sky-400">
+     Imparcial e distante, controla o fluxo do tempo e suas consequências.
+    </p>
+    <p class="mb-2 text-left max-w-md">
+     <span class="font-semibold">
+      Sacrifício:
+     </span>
+     Você sofre envelhecimento acelerado em partes do corpo, sentindo dores e fraquezas temporárias que lembram a passagem inexorável do tempo.
+    </p>
+    <p class="text-left max-w-md">
+     <span class="font-semibold">
+      Oferta:
+     </span>
+     Em troca, pode manipular o tempo em pequena escala, acelerando ou desacelerando ações, o que pode ser decisivo em batalhas ou situações críticas.
+    </p>
+   </section>
+   <section class="card p-6 flex flex-col items-center text-center">
+    <img alt="Imagem do Deus da Força, um homem musculoso com pele bronzeada, segurando uma enorme pedra com facilidade em um cenário rochoso" class="w-40 h-40 rounded-full mb-4 object-cover shadow-lg" height="200" loading="lazy" src="https://storage.googleapis.com/a1aa/image/8cdf201e-ee45-4e0b-a375-dd3bd3c90781.jpg" width="200"/>
+    <h2 class="text-2xl font-bold mb-2">
+     Deus da Força
+    </h2>
+    <p class="mb-3 italic text-red-600">
+     Determinado e direto, valoriza o poder bruto e a resistência.
+    </p>
+    <p class="mb-2 text-left max-w-md">
+     <span class="font-semibold">
+      Sacrifício:
+     </span>
+     Após usar seu poder, você sente dores musculares intensas e fadiga extrema, que podem limitar seus movimentos e ações por um tempo.
+    </p>
+    <p class="text-left max-w-md">
+     <span class="font-semibold">
+      Oferta:
+     </span>
+     Em troca, recebe força física sobre-humana e resistência a danos, podendo realizar feitos incríveis de poder bruto.
+    </p>
+   </section>
+   <section class="card p-6 flex flex-col items-center text-center">
+    <img alt="Imagem da Deusa da Cura, uma mulher serena com mãos brilhantes emanando luz verde, em um ambiente calmo e pacífico" class="w-40 h-40 rounded-full mb-4 object-cover shadow-lg" height="200" loading="lazy" src="https://storage.googleapis.com/a1aa/image/26d6a480-4fb8-4614-1af7-5cf04a2f0ff3.jpg" width="200"/>
+    <h2 class="text-2xl font-bold mb-2">
+     Deusa da Cura
+    </h2>
+    <p class="mb-3 italic text-emerald-400">
+     Compassiva e gentil, traz alívio e restauração aos feridos.
+    </p>
+    <p class="mb-2 text-left max-w-md">
+     <span class="font-semibold">
+      Sacrifício:
+     </span>
+     Você compartilha parte da dor física e emocional daqueles que cura, sentindo o sofrimento como se fosse seu, o que pode ser exaustivo.
+    </p>
+    <p class="text-left max-w-md">
+     <span class="font-semibold">
+      Oferta:
+     </span>
+     Em troca, ganha a capacidade de curar ferimentos e doenças rapidamente, restaurando a vitalidade de si mesmo e dos outros.
+    </p>
+   </section>
+   <section class="card p-6 flex flex-col items-center text-center">
+    <img alt="Imagem do Deus das Sombras, uma figura encapuzada envolta em sombras negras, com olhos vermelhos brilhantes" class="w-40 h-40 rounded-full mb-4 object-cover shadow-lg" height="200" loading="lazy" src="https://storage.googleapis.com/a1aa/image/0768a864-72a9-4ac3-2f1a-4727b06e48b7.jpg" width="200"/>
+    <h2 class="text-2xl font-bold mb-2">
+     Deus das Sombras
+    </h2>
+    <p class="mb-3 italic text-gray-600">
+     Silencioso e astuto, mestre do oculto e do invisível.
+    </p>
+    <p class="mb-2 text-left max-w-md">
+     <span class="font-semibold">
+      Sacrifício:
+     </span>
+     Você perde gradualmente sua luz interior, tornando-se mais reservado, sombrio e distante, o que pode afetar suas relações sociais.
+    </p>
+    <p class="text-left max-w-md">
+     <span class="font-semibold">
+      Oferta:
+     </span>
+     Em troca, recebe controle absoluto sobre sombras, invisibilidade e furtividade extrema, podendo se mover sem ser detectado.
+    </p>
+   </section>
+   <section class="card p-6 flex flex-col items-center text-center">
+    <img alt="Imagem da Deusa do Fogo, uma mulher com cabelos flamejantes e olhos ardentes, rodeada por chamas dançantes" class="w-40 h-40 rounded-full mb-4 object-cover shadow-lg" height="200" loading="lazy" src="https://storage.googleapis.com/a1aa/image/2b0b5f16-d378-4d5e-eb07-df81484e3a1a.jpg" width="200"/>
+    <h2 class="text-2xl font-bold mb-2">
+     Deusa do Fogo
+    </h2>
+    <p class="mb-3 italic text-orange-500">
+     Apaixonada e impetuosa, simboliza destruição e renascimento.
+    </p>
+    <p class="mb-2 text-left max-w-md">
+     <span class="font-semibold">
+      Sacrifício:
+     </span>
+     Você sofre queimaduras internas, sensação de calor extremo e exaustão após usar seus poderes, o que pode ser debilitante.
+    </p>
+    <p class="text-left max-w-md">
+     <span class="font-semibold">
+      Oferta:
+     </span>
+     Em troca, pode manipular o fogo, criar chamas intensas e incinerar obstáculos com facilidade.
+    </p>
+   </section>
+   <section class="card p-6 flex flex-col items-center text-center">
+    <img alt="Imagem do Deus da Música, um homem elegante tocando uma lira dourada, com notas musicais flutuando ao redor" class="w-40 h-40 rounded-full mb-4 object-cover shadow-lg" height="200" loading="lazy" src="https://storage.googleapis.com/a1aa/image/b2d886dd-b1b1-4dfb-4a85-e8003348de3a.jpg" width="200"/>
+    <h2 class="text-2xl font-bold mb-2">
+     Deus da Música
+    </h2>
+    <p class="mb-3 italic text-pink-400">
+     Charmoso e inspirador, influencia emoções e corações.
+    </p>
+    <p class="mb-2 text-left max-w-md">
+     <span class="font-semibold">
+      Sacrifício:
+     </span>
+     Após uso intenso do poder, você pode perder temporariamente a voz ou audição, ficando vulnerável e isolado.
+    </p>
+    <p class="text-left max-w-md">
+     <span class="font-semibold">
+      Oferta:
+     </span>
+     Em troca, controla emoções através da música, encantando, inspirando ou manipulando corações.
+    </p>
+   </section>
+   <section class="card p-6 flex flex-col items-center text-center">
+    <img alt="Imagem da Deusa da Natureza, uma mulher com cabelos verdes e flores, rodeada por animais e árvores em um bosque" class="w-40 h-40 rounded-full mb-4 object-cover shadow-lg" height="200" loading="lazy" src="https://storage.googleapis.com/a1aa/image/33fade20-70ac-4ecd-f6dc-cc9b60d4c834.jpg" width="200"/>
+    <h2 class="text-2xl font-bold mb-2">
+     Deusa da Natureza
+    </h2>
+    <p class="mb-3 italic text-lime-400">
+     Serena e protetora, mantém o equilíbrio natural do mundo.
+    </p>
+    <p class="mb-2 text-left max-w-md">
+     <span class="font-semibold">
+      Sacrifício:
+     </span>
+     Você se torna mais sensível a ambientes urbanos e poluídos, sentindo desconforto e fraqueza nesses locais.
+    </p>
+    <p class="text-left max-w-md">
+     <span class="font-semibold">
+      Oferta:
+     </span>
+     Em troca, controla plantas, animais e possui uma regeneração natural acelerada.
+    </p>
+   </section>
+   <section class="card p-6 flex flex-col items-center text-center">
+    <img alt="Imagem do Deus da Enganação, um homem sorridente com olhos astutos e um sorriso malicioso, em um cenário sombrio" class="w-40 h-40 rounded-full mb-4 object-cover shadow-lg" height="200" loading="lazy" src="https://storage.googleapis.com/a1aa/image/1efd1a95-005c-4c40-de19-fc76952d998c.jpg" width="200"/>
+    <h2 class="text-2xl font-bold mb-2">
+     Deus da Enganação
+    </h2>
+    <p class="mb-3 italic text-gray-500">
+     Manipulador e ardiloso, mestre das mentiras e truques.
+    </p>
+    <p class="mb-2 text-left max-w-md">
+     <span class="font-semibold">
+      Sacrifício:
+     </span>
+     Você perde a confiança de aliados próximos, ficando isolado e desconfiado, o que pode dificultar alianças.
+    </p>
+    <p class="text-left max-w-md">
+     <span class="font-semibold">
+      Oferta:
+     </span>
+     Em troca, ganha habilidade para enganar, manipular e criar falsas realidades convincentes.
+    </p>
+   </section>
+   <section class="card p-6 flex flex-col items-center text-center">
+    <img alt="Imagem da Deusa da Justiça, uma mulher com balança dourada e venda nos olhos, em um tribunal celestial" class="w-40 h-40 rounded-full mb-4 object-cover shadow-lg" height="200" loading="lazy" src="https://storage.googleapis.com/a1aa/image/56860e22-a40e-40a7-75a8-6fd6bc6f55b8.jpg" width="200"/>
+    <h2 class="text-2xl font-bold mb-2">
+     Deusa da Justiça
+    </h2>
+    <p class="mb-3 italic text-blue-500">
+     Imparcial e severa, garante equilíbrio e punição justa.
+    </p>
+    <p class="mb-2 text-left max-w-md">
+     <span class="font-semibold">
+      Sacrifício:
+     </span>
+     Você sente uma perda temporária da liberdade pessoal, preso a regras rígidas e um senso de responsabilidade que pode ser opressor.
+    </p>
+    <p class="text-left max-w-md">
+     <span class="font-semibold">
+      Oferta:
+     </span>
+     Em troca, recebe a capacidade de julgar e punir com precisão divina, mantendo o equilíbrio e a ordem.
+    </p>
+   </section>
+   <section class="card p-6 flex flex-col items-center text-center">
+    <img alt="Imagem do Deus do Caos, uma figura indistinta com cores vibrantes e formas distorcidas, emanando energia caótica" class="w-40 h-40 rounded-full mb-4 object-cover shadow-lg" height="200" loading="lazy" src="https://storage.googleapis.com/a1aa/image/1b583fb4-be7f-4f1d-7d8a-7ad46ee1eb35.jpg" width="200"/>
+    <h2 class="text-2xl font-bold mb-2">
+     Deus do Caos
+    </h2>
+    <p class="mb-3 italic text-violet-500">
+     Imprevisível e destrutivo, traz mudanças abruptas e desordem.
+    </p>
+    <p class="mb-2 text-left max-w-md">
+     <span class="font-semibold">
+      Sacrifício:
+     </span>
+     Você sofre instabilidade mental e emocional constante, com mudanças bruscas de humor e dificuldade em manter o foco.
+    </p>
+    <p class="text-left max-w-md">
+     <span class="font-semibold">
+      Oferta:
+     </span>
+     Em troca, pode causar caos, destruição e transformação radical, alterando o curso dos eventos de forma imprevisível.
+    </p>
+   </section>
+   <section class="card p-6 flex flex-col items-center text-center">
+    <img alt="Imagem da Deusa da Luz, uma mulher radiante com cabelos dourados e uma aura brilhante, em um cenário celestial" class="w-40 h-40 rounded-full mb-4 object-cover shadow-lg" height="200" loading="lazy" src="https://storage.googleapis.com/a1aa/image/3d4772c5-e848-428e-24ae-d084cac511ed.jpg" width="200"/>
+    <h2 class="text-2xl font-bold mb-2">
+     Deusa da Luz
+    </h2>
+    <p class="mb-3 italic text-yellow-300">
+     Benevolente e pura, simboliza esperança e proteção.
+    </p>
+    <p class="mb-2 text-left max-w-md">
+     <span class="font-semibold">
+      Sacrifício:
+     </span>
+     Você se torna sensível à escuridão e ambientes sombrios, sentindo desconforto e fraqueza nesses locais.
+    </p>
+    <p class="text-left max-w-md">
+     <span class="font-semibold">
+      Oferta:
+     </span>
+     Em troca, recebe poder para iluminar, proteger e purificar, afastando trevas e males.
+    </p>
+   </section>
+   <section class="card p-6 flex flex-col items-center text-center">
+    <img alt="Imagem do Deus da Metalurgia, um homem forte com bigode e avental de ferreiro, segurando um martelo em uma forja incandescente" class="w-40 h-40 rounded-full mb-4 object-cover shadow-lg" height="200" loading="lazy" src="https://storage.googleapis.com/a1aa/image/e0e8d79b-a8c1-4ee1-761b-ac3f0288ae2f.jpg" width="200"/>
+    <h2 class="text-2xl font-bold mb-2">
+     Deus da Metalurgia
+    </h2>
+    <p class="mb-3 italic text-gray-400">
+     Dedicado e paciente, mestre da forja e da criação.
+    </p>
+    <p class="mb-2 text-left max-w-md">
+     <span class="font-semibold">
+      Sacrifício:
+     </span>
+     Você sente cansaço físico extremo após usar seus poderes, precisando de descanso prolongado para recuperar as forças.
+    </p>
+    <p class="text-left max-w-md">
+     <span class="font-semibold">
+      Oferta:
+     </span>
+     Em troca, ganha habilidade para criar armas e armaduras imbatíveis, forjadas com perfeição divina.
+    </p>
+   </section>
+   <section class="card p-6 flex flex-col items-center text-center">
+    <img alt="Imagem da Deusa da Paixão, uma mulher com cabelos vermelhos flamejantes e olhos intensos, em um cenário ardente" class="w-40 h-40 rounded-full mb-4 object-cover shadow-lg" height="200" loading="lazy" src="https://storage.googleapis.com/a1aa/image/5aad7ce5-0701-4ffa-fed8-200967b091c1.jpg" width="200"/>
+    <h2 class="text-2xl font-bold mb-2">
+     Deusa da Paixão
+    </h2>
+    <p class="mb-3 italic text-pink-600">
+     Intensa e sedutora, desperta desejos profundos e emoções fortes.
+    </p>
+    <p class="mb-2 text-left max-w-md">
+     <span class="font-semibold">
+      Sacrifício:
+     </span>
+     Você se torna vulnerável emocionalmente, sofrendo com dores amorosas e conflitos internos intensos.
+    </p>
+    <p class="text-left max-w-md">
+     <span class="font-semibold">
+      Oferta:
+     </span>
+     Em troca, pode influenciar corações, despertar paixões avassaladoras e manipular sentimentos.
+    </p>
+   </section>
+   <section class="card p-6 flex flex-col items-center text-center">
+    <img alt="Imagem do Deus da Proteção, um homem com armadura brilhante e escudo enorme, em uma postura defensiva" class="w-40 h-40 rounded-full mb-4 object-cover shadow-lg" height="200" loading="lazy" src="https://storage.googleapis.com/a1aa/image/8be11446-8201-4773-f02e-d3c89003d67f.jpg" width="200"/>
+    <h2 class="text-2xl font-bold mb-2">
+     Deus da Proteção
+    </h2>
+    <p class="mb-3 italic text-sky-500">
+     Fiel e vigilante, guarda seus protegidos com fervor.
+    </p>
+    <p class="mb-2 text-left max-w-md">
+     <span class="font-semibold">
+      Sacrifício:
+     </span>
+     Você sente um peso emocional constante, uma responsabilidade que pode ser opressora e limitar sua liberdade.
+    </p>
+    <p class="text-left max-w-md">
+     <span class="font-semibold">
+      Oferta:
+     </span>
+     Em troca, recebe escudos mágicos e barreiras impenetráveis para proteger a si mesmo e aos outros.
+    </p>
+   </section>
+   <section class="card p-6 flex flex-col items-center text-center">
+    <img alt="Imagem da Deusa da Magia, uma mulher com olhos brilhantes e mãos emanando energia mágica azul, em um cenário arcano" class="w-40 h-40 rounded-full mb-4 object-cover shadow-lg" height="200" loading="lazy" src="https://storage.googleapis.com/a1aa/image/b01c3118-b786-4802-7fa2-c8227006f149.jpg" width="200"/>
+    <h2 class="text-2xl font-bold mb-2">
+     Deusa da Magia
+    </h2>
+    <p class="mb-3 italic text-purple-500">
+     Misteriosa e poderosa, fonte de todo o poder arcano.
+    </p>
+    <p class="mb-2 text-left max-w-md">
+     <span class="font-semibold">
+      Sacrifício:
+     </span>
+     Você sofre exaustão mental e perda temporária de memória após usar seus poderes, o que pode ser perigoso em momentos críticos.
+    </p>
+    <p class="text-left max-w-md">
+     <span class="font-semibold">
+      Oferta:
+     </span>
+     Em troca, amplia seu poder mágico e domínio sobre feitiços, tornando-se um mago formidável.
+    </p>
+   </section>
+   <section class="card p-6 flex flex-col items-center text-center">
+    <img alt="Imagem do Deus da Viagem, um homem com capa azul e botas leves, segurando um cajado com símbolos de portais" class="w-40 h-40 rounded-full mb-4 object-cover shadow-lg" height="200" loading="lazy" src="https://storage.googleapis.com/a1aa/image/9b85e666-e811-4e1e-20fb-67468d27e72e.jpg" width="200"/>
+    <h2 class="text-2xl font-bold mb-2">
+     Deus da Viagem
+    </h2>
+    <p class="mb-3 italic text-cyan-400">
+     Ágil e curioso, mestre dos caminhos e portais.
+    </p>
+    <p class="mb-2 text-left max-w-md">
+     <span class="font-semibold">
+      Sacrifício:
+     </span>
+     Você sofre desorientação temporária e perda do sentido de direção, podendo se perder facilmente em locais desconhecidos.
+    </p>
+    <p class="text-left max-w-md">
+     <span class="font-semibold">
+      Oferta:
+     </span>
+     Em troca, ganha habilidade para teletransporte e viagens rápidas, atravessando distâncias em instantes.
+    </p>
+   </section>
+   <section class="card p-6 flex flex-col items-center text-center">
+    <img alt="Imagem da Deusa da Mentira, uma mulher com sorriso enigmático e olhos brilhantes, em um cenário nebuloso" class="w-40 h-40 rounded-full mb-4 object-cover shadow-lg" height="200" loading="lazy" src="https://storage.googleapis.com/a1aa/image/789f770d-4f65-4ecd-d39d-498c5d643668.jpg" width="200"/>
+    <h2 class="text-2xl font-bold mb-2">
+     Deusa da Mentira
+    </h2>
+    <p class="mb-3 italic text-pink-500">
+     Astuta e manipuladora, tece teias de engano e falsidade.
+    </p>
+    <p class="mb-2 text-left max-w-md">
+     <span class="font-semibold">
+      Sacrifício:
+     </span>
+     Você perde a confiança das pessoas ao seu redor, ficando isolado e enfrentando dificuldades para formar alianças verdadeiras.
+    </p>
+    <p class="text-left max-w-md">
+     <span class="font-semibold">
+      Oferta:
+     </span>
+     Em troca, pode criar mentiras convincentes e manipular a verdade para seus objetivos.
+    </p>
+   </section>
+  </main>
+  <section class="mt-16 w-full max-w-5xl" id="rivalidades">
+   <h2 class="text-4xl font-extrabold mb-6 text-center">
+    Rivalidades entre Deuses
+   </h2>
+   <div class="table-container">
+    <table class="min-w-full border border-gray-700 rounded-lg overflow-hidden">
+     <thead class="bg-gray-900 text-cyan-400">
+      <tr>
+       <th class="py-3 px-4 text-left font-semibold border-b border-gray-700">
+        Deus(a)
+       </th>
+       <th class="py-3 px-4 text-left font-semibold border-b border-gray-700">
+        Rivalidade
+       </th>
+      </tr>
+     </thead>
+     <tbody class="divide-y divide-gray-700">
+      <tr>
+       <td class="py-3 px-4">
+        Deusa do Conhecimento
+       </td>
+       <td class="py-3 px-4">
+        Deus da Ilusão
+       </td>
+      </tr>
+      <tr class="bg-gray-800">
+       <td class="py-3 px-4">
+        Deusa da Fertilidade
+       </td>
+       <td class="py-3 px-4">
+        Deus da Guerra
+       </td>
+      </tr>
+      <tr>
+       <td class="py-3 px-4">
+        Deus da Guerra
+       </td>
+       <td class="py-3 px-4">
+        Deusa da Fertilidade
+       </td>
+      </tr>
+      <tr class="bg-gray-800">
+       <td class="py-3 px-4">
+        Deusa da Lua
+       </td>
+       <td class="py-3 px-4">
+        Deus da Tempestade
+       </td>
+      </tr>
+      <tr>
+       <td class="py-3 px-4">
+        Deus da Tempestade
+       </td>
+       <td class="py-3 px-4">
+        Deusa da Lua
+       </td>
+      </tr>
+      <tr class="bg-gray-800">
+       <td class="py-3 px-4">
+        Deusa da Morte
+       </td>
+       <td class="py-3 px-4">
+        Deusa da Cura
+       </td>
+      </tr>
+      <tr>
+       <td class="py-3 px-4">
+        Deusa da Cura
+       </td>
+       <td class="py-3 px-4">
+        Deusa da Morte
+       </td>
+      </tr>
+      <tr class="bg-gray-800">
+       <td class="py-3 px-4">
+        Deus da Ilusão
+       </td>
+       <td class="py-3 px-4">
+        Deusa do Conhecimento
+       </td>
+      </tr>
+      <tr>
+       <td class="py-3 px-4">
+        Deusa da Sabedoria
+       </td>
+       <td class="py-3 px-4">
+        Deus da Enganação
+       </td>
+      </tr>
+      <tr class="bg-gray-800">
+       <td class="py-3 px-4">
+        Deus da Enganação
+       </td>
+       <td class="py-3 px-4">
+        Deusa da Sabedoria
+       </td>
+      </tr>
+      <tr>
+       <td class="py-3 px-4">
+        Deus da Caça
+       </td>
+       <td class="py-3 px-4">
+        Deus da Viagem
+       </td>
+      </tr>
+      <tr class="bg-gray-800">
+       <td class="py-3 px-4">
+        Deus da Viagem
+       </td>
+       <td class="py-3 px-4">
+        Deus da Caça
+       </td>
+      </tr>
+      <tr>
+       <td class="py-3 px-4">
+        Deusa do Tempo
+       </td>
+       <td class="py-3 px-4">
+        Deus do Caos
+       </td>
+      </tr>
+      <tr class="bg-gray-800">
+       <td class="py-3 px-4">
+        Deus do Caos
+       </td>
+       <td class="py-3 px-4">
+        Deusa do Tempo
+       </td>
+      </tr>
+      <tr>
+       <td class="py-3 px-4">
+        Deusa da Luz
+       </td>
+       <td class="py-3 px-4">
+        Deus das Sombras
+       </td>
+      </tr>
+      <tr class="bg-gray-800">
+       <td class="py-3 px-4">
+        Deus das Sombras
+       </td>
+       <td class="py-3 px-4">
+        Deusa da Luz
+       </td>
+      </tr>
+      <tr>
+       <td class="py-3 px-4">
+        Deusa da Paixão
+       </td>
+       <td class="py-3 px-4">
+        Deusa da Justiça
+       </td>
+      </tr>
+      <tr class="bg-gray-800">
+       <td class="py-3 px-4">
+        Deusa da Justiça
+       </td>
+       <td class="py-3 px-4">
+        Deusa da Paixão
+       </td>
+      </tr>
+      <tr>
+       <td class="py-3 px-4">
+        Deus da Força
+       </td>
+       <td class="py-3 px-4">
+        Deusa da Magia
+       </td>
+      </tr>
+      <tr class="bg-gray-800">
+       <td class="py-3 px-4">
+        Deusa da Magia
+       </td>
+       <td class="py-3 px-4">
+        Deus da Força
+       </td>
+      </tr>
+      <tr>
+       <td class="py-3 px-4">
+        Deus da Metalurgia
+       </td>
+       <td class="py-3 px-4">
+        Deusa da Natureza
+       </td>
+      </tr>
+      <tr class="bg-gray-800">
+       <td class="py-3 px-4">
+        Deusa da Natureza
+       </td>
+       <td class="py-3 px-4">
+        Deus da Metalurgia
+       </td>
+      </tr>
+      <tr>
+       <td class="py-3 px-4">
+        Deus da Proteção
+       </td>
+       <td class="py-3 px-4">
+        Deus da Guerra
+       </td>
+      </tr>
+      <tr class="bg-gray-800">
+       <td class="py-3 px-4">
+        Deus da Guerra
+       </td>
+       <td class="py-3 px-4">
+        Deus da Proteção
+       </td>
+      </tr>
+     </tbody>
+    </table>
+   </div>
+  </section>
+  <footer class="mt-20 mb-8 text-center text-gray-500 text-sm select-none">
+   © 2024 RPG Entidades. Todos os direitos reservados.
+  </footer>
+  <script>
+   const menuBtn = document.getElementById('menu-btn');
+   const menu = document.getElementById('menu');
+
+   menuBtn.addEventListener('click', () => {
+     if (menu.classList.contains('hidden')) {
+       menu.classList.remove('hidden');
+       menuBtn.setAttribute('aria-expanded', 'true');
+     } else {
+       menu.classList.add('hidden');
+       menuBtn.setAttribute('aria-expanded', 'false');
+     }
+   });
+
+   // Close menu when clicking outside
+   document.addEventListener('click', (e) => {
+     if (!menu.contains(e.target) && !menuBtn.contains(e.target)) {
+       menu.classList.add('hidden');
+       menuBtn.setAttribute('aria-expanded', 'false');
+     }
+   });
+  </script>
+ </body>
+</html>
