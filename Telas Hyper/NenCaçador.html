@@ -1,103 +1,93 @@
-<!DOCTYPE html>
-<html class="scroll-smooth" lang="pt-BR">
+<html lang="pt-BR" class="scroll-smooth">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tipos de Nen - Cross Arise</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
     <style>
       body {
         font-family: 'Inter', sans-serif;
-        background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.95)),
+        background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.95)),
           url('/mnt/data/2e8168a7-c773-4321-900b-6d175c6c3f1d.png') center/cover no-repeat fixed;
         color: #f1f1f1;
       }
 
       .nen-button {
-        background-color: #1f2937;
-        transition: 0.3s;
-        color: white;
-        font-weight: 600;
-        padding: 0.5rem 1rem;
-        border-radius: 0.375rem;
-      }
-
-      .nen-button:hover {
-        background-color: #374151;
+        @apply bg-indigo-700 hover:bg-indigo-600 text-white font-semibold py-2 px-4 rounded transition;
       }
 
       .nen-description {
-        margin-top: 1rem;
-        background-color: #111827;
-        padding: 1rem;
-        border-radius: 0.5rem;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
-        font-size: 0.875rem;
-        color: #e5e7eb;
+        @apply mt-4 bg-gray-900 p-6 rounded-lg shadow-lg text-sm text-gray-200;
       }
     </style>
   </head>
-  <body class="min-h-screen flex flex-col items-center justify-start p-6">
-    <h1 class="text-3xl sm:text-4xl font-bold mb-6 text-white text-center">Tipos de Nen - Cross Arise</h1>
+  <body class="min-h-screen p-6">
+    <nav class="mb-6">
+      <a href="../classes.html" class="text-indigo-400 hover:text-indigo-200 underline">&larr; Voltar para Classes</a>
+    </nav>
 
-    <img
-      src="NenImagem/Nen.jpg"
-      alt="Diagrama de Tipos de Nen"
-      class="w-full max-w-md mb-4"
-      usemap="#nenmap"
-    />
+    <h1 class="text-3xl sm:text-4xl font-bold mb-4 text-center text-white">Tipos de Nen - Cross Arise</h1>
 
-    <map name="nenmap">
-      <area shape="circle" coords="150,15,30" alt="Fortalecimento" onclick="showNen('fortalecimento')" />
-      <area shape="circle" coords="265,55,30" alt="Transformação" onclick="showNen('transformacao')" />
-      <area shape="circle" coords="300,165,30" alt="Conjuração" onclick="showNen('conjuracao')" />
-      <area shape="circle" coords="245,270,30" alt="Especialização" onclick="showNen('especializacao')" />
-      <area shape="circle" coords="90,270,30" alt="Manipulação" onclick="showNen('manipulacao')" />
-      <area shape="circle" coords="40,160,30" alt="Emissão" onclick="showNen('emissao')" />
-    </map>
+    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <!-- Botões dos tipos de Nen -->
+      <button class="nen-button" onclick="showNen('fortalecimento')">Fortalecimento</button>
+      <button class="nen-button" onclick="showNen('transformacao')">Transformação</button>
+      <button class="nen-button" onclick="showNen('conjuracao')">Conjuração</button>
+      <button class="nen-button" onclick="showNen('especializacao')">Especialização</button>
+      <button class="nen-button" onclick="showNen('manipulacao')">Manipulação</button>
+      <button class="nen-button" onclick="showNen('emissao')">Emissão</button>
+    </div>
 
-    <div id="nen-info" class="nen-description hidden"></div>
+    <div id="nen-info" class="nen-description hidden mt-6"></div>
 
-    <button onclick="girarRoleta()" class="nen-button mt-6">Girar Roleta do Nen</button>
-    <div id="resultado-roleta" class="nen-description hidden"></div>
+    <div class="text-center mt-8">
+      <button onclick="girarRoleta()" class="nen-button">Girar Roleta do Nen</button>
+      <div id="resultado-roleta" class="nen-description hidden mt-4"></div>
+    </div>
 
     <script>
       const tiposNen = {
         fortalecimento: {
           nome: 'Fortalecimento',
-          descricao: 'Fortalecendo a si mesmo ou objetos. Aumenta força, defesa e resistência.',
-          chance: 7
+          descricao: `Fortalecedores aumentam as capacidades físicas naturais. Eles são especialistas em combate direto, com força e resistência sobre-humanas.
+Exemplo: Um lutador que endurece seus punhos com aura para destruir paredes ou esmagar pedra com um soco. Um personagem tipo Uvogin do Genei Ryodan usaria esse tipo.`,
+          chance: 4
         },
         transformacao: {
           nome: 'Transformação',
-          descricao: 'Muda os atributos da aura para combinar com outras coisas, como eletricidade ou goma.',
-          chance: 4
+          descricao: `Transformadores modificam as propriedades da aura para se parecer com algo.
+Exemplo: Um personagem que transforma sua aura em eletricidade para eletrocutar inimigos ou em goma elástica para prender adversários — como Hisoka faz.`,
+          chance: 3
         },
         conjuracao: {
           nome: 'Conjuração',
-          descricao: 'Cria objetos com a aura. Perfeita para armas e ferramentas místicas.',
-          chance: 3
+          descricao: `Conjuradores materializam objetos a partir de sua aura. É essencial para quem quer versatilidade e equipamentos únicos.
+Exemplo: Kurapika cria correntes com propriedades específicas para prender inimigos. Você poderia criar um escudo de aura indestrutível ou uma armadilha de energia.`,
+          chance: 2
         },
         especializacao: {
           nome: 'Especialização',
-          descricao: 'Habilidade única e rara, podendo incluir telepatia, controle do tempo e mais.',
+          descricao: `Especialistas têm habilidades que não se encaixam nas demais. São únicas, bizarras e geralmente muito poderosas.
+Exemplo: Neferpitou usa Nen para manipular cadáveres. Outro poderia prever o futuro, teletransportar coisas ou controlar memórias.`,
           chance: 0.5
         },
         manipulacao: {
           nome: 'Manipulação',
-          descricao: 'Controla coisas animadas e inanimadas. Pode influenciar comportamento e objetos.',
-          chance: 2
+          descricao: `Manipuladores controlam objetos, animais ou até pessoas. É ótimo para estratégia e combate indireto.
+Exemplo: Um usuário que controla bonecos com aura ou domina mentalmente um inimigo durante a luta. Shalnark é um exemplo.`,
+          chance: 3
         },
         emissao: {
           nome: 'Emissão',
-          descricao: 'Desprende aura do corpo. Ideal para ataques à distância e projeções.',
-          chance: 2
+          descricao: `Emissores projetam sua aura para longe do corpo. Ideal para ataques à distância e técnicas rápidas.
+Exemplo: Razer, que lança bolas de aura como projéteis em alta velocidade. Outro poderia criar ondas de choque de aura explosiva.`,
+          chance: 1
         },
         nenhum: {
-          nome: 'Você não tem Nen.',
-          descricao: 'Infelizmente, você nasceu sem afinidade com o Nen.',
-          chance: 81.5
+          nome: 'Não tem Nen',
+          descricao: `Infelizmente, seu personagem ainda não despertou Nen. Isso pode fazer parte da história — talvez precise treinar mais ou passar por uma experiência intensa.`,
+          chance: 86.5
         }
       };
 
@@ -105,25 +95,20 @@
         const data = tiposNen[tipo];
         const box = document.getElementById('nen-info');
         box.classList.remove('hidden');
-        box.innerHTML = `<strong>${data.nome}</strong><br>${data.descricao}`;
+        box.innerHTML = `<strong class="text-xl">${data.nome}</strong><br><br>${data.descricao}`;
       }
 
       function girarRoleta() {
         const chances = [];
-
         for (const key in tiposNen) {
-          const chanceMultiplicada = Math.floor(tiposNen[key].chance * 10);
-          for (let i = 0; i < chanceMultiplicada; i++) {
-            chances.push(key);
-          }
+          const vezes = tiposNen[key].chance * 10;
+          for (let i = 0; i < vezes; i++) chances.push(key);
         }
 
         const sorteado = chances[Math.floor(Math.random() * chances.length)];
-        const resultado = tiposNen[sorteado];
-
         const resultadoBox = document.getElementById('resultado-roleta');
         resultadoBox.classList.remove('hidden');
-        resultadoBox.innerHTML = `<strong>Resultado:</strong> ${resultado.nome}<br>${resultado.descricao}`;
+        resultadoBox.innerHTML = `<strong class="text-lg">Resultado:</strong> ${tiposNen[sorteado].nome}<br><br>${tiposNen[sorteado].descricao}`;
       }
     </script>
   </body>
