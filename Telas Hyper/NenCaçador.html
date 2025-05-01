@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html class="scroll-smooth" lang="pt-BR">
   <head>
     <meta charset="utf-8" />
@@ -12,20 +13,18 @@
           url('/mnt/data/2e8168a7-c773-4321-900b-6d175c6c3f1d.png') center/cover no-repeat fixed;
         color: #f1f1f1;
       }
-
-      .nen-button {
-        @apply bg-gray-800 hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded transition;
-      }
-
-      .nen-description {
-        @apply mt-4 bg-gray-900 p-4 rounded-lg shadow-lg text-sm text-gray-200;
-      }
     </style>
   </head>
   <body class="min-h-screen flex flex-col items-center justify-start p-6">
     <h1 class="text-3xl sm:text-4xl font-bold mb-6 text-white text-center">Tipos de Nen - Cross Arise</h1>
 
-    <img src="NenImagem/Nen.jpg" alt="Diagrama de Tipos de Nen" class="w-full max-w-md mb-4" usemap="#nenmap" />
+    <img
+      src="NenImagem/Nen.jpg"
+      alt="Diagrama de Tipos de Nen"
+      usemap="#nenmap"
+      width="350"
+      class="mb-4 rounded-lg shadow-lg"
+    />
 
     <map name="nenmap">
       <area shape="circle" coords="150,15,30" alt="Fortalecimento" onclick="showNen('fortalecimento')" />
@@ -36,10 +35,22 @@
       <area shape="circle" coords="40,160,30" alt="Emissão" onclick="showNen('emissao')" />
     </map>
 
-    <div id="nen-info" class="nen-description hidden"></div>
+    <div
+      id="nen-info"
+      class="hidden mt-4 bg-gray-900 p-4 rounded-lg shadow-lg text-sm text-gray-200 max-w-md text-center"
+    ></div>
 
-    <button onclick="girarRoleta()" class="nen-button mt-6">Girar Roleta do Nen</button>
-    <div id="resultado-roleta" class="nen-description hidden"></div>
+    <button
+      onclick="girarRoleta()"
+      class="mt-6 bg-gray-800 hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded transition"
+    >
+      Girar Roleta do Nen
+    </button>
+
+    <div
+      id="resultado-roleta"
+      class="hidden mt-4 bg-gray-900 p-4 rounded-lg shadow-lg text-sm text-gray-200 max-w-md text-center"
+    ></div>
 
     <script>
       const tiposNen = {
@@ -86,7 +97,7 @@
         const chances = [];
 
         for (const key in tiposNen) {
-          const chanceMultiplicada = tiposNen[key].chance * 10;
+          const chanceMultiplicada = Math.floor(tiposNen[key].chance * 10);
           for (let i = 0; i < chanceMultiplicada; i++) {
             chances.push(key);
           }
