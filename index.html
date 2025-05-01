@@ -478,9 +478,6 @@
 <main>
   <!-- Login Screen -->
   <section id="loginScreen" role="main" aria-label="Tela de Login">
-    <!--
-      PARA MODIFICAR A IMAGEM DO PAINEL DE LOGIN, ALTERE O SRC E ALT DESTE IMG ABAIXO:
-    -->
     <img src="Imagens/SoloCapaLogin.png" alt="Imagem épica estilo Solo Leveling, personagem de anime poderoso em pose dinâmica com fundo sombrio e efeitos de energia azul e roxa" />
     <h2>Cross Arise</h2>
     <form id="loginForm" aria-label="Formulário de Login">
@@ -527,6 +524,7 @@
       <button class="tab" role="tab" aria-selected="false" aria-controls="tab-powers" id="tab-btn-powers" tabindex="-1">Poderes</button>
       <button class="tab" role="tab" aria-selected="false" aria-controls="tab-skills" id="tab-btn-skills" tabindex="-1">Habilidades</button>
       <button class="tab" role="tab" aria-selected="false" aria-controls="tab-transformation" id="tab-btn-transformation" tabindex="-1">Transformação</button>
+      <button class="tab" role="tab" aria-selected="false" aria-controls="tab-passives" id="tab-btn-passives" tabindex="-1">Passivas</button>
       <button class="tab" role="tab" aria-selected="false" aria-controls="tab-inventory" id="tab-btn-inventory" tabindex="-1">Inventário</button>
     </nav>
 
@@ -555,6 +553,13 @@
       <div class="list-box" aria-label="Transformação do personagem">
         <h4><i class="fas fa-dragon"></i> Transformação</h4>
         <ul id="characterTransformation" class="text-[#c5c6c7] font-semibold text-lg list-disc list-inside max-h-48 overflow-y-auto"></ul>
+      </div>
+    </section>
+
+    <section id="tab-passives" class="tab-content" role="tabpanel" aria-labelledby="tab-btn-passives" tabindex="0">
+      <div class="list-box" aria-label="Passivas do personagem">
+        <h4><i class="fas fa-shield-alt"></i> Passivas</h4>
+        <ul id="characterPassives" class="text-[#c5c6c7] font-semibold text-lg list-disc list-inside max-h-48 overflow-y-auto"></ul>
       </div>
     </section>
 
@@ -612,6 +617,11 @@
         "Forma Arcana: Aumenta o poder mágico em 50%",
         "Forma de Batalha: Aumenta a força e agilidade em 30%"
       ],
+      passivas: [
+        "Regeneração de Mana: Recupera 5% de mana por segundo",
+        "Resistência a Fogo: Reduz dano de fogo em 20%",
+        "Aura de Proteção: Aumenta defesa em 10%"
+      ],
       moralidade: "Bom",
       inteligencia: 85,
       forca: 70,
@@ -654,6 +664,11 @@
         "Forma Arcana: Aumenta o poder mágico em 50%",
         "Forma de Batalha: Aumenta a força e agilidade em 30%"
       ],
+      passivas: [
+        "Aura Sombria: Aumenta dano de maldição em 25%",
+        "Regeneração de Vida: Recupera 3% de vida por segundo",
+        "Resistência a Veneno: Reduz dano de veneno em 30%"
+      ],
       moralidade: "Bom",
       inteligencia: 85,
       forca: 70,
@@ -667,7 +682,7 @@
     },
 
     {
-      // Personagem 1 - Blue
+      // Personagem 3 - Sukuna
       nome: "Sukuna",
       senha: "Matheus",
       imagem: "Imagens/Sukuna.jpg", // <== ALTERE AQUI A IMAGEM DO PERSONAGEM
@@ -696,6 +711,11 @@
         "Forma Arcana: Aumenta o poder mágico em 50%",
         "Forma de Batalha: Aumenta a força e agilidade em 30%"
       ],
+      passivas: [
+        "Maldição Ativa: Aumenta dano em 15%",
+        "Regeneração Rápida: Recupera 7% de vida por segundo",
+        "Aura de Terror: Reduz defesa inimiga em 10%"
+      ],
       moralidade: "Bom",
       inteligencia: 85,
       forca: 70,
@@ -709,7 +729,7 @@
     },
 
     {
-      // Personagem 1 - Blue
+      // Personagem 4 - Karma
       nome: "Karma",
       senha: "Sasuke",
       imagem: "Imagens/Sasuke.webp", // <== ALTERE AQUI A IMAGEM DO PERSONAGEM
@@ -738,6 +758,11 @@
         "Forma Arcana: Aumenta o poder mágico em 50%",
         "Forma de Batalha: Aumenta a força e agilidade em 30%"
       ],
+      passivas: [
+        "Sharingan: Aumenta esquiva em 20%",
+        "Chidori: Aumenta dano elétrico em 25%",
+        "Resistência Mental: Reduz dano psíquico em 15%"
+      ],
       moralidade: "Bom",
       inteligencia: 85,
       forca: 70,
@@ -750,10 +775,8 @@
       expMax: 100
     },
 
-    // ... (outros personagens iguais ao código anterior, omitidos aqui para brevidade, mas devem estar completos no código final)
-
     {
-      // Personagem 30 - Kazuki
+      // Personagem 5 - Kazuki
       nome: "Kazuki",
       senha: "ShadowWolf",
       imagem: "https://placehold.co/400x400/png?text=Kazuki+Anime+Character+with+Wolf+Motif+and+Dark+Hair", // <== ALTERE AQUI A IMAGEM DO PERSONAGEM
@@ -781,6 +804,11 @@
       transformacao: [
         "Forma Lupina: Aumenta força e velocidade em 40%",
         "Forma Sombria: Ganha invisibilidade por 10 segundos"
+      ],
+      passivas: [
+        "Sentidos Aguçados: Aumenta percepção em 30%",
+        "Fúria Selvagem: Aumenta dano corpo a corpo em 20%",
+        "Regeneração Rápida: Recupera 4% de vida por segundo"
       ],
       moralidade: "Neutro",
       inteligencia: 65,
@@ -816,16 +844,11 @@
   const characterInventory = document.getElementById("characterInventory");
   const characterMorality = document.getElementById("characterMorality");
   const moralityIconContainer = document.getElementById("moralityIcon");
-  const characterIntelligence = document.getElementById("characterIntelligence");
-  const characterStrength = document.getElementById("characterStrength");
-  const characterResistance = document.getElementById("characterResistance");
-  const characterSpeed = document.getElementById("characterSpeed");
-  const characterAgility = document.getElementById("characterAgility");
-  const characterEnergy = document.getElementById("characterEnergy");
   const characterTransformation = document.getElementById("characterTransformation");
   const characterLevel = document.getElementById("characterLevel");
   const characterExp = document.getElementById("characterExp");
   const characterAttributes = document.getElementById("characterAttributes");
+  const characterPassives = document.getElementById("characterPassives");
 
   // Tabs
   const tabs = document.querySelectorAll(".tab");
@@ -988,6 +1011,24 @@
       const li = document.createElement("li");
       li.textContent = "Nenhuma transformação disponível.";
       characterTransformation.appendChild(li);
+    }
+
+    characterPassives.innerHTML = "";
+    if (character.passivas && character.passivas.length > 0) {
+      character.passivas.forEach(passiva => {
+        const li = document.createElement("li");
+        li.textContent = passiva;
+        characterPassives.appendChild(li);
+      });
+    } else if (character.passivas && character.passivas.length === 0) {
+      const li = document.createElement("li");
+      li.textContent = "Nenhuma passiva disponível.";
+      characterPassives.appendChild(li);
+    } else {
+      // fallback if passivas property is missing
+      const li = document.createElement("li");
+      li.textContent = "Nenhuma passiva disponível.";
+      characterPassives.appendChild(li);
     }
 
     loginScreen.style.display = "none";
