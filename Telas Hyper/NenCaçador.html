@@ -1,0 +1,126 @@
+<html lang="pt-BR" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tipos de Nen - Cross Arise</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              bgDark: "#0e0e11",
+              cardDark: "#1a1a1f",
+              textLight: "#e5e7eb",
+              nenGreen: "#16a34a",
+              nenYellow: "#facc15",
+              nenRed: "#ef4444",
+              nenPurple: "#8b5cf6",
+              nenBlue: "#3b82f6",
+              nenOrange: "#f97316",
+              nenGray: "#6b7280",
+            },
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" />
+    <style>
+      body {
+        font-family: 'Inter', sans-serif;
+      }
+    </style>
+  </head>
+  <body class="bg-bgDark text-textLight min-h-screen flex flex-col">
+    <nav class="bg-cardDark shadow-md">
+      <div class="max-w-4xl mx-auto px-4 py-4 flex items-center">
+        <a href="../classes.html" class="text-textLight hover:text-white transition flex items-center">
+          <i class="fas fa-arrow-left mr-2"></i> Voltar
+        </a>
+      </div>
+    </nav>
+
+    <main class="flex-grow max-w-4xl mx-auto px-4 py-8">
+      <header class="mb-8 text-center">
+        <h1 class="text-3xl sm:text-4xl font-bold text-white">Tipos de Nen - Cross Arise</h1>
+        <p class="mt-2 text-textLight max-w-md mx-auto text-sm sm:text-base">
+          Toque em uma categoria para descobrir suas habilidades no mundo de Cross Arise.
+        </p>
+      </header>
+
+      <div class="grid sm:grid-cols-2 gap-6" id="nen-types">
+        <!-- Tipos de Nen serão inseridos aqui via script -->
+      </div>
+
+      <div id="nen-description" class="mt-10 hidden bg-cardDark p-6 rounded-lg shadow-lg transition">
+        <h2 id="nen-title" class="text-2xl font-bold mb-2"></h2>
+        <p id="nen-text" class="text-textLight leading-relaxed text-sm sm:text-base"></p>
+      </div>
+    </main>
+
+    <footer class="bg-cardDark border-t border-gray-700 py-4 text-center text-gray-500 text-xs">
+      © 2024 Cross Arise - Nen Types Guide
+    </footer>
+
+    <script>
+      const nenData = [
+        {
+          nome: "Emissão",
+          cor: "nenYellow",
+          descricao: "A Emissão permite projetar aura para fora do corpo, criando ataques à distância ou efeitos de impacto."
+        },
+        {
+          nome: "Manipulação",
+          cor: "nenGreen",
+          descricao: "Manipuladores controlam objetos ou seres com a aura. Podem dominar armas, fios ou até a vontade alheia."
+        },
+        {
+          nome: "Conjuração",
+          cor: "nenRed",
+          descricao: "Conjuradores materializam objetos com aura: armas, armaduras e artefatos únicos com propriedades especiais."
+        },
+        {
+          nome: "Especialização",
+          cor: "nenOrange",
+          descricao: "Especialistas possuem habilidades únicas que não se encaixam em nenhuma outra categoria — como prever o futuro ou alterar memórias."
+        },
+        {
+          nome: "Transmutação",
+          cor: "nenPurple",
+          descricao: "Transmutadores transformam a aura em outras propriedades: eletricidade, borracha ou veneno, por exemplo."
+        },
+        {
+          nome: "Refinação",
+          cor: "nenBlue",
+          descricao: "Refinadores dominam a qualidade da aura, aumentando a precisão, força e eficiência de outras técnicas."
+        }
+      ];
+
+      const container = document.getElementById("nen-types");
+      const descBox = document.getElementById("nen-description");
+      const titleEl = document.getElementById("nen-title");
+      const textEl = document.getElementById("nen-text");
+
+      nenData.forEach((nen, idx) => {
+        const btn = document.createElement("button");
+        btn.className = `bg-cardDark border border-gray-700 p-4 rounded-lg hover:scale-105 transition text-left`;
+        btn.innerHTML = `
+          <h3 class="text-xl font-bold text-${nen.cor}">${nen.nome}</h3>
+          <p class="text-sm text-gray-400 mt-1">Toque para saber mais</p>
+        `;
+        btn.addEventListener("click", () => {
+          titleEl.textContent = nen.nome;
+          textEl.textContent = nen.descricao;
+          descBox.classList.remove("hidden");
+          descBox.scrollIntoView({ behavior: "smooth" });
+        });
+        container.appendChild(btn);
+      });
+    </script>
+
+    <script src="https://kit.fontawesome.com/a2e0e6c14a.js" crossorigin="anonymous"></script>
+  </body>
+</html>
