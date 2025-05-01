@@ -1,0 +1,885 @@
+<html class="scroll-smooth" lang="pt-BR">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Cross Arise - Zanpakutou
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&amp;family=Roboto:wght@400;500&amp;display=swap" rel="stylesheet"/>
+  <style>
+   body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #0f172a;
+      color: #e0e7ff;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    h1, h2, h3, h4 {
+      font-family: 'Orbitron', sans-serif;
+    }
+    /* Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #1e293b;
+    }
+    ::-webkit-scrollbar-thumb {
+      background-color: #6366f1;
+      border-radius: 10px;
+      border: 2px solid #1e293b;
+    }
+  </style>
+ </head>
+ <body class="min-h-screen flex flex-col">
+  <header class="bg-indigo-900 shadow-md sticky top-0 z-50 flex items-center px-5 py-3">
+   <button aria-label="Voltar para a página inicial" class="flex items-center space-x-2 text-indigo-300 hover:text-indigo-400 transition focus:outline-none focus:ring-2 focus:ring-indigo-400 rounded" onclick="location.href='index.html'">
+    <i class="fas fa-arrow-left fa-lg">
+    </i>
+    <span class="font-orbitron font-semibold text-lg select-none">
+     Voltar
+    </span>
+   </button>
+   <h1 class="flex-grow text-center text-indigo-400 font-orbitron font-bold text-3xl sm:text-4xl select-none">
+    Zanpakutou
+   </h1>
+   <div class="w-16">
+   </div>
+  </header>
+  <main class="flex-grow max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+   <section class="space-y-14">
+    <!-- Espadas Elementais -->
+    <section>
+     <h2 class="text-indigo-300 font-orbitron font-semibold text-3xl mb-8 border-b border-indigo-600 pb-2">
+      Espadas Elementais
+     </h2>
+     <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+      <!-- Fogo -->
+      <article class="bg-indigo-800 rounded-2xl shadow-xl overflow-hidden flex flex-col hover:scale-[1.03] transition-transform duration-300">
+       <img alt="Zanpakutou de Fogo: espada com chamas vermelhas intensas envolvendo a lâmina, emitindo calor e faíscas" class="w-full h-48 object-cover" height="300" loading="lazy" src="https://storage.googleapis.com/a1aa/image/730b20d1-73d0-4ea7-0cdd-fe649579356d.jpg" width="600"/>
+       <div class="p-6 flex flex-col flex-grow">
+        <h3 class="text-indigo-200 font-orbitron font-semibold text-2xl mb-3">
+         Zanpakutou de Fogo
+        </h3>
+        <p class="text-indigo-300 mb-6 leading-relaxed font-medium">
+         Manipula o fogo para incinerar inimigos e criar explosões flamejantes.
+        </p>
+        <div class="space-y-5 flex-grow flex flex-col justify-between">
+         <div>
+          <h4 class="text-indigo-400 font-semibold text-lg mb-1">
+           Forma Base
+          </h4>
+          <p class="italic text-indigo-300 mb-1">
+           Lâmina flamejante que aquece o ambiente.
+          </p>
+          <ul class="list-disc list-inside text-indigo-300 space-y-0.5">
+           <li>
+            <strong>
+             Peculiaridade:
+            </strong>
+            Emite calor intenso que queima ao toque.
+           </li>
+           <li>
+            <strong>
+             Habilidade:
+            </strong>
+            Ataques cortantes com chamas que causam dano contínuo.
+           </li>
+          </ul>
+         </div>
+         <div>
+          <h4 class="text-indigo-400 font-semibold text-lg mb-1">
+           Shikai
+          </h4>
+          <p class="italic text-indigo-300 mb-1">
+           Lâmina envolta em chamas ardentes que se expandem.
+          </p>
+          <ul class="list-disc list-inside text-indigo-300 space-y-0.5">
+           <li>
+            <strong>
+             Peculiaridade:
+            </strong>
+            Chamas que se espalham e incendiam o campo de batalha.
+           </li>
+           <li>
+            <strong>
+             Habilidade:
+            </strong>
+            Explosões de fogo em área e ataques de longo alcance.
+           </li>
+          </ul>
+         </div>
+         <div>
+          <h4 class="text-indigo-400 font-semibold text-lg mb-1">
+           Bankai
+          </h4>
+          <p class="italic text-indigo-300 mb-1">
+           Espada gigante feita de magma incandescente.
+          </p>
+          <ul class="list-disc list-inside text-indigo-300 space-y-0.5">
+           <li>
+            <strong>
+             Peculiaridade:
+            </strong>
+            Pode derreter quase tudo que toca.
+           </li>
+           <li>
+            <strong>
+             Habilidade:
+            </strong>
+            Cria ondas de lava e tempestades de fogo devastadoras.
+           </li>
+          </ul>
+         </div>
+        </div>
+       </div>
+      </article>
+      <!-- Gelo -->
+      <article class="bg-indigo-800 rounded-2xl shadow-xl overflow-hidden flex flex-col hover:scale-[1.03] transition-transform duration-300">
+       <img alt="Zanpakutou de Gelo: espada com lâmina cristalina e gelo azulado envolvendo a lâmina, emitindo frio intenso" class="w-full h-48 object-cover" height="300" loading="lazy" src="https://storage.googleapis.com/a1aa/image/9be08f5e-23ad-4e1e-9a9c-f5ecb327b126.jpg" width="600"/>
+       <div class="p-6 flex flex-col flex-grow">
+        <h3 class="text-indigo-200 font-orbitron font-semibold text-2xl mb-3">
+         Zanpakutou de Gelo
+        </h3>
+        <p class="text-indigo-300 mb-6 leading-relaxed font-medium">
+         Controla o frio e o gelo, capaz de congelar inimigos e criar barreiras geladas.
+        </p>
+        <div class="space-y-5 flex-grow flex flex-col justify-between">
+         <div>
+          <h4 class="text-indigo-400 font-semibold text-lg mb-1">
+           Forma Base
+          </h4>
+          <p class="italic text-indigo-300 mb-1">
+           Lâmina cristalina com frio cortante.
+          </p>
+          <ul class="list-disc list-inside text-indigo-300 space-y-0.5">
+           <li>
+            <strong>
+             Peculiaridade:
+            </strong>
+            Congela o ar ao redor da lâmina.
+           </li>
+           <li>
+            <strong>
+             Habilidade:
+            </strong>
+            Ataques que desaceleram e congelam o inimigo.
+           </li>
+          </ul>
+         </div>
+         <div>
+          <h4 class="text-indigo-400 font-semibold text-lg mb-1">
+           Shikai
+          </h4>
+          <p class="italic text-indigo-300 mb-1">
+           Lâmina que emite rajadas de gelo e neve.
+          </p>
+          <ul class="list-disc list-inside text-indigo-300 space-y-0.5">
+           <li>
+            <strong>
+             Peculiaridade:
+            </strong>
+            Cria tempestades de neve para reduzir a visibilidade.
+           </li>
+           <li>
+            <strong>
+             Habilidade:
+            </strong>
+            Congela áreas e cria estacas de gelo para atacar.
+           </li>
+          </ul>
+         </div>
+         <div>
+          <h4 class="text-indigo-400 font-semibold text-lg mb-1">
+           Bankai
+          </h4>
+          <p class="italic text-indigo-300 mb-1">
+           Espada gigante feita de gelo eterno e cristal.
+          </p>
+          <ul class="list-disc list-inside text-indigo-300 space-y-0.5">
+           <li>
+            <strong>
+             Peculiaridade:
+            </strong>
+            Cria muralhas de gelo impenetráveis.
+           </li>
+           <li>
+            <strong>
+             Habilidade:
+            </strong>
+            Congela o campo inteiro e aprisiona inimigos em gelo.
+           </li>
+          </ul>
+         </div>
+        </div>
+       </div>
+      </article>
+      <!-- Raio -->
+      <article class="bg-indigo-800 rounded-2xl shadow-xl overflow-hidden flex flex-col hover:scale-[1.03] transition-transform duration-300">
+       <img alt="Zanpakutou de Raio: espada com lâmina amarela brilhante e faíscas elétricas ao redor, emitindo energia elétrica" class="w-full h-48 object-cover" height="300" loading="lazy" src="https://storage.googleapis.com/a1aa/image/838aa054-fc46-4634-3791-d39d56cc1d3d.jpg" width="600"/>
+       <div class="p-6 flex flex-col flex-grow">
+        <h3 class="text-indigo-200 font-orbitron font-semibold text-2xl mb-3">
+         Zanpakutou de Raio
+        </h3>
+        <p class="text-indigo-300 mb-6 leading-relaxed font-medium">
+         Manipula eletricidade para ataques rápidos e paralisantes.
+        </p>
+        <div class="space-y-5 flex-grow flex flex-col justify-between">
+         <div>
+          <h4 class="text-indigo-400 font-semibold text-lg mb-1">
+           Forma Base
+          </h4>
+          <p class="italic text-indigo-300 mb-1">
+           Lâmina que emite faíscas elétricas.
+          </p>
+          <ul class="list-disc list-inside text-indigo-300 space-y-0.5">
+           <li>
+            <strong>
+             Peculiaridade:
+            </strong>
+            Pode paralisar o inimigo com choques leves.
+           </li>
+           <li>
+            <strong>
+             Habilidade:
+            </strong>
+            Ataques rápidos que causam dano elétrico.
+           </li>
+          </ul>
+         </div>
+         <div>
+          <h4 class="text-indigo-400 font-semibold text-lg mb-1">
+           Shikai
+          </h4>
+          <p class="italic text-indigo-300 mb-1">
+           Lâmina que dispara raios e descargas elétricas.
+          </p>
+          <ul class="list-disc list-inside text-indigo-300 space-y-0.5">
+           <li>
+            <strong>
+             Peculiaridade:
+            </strong>
+            Pode se mover em alta velocidade usando eletricidade.
+           </li>
+           <li>
+            <strong>
+             Habilidade:
+            </strong>
+            Ataques de raio que atingem múltiplos inimigos.
+           </li>
+          </ul>
+         </div>
+         <div>
+          <h4 class="text-indigo-400 font-semibold text-lg mb-1">
+           Bankai
+          </h4>
+          <p class="italic text-indigo-300 mb-1">
+           Espada que se transforma em tempestade elétrica.
+          </p>
+          <ul class="list-disc list-inside text-indigo-300 space-y-0.5">
+           <li>
+            <strong>
+             Peculiaridade:
+            </strong>
+            Controla relâmpagos e tempestades elétricas.
+           </li>
+           <li>
+            <strong>
+             Habilidade:
+            </strong>
+            Cria tempestades que eletrocutam e desorientam inimigos.
+           </li>
+          </ul>
+         </div>
+        </div>
+       </div>
+      </article>
+     </div>
+    </section>
+    <!-- Espadas de Reforço -->
+    <section>
+     <h2 class="text-indigo-300 font-orbitron font-semibold text-3xl mb-8 border-b border-indigo-600 pb-2">
+      Espadas de Reforço
+     </h2>
+     <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+      <!-- Reforço Padrão -->
+      <article class="bg-indigo-800 rounded-2xl shadow-xl overflow-hidden flex flex-col hover:scale-[1.03] transition-transform duration-300">
+       <img alt="Zanpakutou Reforço Padrão: espada simples com lâmina resistente e design clássico, ideal para combate equilibrado" class="w-full h-48 object-cover" height="300" loading="lazy" src="https://storage.googleapis.com/a1aa/image/c843fb1a-ed4b-4c1d-2c11-a30e4f07a8fe.jpg" width="600"/>
+       <div class="p-6 flex flex-col flex-grow">
+        <h3 class="text-indigo-200 font-orbitron font-semibold text-2xl mb-3">
+         Zanpakutou Reforço Padrão
+        </h3>
+        <p class="text-indigo-300 mb-6 leading-relaxed font-medium">
+         Espada focada em aumentar a força e resistência do usuário.
+        </p>
+        <div class="space-y-5 flex-grow flex flex-col justify-between">
+         <div>
+          <h4 class="text-indigo-400 font-semibold text-lg mb-1">
+           Forma Base
+          </h4>
+          <p class="italic text-indigo-300 mb-1">
+           Lâmina robusta e equilibrada.
+          </p>
+          <ul class="list-disc list-inside text-indigo-300 space-y-0.5">
+           <li>
+            <strong>
+             Peculiaridade:
+            </strong>
+            Aumenta a durabilidade da espada.
+           </li>
+           <li>
+            <strong>
+             Habilidade:
+            </strong>
+            Melhora a força física do portador.
+           </li>
+          </ul>
+         </div>
+         <div>
+          <h4 class="text-indigo-400 font-semibold text-lg mb-1">
+           Shikai
+          </h4>
+          <p class="italic text-indigo-300 mb-1">
+           Lâmina que emite uma aura de poder.
+          </p>
+          <ul class="list-disc list-inside text-indigo-300 space-y-0.5">
+           <li>
+            <strong>
+             Peculiaridade:
+            </strong>
+            Amplifica a resistência contra ataques.
+           </li>
+           <li>
+            <strong>
+             Habilidade:
+            </strong>
+            Aumenta força e defesa temporariamente.
+           </li>
+          </ul>
+         </div>
+         <div>
+          <h4 class="text-indigo-400 font-semibold text-lg mb-1">
+           Bankai
+          </h4>
+          <p class="italic text-indigo-300 mb-1">
+           Espada gigante com aura impenetrável.
+          </p>
+          <ul class="list-disc list-inside text-indigo-300 space-y-0.5">
+           <li>
+            <strong>
+             Peculiaridade:
+            </strong>
+            Cria um escudo de energia ao redor do usuário.
+           </li>
+           <li>
+            <strong>
+             Habilidade:
+            </strong>
+            Força e defesa máximas por tempo limitado.
+           </li>
+          </ul>
+         </div>
+        </div>
+       </div>
+      </article>
+      <!-- Corte -->
+      <article class="bg-indigo-800 rounded-2xl shadow-xl overflow-hidden flex flex-col hover:scale-[1.03] transition-transform duration-300">
+       <img alt="Zanpakutou de Corte: espada com lâmina afiada e design fino e letal, especializada em cortes precisos" class="w-full h-48 object-cover" height="300" loading="lazy" src="https://storage.googleapis.com/a1aa/image/81ae0d94-3abb-4e47-dac2-e6742874075a.jpg" width="600"/>
+       <div class="p-6 flex flex-col flex-grow">
+        <h3 class="text-indigo-200 font-orbitron font-semibold text-2xl mb-3">
+         Zanpakutou de Corte
+        </h3>
+        <p class="text-indigo-300 mb-6 leading-relaxed font-medium">
+         Especializada em ataques rápidos e cortes precisos que dilaceram o inimigo.
+        </p>
+        <div class="space-y-5 flex-grow flex flex-col justify-between">
+         <div>
+          <h4 class="text-indigo-400 font-semibold text-lg mb-1">
+           Forma Base
+          </h4>
+          <p class="italic text-indigo-300 mb-1">
+           Lâmina extremamente afiada e leve.
+          </p>
+          <ul class="list-disc list-inside text-indigo-300 space-y-0.5">
+           <li>
+            <strong>
+             Peculiaridade:
+            </strong>
+            Facilita cortes profundos e rápidos.
+           </li>
+           <li>
+            <strong>
+             Habilidade:
+            </strong>
+            Ataques que ignoram defesas básicas.
+           </li>
+          </ul>
+         </div>
+         <div>
+          <h4 class="text-indigo-400 font-semibold text-lg mb-1">
+           Shikai
+          </h4>
+          <p class="italic text-indigo-300 mb-1">
+           Lâmina que vibra em alta frequência.
+          </p>
+          <ul class="list-disc list-inside text-indigo-300 space-y-0.5">
+           <li>
+            <strong>
+             Peculiaridade:
+            </strong>
+            Pode cortar quase qualquer material.
+           </li>
+           <li>
+            <strong>
+             Habilidade:
+            </strong>
+            Cortes que causam danos internos e externos.
+           </li>
+          </ul>
+         </div>
+         <div>
+          <h4 class="text-indigo-400 font-semibold text-lg mb-1">
+           Bankai
+          </h4>
+          <p class="italic text-indigo-300 mb-1">
+           Espada que se fragmenta em lâminas menores.
+          </p>
+          <ul class="list-disc list-inside text-indigo-300 space-y-0.5">
+           <li>
+            <strong>
+             Peculiaridade:
+            </strong>
+            Pode atacar múltiplos alvos simultaneamente.
+           </li>
+           <li>
+            <strong>
+             Habilidade:
+            </strong>
+            Cortes devastadores que perfuram defesas.
+           </li>
+          </ul>
+         </div>
+        </div>
+       </div>
+      </article>
+      <!-- Percepção -->
+      <article class="bg-indigo-800 rounded-2xl shadow-xl overflow-hidden flex flex-col hover:scale-[1.03] transition-transform duration-300">
+       <img alt="Zanpakutou de Percepção: espada com lâmina azul brilhante e detalhes luminosos que aumentam a percepção do usuário" class="w-full h-48 object-cover" height="300" loading="lazy" src="https://storage.googleapis.com/a1aa/image/d4d0a515-6a22-4665-fb42-b179ca49e853.jpg" width="600"/>
+       <div class="p-6 flex flex-col flex-grow">
+        <h3 class="text-indigo-200 font-orbitron font-semibold text-2xl mb-3">
+         Zanpakutou de Percepção
+        </h3>
+        <p class="text-indigo-300 mb-6 leading-relaxed font-medium">
+         Aumenta os sentidos e a percepção do usuário para antecipar movimentos inimigos.
+        </p>
+        <div class="space-y-5 flex-grow flex flex-col justify-between">
+         <div>
+          <h4 class="text-indigo-400 font-semibold text-lg mb-1">
+           Forma Base
+          </h4>
+          <p class="italic text-indigo-300 mb-1">
+           Lâmina que emite um brilho suave azul.
+          </p>
+          <ul class="list-disc list-inside text-indigo-300 space-y-0.5">
+           <li>
+            <strong>
+             Peculiaridade:
+            </strong>
+            Amplifica os sentidos visuais e auditivos.
+           </li>
+           <li>
+            <strong>
+             Habilidade:
+            </strong>
+            Permite detectar ataques antes de acontecerem.
+           </li>
+          </ul>
+         </div>
+         <div>
+          <h4 class="text-indigo-400 font-semibold text-lg mb-1">
+           Shikai
+          </h4>
+          <p class="italic text-indigo-300 mb-1">
+           Lâmina que emite ondas de energia sensorial.
+          </p>
+          <ul class="list-disc list-inside text-indigo-300 space-y-0.5">
+           <li>
+            <strong>
+             Peculiaridade:
+            </strong>
+            Pode prever movimentos inimigos em curto alcance.
+           </li>
+           <li>
+            <strong>
+             Habilidade:
+            </strong>
+            Aumenta a velocidade de reação e esquiva.
+           </li>
+          </ul>
+         </div>
+         <div>
+          <h4 class="text-indigo-400 font-semibold text-lg mb-1">
+           Bankai
+          </h4>
+          <p class="italic text-indigo-300 mb-1">
+           Espada que cria um campo de percepção ampliada.
+          </p>
+          <ul class="list-disc list-inside text-indigo-300 space-y-0.5">
+           <li>
+            <strong>
+             Peculiaridade:
+            </strong>
+            Permite antecipar ataques e estratégias inimigas.
+           </li>
+           <li>
+            <strong>
+             Habilidade:
+            </strong>
+            Usuário pode agir antes do inimigo em combate.
+           </li>
+          </ul>
+         </div>
+        </div>
+       </div>
+      </article>
+     </div>
+    </section>
+    <!-- Espadas de Utilidade -->
+    <section>
+     <h2 class="text-indigo-300 font-orbitron font-semibold text-3xl mb-8 border-b border-indigo-600 pb-2">
+      Espadas de Utilidade
+     </h2>
+     <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+      <!-- Ilusão -->
+      <article class="bg-indigo-800 rounded-2xl shadow-xl overflow-hidden flex flex-col hover:scale-[1.03] transition-transform duration-300">
+       <img alt="Zanpakutou de Ilusão: espada com lâmina roxa transparente e efeitos etéreos que confundem os sentidos" class="w-full h-48 object-cover" height="300" loading="lazy" src="https://storage.googleapis.com/a1aa/image/7d9ba545-c82e-4b16-38f8-c8d58bd14f81.jpg" width="600"/>
+       <div class="p-6 flex flex-col flex-grow">
+        <h3 class="text-indigo-200 font-orbitron font-semibold text-2xl mb-3">
+         Zanpakutou de Ilusão
+        </h3>
+        <p class="text-indigo-300 mb-6 leading-relaxed font-medium">
+         Cria ilusões para confundir e desorientar os inimigos.
+        </p>
+        <div class="space-y-5 flex-grow flex flex-col justify-between">
+         <div>
+          <h4 class="text-indigo-400 font-semibold text-lg mb-1">
+           Forma Base
+          </h4>
+          <p class="italic text-indigo-300 mb-1">
+           Lâmina que distorce a luz ao redor.
+          </p>
+          <ul class="list-disc list-inside text-indigo-300 space-y-0.5">
+           <li>
+            <strong>
+             Peculiaridade:
+            </strong>
+            Pode criar imagens falsas simples.
+           </li>
+           <li>
+            <strong>
+             Habilidade:
+            </strong>
+            Confunde inimigos com pequenos truques visuais.
+           </li>
+          </ul>
+         </div>
+         <div>
+          <h4 class="text-indigo-400 font-semibold text-lg mb-1">
+           Shikai
+          </h4>
+          <p class="italic text-indigo-300 mb-1">
+           Lâmina que emite névoa ilusória.
+          </p>
+          <ul class="list-disc list-inside text-indigo-300 space-y-0.5">
+           <li>
+            <strong>
+             Peculiaridade:
+            </strong>
+            Cria múltiplas ilusões realistas.
+           </li>
+           <li>
+            <strong>
+             Habilidade:
+            </strong>
+            Manipula os sentidos dos inimigos temporariamente.
+           </li>
+          </ul>
+         </div>
+         <div>
+          <h4 class="text-indigo-400 font-semibold text-lg mb-1">
+           Bankai
+          </h4>
+          <p class="italic text-indigo-300 mb-1">
+           Espada que cria um campo ilusório completo.
+          </p>
+          <ul class="list-disc list-inside text-indigo-300 space-y-0.5">
+           <li>
+            <strong>
+             Peculiaridade:
+            </strong>
+            Prende inimigos em ilusões por tempo prolongado.
+           </li>
+           <li>
+            <strong>
+             Habilidade:
+            </strong>
+            Manipula a realidade percebida pelos inimigos.
+           </li>
+          </ul>
+         </div>
+        </div>
+       </div>
+      </article>
+      <!-- Inverter Sentidos -->
+      <article class="bg-indigo-800 rounded-2xl shadow-xl overflow-hidden flex flex-col hover:scale-[1.03] transition-transform duration-300">
+       <img alt="Zanpakutou de Inverter Sentidos: espada com lâmina azul clara e efeitos espelhados que confundem os sentidos do inimigo" class="w-full h-48 object-cover" height="300" loading="lazy" src="https://storage.googleapis.com/a1aa/image/80204091-a1a4-47d9-c326-5171a9435f49.jpg" width="600"/>
+       <div class="p-6 flex flex-col flex-grow">
+        <h3 class="text-indigo-200 font-orbitron font-semibold text-2xl mb-3">
+         Zanpakutou de Inverter Sentidos
+        </h3>
+        <p class="text-indigo-300 mb-6 leading-relaxed font-medium">
+         Inverte os sentidos dos inimigos, causando confusão e desorientação.
+        </p>
+        <div class="space-y-5 flex-grow flex flex-col justify-between">
+         <div>
+          <h4 class="text-indigo-400 font-semibold text-lg mb-1">
+           Forma Base
+          </h4>
+          <p class="italic text-indigo-300 mb-1">
+           Lâmina que reflete imagens invertidas.
+          </p>
+          <ul class="list-disc list-inside text-indigo-300 space-y-0.5">
+           <li>
+            <strong>
+             Peculiaridade:
+            </strong>
+            Pode causar leve tontura ao contato.
+           </li>
+           <li>
+            <strong>
+             Habilidade:
+            </strong>
+            Confunde a direção dos inimigos.
+           </li>
+          </ul>
+         </div>
+         <div>
+          <h4 class="text-indigo-400 font-semibold text-lg mb-1">
+           Shikai
+          </h4>
+          <p class="italic text-indigo-300 mb-1">
+           Lâmina que emite ondas que alteram sentidos.
+          </p>
+          <ul class="list-disc list-inside text-indigo-300 space-y-0.5">
+           <li>
+            <strong>
+             Peculiaridade:
+            </strong>
+            Pode inverter visão e audição temporariamente.
+           </li>
+           <li>
+            <strong>
+             Habilidade:
+            </strong>
+            Dificulta a coordenação dos inimigos.
+           </li>
+          </ul>
+         </div>
+         <div>
+          <h4 class="text-indigo-400 font-semibold text-lg mb-1">
+           Bankai
+          </h4>
+          <p class="italic text-indigo-300 mb-1">
+           Espada que cria um campo onde os sentidos são invertidos.
+          </p>
+          <ul class="list-disc list-inside text-indigo-300 space-y-0.5">
+           <li>
+            <strong>
+             Peculiaridade:
+            </strong>
+            Pode deixar inimigos completamente desorientados.
+           </li>
+           <li>
+            <strong>
+             Habilidade:
+            </strong>
+            Permite ataques fáceis contra inimigos confusos.
+           </li>
+          </ul>
+         </div>
+        </div>
+       </div>
+      </article>
+      <!-- Proteção -->
+      <article class="bg-indigo-800 rounded-2xl shadow-xl overflow-hidden flex flex-col hover:scale-[1.03] transition-transform duration-300">
+       <img alt="Zanpakutou de Proteção: espada com lâmina verde e escudo luminoso ao redor, focada em defesa e proteção" class="w-full h-48 object-cover" height="300" loading="lazy" src="https://storage.googleapis.com/a1aa/image/0f098e6c-ae4f-4c54-9dec-1f54268d7fd9.jpg" width="600"/>
+       <div class="p-6 flex flex-col flex-grow">
+        <h3 class="text-indigo-200 font-orbitron font-semibold text-2xl mb-3">
+         Zanpakutou de Proteção
+        </h3>
+        <p class="text-indigo-300 mb-6 leading-relaxed font-medium">
+         Focada em criar barreiras e proteger aliados e a si mesmo.
+        </p>
+        <div class="space-y-5 flex-grow flex flex-col justify-between">
+         <div>
+          <h4 class="text-indigo-400 font-semibold text-lg mb-1">
+           Forma Base
+          </h4>
+          <p class="italic text-indigo-300 mb-1">
+           Lâmina que emite uma aura protetora.
+          </p>
+          <ul class="list-disc list-inside text-indigo-300 space-y-0.5">
+           <li>
+            <strong>
+             Peculiaridade:
+            </strong>
+            Pode bloquear ataques básicos.
+           </li>
+           <li>
+            <strong>
+             Habilidade:
+            </strong>
+            Cria barreiras pequenas para defesa.
+           </li>
+          </ul>
+         </div>
+         <div>
+          <h4 class="text-indigo-400 font-semibold text-lg mb-1">
+           Shikai
+          </h4>
+          <p class="italic text-indigo-300 mb-1">
+           Lâmina que gera escudos de energia.
+          </p>
+          <ul class="list-disc list-inside text-indigo-300 space-y-0.5">
+           <li>
+            <strong>
+             Peculiaridade:
+            </strong>
+            Escudos que absorvem dano moderado.
+           </li>
+           <li>
+            <strong>
+             Habilidade:
+            </strong>
+            Protege aliados próximos com barreiras.
+           </li>
+          </ul>
+         </div>
+         <div>
+          <h4 class="text-indigo-400 font-semibold text-lg mb-1">
+           Bankai
+          </h4>
+          <p class="italic text-indigo-300 mb-1">
+           Espada que cria um campo de proteção impenetrável.
+          </p>
+          <ul class="list-disc list-inside text-indigo-300 space-y-0.5">
+           <li>
+            <strong>
+             Peculiaridade:
+            </strong>
+            Pode proteger um grupo inteiro por tempo limitado.
+           </li>
+           <li>
+            <strong>
+             Habilidade:
+            </strong>
+            Absorve e reflete ataques inimigos.
+           </li>
+          </ul>
+         </div>
+        </div>
+       </div>
+      </article>
+      <!-- Velocidade -->
+      <article class="bg-indigo-800 rounded-2xl shadow-xl overflow-hidden flex flex-col hover:scale-[1.03] transition-transform duration-300">
+       <img alt="Zanpakutou de Velocidade: espada com lâmina laranja e efeitos visuais que indicam movimento rápido e agilidade" class="w-full h-48 object-cover" height="300" loading="lazy" src="https://storage.googleapis.com/a1aa/image/93ab2def-9700-4ae7-6e6d-bf11ebac12cf.jpg" width="600"/>
+       <div class="p-6 flex flex-col flex-grow">
+        <h3 class="text-indigo-200 font-orbitron font-semibold text-2xl mb-3">
+         Zanpakutou de Velocidade
+        </h3>
+        <p class="text-indigo-300 mb-6 leading-relaxed font-medium">
+         Aumenta drasticamente a velocidade e agilidade do usuário.
+        </p>
+        <div class="space-y-5 flex-grow flex flex-col justify-between">
+         <div>
+          <h4 class="text-indigo-400 font-semibold text-lg mb-1">
+           Forma Base
+          </h4>
+          <p class="italic text-indigo-300 mb-1">
+           Lâmina leve que facilita movimentos rápidos.
+          </p>
+          <ul class="list-disc list-inside text-indigo-300 space-y-0.5">
+           <li>
+            <strong>
+             Peculiaridade:
+            </strong>
+            Reduz o peso da espada para agilidade.
+           </li>
+           <li>
+            <strong>
+             Habilidade:
+            </strong>
+            Permite ataques rápidos e esquivas ágeis.
+           </li>
+          </ul>
+         </div>
+         <div>
+          <h4 class="text-indigo-400 font-semibold text-lg mb-1">
+           Shikai
+          </h4>
+          <p class="italic text-indigo-300 mb-1">
+           Lâmina que deixa rastros de luz laranja.
+          </p>
+          <ul class="list-disc list-inside text-indigo-300 space-y-0.5">
+           <li>
+            <strong>
+             Peculiaridade:
+            </strong>
+            Aumenta a velocidade de movimento e ataque.
+           </li>
+           <li>
+            <strong>
+             Habilidade:
+            </strong>
+            Ataques quase impossíveis de serem vistos.
+           </li>
+          </ul>
+         </div>
+         <div>
+          <h4 class="text-indigo-400 font-semibold text-lg mb-1">
+           Bankai
+          </h4>
+          <p class="italic text-indigo-300 mb-1">
+           Espada que cria múltiplas imagens rápidas do usuário.
+          </p>
+          <ul class="list-disc list-inside text-indigo-300 space-y-0.5">
+           <li>
+            <strong>
+             Peculiaridade:
+            </strong>
+            Confunde inimigos com múltiplas presenças.
+           </li>
+           <li>
+            <strong>
+             Habilidade:
+            </strong>
+            Velocidade máxima e ataques em série.
+           </li>
+          </ul>
+         </div>
+        </div>
+       </div>
+      </article>
+     </div>
+    </section>
+   </section>
+  </main>
+  <footer class="bg-indigo-900 text-indigo-300 py-6 mt-12 text-center text-sm select-none">
+   © 2024 Cross Arise. Todos os direitos reservados.
+  </footer>
+ </body>
+</html>
