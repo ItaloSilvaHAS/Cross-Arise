@@ -3,379 +3,697 @@
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1" name="viewport"/>
   <title>
-   Classes - Cross Arise
+   Cross Arise - Classes
   </title>
   <script src="https://cdn.tailwindcss.com">
   </script>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&amp;display=swap" rel="stylesheet"/>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"/>
   <style>
    body {
-      font-family: "Roboto", sans-serif;
-      background: #0f172a;
-      color: #e0e7ff;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
+      font-family: "Montserrat", sans-serif;
+      background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+      scroll-padding-top: 4rem;
     }
+    /* Scrollbar for better UX on mobile */
     ::-webkit-scrollbar {
       width: 8px;
+      height: 8px;
     }
     ::-webkit-scrollbar-track {
-      background: #1e293b;
+      background: #2d3748;
     }
     ::-webkit-scrollbar-thumb {
-      background-color: #3b82f6;
+      background-color: #6366f1;
       border-radius: 10px;
+      border: 2px solid #2d3748;
     }
   </style>
  </head>
- <body class="flex flex-col min-h-screen">
-  <header class="bg-gradient-to-r from-indigo-900 via-purple-900 to-pink-900 sticky top-0 z-50 shadow-lg">
-   <div class="container mx-auto px-6 py-4 flex items-center justify-between">
-    <h1 class="text-3xl font-extrabold tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-purple-400 to-indigo-400 select-none">
-     Cross Arise - Classes
-    </h1>
-    <button aria-label="Abrir menu" class="md:hidden text-indigo-400 hover:text-pink-400 focus:outline-none focus:ring-2 focus:ring-pink-400 rounded" id="menu-btn">
-     <i class="fas fa-bars text-3xl">
+ <body class="flex flex-col min-h-screen text-gray-100">
+  <nav class="bg-gray-900/90 backdrop-blur-md fixed w-full z-50 shadow-lg border-b border-indigo-600">
+   <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+    <a aria-label="Voltar ao início" class="text-indigo-400 font-extrabold text-2xl tracking-wide hover:text-indigo-500 transition flex items-center gap-2" href="#top">
+     <i class="fas fa-dragon fa-lg">
+     </i>
+     Cross Arise
+    </a>
+    <button aria-expanded="false" aria-label="Abrir menu" class="md:hidden text-indigo-400 hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-400 rounded" id="menu-btn">
+     <i class="fas fa-bars fa-lg">
      </i>
     </button>
-    <nav class="hidden md:flex md:items-center md:space-x-6 text-indigo-300 font-semibold text-sm md:text-base" id="menu">
-     <a class="hover:text-pink-400 transition-colors duration-300" href="#superhumano">
-      Super Humano
+    <div class="hidden md:flex space-x-6 items-center text-indigo-400 font-semibold" id="desktop-menu">
+     <a aria-label="Voltar ao início" class="flex items-center gap-2 hover:text-indigo-500 transition" href="#top">
+      <i class="fas fa-arrow-left">
+      </i>
+      Voltar
      </a>
-     <a class="hover:text-pink-400 transition-colors duration-300" href="#berserk">
-      Berserk
-     </a>
-     <a class="hover:text-pink-400 transition-colors duration-300" href="#cavalheiro">
-      Cavalheiro Sagrado
-     </a>
-     <a class="hover:text-pink-400 transition-colors duration-300" href="#monarca">
-      Monarca
-     </a>
-     <a class="hover:text-pink-400 transition-colors duration-300" href="#necromante">
-      Necromante
-     </a>
-     <a class="hover:text-pink-400 transition-colors duration-300" href="#ninja">
-      Ninja
-     </a>
-     <a class="hover:text-pink-400 transition-colors duration-300" href="#shinigami">
-      Shinigami
-     </a>
-     <a class="hover:text-pink-400 transition-colors duration-300" href="#cacador">
-      Caçador
-     </a>
-     <a class="hover:text-pink-400 transition-colors duration-300" href="#bruxo">
-      Bruxo
-     </a>
-     <a class="hover:text-pink-400 transition-colors duration-300" href="#mago">
-      Mago
-     </a>
-     <a class="hover:text-pink-400 transition-colors duration-300" href="#clerigo">
-      Clérigo
-     </a>
-     <a class="hover:text-pink-400 transition-colors duration-300" href="#feiticeiro">
-      Feiticeiro
-     </a>
-     <a class="hover:text-pink-400 transition-colors duration-300" href="#ladino">
-      Ladino
-     </a>
-     <a class="hover:text-pink-400 transition-colors duration-300" href="#heroi">
-      Herói Cardinal
-     </a>
-     <a class="hover:text-pink-400 transition-colors duration-300" href="#bardo">
-      Bardo
-     </a>
-     <a class="hover:text-pink-400 transition-colors duration-300" href="#invocador">
-      Invocador
-     </a>
-     <a class="hover:text-pink-400 transition-colors duration-300" href="#mutante">
-      Mutante
-     </a>
-     <a class="hover:text-pink-400 transition-colors duration-300" href="#mestre-runas">
-      Mestre das Runas
-     </a>
-     <a class="hover:text-pink-400 transition-colors duration-300" href="#dimensional">
-      Dimensional
-     </a>
-    </nav>
+    </div>
    </div>
-  </header>
-  <main class="container mx-auto px-4 py-10 flex-grow max-w-7xl">
-   <section class="mb-20 grid grid-cols-1 md:grid-cols-2 gap-10 items-center" id="superhumano">
-    <div class="relative group rounded-xl overflow-hidden shadow-2xl">
-     <img alt="Guerreiro super humano em pose dinâmica de artes marciais, com aura azul brilhante e movimentos especiais" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" height="400" loading="lazy" src="https://storage.googleapis.com/a1aa/image/a26214cf-0123-4d00-c54f-905c80080715.jpg" width="600"/>
-     <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
-      <h2 class="text-3xl font-extrabold text-cyan-400 mb-2">
+   <div class="md:hidden bg-gray-900/95 backdrop-blur-md border-t border-indigo-600 hidden" id="mobile-menu">
+    <a aria-label="Voltar ao início" class="block px-5 py-3 text-indigo-400 font-semibold hover:bg-indigo-700/30 transition flex items-center gap-3" href="#top">
+     <i class="fas fa-arrow-left">
+     </i>
+     Voltar
+    </a>
+   </div>
+  </nav>
+  <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16" id="top">
+   <h1 class="text-center text-indigo-400 font-extrabold text-4xl sm:text-5xl mb-12 drop-shadow-lg">
+    Classes de Cross Arise
+   </h1>
+   <section aria-label="Lista de classes do RPG Cross Arise" class="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+    <!-- Template for each class card -->
+    <!-- Super Humano -->
+    <article aria-labelledby="title-superhumano" class="bg-gradient-to-tr from-indigo-900/80 to-indigo-700/80 rounded-3xl shadow-2xl overflow-hidden flex flex-col hover:scale-[1.03] transition-transform duration-300" tabindex="0">
+     <img alt="Super Humano em pose de luta, executando golpes de artes marciais especiais com efeitos visuais de energia" class="w-full h-48 object-cover" height="400" loading="lazy" src="https://storage.googleapis.com/a1aa/image/30b722e3-5e1c-45b8-49a7-87801a7703f9.jpg" width="600"/>
+     <div class="p-6 flex flex-col flex-grow">
+      <h2 class="text-indigo-300 font-extrabold text-2xl mb-3 tracking-wide" id="title-superhumano">
        Super Humano
       </h2>
-      <p class="text-gray-300 text-sm leading-relaxed">
-       Domine artes marciais especiais, criando combos únicos com efeitos
-            de atordoamento, dano em área e aumento de velocidade.
+      <p class="mb-4 text-indigo-100 leading-relaxed flex-grow">
+       Os Super Humanos concedem habilidades reais e versáteis, permitindo que o jogador crie golpes únicos e combos de artes marciais especiais, combinando força, agilidade e energia interna para dominar o combate corpo a corpo.
+      </p>
+      <p class="font-semibold text-indigo-200 mb-2">
+       Os Super Humanos podem criar:
+      </p>
+      <ul class="list-disc list-inside text-indigo-200 space-y-1 mb-4">
+       <li>
+        Golpes de artes marciais com efeitos elementais e visuais únicos.
+       </li>
+       <li>
+        Combos personalizados que misturam ataques físicos e energia.
+       </li>
+       <li>
+        Técnicas de esquiva e contra-ataque aprimoradas.
+       </li>
+      </ul>
+      <p class="font-semibold text-indigo-200">
+       Passiva:
+      </p>
+      <p class="text-indigo-300">
+       Regeneração acelerada de pequenos ferimentos durante o combate, aumentando a resistência e a durabilidade.
       </p>
      </div>
-    </div>
-    <div class="space-y-6">
-     <h3 class="text-2xl font-extrabold text-cyan-400 mb-4">
-      Habilidades
-     </h3>
-     <ul class="space-y-4">
-      <li class="flex items-center gap-4 bg-indigo-900 rounded-lg p-4 shadow-lg hover:bg-indigo-800 transition-colors duration-300">
-       <img alt="Ícone representando combo de artes marciais com energia azul" class="w-12 h-12 rounded-md" height="48" loading="lazy" src="https://storage.googleapis.com/a1aa/image/e92b4973-ffbe-4f32-49f8-b9639e6de8ee.jpg" width="48"/>
-       <div>
-        <strong class="text-cyan-300 text-lg">
-         Combo Personalizado
-        </strong>
-        <p class="text-gray-300 text-sm">
-         Crie sequências de 3 a 5 golpes com efeitos especiais como
-                atordoamento e dano em área.
-        </p>
-       </div>
-      </li>
-      <li class="flex items-center gap-4 bg-indigo-900 rounded-lg p-4 shadow-lg hover:bg-indigo-800 transition-colors duration-300">
-       <img alt="Ícone representando explosão de energia azul" class="w-12 h-12 rounded-md" height="48" loading="lazy" src="https://storage.googleapis.com/a1aa/image/ef37bb44-19c4-4c64-c0d2-cbcd011d7625.jpg" width="48"/>
-       <div>
-        <strong class="text-cyan-300 text-lg">
-         Explosão de Energia
-        </strong>
-        <p class="text-gray-300 text-sm">
-         Libere uma onda de energia que causa dano e aumenta sua defesa
-                por 10 segundos.
-        </p>
-       </div>
-      </li>
-      <li class="flex items-center gap-4 bg-indigo-900 rounded-lg p-4 shadow-lg hover:bg-indigo-800 transition-colors duration-300">
-       <img alt="Ícone representando esquiva rápida com rastro de luz azul" class="w-12 h-12 rounded-md" height="48" loading="lazy" src="https://storage.googleapis.com/a1aa/image/5eedb995-7389-48d0-85f3-cf5cd62cd6f4.jpg" width="48"/>
-       <div>
-        <strong class="text-cyan-300 text-lg">
-         Esquiva Ágil
-        </strong>
-        <p class="text-gray-300 text-sm">
-         Esquive ataques com alta velocidade, ganhando bônus de +4 em
-                esquiva por 5 segundos.
-        </p>
-       </div>
-      </li>
-     </ul>
-    </div>
-   </section>
-   <section class="mb-20 grid grid-cols-1 md:grid-cols-2 gap-10 items-center md:flex-row-reverse" id="berserk">
-    <div class="relative group rounded-xl overflow-hidden shadow-2xl">
-     <img alt="Guerreiro berserk musculoso, expressão feroz e aura vermelha intensa" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" height="400" loading="lazy" src="https://storage.googleapis.com/a1aa/image/e1bf2760-746a-489c-3f2d-74f26b8bd57a.jpg" width="600"/>
-     <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
-      <h2 class="text-3xl font-extrabold text-red-500 mb-2">
+    </article>
+    <!-- Berserk -->
+    <article aria-labelledby="title-berserk" class="bg-gradient-to-tr from-red-900/90 to-red-700/90 rounded-3xl shadow-2xl overflow-hidden flex flex-col hover:scale-[1.03] transition-transform duration-300" tabindex="0">
+     <img alt="Berserk em fúria descontrolada, músculos tensionados e aura vermelha intensa ao redor" class="w-full h-48 object-cover" height="400" loading="lazy" src="https://storage.googleapis.com/a1aa/image/d605424a-511d-4071-f013-3954303e78a5.jpg" width="600"/>
+     <div class="p-6 flex flex-col flex-grow">
+      <h2 class="text-red-300 font-extrabold text-2xl mb-3 tracking-wide" id="title-berserk">
        Berserk
       </h2>
-      <p class="text-gray-300 text-sm leading-relaxed">
-       Entre em fúria para aumentar seu poder de ataque e resistência,
-            sacrificando defesa e controle.
+      <p class="mb-4 text-red-100 leading-relaxed flex-grow">
+       Berserks possuem habilidades que amplificam sua força bruta e descontrole, permitindo que o jogador libere uma fúria devastadora que aumenta o poder ofensivo, sacrificando defesa para causar danos massivos.
+      </p>
+      <p class="font-semibold text-red-200 mb-2">
+       Os Berserks podem usar:
+      </p>
+      <ul class="list-disc list-inside text-red-200 space-y-1 mb-4">
+       <li>
+        Estado de fúria que aumenta força, velocidade e resistência temporariamente.
+       </li>
+       <li>
+        Ataques em área que derrubam múltiplos inimigos.
+       </li>
+       <li>
+        Técnicas de rompimento de defesas inimigas.
+       </li>
+      </ul>
+      <p class="font-semibold text-red-200">
+       Passiva:
+      </p>
+      <p class="text-red-300">
+       Resistência aumentada a efeitos de controle e redução da dor, permitindo maior tempo em combate intenso.
       </p>
      </div>
-    </div>
-    <div class="space-y-6">
-     <h3 class="text-2xl font-extrabold text-red-500 mb-4">
-      Habilidades
-     </h3>
-     <ul class="space-y-4">
-      <li class="flex items-center gap-4 bg-red-900 rounded-lg p-4 shadow-lg hover:bg-red-800 transition-colors duration-300">
-       <img alt="Ícone representando fúria intensa com aura vermelha" class="w-12 h-12 rounded-md" height="48" loading="lazy" src="https://storage.googleapis.com/a1aa/image/e4b9d0b2-0301-42cc-53ec-8b7da5cb4b0a.jpg" width="48"/>
-       <div>
-        <strong class="text-red-400 text-lg">
-         Fúria Berserk
-        </strong>
-        <p class="text-gray-300 text-sm">
-         Aumenta dano em +50% e reduz dano recebido em 20% por 20
-                segundos, com redução de defesa.
-        </p>
-       </div>
-      </li>
-      <li class="flex items-center gap-4 bg-red-900 rounded-lg p-4 shadow-lg hover:bg-red-800 transition-colors duration-300">
-       <img alt="Ícone representando golpe poderoso com impacto" class="w-12 h-12 rounded-md" height="48" loading="lazy" src="https://storage.googleapis.com/a1aa/image/78436c04-934f-431c-c58e-49717dcf0d9f.jpg" width="48"/>
-       <div>
-        <strong class="text-red-400 text-lg">
-         Golpe Devastador
-        </strong>
-        <p class="text-gray-300 text-sm">
-         Ataque que ignora 30% da armadura inimiga em um golpe.
-        </p>
-       </div>
-      </li>
-      <li class="flex items-center gap-4 bg-red-900 rounded-lg p-4 shadow-lg hover:bg-red-800 transition-colors duration-300">
-       <img alt="Ícone representando resistência aumentada com escudo vermelho" class="w-12 h-12 rounded-md" height="48" loading="lazy" src="https://storage.googleapis.com/a1aa/image/20aaaa9e-6e22-41ad-267e-8143de9a3c08.jpg" width="48"/>
-       <div>
-        <strong class="text-red-400 text-lg">
-         Resistência Brutal
-        </strong>
-        <p class="text-gray-300 text-sm">
-         Reduz dano físico recebido em 25% quando com menos de 30% de
-                vida.
-        </p>
-       </div>
-      </li>
-     </ul>
-    </div>
-   </section>
-   <section class="mb-20 grid grid-cols-1 md:grid-cols-2 gap-10 items-center" id="cavalheiro">
-    <div class="relative group rounded-xl overflow-hidden shadow-2xl">
-     <img alt="Cavaleiro sagrado com armadura dourada brilhante e espada com aura divina" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" height="400" loading="lazy" src="https://storage.googleapis.com/a1aa/image/255b1045-aa3d-4fab-c2de-b3e569c37414.jpg" width="600"/>
-     <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
-      <h2 class="text-3xl font-extrabold text-yellow-400 mb-2">
+    </article>
+    <!-- Cavalheiro Sagrado -->
+    <article aria-labelledby="title-cavalheiro" class="bg-gradient-to-tr from-yellow-900/90 to-yellow-700/90 rounded-3xl shadow-2xl overflow-hidden flex flex-col hover:scale-[1.03] transition-transform duration-300" tabindex="0">
+     <img alt="Cavalheiro Sagrado em armadura brilhante, empunhando uma espada flamejante representando o elemento fogo" class="w-full h-48 object-cover" height="400" loading="lazy" src="https://storage.googleapis.com/a1aa/image/266e603b-827f-44ea-88b0-701bcc9ff0cf.jpg" width="600"/>
+     <div class="p-6 flex flex-col flex-grow">
+      <h2 class="text-yellow-300 font-extrabold text-2xl mb-3 tracking-wide" id="title-cavalheiro">
        Cavalheiro Sagrado
       </h2>
-      <p class="text-gray-300 text-sm leading-relaxed">
-       Defensor da justiça, combina combate corpo a corpo com magias
-            sagradas para proteger aliados e punir inimigos.
+      <p class="mb-4 text-yellow-100 leading-relaxed flex-grow">
+       Cavalheiros Sagrados especializam-se em um dos quatro elementos — fogo, água, terra ou ar — concedendo ao jogador habilidades elementais poderosas que combinam magia e combate físico para proteger aliados e dominar inimigos.
+      </p>
+      <p class="font-semibold text-yellow-200 mb-2">
+       Os Cavalheiros Sagrados podem usar:
+      </p>
+      <ul class="list-disc list-inside text-yellow-200 space-y-1 mb-4">
+       <li>
+        Ataques elementais focados no elemento escolhido, com variações ofensivas e defensivas.
+       </li>
+       <li>
+        Magias de suporte que fortalecem aliados e controlam o campo de batalha.
+       </li>
+       <li>
+        Técnicas de resistência e regeneração baseadas no elemento.
+       </li>
+      </ul>
+      <p class="font-semibold text-yellow-200">
+       Passiva:
+      </p>
+      <p class="text-yellow-300">
+       Aumento da resistência e regeneração conforme o elemento escolhido, tornando o jogador mais durável e adaptável.
       </p>
      </div>
-    </div>
-    <div class="space-y-6">
-     <h3 class="text-2xl font-extrabold text-yellow-400 mb-4">
-      Habilidades
-     </h3>
-     <ul class="space-y-4">
-      <li class="flex items-center gap-4 bg-yellow-900 rounded-lg p-4 shadow-lg hover:bg-yellow-800 transition-colors duration-300">
-       <img alt="Ícone representando escudo sagrado brilhante" class="w-12 h-12 rounded-md" height="48" loading="lazy" src="https://storage.googleapis.com/a1aa/image/d36a3a4e-c155-4373-0057-d44799eeef79.jpg" width="48"/>
-       <div>
-        <strong class="text-yellow-300 text-lg">
-         Escudo Divino
-        </strong>
-        <p class="text-gray-300 text-sm">
-         Barreira que absorve até 100 pontos de dano por 15 segundos.
-        </p>
-       </div>
-      </li>
-      <li class="flex items-center gap-4 bg-yellow-900 rounded-lg p-4 shadow-lg hover:bg-yellow-800 transition-colors duration-300">
-       <img alt="Ícone representando ataque com espada sagrada" class="w-12 h-12 rounded-md" height="48" loading="lazy" src="https://storage.googleapis.com/a1aa/image/7d6fbd57-757d-47c9-785f-5f6109c07a38.jpg" width="48"/>
-       <div>
-        <strong class="text-yellow-300 text-lg">
-         Golpe Sagrado
-        </strong>
-        <p class="text-gray-300 text-sm">
-         Causa dano físico aumentado e dano sagrado extra contra mortos-vivos.
-        </p>
-       </div>
-      </li>
-      <li class="flex items-center gap-4 bg-yellow-900 rounded-lg p-4 shadow-lg hover:bg-yellow-800 transition-colors duration-300">
-       <img alt="Ícone representando aura de cura e proteção" class="w-12 h-12 rounded-md" height="48" loading="lazy" src="https://storage.googleapis.com/a1aa/image/ea8e326a-6445-4a5a-868b-6c5df1d47d77.jpg" width="48"/>
-       <div>
-        <strong class="text-yellow-300 text-lg">
-         Aura de Cura
-        </strong>
-        <p class="text-gray-300 text-sm">
-         Regenera 5% da vida dos aliados próximos a cada 5 segundos por 20 segundos.
-        </p>
-       </div>
-      </li>
-     </ul>
-    </div>
-   </section>
-   <!-- Repetir o padrão para as outras classes, mas com variações visuais e layout -->
-   <!-- Exemplo para Necromante com estilo diferente -->
-   <section class="mb-20 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 rounded-3xl p-8 shadow-xl max-w-4xl mx-auto" id="necromante">
-    <div class="flex flex-col md:flex-row items-center gap-8">
-     <img alt="Necromante sombrio com ossos e magia negra emanando das mãos" class="rounded-xl shadow-lg w-full md:w-96 object-cover" height="300" loading="lazy" src="https://storage.googleapis.com/a1aa/image/e8af3734-2818-4aac-9d9b-787a98563024.jpg" width="400"/>
-     <div>
-      <h2 class="text-4xl font-extrabold text-gray-400 mb-4 flex items-center gap-3">
-       <i class="fas fa-skull text-gray-400 text-4xl">
-       </i>
+    </article>
+    <!-- Monarca -->
+    <article aria-labelledby="title-monarca" class="bg-gradient-to-tr from-purple-900/90 to-purple-700/90 rounded-3xl shadow-2xl overflow-hidden flex flex-col hover:scale-[1.03] transition-transform duration-300" tabindex="0">
+     <img alt="Monarca imponente com coroa, manipulando sombras que se estendem ao seu redor em um ambiente sombrio" class="w-full h-48 object-cover" height="400" loading="lazy" src="https://storage.googleapis.com/a1aa/image/d93cc00f-5e4e-4954-d1fa-d80f5d61044e.jpg" width="600"/>
+     <div class="p-6 flex flex-col flex-grow">
+      <h2 class="text-purple-300 font-extrabold text-2xl mb-3 tracking-wide" id="title-monarca">
+       Monarca
+      </h2>
+      <p class="mb-4 text-purple-100 leading-relaxed flex-grow">
+       Monarcas governam com autoridade suprema sobre um elemento escolhido — sombras, luz, bestas ou veneno — conferindo ao jogador habilidades poderosas e balanceadas que combinam controle, invocação e manipulação estratégica.
+      </p>
+      <p class="font-semibold text-purple-200 mb-2">
+       Os Monarcas podem usar:
+      </p>
+      <ul class="list-disc list-inside text-purple-200 space-y-1 mb-4">
+       <li>
+        Habilidades ofensivas e defensivas baseadas no elemento escolhido.
+       </li>
+       <li>
+        Invocação e comando de entidades relacionadas ao elemento.
+       </li>
+       <li>
+        Técnicas de manipulação e controle de campo para dominar batalhas.
+       </li>
+      </ul>
+      <p class="font-semibold text-purple-200">
+       Passiva:
+      </p>
+      <p class="text-purple-300">
+       Redução de efeitos negativos e aumento da influência sobre aliados e inimigos, equilibrando poder e controle.
+      </p>
+     </div>
+    </article>
+    <!-- Necromante -->
+    <article aria-labelledby="title-necromante" class="bg-gradient-to-tr from-gray-900/90 to-gray-700/90 rounded-3xl shadow-2xl overflow-hidden flex flex-col hover:scale-[1.03] transition-transform duration-300" tabindex="0">
+     <img alt="Necromante com capa escura, levantando sombras de mortos-vivos que obedecem a seus comandos" class="w-full h-48 object-cover" height="400" loading="lazy" src="https://storage.googleapis.com/a1aa/image/1f216703-8a7f-4d18-2106-1390a4db654f.jpg" width="600"/>
+     <div class="p-6 flex flex-col flex-grow">
+      <h2 class="text-gray-300 font-extrabold text-2xl mb-3 tracking-wide" id="title-necromante">
        Necromante
       </h2>
-      <p class="mb-6 text-gray-300 leading-relaxed text-lg max-w-xl">
-       Controla as forças da morte, invocando mortos-vivos, drenando
-            energia vital e amaldiçoando inimigos com magias negras.
+      <p class="mb-4 text-gray-200 leading-relaxed flex-grow">
+       Necromantes possuem o poder sombrio de ressuscitar os mortos como sombras leais, concedendo ao jogador a habilidade de formar exércitos sombrios e manipular energias da morte para enfraquecer inimigos e fortalecer-se.
       </p>
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
-       <div class="bg-gray-700 rounded-lg p-4 shadow-md hover:bg-gray-600 transition-colors duration-300 cursor-default">
-        <img alt="Ícone representando invocação de esqueletos" class="w-12 h-12 mb-2 mx-auto" height="48" loading="lazy" src="https://storage.googleapis.com/a1aa/image/8fa937f5-e7e6-4269-9a1f-4f98fb987877.jpg" width="48"/>
-        <h3 class="text-lg font-semibold text-gray-300 text-center mb-1">
-         Invocar Mortos-Vivos
-        </h3>
-        <p class="text-gray-400 text-sm text-center">
-         Invoca até 3 esqueletos para lutar ao seu lado por 30 segundos.
-        </p>
-       </div>
-       <div class="bg-gray-700 rounded-lg p-4 shadow-md hover:bg-gray-600 transition-colors duration-300 cursor-default">
-        <img alt="Ícone representando drenagem de energia vital" class="w-12 h-12 mb-2 mx-auto" height="48" loading="lazy" src="https://storage.googleapis.com/a1aa/image/a96f5cda-96e1-4332-0dfd-b48792cdae4b.jpg" width="48"/>
-        <h3 class="text-lg font-semibold text-gray-300 text-center mb-1">
-         Drenar Vida
-        </h3>
-        <p class="text-gray-400 text-sm text-center">
-         Absorve 20% da vida do inimigo e converte em cura para si mesmo.
-        </p>
-       </div>
-       <div class="bg-gray-700 rounded-lg p-4 shadow-md hover:bg-gray-600 transition-colors duration-300 cursor-default">
-        <img alt="Ícone representando maldição negra" class="w-12 h-12 mb-2 mx-auto" height="48" loading="lazy" src="https://storage.googleapis.com/a1aa/image/e169a20a-7646-48ed-1a2c-c027a8f7e6c2.jpg" width="48"/>
-        <h3 class="text-lg font-semibold text-gray-300 text-center mb-1">
-         Maldição Sombria
-        </h3>
-        <p class="text-gray-400 text-sm text-center">
-         Reduz força e velocidade do inimigo em 30% por 15 segundos.
-        </p>
-       </div>
-      </div>
+      <p class="font-semibold text-gray-400 mb-2">
+       Os Necromantes podem usar:
+      </p>
+      <ul class="list-disc list-inside text-gray-400 space-y-1 mb-4">
+       <li>
+        Invocação de mortos-vivos sombrios para combate e suporte.
+       </li>
+       <li>
+        Magias de maldição e drenagem de energia vital.
+       </li>
+       <li>
+        Controle de sombras para defesa e ataque estratégico.
+       </li>
+      </ul>
+      <p class="font-semibold text-gray-400">
+       Passiva:
+      </p>
+      <p class="text-gray-300">
+       Absorção de energia vital ao derrotar inimigos, aumentando a durabilidade e poder.
+      </p>
      </div>
-    </div>
+    </article>
+    <!-- Ninja -->
+    <article aria-labelledby="title-ninja" class="bg-gradient-to-tr from-green-900/90 to-green-700/90 rounded-3xl shadow-2xl overflow-hidden flex flex-col hover:scale-[1.03] transition-transform duration-300" tabindex="0">
+     <img alt="Ninja ágil em pose de ataque, com energia de chakra visível ao redor das mãos e corpo" class="w-full h-48 object-cover" height="400" loading="lazy" src="https://storage.googleapis.com/a1aa/image/27d48e43-9661-44df-44f1-ba33249e0983.jpg" width="600"/>
+     <div class="p-6 flex flex-col flex-grow">
+      <h2 class="text-green-300 font-extrabold text-2xl mb-3 tracking-wide" id="title-ninja">
+       Ninja
+      </h2>
+      <p class="mb-4 text-green-100 leading-relaxed flex-grow">
+       Ninjas dominam o controle do Chakra, a energia natural que permite executar técnicas de ninjutsu e artes marciais com precisão e poder. Eles são mestres da furtividade, velocidade e ataques surpresa, combinando magia e combate físico.
+      </p>
+      <p class="font-semibold text-green-200 mb-2">
+       Os Ninjas podem usar:
+      </p>
+      <ul class="list-disc list-inside text-green-200 space-y-1 mb-4">
+       <li>
+        Técnicas ninjutsu que manipulam elementos e energia para ataques e defesas.
+       </li>
+       <li>
+        Movimentos furtivos e ataques surpresa com alta agilidade.
+       </li>
+       <li>
+        Combinação letal de artes marciais e magia de Chakra.
+       </li>
+      </ul>
+      <p class="font-semibold text-green-200">
+       Passiva:
+      </p>
+      <p class="text-green-300">
+       Aumento da agilidade, furtividade e regeneração de Chakra durante o combate.
+      </p>
+     </div>
+    </article>
+    <!-- Shinigami -->
+    <article aria-labelledby="title-shinigami" class="bg-gradient-to-tr from-blue-900/90 to-blue-700/90 rounded-3xl shadow-2xl overflow-hidden flex flex-col hover:scale-[1.03] transition-transform duration-300" tabindex="0">
+     <img alt="Shinigami empunhando Zanpakutou, envolto em aura espiritual luminosa em um cenário etéreo" class="w-full h-48 object-cover" height="400" loading="lazy" src="https://storage.googleapis.com/a1aa/image/1541a9bf-4734-4218-795f-f49eecd290e0.jpg" width="600"/>
+     <div class="p-6 flex flex-col flex-grow">
+      <h2 class="text-blue-300 font-extrabold text-2xl mb-3 tracking-wide" id="title-shinigami">
+       Shinigami
+      </h2>
+      <p class="mb-4 text-blue-100 leading-relaxed flex-grow">
+       Shinigamis possuem um vínculo profundo com o mundo espiritual, canalizando energias etéreas para proteger o equilíbrio entre vida e morte. Armados com suas Zanpakutou, manifestam poderes únicos que refletem sua ligação espiritual.
+      </p>
+      <p class="font-semibold text-blue-200 mb-2">
+       Os Shinigamis podem usar:
+      </p>
+      <ul class="list-disc list-inside text-blue-200 space-y-1 mb-4">
+       <li>
+        Manipulação de energia espiritual para ataques e defesas poderosas.
+       </li>
+       <li>
+        Técnicas especiais e transformações ligadas à Zanpakutou.
+       </li>
+       <li>
+        Sensibilidade aumentada a presenças espirituais e perigos ocultos.
+       </li>
+      </ul>
+      <p class="font-semibold text-blue-200">
+       Passiva:
+      </p>
+      <p class="text-blue-300">
+       Aumento da percepção espiritual e resistência a ataques sobrenaturais.
+      </p>
+     </div>
+    </article>
+    <!-- Caçador -->
+    <article aria-labelledby="title-cacador" class="bg-gradient-to-tr from-amber-900/90 to-amber-700/90 rounded-3xl shadow-2xl overflow-hidden flex flex-col hover:scale-[1.03] transition-transform duration-300" tabindex="0">
+     <img alt="Caçador equipado com três itens especiais, em uma floresta densa, pronto para a caça" class="w-full h-48 object-cover" height="400" loading="lazy" src="https://storage.googleapis.com/a1aa/image/ee02955d-ef4e-4271-bce4-0406e8bfd06d.jpg" width="600"/>
+     <div class="p-6 flex flex-col flex-grow">
+      <h2 class="text-amber-300 font-extrabold text-2xl mb-3 tracking-wide" id="title-cacador">
+       Caçador
+      </h2>
+      <p class="mb-4 text-amber-100 leading-relaxed flex-grow">
+       Caçadores são especialistas em sobrevivência e rastreamento, podendo escolher três itens com habilidades especiais para personalizar seu estilo de combate e suporte, adaptando-se a qualquer ambiente e situação.
+      </p>
+      <p class="font-semibold text-amber-200 mb-2">
+       Os Caçadores podem usar:
+      </p>
+      <ul class="list-disc list-inside text-amber-200 space-y-1 mb-4">
+       <li>
+        Três itens especiais com habilidades únicas para combate, suporte ou sobrevivência.
+       </li>
+       <li>
+        Técnicas de emboscada, rastreamento e ataques à distância.
+       </li>
+       <li>
+        Uso estratégico do ambiente para vantagem tática.
+       </li>
+      </ul>
+      <p class="font-semibold text-amber-200">
+       Passiva:
+      </p>
+      <p class="text-amber-300">
+       Aumento da percepção, resistência e adaptação em ambientes naturais.
+      </p>
+     </div>
+    </article>
+    <!-- Bruxo -->
+    <article aria-labelledby="title-bruxo" class="bg-gradient-to-tr from-pink-900/90 to-pink-700/90 rounded-3xl shadow-2xl overflow-hidden flex flex-col hover:scale-[1.03] transition-transform duration-300" tabindex="0">
+     <img alt="Bruxo conjurando magia antiga, com símbolos místicos brilhando ao redor em uma floresta noturna" class="w-full h-48 object-cover" height="400" loading="lazy" src="https://storage.googleapis.com/a1aa/image/e17286b5-457e-4fd1-cc52-0e6a71c0d4b4.jpg" width="600"/>
+     <div class="p-6 flex flex-col flex-grow">
+      <h2 class="text-pink-300 font-extrabold text-2xl mb-3 tracking-wide" id="title-bruxo">
+       Bruxo
+      </h2>
+      <p class="mb-4 text-pink-100 leading-relaxed flex-grow">
+       Bruxos dominam magias arcanas ancestrais, capazes de manipular forças ocultas para causar efeitos devastadores ou proteger aliados. Suas habilidades versáteis abrangem maldições, encantamentos e manipulação de energias místicas.
+      </p>
+      <p class="font-semibold text-pink-200 mb-2">
+       Os Bruxos podem usar:
+      </p>
+      <ul class="list-disc list-inside text-pink-200 space-y-1 mb-4">
+       <li>
+        Magias arcanas com efeitos ofensivos, defensivos e de suporte.
+       </li>
+       <li>
+        Maldições que enfraquecem inimigos e encantamentos que fortalecem aliados.
+       </li>
+       <li>
+        Manipulação de energias ocultas para controle do campo.
+       </li>
+      </ul>
+      <p class="font-semibold text-pink-200">
+       Passiva:
+      </p>
+      <p class="text-pink-300">
+       Resistência aumentada a magias e capacidade de regenerar energia mágica.
+      </p>
+     </div>
+    </article>
+    <!-- Mago -->
+    <article aria-labelledby="title-mago" class="bg-gradient-to-tr from-cyan-900/90 to-cyan-700/90 rounded-3xl shadow-2xl overflow-hidden flex flex-col hover:scale-[1.03] transition-transform duration-300" tabindex="0">
+     <img alt="Mago lançando feitiço de energia elemental, com mãos brilhando em azul e vermelho" class="w-full h-48 object-cover" height="400" loading="lazy" src="https://storage.googleapis.com/a1aa/image/e675a408-1580-4a12-d86e-f97ed3bcf110.jpg" width="600"/>
+     <div class="p-6 flex flex-col flex-grow">
+      <h2 class="text-cyan-300 font-extrabold text-2xl mb-3 tracking-wide" id="title-mago">
+       Mago
+      </h2>
+      <p class="mb-4 text-cyan-100 leading-relaxed flex-grow">
+       Magos são especialistas em manipular os elementos e as forças da natureza para lançar feitiços poderosos. Possuem arsenal vasto de magias ofensivas, defensivas e utilitárias, adaptando-se a diversas situações com inteligência e controle.
+      </p>
+      <p class="font-semibold text-cyan-200 mb-2">
+       Os Magos podem usar:
+      </p>
+      <ul class="list-disc list-inside text-cyan-200 space-y-1 mb-4">
+       <li>
+        Magias elementais e arcanas para ataque, defesa e suporte.
+       </li>
+       <li>
+        Barreira mágica e feitiços em área para controle do campo.
+       </li>
+       <li>
+        Feitiços utilitários para manipulação do ambiente.
+       </li>
+      </ul>
+      <p class="font-semibold text-cyan-200">
+       Passiva:
+      </p>
+      <p class="text-cyan-300">
+       Regeneração acelerada de mana e aumento do alcance mágico.
+      </p>
+     </div>
+    </article>
+    <!-- Clérigo -->
+    <article aria-labelledby="title-clerigo" class="bg-gradient-to-tr from-emerald-900/90 to-emerald-700/90 rounded-3xl shadow-2xl overflow-hidden flex flex-col hover:scale-[1.03] transition-transform duration-300" tabindex="0">
+     <img alt="Clérigo em pose de cura, com mãos brilhando em luz dourada, curando aliados ao redor" class="w-full h-48 object-cover" height="400" loading="lazy" src="https://storage.googleapis.com/a1aa/image/f822e5cb-3b44-48d3-87bf-776eabf8df98.jpg" width="600"/>
+     <div class="p-6 flex flex-col flex-grow">
+      <h2 class="text-emerald-300 font-extrabold text-2xl mb-3 tracking-wide" id="title-clerigo">
+       Clérigo
+      </h2>
+      <p class="mb-4 text-emerald-100 leading-relaxed flex-grow">
+       Clérigos são guardiões da luz e da cura, capazes de restaurar a vitalidade dos aliados e proteger contra as trevas. Suas habilidades sagradas equilibram suporte e combate, tornando-os essenciais em qualquer grupo.
+      </p>
+      <p class="font-semibold text-emerald-200 mb-2">
+       Os Clérigos podem usar:
+      </p>
+      <ul class="list-disc list-inside text-emerald-200 space-y-1 mb-4">
+       <li>
+        Magias de cura e proteção sagrada para aliados.
+       </li>
+       <li>
+        Purificação de efeitos negativos e fortalecimento do grupo.
+       </li>
+       <li>
+        Ataques sagrados que causam dano a inimigos das trevas.
+       </li>
+      </ul>
+      <p class="font-semibold text-emerald-200">
+       Passiva:
+      </p>
+      <p class="text-emerald-300">
+       Aumento da resistência a danos mágicos e físicos, além de regeneração de energia espiritual.
+      </p>
+     </div>
+    </article>
+    <!-- Feiticeiro -->
+    <article aria-labelledby="title-feiticeiro" class="bg-gradient-to-tr from-fuchsia-900/90 to-fuchsia-700/90 rounded-3xl shadow-2xl overflow-hidden flex flex-col hover:scale-[1.03] transition-transform duration-300" tabindex="0">
+     <img alt="Feiticeiro manipulando energia caótica e brilhante, com olhos brilhando em roxo" class="w-full h-48 object-cover" height="400" loading="lazy" src="https://storage.googleapis.com/a1aa/image/01366099-650b-4afc-7f9a-d2543815501c.jpg" width="600"/>
+     <div class="p-6 flex flex-col flex-grow">
+      <h2 class="text-fuchsia-300 font-extrabold text-2xl mb-3 tracking-wide" id="title-feiticeiro">
+       Feiticeiro
+      </h2>
+      <p class="mb-4 text-fuchsia-100 leading-relaxed flex-grow">
+       Feiticeiros canalizam energias caóticas e instáveis, capazes de causar efeitos imprevisíveis e poderosos. Sua magia intensa e versátil permite manipular o campo de batalha com explosões, maldições e transformações.
+      </p>
+      <p class="font-semibold text-fuchsia-200 mb-2">
+       Os Feiticeiros podem usar:
+      </p>
+      <ul class="list-disc list-inside text-fuchsia-200 space-y-1 mb-4">
+       <li>
+        Magias caóticas com efeitos variados e imprevisíveis.
+       </li>
+       <li>
+        Explosões de energia e maldições que alteram o combate.
+       </li>
+       <li>
+        Transformações temporárias que aumentam poder e resistência.
+       </li>
+      </ul>
+      <p class="font-semibold text-fuchsia-200">
+       Passiva:
+      </p>
+      <p class="text-fuchsia-300">
+       Aumento do poder mágico conforme o caos aumenta, com chance de efeitos bônus.
+      </p>
+     </div>
+    </article>
+    <!-- Ladino -->
+    <article aria-labelledby="title-ladino" class="bg-gradient-to-tr from-stone-900/90 to-stone-700/90 rounded-3xl shadow-2xl overflow-hidden flex flex-col hover:scale-[1.03] transition-transform duration-300" tabindex="0">
+     <img alt="Ladino furtivo em ambiente urbano noturno, com adagas e capa escura, pronto para agir sorrateiramente" class="w-full h-48 object-cover" height="400" loading="lazy" src="https://storage.googleapis.com/a1aa/image/c3c74191-6855-4572-f0ff-88ef463b5818.jpg" width="600"/>
+     <div class="p-6 flex flex-col flex-grow">
+      <h2 class="text-stone-300 font-extrabold text-2xl mb-3 tracking-wide" id="title-ladino">
+       Ladino
+      </h2>
+      <p class="mb-4 text-stone-200 leading-relaxed flex-grow">
+       Ladinos são mestres da furtividade, agilidade e ataques precisos. Utilizam técnicas de infiltração, desarme de armadilhas e golpes críticos para superar inimigos antes que percebam sua presença.
+      </p>
+      <p class="font-semibold text-stone-400 mb-2">
+       Os Ladinos podem usar:
+      </p>
+      <ul class="list-disc list-inside text-stone-400 space-y-1 mb-4">
+       <li>
+        Ataques surpresa com alta chance de crítico.
+       </li>
+       <li>
+        Técnicas de furtividade e evasão para evitar confrontos diretos.
+       </li>
+       <li>
+        Desarme de armadilhas e manipulação do ambiente.
+       </li>
+      </ul>
+      <p class="font-semibold text-stone-400">
+       Passiva:
+      </p>
+      <p class="text-stone-300">
+       Aumento da chance de crítico e esquiva, além de bônus em furtividade.
+      </p>
+     </div>
+    </article>
+    <!-- Herói Cardinal -->
+    <article aria-labelledby="title-heroicardinal" class="bg-gradient-to-tr from-indigo-900/90 to-indigo-700/90 rounded-3xl shadow-2xl overflow-hidden flex flex-col hover:scale-[1.03] transition-transform duration-300" tabindex="0">
+     <img alt="Herói Cardinal empunhando uma arma cardinal brilhante, em pose heroica com fundo épico" class="w-full h-48 object-cover" height="400" loading="lazy" src="https://storage.googleapis.com/a1aa/image/bda09e5f-9b74-4062-79c7-4a7cdd38672b.jpg" width="600"/>
+     <div class="p-6 flex flex-col flex-grow">
+      <h2 class="text-indigo-300 font-extrabold text-2xl mb-3 tracking-wide" id="title-heroicardinal">
+       Herói Cardinal
+      </h2>
+      <p class="mb-4 text-indigo-100 leading-relaxed flex-grow">
+       Os Heróis Cardinal são quatro guerreiros lendários convocados de outros mundos para proteger Cross Arise. Apenas um jogador pode assumir essa classe, escolhendo qual arma cardinal empunhar, cada uma com poderes e habilidades únicas.
+      </p>
+      <p class="font-semibold text-indigo-200 mb-2">
+       Os Heróis Cardinal podem usar:
+      </p>
+      <ul class="list-disc list-inside text-indigo-200 space-y-1 mb-4">
+       <li>
+        Armas cardinais com habilidades exclusivas e poderosas.
+       </li>
+       <li>
+        Técnicas lendárias que influenciam o destino do mundo.
+       </li>
+       <li>
+        Combate versátil com foco em força, velocidade ou magia.
+       </li>
+      </ul>
+      <p class="font-semibold text-indigo-200">
+       Passiva:
+      </p>
+      <p class="text-indigo-300">
+       Poder aumentado conforme a arma cardinal utilizada, com bônus únicos.
+      </p>
+     </div>
+    </article>
+    <!-- Bardo -->
+    <article aria-labelledby="title-bardo" class="bg-gradient-to-tr from-pink-900/90 to-pink-700/90 rounded-3xl shadow-2xl overflow-hidden flex flex-col hover:scale-[1.03] transition-transform duration-300" tabindex="0">
+     <img alt="Bardo tocando instrumento mágico, com notas musicais brilhantes flutuando ao redor e público animado" class="w-full h-48 object-cover" height="400" loading="lazy" src="https://storage.googleapis.com/a1aa/image/370d9afa-2868-4b8b-84b8-78763ebada43.jpg" width="600"/>
+     <div class="p-6 flex flex-col flex-grow">
+      <h2 class="text-pink-300 font-extrabold text-2xl mb-3 tracking-wide" id="title-bardo">
+       Bardo
+      </h2>
+      <p class="mb-4 text-pink-100 leading-relaxed flex-grow">
+       Bardos usam a magia da música para inspirar aliados, enfraquecer inimigos e alterar o clima do combate. Suas canções curam, aumentam habilidades e criam efeitos mágicos que influenciam o campo de batalha.
+      </p>
+      <p class="font-semibold text-pink-200 mb-2">
+       Os Bardos podem usar:
+      </p>
+      <ul class="list-disc list-inside text-pink-200 space-y-1 mb-4">
+       <li>
+        Magia musical que influencia emoções, habilidades e moral.
+       </li>
+       <li>
+        Canções de cura, buff e confusão para aliados e inimigos.
+       </li>
+       <li>
+        Criação de efeitos mágicos através de instrumentos.
+       </li>
+      </ul>
+      <p class="font-semibold text-pink-200">
+       Passiva:
+      </p>
+      <p class="text-pink-300">
+       Aumento gradual do moral e regeneração de aliados próximos.
+      </p>
+     </div>
+    </article>
+    <!-- Invocador -->
+    <article aria-labelledby="title-invocador" class="bg-gradient-to-tr from-emerald-900/90 to-emerald-700/90 rounded-3xl shadow-2xl overflow-hidden flex flex-col hover:scale-[1.03] transition-transform duration-300" tabindex="0">
+     <img alt="Invocador conjurando uma criatura mágica criada pelo jogador, com aura brilhante e detalhes fantásticos" class="w-full h-48 object-cover" height="400" loading="lazy" src="https://storage.googleapis.com/a1aa/image/f8ff30a1-e03b-42bf-6d47-f502c90db0cb.jpg" width="600"/>
+     <div class="p-6 flex flex-col flex-grow">
+      <h2 class="text-emerald-300 font-extrabold text-2xl mb-3 tracking-wide" id="title-invocador">
+       Invocador
+      </h2>
+      <p class="mb-4 text-emerald-100 leading-relaxed flex-grow">
+       Invocadores têm a habilidade única de chamar uma criatura especial criada pelo próprio jogador, que possui habilidades exclusivas e pode lutar ao seu lado, permitindo estratégias personalizadas e poderosas.
+      </p>
+      <p class="font-semibold text-emerald-200 mb-2">
+       Os Invocadores podem usar:
+      </p>
+      <ul class="list-disc list-inside text-emerald-200 space-y-1 mb-4">
+       <li>
+        Invocação de criatura personalizada com habilidades especiais.
+       </li>
+       <li>
+        Sinergia aumentada entre invocador e criatura para combos.
+       </li>
+       <li>
+        Evolução e aprimoramento da criatura durante a jornada.
+       </li>
+      </ul>
+      <p class="font-semibold text-emerald-200">
+       Passiva:
+      </p>
+      <p class="text-emerald-300">
+       Aumento da resistência e poder conforme a ligação com a criatura cresce.
+      </p>
+     </div>
+    </article>
+    <!-- Mutante -->
+    <article aria-labelledby="title-mutante" class="bg-gradient-to-tr from-red-900/90 to-red-700/90 rounded-3xl shadow-2xl overflow-hidden flex flex-col hover:scale-[1.03] transition-transform duration-300" tabindex="0">
+     <img alt="Mutante exibindo mutações visíveis, como garras afiadas e braços extras, em pose agressiva" class="w-full h-48 object-cover" height="400" loading="lazy" src="https://storage.googleapis.com/a1aa/image/dfd65f6c-4ee7-491d-a0ab-9d19d9ddf3ee.jpg" width="600"/>
+     <div class="p-6 flex flex-col flex-grow">
+      <h2 class="text-red-300 font-extrabold text-2xl mb-3 tracking-wide" id="title-mutante">
+       Mutante
+      </h2>
+      <p class="mb-4 text-red-100 leading-relaxed flex-grow">
+       Mutantes possuem corpos instáveis que se adaptam constantemente, escolhendo mutações como regeneração acelerada, garras afiadas, braços extras ou sentidos ampliados, moldando-se a qualquer desafio com habilidades físicas únicas.
+      </p>
+      <p class="font-semibold text-red-200 mb-2">
+       Os Mutantes podem usar:
+      </p>
+      <ul class="list-disc list-inside text-red-200 space-y-1 mb-4">
+       <li>
+        Mutações que alteram habilidades físicas e sentidos.
+       </li>
+       <li>
+        Regeneração rápida e adaptação a danos e ambientes hostis.
+       </li>
+       <li>
+        Evolução constante das mutações conforme o progresso.
+       </li>
+      </ul>
+      <p class="font-semibold text-red-200">
+       Passiva:
+      </p>
+      <p class="text-red-300">
+       Resistência aumentada e capacidade de adaptação rápida a novas ameaças.
+      </p>
+     </div>
+    </article>
+    <!-- Mestre das Runas -->
+    <article aria-labelledby="title-mestrerunas" class="bg-gradient-to-tr from-yellow-900/90 to-yellow-700/90 rounded-3xl shadow-2xl overflow-hidden flex flex-col hover:scale-[1.03] transition-transform duration-300" tabindex="0">
+     <img alt="Mestre das Runas inscrevendo runas mágicas brilhantes em uma arma antiga, com símbolos místicos ao redor" class="w-full h-48 object-cover" height="400" loading="lazy" src="https://storage.googleapis.com/a1aa/image/32b4df05-cb49-448b-6460-f2b45b38183f.jpg" width="600"/>
+     <div class="p-6 flex flex-col flex-grow">
+      <h2 class="text-yellow-300 font-extrabold text-2xl mb-3 tracking-wide" id="title-mestrerunas">
+       Mestre das Runas
+      </h2>
+      <p class="mb-4 text-yellow-100 leading-relaxed flex-grow">
+       Mestres das Runas combatem utilizando armas rúnicas, capazes de inscrever runas mágicas em armas, armaduras e até no chão. Cada runa possui regras e habilidades específicas, permitindo controle tático e poderosos efeitos mágicos.
+      </p>
+      <p class="font-semibold text-yellow-200 mb-2">
+       Os Mestres das Runas podem usar:
+      </p>
+      <ul class="list-disc list-inside text-yellow-200 space-y-1 mb-4">
+       <li>
+        Inscrição e ativação de runas mágicas com efeitos variados.
+       </li>
+       <li>
+        Criação de armadilhas e buffs através de runas no ambiente.
+       </li>
+       <li>
+        Combate com armas rúnicas aprimoradas.
+       </li>
+      </ul>
+      <p class="font-semibold text-yellow-200">
+       Passiva:
+      </p>
+      <p class="text-yellow-300">
+       Aumento da eficácia das runas e resistência mágica.
+      </p>
+     </div>
+    </article>
+    <!-- Dimensional -->
+    <article aria-labelledby="title-dimensional" class="bg-gradient-to-tr from-cyan-900/90 to-cyan-700/90 rounded-3xl shadow-2xl overflow-hidden flex flex-col hover:scale-[1.03] transition-transform duration-300" tabindex="0">
+     <img alt="Dimensional abrindo portais brilhantes e manipulando o espaço ao seu redor com mãos estendidas" class="w-full h-48 object-cover" height="400" loading="lazy" src="https://storage.googleapis.com/a1aa/image/99d45241-38e5-4b4d-08dc-28861c8f2915.jpg" width="600"/>
+     <div class="p-6 flex flex-col flex-grow">
+      <h2 class="text-cyan-300 font-extrabold text-2xl mb-3 tracking-wide" id="title-dimensional">
+       Dimensional
+      </h2>
+      <p class="mb-4 text-cyan-100 leading-relaxed flex-grow">
+       Dimensionais controlam portais, dobram o espaço e se teleportam com maestria, manipulando o ambiente para surpreender inimigos e escapar de situações perigosas. Suas habilidades espaciais oferecem mobilidade e controle únicos.
+      </p>
+      <p class="font-semibold text-cyan-200 mb-2">
+       Os Dimensionais podem usar:
+      </p>
+      <ul class="list-disc list-inside text-cyan-200 space-y-1 mb-4">
+       <li>
+        Abertura e controle de portais para teletransporte e ataques.
+       </li>
+       <li>
+        Manipulação do espaço para criar barreiras e armadilhas.
+       </li>
+       <li>
+        Dobra espacial para ataques surpresa e evasão.
+       </li>
+      </ul>
+      <p class="font-semibold text-cyan-200">
+       Passiva:
+      </p>
+      <p class="text-cyan-300">
+       Redução de danos ao se teleportar e aumento da agilidade.
+      </p>
+     </div>
+    </article>
    </section>
-   <!-- Exemplo para Dimensional com layout em cards horizontais -->
-   <section class="mb-20 max-w-5xl mx-auto" id="dimensional">
-    <h2 class="text-4xl font-extrabold text-cyan-400 mb-10 flex items-center justify-center gap-4 select-none">
-     <i class="fas fa-portal-exit text-cyan-400 text-5xl">
-     </i>
-     Dimensional
-    </h2>
-    <div class="flex flex-col space-y-8 md:space-y-0 md:flex-row md:space-x-8">
-     <article class="flex-1 bg-gradient-to-tr from-cyan-900 to-cyan-700 rounded-2xl p-6 shadow-lg hover:scale-105 transition-transform duration-300 cursor-default">
-      <h3 class="text-2xl font-bold mb-3">
-       Abrir Portal
-      </h3>
-      <p class="text-cyan-100 leading-relaxed">
-       Cria um portal para teletransportar-se ou aliados para locais
-            próximos instantaneamente.
-      </p>
-     </article>
-     <article class="flex-1 bg-gradient-to-tr from-cyan-900 to-cyan-700 rounded-2xl p-6 shadow-lg hover:scale-105 transition-transform duration-300 cursor-default">
-      <h3 class="text-2xl font-bold mb-3">
-       Dobra Espacial
-      </h3>
-      <p class="text-cyan-100 leading-relaxed">
-       Manipula o espaço para desviar ataques ou confundir inimigos,
-            aumentando esquiva em +6 por 10 segundos.
-      </p>
-     </article>
-     <article class="flex-1 bg-gradient-to-tr from-cyan-900 to-cyan-700 rounded-2xl p-6 shadow-lg hover:scale-105 transition-transform duration-300 cursor-default">
-      <h3 class="text-2xl font-bold mb-3">
-       Manipulação Espacial
-      </h3>
-      <p class="text-cyan-100 leading-relaxed">
-       Altera a posição de inimigos ou objetos no campo de batalha,
-            causando desorientação.
-      </p>
-     </article>
-    </div>
-   </section>
-   <!-- Para as demais classes, você pode seguir variações similares, usando grids, cards, overlays, gradientes e animações suaves para criar identidade própria -->
   </main>
-  <footer class="bg-gradient-to-r from-indigo-900 via-purple-900 to-pink-900 text-indigo-300 py-6 text-center text-sm select-none">
-   © 2024 Cross Arise. Todos os direitos reservados.
+  <footer class="bg-gray-900 border-t border-indigo-600 text-gray-400 text-center py-6 select-none">
+   <p>
+    © 2024 Cross Arise. Todos os direitos reservados.
+   </p>
   </footer>
   <script>
-   const btn = document.getElementById("menu-btn");
-    const menu = document.getElementById("menu");
+   const menuBtn = document.getElementById("menu-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
 
-    btn.addEventListener("click", () => {
-      menu.classList.toggle("hidden");
-      btn.setAttribute(
-        "aria-label",
-        menu.classList.contains("hidden") ? "Abrir menu" : "Fechar menu"
-      );
+    menuBtn.addEventListener("click", () => {
+      const expanded = menuBtn.getAttribute("aria-expanded") === "true";
+      menuBtn.setAttribute("aria-expanded", !expanded);
+      mobileMenu.classList.toggle("hidden");
     });
 
-    document.querySelectorAll("#menu a").forEach((link) => {
+    // Close mobile menu on link click for better UX
+    mobileMenu.querySelectorAll("a").forEach((link) => {
       link.addEventListener("click", () => {
-        if (window.innerWidth < 768) {
-          menu.classList.add("hidden");
-          btn.setAttribute("aria-label", "Abrir menu");
-        }
+        mobileMenu.classList.add("hidden");
+        menuBtn.setAttribute("aria-expanded", false);
       });
     });
   </script>
