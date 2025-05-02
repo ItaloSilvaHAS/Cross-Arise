@@ -1,0 +1,1065 @@
+<html class="scroll-smooth" lang="pt-BR">
+ <head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <title>Cross Arise - Magias dos Magos</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    rel="stylesheet"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Slab&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    body {
+      font-family: "Montserrat", sans-serif;
+      background: #0f172a;
+      color: #e0e7ff;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+    h1,
+    h2,
+    h3 {
+      font-family: "Roboto Slab", serif;
+    }
+    /* Animação tabela tipos de magia */
+    @keyframes pulseGlow {
+      0%,
+      100% {
+        box-shadow: 0 0 8px 2px #7c3aed;
+      }
+      50% {
+        box-shadow: 0 0 20px 6px #a78bfa;
+      }
+    }
+    .glow-pulse {
+      animation: pulseGlow 3s ease-in-out infinite;
+    }
+    /* Custom scrollbar for roleta */
+    .scrollbar-thin::-webkit-scrollbar {
+      height: 8px;
+    }
+    .scrollbar-thin::-webkit-scrollbar-track {
+      background: #1e293b;
+    }
+    .scrollbar-thin::-webkit-scrollbar-thumb {
+      background-color: #7c3aed;
+      border-radius: 10px;
+    }
+    /* Navbar improvements */
+    nav {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+    /* Title text truncation and responsive */
+    .nav-title {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      user-select: none;
+      max-width: calc(100vw - 140px);
+      text-align: center;
+    }
+    /* Hamburger container fix */
+    .hamburger-container {
+      width: 40px;
+      display: flex;
+      justify-content: flex-end;
+    }
+    /* Section max width and padding for mobile */
+    main {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+    /* Cards flex fix for mobile */
+    .card-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      max-width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    @media (min-width: 640px) {
+      .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+      }
+    }
+    @media (min-width: 1024px) {
+      .card-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2.5rem;
+      }
+    }
+    /* Article cards consistent height for better mobile */
+    article {
+      display: flex;
+      flex-direction: column;
+      background-color: #3b0764;
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      box-shadow: 0 0 15px rgb(124 58 237 / 0.7);
+      transition: box-shadow 0.3s ease;
+      min-height: 320px;
+    }
+    article:hover {
+      box-shadow: 0 0 25px rgb(167 139 250 / 0.9);
+    }
+    article img {
+      border-radius: 0.5rem;
+      object-fit: cover;
+      width: 100%;
+      height: 160px;
+      margin-bottom: 1rem;
+      flex-shrink: 0;
+    }
+    article h3 {
+      font-size: 1.125rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #d8b4fe;
+    }
+    article p {
+      flex-grow: 1;
+      color: #c4b5fd;
+      line-height: 1.4;
+      margin-bottom: 0.75rem;
+    }
+    article ul {
+      list-style-type: disc;
+      padding-left: 1.25rem;
+      color: #a78bfa;
+      font-size: 0.9rem;
+      margin-top: auto;
+    }
+    /* Section headings */
+    section h2 {
+      font-size: 1.875rem;
+      font-weight: 700;
+      border-bottom: 4px solid #7c3aed;
+      padding-bottom: 0.25rem;
+      margin-bottom: 1.5rem;
+      max-width: max-content;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+    /* Paragraphs */
+    section p {
+      max-width: 40rem;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 1.5rem;
+      color: #c7d2fe;
+      font-size: 1rem;
+      line-height: 1.6;
+      text-align: center;
+    }
+    /* Roleta container */
+    #roleta {
+      max-width: 100%;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+    #roleta .glow-pulse {
+      min-height: 5rem;
+      font-size: 1rem;
+      padding: 1rem;
+      border-radius: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      user-select: none;
+    }
+    #roleta button {
+      width: 100%;
+      max-width: 280px;
+      margin: 0 auto;
+      font-size: 1.125rem;
+      padding: 0.75rem 1.5rem;
+      border-radius: 9999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      cursor: pointer;
+      user-select: none;
+    }
+    /* Table improvements */
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      min-width: 320px;
+      border-radius: 0.75rem;
+      overflow: hidden;
+      box-shadow: 0 0 15px rgb(124 58 237 / 0.7);
+    }
+    thead tr {
+      background-color: #4c1d95;
+    }
+    th,
+    td {
+      border: 1px solid #7c3aed;
+      padding: 0.75rem 1rem;
+      color: #ddd6fe;
+      font-size: 0.95rem;
+    }
+    th {
+      font-weight: 700;
+      text-align: left;
+    }
+    tbody tr:hover {
+      background-color: #6d28d9;
+      cursor: default;
+    }
+    /* Accessibility focus */
+    button:focus,
+    a:focus {
+      outline: 2px solid #a78bfa;
+      outline-offset: 2px;
+    }
+  </style>
+ </head>
+ <body class="min-h-screen flex flex-col">
+  <!-- Navbar -->
+  <nav class="bg-purple-900 shadow-lg sticky top-0 z-50">
+   <div
+     class="max-w-7xl mx-auto flex items-center justify-between h-16 px-4 sm:px-6 lg:px-8"
+   >
+    <a
+      href="../classes.html"
+      class="flex items-center text-white hover:text-purple-300 transition flex-shrink-0"
+      aria-label="Voltar para Classes"
+    >
+     <i class="fas fa-arrow-left mr-2"></i>
+     <span class="font-bold text-lg truncate max-w-[140px]">Voltar para Classes</span>
+    </a>
+    <div class="hamburger-container md:hidden">
+     <button
+       id="menuBtn"
+       aria-label="Abrir menu"
+       aria-expanded="false"
+       aria-controls="menuDropdown"
+       class="text-white focus:outline-none focus:ring-2 focus:ring-purple-400 rounded-md"
+     >
+      <i class="fas fa-bars fa-lg"></i>
+     </button>
+    </div>
+   </div>
+   <div
+     id="menuDropdown"
+     class="hidden absolute right-4 top-16 w-48 bg-purple-800 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none z-50"
+     role="menu"
+     aria-orientation="vertical"
+     aria-labelledby="menuBtn"
+   >
+    <a
+      href="#grimorios"
+      class="block px-4 py-2 text-sm text-purple-200 hover:bg-purple-700 hover:text-white"
+      role="menuitem"
+      >Grimórios</a
+    >
+    <a
+      href="#feiticos-simples"
+      class="block px-4 py-2 text-sm text-purple-200 hover:bg-purple-700 hover:text-white"
+      role="menuitem"
+      >Feitiços Simples</a
+    >
+    <a
+      href="#roleta"
+      class="block px-4 py-2 text-sm text-purple-200 hover:bg-purple-700 hover:text-white"
+      role="menuitem"
+      >Roleta de Magia</a
+    >
+   </div>
+  </nav>
+
+  <main class="flex-grow max-w-7xl mx-auto py-8 space-y-20">
+   <!-- Introdução e Tipos de Magia -->
+   <section>
+    <h2
+      class="text-3xl font-bold mb-6 border-b-4 border-purple-700 inline-block pb-1 text-center"
+    >
+     Tipos de Magia dos Magos
+    </h2>
+    <p class="mb-6 max-w-3xl text-purple-200 leading-relaxed mx-auto text-center">
+     No universo de
+     <span class="font-semibold text-purple-400">Cross Arise</span>, os magos
+     dominam diversas formas de magia, cada uma com suas peculiaridades,
+     habilidades e níveis de perícia específicos. Abaixo, exploramos as principais
+     escolas de magia que um mago pode dominar:
+    </p>
+    <div class="card-grid">
+     <!-- Magia de Fogo -->
+     <article aria-labelledby="fogo-title">
+      <h3
+        class="text-xl font-semibold mb-3 text-yellow-400 flex items-center"
+        id="fogo-title"
+      >
+       <i class="fas fa-fire mr-2" aria-hidden="true"></i> Magia de Fogo
+      </h3>
+      <img
+        alt="Bola de fogo explodindo em uma floresta, com chamas intensas e faíscas voando"
+        src="https://storage.googleapis.com/a1aa/image/b12d04bb-c653-4eb7-ae82-da70f3b38526.jpg"
+        loading="lazy"
+      />
+      <p class="text-purple-200 mb-3">
+       A magia de fogo é a manifestação do poder destrutivo e ardente. Mago que
+       domina essa escola possui alta perícia em manipular chamas, causando
+       danos massivos e efeitos de queimadura. Os próprios jogadores criam seus
+       feitiços de fogo baseados em seu desempenho e evolução na aventura,
+       tornando cada chama única.
+      </p>
+      <ul class="list-disc list-inside text-yellow-300 mb-2">
+       <li>Explosões, chamas contínuas, manipulação de calor.</li>
+       <li>Perícia: Alta, exige controle e experiência.</li>
+       <li>Periculosidade: Alta, pode causar danos colaterais.</li>
+      </ul>
+     </article>
+     <!-- Magia de Água -->
+     <article aria-labelledby="agua-title">
+      <h3
+        class="text-xl font-semibold mb-3 text-blue-400 flex items-center"
+        id="agua-title"
+      >
+       <i class="fas fa-tint mr-2" aria-hidden="true"></i> Magia de Água
+      </h3>
+      <img
+        alt="Ondas de água cristalina se formando em um círculo mágico, com gotas brilhantes e reflexos"
+        src="https://storage.googleapis.com/a1aa/image/13520c8f-5a26-48e0-0bdc-242f75721309.jpg"
+        loading="lazy"
+      />
+      <p class="text-purple-200 mb-3">
+       A magia de água é fluida e versátil, permitindo ao mago controlar líquidos,
+       curar ferimentos e criar barreiras defensivas. Assim como na magia de fogo,
+       os jogadores desenvolvem seus próprios feitiços de água conforme evoluem,
+       tornando cada manipulação única e pessoal.
+      </p>
+      <ul class="list-disc list-inside text-blue-300 mb-2">
+       <li>Manipulação de líquidos, cura, escudos de água.</li>
+       <li>Perícia: Média a alta, requer equilíbrio e concentração.</li>
+       <li>Periculosidade: Média, mais defensiva e utilitária.</li>
+      </ul>
+     </article>
+     <!-- Magia de Ar -->
+     <article aria-labelledby="ar-title">
+      <h3
+        class="text-xl font-semibold mb-3 text-sky-400 flex items-center"
+        id="ar-title"
+      >
+       <i class="fas fa-wind mr-2" aria-hidden="true"></i> Magia de Ar
+      </h3>
+      <img
+        alt="Rajada de vento soprando folhas e poeira, criando um redemoinho mágico"
+        src="https://storage.googleapis.com/a1aa/image/470e1b54-27c2-4a04-e95f-607c5c66d4b7.jpg"
+        loading="lazy"
+      />
+      <p class="text-purple-200 mb-3">
+       A magia de ar é rápida e evasiva, permitindo ao mago manipular ventos para
+       ataques, defesas e mobilidade. É uma magia que exige agilidade mental e
+       física.
+      </p>
+      <ul class="list-disc list-inside text-sky-300 mb-2">
+       <li>Rajadas de vento, voo, aumento de velocidade.</li>
+       <li>Perícia: Média, requer agilidade e controle.</li>
+       <li>Periculosidade: Média a alta, dependendo da intensidade.</li>
+      </ul>
+     </article>
+     <!-- Magia de Terra -->
+     <article aria-labelledby="terra-title">
+      <h3
+        class="text-xl font-semibold mb-3 text-emerald-400 flex items-center"
+        id="terra-title"
+      >
+       <i class="fas fa-mountain mr-2" aria-hidden="true"></i> Magia de Terra
+      </h3>
+      <img
+        alt="Rochas e raízes se movendo magicamente, formando barreiras e ataques"
+        src="https://storage.googleapis.com/a1aa/image/4222d36d-2bbd-4f9c-232a-bd919263c6a6.jpg"
+        loading="lazy"
+      />
+      <p class="text-purple-200 mb-3">
+       A magia de terra é sólida e resistente, focada em defesa, controle do terreno
+       e ataques pesados. O mago que a domina é paciente e forte.
+      </p>
+      <ul class="list-disc list-inside text-emerald-300 mb-2">
+       <li>Barreira de pedra, terremotos, manipulação de raízes.</li>
+       <li>Perícia: Alta, exige força e paciência.</li>
+       <li>Periculosidade: Alta, com grande poder defensivo e ofensivo.</li>
+      </ul>
+     </article>
+     <!-- Magia de Gelo -->
+     <article aria-labelledby="gelo-title">
+      <h3
+        class="text-xl font-semibold mb-3 text-cyan-400 flex items-center"
+        id="gelo-title"
+      >
+       <i class="fas fa-snowflake mr-2" aria-hidden="true"></i> Magia de Gelo
+      </h3>
+      <img
+        alt="Cristais de gelo brilhando e neve caindo suavemente em um campo congelado"
+        src="https://storage.googleapis.com/a1aa/image/d280d7a4-86a2-4029-d98d-1cf670e02393.jpg"
+        loading="lazy"
+      />
+      <p class="text-purple-200 mb-3">
+       A magia de gelo é fria e controlada, capaz de congelar inimigos, criar armaduras
+       e manipular o frio para retardar movimentos.
+      </p>
+      <ul class="list-disc list-inside text-cyan-300 mb-2">
+       <li>Congelamento, armaduras de gelo, rajadas congelantes.</li>
+       <li>Perícia: Média, requer controle e precisão.</li>
+       <li>Periculosidade: Média, com controle e dano moderado.</li>
+      </ul>
+     </article>
+     <!-- Magia de Luz -->
+     <article aria-labelledby="luz-title">
+      <h3
+        class="text-xl font-semibold mb-3 text-yellow-300 flex items-center"
+        id="luz-title"
+      >
+       <i class="fas fa-lightbulb mr-2" aria-hidden="true"></i> Magia de Luz
+      </h3>
+      <img
+        alt="Raio luminoso brilhando intensamente, iluminando uma caverna escura"
+        src="https://storage.googleapis.com/a1aa/image/f017faf1-f685-4bbb-066c-56a7d8686c78.jpg"
+        loading="lazy"
+      />
+      <p class="text-purple-200 mb-3">
+       A magia de luz é pura e sagrada, usada para cura, proteção e ataques que cegam
+       ou purificam.
+      </p>
+      <ul class="list-disc list-inside text-yellow-300 mb-2">
+       <li>Cura, escudos de luz, ataques cegantes.</li>
+       <li>Perícia: Média, focada em suporte e defesa.</li>
+       <li>Periculosidade: Baixa a média.</li>
+      </ul>
+     </article>
+     <!-- Magia das Sombras -->
+     <article aria-labelledby="sombras-title">
+      <h3
+        class="text-xl font-semibold mb-3 text-gray-400 flex items-center"
+        id="sombras-title"
+      >
+       <i class="fas fa-moon mr-2" aria-hidden="true"></i> Magia das Sombras
+      </h3>
+      <img
+        alt="Neblina escura envolvendo silhuetas misteriosas em um ambiente sombrio"
+        src="https://storage.googleapis.com/a1aa/image/b1441251-b1e1-4418-f3d7-b69bead08759.jpg"
+        loading="lazy"
+      />
+      <p class="text-purple-200 mb-3">
+       A magia das sombras é furtiva e traiçoeira, permitindo manipulação de escuridão,
+       ilusões e ataques furtivos.
+      </p>
+      <ul class="list-disc list-inside text-gray-400 mb-2">
+       <li>Invisibilidade, ilusões, ataques de escuridão.</li>
+       <li>Perícia: Alta, com potencial para controle mental e dano oculto.</li>
+       <li>Periculosidade: Alta.</li>
+      </ul>
+     </article>
+    </div>
+   </section>
+
+   <!-- Grimórios -->
+   <section id="grimorios">
+    <h2
+      class="text-3xl font-bold mb-6 border-b-4 border-purple-700 inline-block pb-1 text-center"
+    >
+     Grimórios dos Magos
+    </h2>
+    <p class="mb-6 max-w-3xl text-purple-200 leading-relaxed mx-auto text-center">
+     Os grimórios são livros mágicos que armazenam as magias e o poder do mago.
+     Eles são classificados pela quantidade de trevos que possuem, indicando o
+     nível de mana e poder contido:
+    </p>
+    <div class="card-grid">
+     <!-- 3 Trevos -->
+     <article aria-labelledby="3trevos-title">
+      <h3
+        class="text-2xl font-semibold mb-3 text-green-400 flex items-center"
+        id="3trevos-title"
+      >
+       <i class="fas fa-clover mr-2" aria-hidden="true"></i> Grimório 3 Trevos
+      </h3>
+      <img
+        alt="Livro mágico antigo com capa verde escura e três símbolos de trevo dourados na capa"
+        src="https://storage.googleapis.com/a1aa/image/034374b1-d16b-4b65-b9c0-0fe4069a2266.jpg"
+        loading="lazy"
+      />
+      <p class="text-purple-200 mb-3">
+       Grimórios comuns, contendo magias básicas e essenciais para o mago iniciante
+       ou intermediário. Possuem um equilíbrio entre poder e controle.
+      </p>
+      <ul class="list-disc list-inside text-green-300">
+       <li>Magias básicas e utilitárias.</li>
+       <li>Perícia: Moderada, ideal para aprendizado e versatilidade.</li>
+       <li>Mana estável e moderada.</li>
+      </ul>
+     </article>
+     <!-- 4 Trevos -->
+     <article aria-labelledby="4trevos-title">
+      <h3
+        class="text-2xl font-semibold mb-3 text-indigo-400 flex items-center"
+        id="4trevos-title"
+      >
+       <i class="fas fa-clover mr-2" aria-hidden="true"></i>
+       <i class="fas fa-clover mr-2" aria-hidden="true"></i>
+       <i class="fas fa-clover mr-2" aria-hidden="true"></i>
+       <i class="fas fa-clover mr-2" aria-hidden="true"></i> Grimório 4 Trevos
+      </h3>
+      <img
+        alt="Livro mágico antigo com capa azul escura e quatro símbolos de trevo prateados na capa"
+        src="https://storage.googleapis.com/a1aa/image/e6d013cf-3662-45f7-d3bd-5f58f39275d9.jpg"
+        loading="lazy"
+      />
+      <p class="text-purple-200 mb-3">
+       Grimórios avançados, indicam que o mago possui uma grande reserva de mana.
+       Contém magias poderosas e complexas, exigindo perícia e controle.
+      </p>
+      <ul class="list-disc list-inside text-indigo-300">
+       <li>Magias avançadas e poderosas.</li>
+       <li>Perícia: Alta, exige controle e experiência.</li>
+       <li>Alta reserva de mana.</li>
+      </ul>
+     </article>
+     <!-- 5 Trevos -->
+     <article aria-labelledby="5trevos-title">
+      <h3
+        class="text-2xl font-semibold mb-3 text-red-500 flex items-center"
+        id="5trevos-title"
+      >
+       <i class="fas fa-clover mr-2" aria-hidden="true"></i>
+       <i class="fas fa-clover mr-2" aria-hidden="true"></i>
+       <i class="fas fa-clover mr-2" aria-hidden="true"></i>
+       <i class="fas fa-clover mr-2" aria-hidden="true"></i>
+       <i class="fas fa-clover mr-2" aria-hidden="true"></i> Grimório 5 Trevos
+      </h3>
+      <img
+        alt="Livro mágico antigo com capa vermelha escura e cinco símbolos de trevo negros com detalhes demoníacos na capa"
+        src="https://storage.googleapis.com/a1aa/image/75a5ee26-1297-4e83-80be-84e535563a6e.jpg"
+        loading="lazy"
+      />
+      <p class="text-purple-200 mb-3">
+       Grimórios lendários, contendo poderes demoníacos e magias proibidas. O mago
+       que os possui tem uma mana avassaladora, mas corre riscos enormes.
+      </p>
+      <ul class="list-disc list-inside text-red-400">
+       <li>Magias demoníacas e proibidas.</li>
+       <li>Perícia: Muito alta, risco de corrupção e perda de controle.</li>
+       <li>Mana avassaladora e instável.</li>
+      </ul>
+     </article>
+    </div>
+   </section>
+
+   <!-- Feitiços Simples -->
+   <section id="feiticos-simples">
+    <h2
+      class="text-3xl font-bold mb-6 border-b-4 border-purple-700 inline-block pb-1 text-center"
+    >
+     Feitiços de Mana Simples que Todo Mago Pode Aprender
+    </h2>
+    <p class="mb-6 max-w-3xl text-purple-200 leading-relaxed mx-auto text-center">
+     Estes são feitiços gerais, simples e essenciais que todo mago com um pouco de
+     treino pode realizar. Eles representam a base do domínio da mana, enquanto as
+     magias elementares como fogo e água são criadas e personalizadas pelos jogadores
+     conforme evoluem na aventura. A perícia do mago é fundamental para o sucesso
+     na execução dessas magias.
+    </p>
+    <div class="card-grid" role="list" aria-label="Lista de feitiços simples para magos">
+     <!-- Feitiço 1 -->
+     <article role="listitem" aria-labelledby="feitiço-reforco">
+      <h3
+        class="text-lg font-semibold mb-1 text-purple-300 flex items-center"
+        id="feitiço-reforco"
+      >
+       <i class="fas fa-shield-alt mr-2" aria-hidden="true"></i> Reforço com Mana
+      </h3>
+      <p class="text-purple-400 mb-2">
+       Aumenta a resiliência física e mágica, criando uma aura protetora que reduz
+       danos recebidos.
+      </p>
+      <ul class="list-disc list-inside text-purple-500">
+       <li><strong>Habilidades:</strong> Escudo mágico, resistência aumentada.</li>
+       <li><strong>Perícia:</strong> Média, requer concentração constante.</li>
+      </ul>
+     </article>
+     <!-- Feitiço 2 -->
+     <article role="listitem" aria-labelledby="feitiço-zona">
+      <h3
+        class="text-lg font-semibold mb-1 text-purple-300 flex items-center"
+        id="feitiço-zona"
+      >
+       <i class="fas fa-ruler-combined mr-2" aria-hidden="true"></i> Zona de Mana
+      </h3>
+      <p class="text-purple-400 mb-2">
+       Cria uma área mágica onde o fluxo de mana é amplificado, aumentando o poder
+       das magias lançadas dentro dela.
+      </p>
+      <ul class="list-disc list-inside text-purple-500">
+       <li><strong>Habilidades:</strong> Amplificação mágica, controle de área.</li>
+       <li><strong>Perícia:</strong> Alta, exige domínio do ambiente.</li>
+      </ul>
+     </article>
+     <!-- Feitiço 3 -->
+     <article role="listitem" aria-labelledby="feitiço-voo">
+      <h3
+        class="text-lg font-semibold mb-1 text-purple-300 flex items-center"
+        id="feitiço-voo"
+      >
+       <i class="fas fa-feather-alt mr-2" aria-hidden="true"></i> Voo
+      </h3>
+      <p class="text-purple-400 mb-2">
+       Permite levitar e voar por curtos períodos usando a manipulação da mana aérea.
+      </p>
+      <ul class="list-disc list-inside text-purple-500">
+       <li><strong>Habilidades:</strong> Levitação, voo ágil.</li>
+       <li><strong>Perícia:</strong> Média, requer equilíbrio e controle.</li>
+      </ul>
+     </article>
+     <!-- Feitiço 4 -->
+     <article role="listitem" aria-labelledby="feitiço-visao">
+      <h3
+        class="text-lg font-semibold mb-1 text-purple-300 flex items-center"
+        id="feitiço-visao"
+      >
+       <i class="fas fa-eye mr-2" aria-hidden="true"></i> Visão Noturna
+      </h3>
+      <p class="text-purple-400 mb-2">
+       Concede visão clara no escuro manipulando mana luminosa.
+      </p>
+      <ul class="list-disc list-inside text-purple-500">
+       <li><strong>Habilidades:</strong> Visão aprimorada, percepção aumentada.</li>
+       <li><strong>Perícia:</strong> Baixa, fácil de manter.</li>
+      </ul>
+     </article>
+     <!-- Feitiço 5 -->
+     <article role="listitem" aria-labelledby="feitiço-respira">
+      <h3
+        class="text-lg font-semibold mb-1 text-purple-300 flex items-center"
+        id="feitiço-respira"
+      >
+       <i class="fas fa-water mr-2" aria-hidden="true"></i> Respiração Subaquática
+      </h3>
+      <p class="text-purple-400 mb-2">
+       Permite respirar debaixo d'água por longos períodos usando mana aquática.
+      </p>
+      <ul class="list-disc list-inside text-purple-500">
+       <li><strong>Habilidades:</strong> Respiração prolongada, resistência à pressão.</li>
+       <li><strong>Perícia:</strong> Baixa, fácil de ativar.</li>
+      </ul>
+     </article>
+     <!-- Feitiço 6 -->
+     <article role="listitem" aria-labelledby="feitiço-iluminacao">
+      <h3
+        class="text-lg font-semibold mb-1 text-purple-300 flex items-center"
+        id="feitiço-iluminacao"
+      >
+       <i class="fas fa-magic mr-2" aria-hidden="true"></i> Feitiço de Iluminação
+      </h3>
+      <p class="text-purple-400 mb-2">
+       Cria uma esfera de luz mágica para iluminar áreas escuras e cegar inimigos
+       temporariamente.
+      </p>
+      <ul class="list-disc list-inside text-purple-500">
+       <li><strong>Habilidades:</strong> Iluminação móvel, cegueira temporária.</li>
+       <li><strong>Perícia:</strong> Baixa a média.</li>
+      </ul>
+     </article>
+     <!-- Feitiço 7 -->
+     <article role="listitem" aria-labelledby="feitiço-manipulacao">
+      <h3
+        class="text-lg font-semibold mb-1 text-purple-300 flex items-center"
+        id="feitiço-manipulacao"
+      >
+       <i class="fas fa-hand-holding-water mr-2" aria-hidden="true"></i> Manipulação de
+       Mana
+      </h3>
+      <p class="text-purple-400 mb-2">
+       Molda e redireciona a mana para aumentar a eficiência das magias.
+      </p>
+      <ul class="list-disc list-inside text-purple-500">
+       <li><strong>Habilidades:</strong> Redirecionamento, otimização de mana.</li>
+       <li><strong>Perícia:</strong> Alta, exige controle fino.</li>
+      </ul>
+     </article>
+     <!-- Feitiço 8 -->
+     <article role="listitem" aria-labelledby="feitiço-descarga">
+      <h3
+        class="text-lg font-semibold mb-1 text-purple-300 flex items-center"
+        id="feitiço-descarga"
+      >
+       <i class="fas fa-bolt mr-2" aria-hidden="true"></i> Descarga de Mana
+      </h3>
+      <p class="text-purple-400 mb-2">
+       Libera uma explosão de mana que atordoa inimigos e desestabiliza magias
+       adversárias.
+      </p>
+      <ul class="list-disc list-inside text-purple-500">
+       <li><strong>Habilidades:</strong> Explosão, atordoamento.</li>
+       <li><strong>Perícia:</strong> Média a alta.</li>
+      </ul>
+     </article>
+     <!-- Feitiço 9 -->
+     <article role="listitem" aria-labelledby="feitiço-amplificacao">
+      <h3
+        class="text-lg font-semibold mb-1 text-purple-300 flex items-center"
+        id="feitiço-amplificacao"
+      >
+       <i class="fas fa-brain mr-2" aria-hidden="true"></i> Amplificação Mental
+      </h3>
+      <p class="text-purple-400 mb-2">
+       Aumenta a concentração e capacidade cognitiva do mago.
+      </p>
+      <ul class="list-disc list-inside text-purple-500">
+       <li><strong>Habilidades:</strong> Foco, memória aumentada.</li>
+       <li><strong>Perícia:</strong> Baixa, efeito passivo.</li>
+      </ul>
+     </article>
+     <!-- Feitiço 10 -->
+     <article role="listitem" aria-labelledby="feitiço-cura">
+      <h3
+        class="text-lg font-semibold mb-1 text-purple-300 flex items-center"
+        id="feitiço-cura"
+      >
+       <i class="fas fa-hand-sparkles mr-2" aria-hidden="true"></i> Cura com Mana
+      </h3>
+      <p class="text-purple-400 mb-2">
+       Usa mana para acelerar a regeneração de ferimentos e doenças.
+      </p>
+      <ul class="list-disc list-inside text-purple-500">
+       <li><strong>Habilidades:</strong> Regeneração, purificação.</li>
+       <li><strong>Perícia:</strong> Média a alta.</li>
+      </ul>
+     </article>
+     <!-- Feitiço 11 -->
+     <article role="listitem" aria-labelledby="feitiço-passos">
+      <h3
+        class="text-lg font-semibold mb-1 text-purple-300 flex items-center"
+        id="feitiço-passos"
+      >
+       <i class="fas fa-shoe-prints mr-2" aria-hidden="true"></i> Passos Silenciosos
+      </h3>
+      <p class="text-purple-400 mb-2">
+       Reduz o som dos movimentos para furtividade aprimorada.
+      </p>
+      <ul class="list-disc list-inside text-purple-500">
+       <li><strong>Habilidades:</strong> Furtividade, camuflagem sonora.</li>
+       <li><strong>Perícia:</strong> Média.</li>
+      </ul>
+     </article>
+     <!-- Feitiço 12 -->
+     <article role="listitem" aria-labelledby="feitiço-transmutacao">
+      <h3
+        class="text-lg font-semibold mb-1 text-purple-300 flex items-center"
+        id="feitiço-transmutacao"
+      >
+       <i class="fas fa-hand-holding-usd mr-2" aria-hidden="true"></i> Transmutação de
+       Objetos
+      </h3>
+      <p class="text-purple-400 mb-2">
+       Transforma materiais temporariamente em outros mais valiosos.
+      </p>
+      <ul class="list-disc list-inside text-purple-500">
+       <li><strong>Habilidades:</strong> Transformação temporária, alquimia mágica.</li>
+       <li><strong>Perícia:</strong> Alta, requer conhecimento avançado.</li>
+      </ul>
+     </article>
+     <!-- Feitiço 13 -->
+     <article role="listitem" aria-labelledby="feitiço-raio">
+      <h3
+        class="text-lg font-semibold mb-1 text-purple-300 flex items-center"
+        id="feitiço-raio"
+      >
+       <i class="fas fa-bolt-lightning mr-2" aria-hidden="true"></i> Raio Arcano
+      </h3>
+      <p class="text-purple-400 mb-2">
+       Dispara um raio de energia arcana que causa dano direto.
+      </p>
+      <ul class="list-disc list-inside text-purple-500">
+       <li><strong>Habilidades:</strong> Dano direto, quebra de escudos.</li>
+       <li><strong>Perícia:</strong> Alta.</li>
+      </ul>
+     </article>
+     <!-- Feitiço 14 -->
+     <article role="listitem" aria-labelledby="feitiço-empatia">
+      <h3
+        class="text-lg font-semibold mb-1 text-purple-300 flex items-center"
+        id="feitiço-empatia"
+      >
+       <i class="fas fa-hand-holding-heart mr-2" aria-hidden="true"></i> Empatia Mágica
+      </h3>
+      <p class="text-purple-400 mb-2">
+       Sente emoções e intenções de outras criaturas para melhor interação.
+      </p>
+      <ul class="list-disc list-inside text-purple-500">
+       <li><strong>Habilidades:</strong> Leitura emocional, comunicação não-verbal.</li>
+       <li><strong>Perícia:</strong> Média.</li>
+      </ul>
+     </article>
+     <!-- Feitiço 15 -->
+     <article role="listitem" aria-labelledby="feitiço-temporal">
+      <h3
+        class="text-lg font-semibold mb-1 text-purple-300 flex items-center"
+        id="feitiço-temporal"
+      >
+       <i class="fas fa-clock mr-2" aria-hidden="true"></i> Manipulação Temporal
+       (Limitada)
+      </h3>
+      <p class="text-purple-400 mb-2">
+       Desacelera o tempo em uma pequena área por alguns segundos.
+      </p>
+      <ul class="list-disc list-inside text-purple-500">
+       <li><strong>Habilidades:</strong> Desaceleração temporal, aumento de reflexos.</li>
+       <li><strong>Perícia:</strong> Muito alta, magia avançada.</li>
+      </ul>
+     </article>
+    </div>
+   </section>
+
+   <!-- Roleta de Magia -->
+   <section
+     id="roleta"
+     class="max-w-4xl mx-auto bg-purple-900 rounded-xl p-8 shadow-2xl text-center"
+   >
+    <h2
+      class="text-3xl font-bold mb-6 border-b-4 border-purple-700 inline-block pb-1"
+    >
+     Roleta de Magia do Mago
+    </h2>
+    <p class="mb-6 text-purple-300 max-w-xl mx-auto">
+     Clique no botão para sortear o tipo de magia do seu mago, a quantidade de
+     trevos do grimório e a intensidade do poder mágico!
+    </p>
+    <div
+      class="flex flex-col sm:flex-row justify-center items-center gap-6 mb-8"
+      role="region"
+      aria-live="polite"
+      aria-atomic="true"
+    >
+     <div
+       class="bg-purple-800 rounded-lg p-6 w-full sm:w-1/3 shadow-lg glow-pulse"
+       aria-label="Tipo de Magia sorteado"
+     >
+      <h3 class="text-xl font-semibold mb-3 text-yellow-400">Tipo de Magia</h3>
+      <p
+        class="text-purple-200 text-lg min-h-[4rem] flex items-center justify-center px-2"
+        id="tipoMagia"
+      ></p>
+     </div>
+     <div
+       class="bg-purple-800 rounded-lg p-6 w-full sm:w-1/3 shadow-lg glow-pulse"
+       aria-label="Trevos do Grimório sorteados"
+     >
+      <h3 class="text-xl font-semibold mb-3 text-green-400">Trevos do Grimório</h3>
+      <p
+        class="text-purple-200 text-lg min-h-[4rem] flex items-center justify-center px-2"
+        id="trevosGrimorio"
+      ></p>
+     </div>
+     <div
+       class="bg-purple-800 rounded-lg p-6 w-full sm:w-1/3 shadow-lg glow-pulse"
+       aria-label="Intensidade do Poder sorteada"
+     >
+      <h3 class="text-xl font-semibold mb-3 text-pink-400">Intensidade do Poder</h3>
+      <p
+        class="text-purple-200 text-lg min-h-[4rem] flex items-center justify-center px-2"
+        id="intensidadePoder"
+      ></p>
+     </div>
+    </div>
+    <button
+      class="bg-purple-700 hover:bg-purple-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition flex items-center justify-center mx-auto focus:outline-none focus:ring-2 focus:ring-purple-400"
+      id="btnSortear"
+      aria-label="Sortear magia"
+    >
+     <i class="fas fa-dice mr-3" aria-hidden="true"></i> Sortear Magia
+    </button>
+    <div class="mt-10 overflow-x-auto rounded-lg">
+     <h3
+       class="text-2xl font-bold mb-4 border-b-2 border-purple-600 inline-block pb-1"
+     >
+      Tabela de Tipos de Magia
+     </h3>
+     <table
+       class="w-full text-left border-collapse border border-purple-700 rounded-lg overflow-hidden min-w-[320px]"
+       role="table"
+       aria-label="Tabela de tipos de magia e suas descrições"
+     >
+      <thead class="bg-purple-800">
+       <tr>
+        <th class="border border-purple-700 px-4 py-2" scope="col">Tipo</th>
+        <th class="border border-purple-700 px-4 py-2" scope="col">Descrição</th>
+       </tr>
+      </thead>
+      <tbody>
+       <tr class="hover:bg-purple-700 transition cursor-default">
+        <td
+          class="border border-purple-700 px-4 py-2 font-semibold text-yellow-400"
+          scope="row"
+        >
+         Pouco
+        </td>
+        <td class="border border-purple-700 px-4 py-2 text-purple-300">
+         Magia básica, com efeitos limitados e baixo consumo de mana. Muito difícil
+         de conseguir.
+        </td>
+       </tr>
+       <tr class="hover:bg-purple-700 transition cursor-default">
+        <td
+          class="border border-purple-700 px-4 py-2 font-semibold text-green-400"
+          scope="row"
+        >
+         Média
+        </td>
+        <td class="border border-purple-700 px-4 py-2 text-purple-300">
+         Magia equilibrada, com bom poder e versatilidade. Tipo mais comum.
+        </td>
+       </tr>
+       <tr class="hover:bg-purple-700 transition cursor-default">
+        <td
+          class="border border-purple-700 px-4 py-2 font-semibold text-indigo-400"
+          scope="row"
+        >
+         Grande
+        </td>
+        <td class="border border-purple-700 px-4 py-2 text-purple-300">
+         Magia poderosa, capaz de causar grandes impactos no campo de batalha. Tipo
+         muito comum.
+        </td>
+       </tr>
+       <tr class="hover:bg-purple-700 transition cursor-default">
+        <td
+          class="border border-purple-700 px-4 py-2 font-semibold text-pink-400"
+          scope="row"
+        >
+         Muito Alta
+        </td>
+        <td class="border border-purple-700 px-4 py-2 text-purple-300">
+         Magia de altíssimo nível, exigindo grande controle e concentração. Muito
+         difícil de conseguir.
+        </td>
+       </tr>
+       <tr class="hover:bg-purple-700 transition cursor-default">
+        <td
+          class="border border-purple-700 px-4 py-2 font-semibold text-red-500"
+          scope="row"
+        >
+         Avassaladora
+        </td>
+        <td class="border border-purple-700 px-4 py-2 text-purple-300">
+         Magia devastadora, capaz de quebrar espíritos e mudar o rumo da batalha.
+         Quase impossível de conseguir.
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+   </section>
+  </main>
+
+  <footer
+    class="bg-purple-900 text-purple-300 text-center py-6 mt-12 select-none"
+    role="contentinfo"
+  >
+   <p>© 2024 Cross Arise - Todos os direitos reservados.</p>
+  </footer>
+
+  <script>
+    // Menu hamburger toggle
+    const menuBtn = document.getElementById("menuBtn");
+    const menuDropdown = document.getElementById("menuDropdown");
+
+    menuBtn.addEventListener("click", () => {
+      const expanded =
+        menuBtn.getAttribute("aria-expanded") === "true" ? "false" : "true";
+      menuBtn.setAttribute("aria-expanded", expanded);
+      menuDropdown.classList.toggle("hidden");
+    });
+
+    // Close menu if click outside
+    document.addEventListener("click", (e) => {
+      if (
+        !menuBtn.contains(e.target) &&
+        !menuDropdown.contains(e.target) &&
+        !menuDropdown.classList.contains("hidden")
+      ) {
+        menuDropdown.classList.add("hidden");
+        menuBtn.setAttribute("aria-expanded", "false");
+      }
+    });
+
+    // Roleta com probabilidades customizadas
+    const tiposMagia = [
+      {
+        tipo: "Magia de Fogo",
+        descricao: "Manipulação de chamas e calor intenso.",
+        peso: 1,
+      },
+      {
+        tipo: "Magia de Água",
+        descricao: "Controle de líquidos e cura.",
+        peso: 1,
+      },
+      { tipo: "Magia de Ar", descricao: "Manipulação de ventos e mobilidade.", peso: 1 },
+      { tipo: "Magia de Terra", descricao: "Controle do solo e defesa sólida.", peso: 1 },
+      { tipo: "Magia de Gelo", descricao: "Congelamento e controle do frio.", peso: 1 },
+      { tipo: "Magia de Luz", descricao: "Cura, proteção e ataques sagrados.", peso: 1 },
+      { tipo: "Magia das Sombras", descricao: "Furtividade, ilusões e ataques ocultos.", peso: 1 },
+    ];
+
+    const trevosGrimorio = [
+      { quantidade: "3 Trevos", descricao: "Grimório comum com magias básicas e mana estável.", peso: 3 },
+      { quantidade: "4 Trevos", descricao: "Grimório avançado com magias poderosas e alta reserva de mana.", peso: 2 },
+      { quantidade: "5 Trevos", descricao: "Grimório lendário com magias demoníacas e mana avassaladora.", peso: 1 },
+    ];
+
+    const intensidadesPoder = [
+      { nivel: "Pouco", descricao: "Magia básica, com efeitos limitados e baixo consumo de mana.", peso: 0.5 },
+      { nivel: "Média", descricao: "Magia equilibrada, com bom poder e versatilidade.", peso: 4 },
+      { nivel: "Grande", descricao: "Magia poderosa, capaz de causar grandes impactos no campo de batalha.", peso: 4 },
+      { nivel: "Muito Alta", descricao: "Magia de altíssimo nível, exigindo grande controle e concentração.", peso: 0.5 },
+      { nivel: "Avassaladora", descricao: "Magia devastadora, capaz de quebrar espíritos e mudar o rumo da batalha.", peso: 0.1 },
+    ];
+
+    function sortearComPeso(array) {
+      const totalPeso = array.reduce((acc, item) => acc + item.peso, 0);
+      let random = Math.random() * totalPeso;
+      for (const item of array) {
+        if (random < item.peso) {
+          return item;
+        }
+        random -= item.peso;
+      }
+      return array[array.length - 1];
+    }
+
+    const tipoMagiaEl = document.getElementById("tipoMagia");
+    const trevosGrimorioEl = document.getElementById("trevosGrimorio");
+    const intensidadePoderEl = document.getElementById("intensidadePoder");
+    const btnSortear = document.getElementById("btnSortear");
+
+    btnSortear.addEventListener("click", () => {
+      const magia = sortearComPeso(tiposMagia);
+      const trevos = sortearComPeso(trevosGrimorio);
+      const intensidade = sortearComPeso(intensidadesPoder);
+
+      tipoMagiaEl.textContent = `${magia.tipo} - ${magia.descricao}`;
+      trevosGrimorioEl.textContent = `${trevos.quantidade} - ${trevos.descricao}`;
+      intensidadePoderEl.textContent = `${intensidade.nivel} - ${intensidade.descricao}`;
+    });
+  </script>
+ </body>
+</html>
