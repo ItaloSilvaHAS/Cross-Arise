@@ -1,0 +1,918 @@
+<html class="scroll-smooth" lang="pt-BR">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Cross Arise - Dragon Slayers
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&amp;family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <style>
+   body {
+      font-family: "Roboto", sans-serif;
+      background: #0f172a;
+      color: #e0e7ff;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+      font-family: "Orbitron", sans-serif;
+    }
+    /* Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #1e293b;
+    }
+    ::-webkit-scrollbar-thumb {
+      background-color: #6366f1;
+      border-radius: 10px;
+      border: 2px solid #1e293b;
+    }
+    /* Roleta styles */
+    #wheel {
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      border: 8px solid #6366f1;
+      box-shadow: 0 0 20px #6366f1aa;
+      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+      touch-action: manipulation;
+      user-select: none;
+      background: conic-gradient(
+        #fbbf24 0deg 45deg,
+        #22d3ee 45deg 90deg,
+        #f87171 90deg 135deg,
+        #a78bfa 135deg 180deg,
+        #34d399 180deg 225deg,
+        #facc15 225deg 270deg,
+        #60a5fa 270deg 315deg,
+        #c084fc 315deg 360deg
+      );
+      transition: transform 4s cubic-bezier(0.33, 1, 0.68, 1);
+    }
+    #wheel span {
+      position: absolute;
+      width: 50%;
+      height: 50%;
+      top: 50%;
+      left: 50%;
+      transform-origin: 0% 0%;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #0f172a;
+      text-shadow: 0 0 3px #fff;
+      user-select: none;
+      pointer-events: none;
+      padding-left: 8px;
+      display: flex;
+      align-items: center;
+    }
+    /* Each slice label rotation */
+    #wheel span:nth-child(1) {
+      transform: rotate(22.5deg) translate(100%) rotate(-22.5deg);
+    }
+    #wheel span:nth-child(2) {
+      transform: rotate(67.5deg) translate(100%) rotate(-67.5deg);
+    }
+    #wheel span:nth-child(3) {
+      transform: rotate(112.5deg) translate(100%) rotate(-112.5deg);
+    }
+    #wheel span:nth-child(4) {
+      transform: rotate(157.5deg) translate(100%) rotate(-157.5deg);
+    }
+    #wheel span:nth-child(5) {
+      transform: rotate(202.5deg) translate(100%) rotate(-202.5deg);
+    }
+    #wheel span:nth-child(6) {
+      transform: rotate(247.5deg) translate(100%) rotate(-247.5deg);
+    }
+    #wheel span:nth-child(7) {
+      transform: rotate(292.5deg) translate(100%) rotate(-292.5deg);
+    }
+    #wheel span:nth-child(8) {
+      transform: rotate(337.5deg) translate(100%) rotate(-337.5deg);
+    }
+    /* Pointer */
+    #pointer {
+      position: absolute;
+      top: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border-left: 20px solid transparent;
+      border-right: 20px solid transparent;
+      border-bottom: 30px solid #6366f1;
+      filter: drop-shadow(0 0 5px #6366f1);
+      z-index: 10;
+      user-select: none;
+    }
+    /* Button */
+    #spinBtn {
+      background: #6366f1;
+      color: #0f172a;
+      font-weight: 700;
+      padding: 0.75rem 1.5rem;
+      border-radius: 9999px;
+      box-shadow: 0 0 15px #6366f1aa;
+      transition: background-color 0.3s ease;
+      user-select: none;
+    }
+    #spinBtn:hover:not(:disabled) {
+      background: #4f46e5;
+      cursor: pointer;
+    }
+    #spinBtn:disabled {
+      background: #a5b4fc;
+      cursor: not-allowed;
+    }
+    /* Result modal */
+    #resultModal {
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(8px);
+      position: fixed;
+      inset: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1.5rem;
+      z-index: 1000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    #resultModal.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    #resultContent {
+      background: #1e293b;
+      border-radius: 1rem;
+      max-width: 400px;
+      width: 100%;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 0 30px #6366f1aa;
+      color: #e0e7ff;
+    }
+    #resultContent h3 {
+      font-family: "Orbitron", sans-serif;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #a78bfa;
+      text-shadow: 0 0 8px #a78bfa;
+    }
+    #resultContent p {
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.4;
+      color: #c7d2fe;
+    }
+    #closeResultBtn {
+      background: #6366f1;
+      color: #0f172a;
+      font-weight: 700;
+      padding: 0.75rem 1.5rem;
+      border-radius: 9999px;
+      box-shadow: 0 0 15px #6366f1aa;
+      transition: background-color 0.3s ease;
+      user-select: none;
+      border: none;
+      width: 100%;
+    }
+    #closeResultBtn:hover {
+      background: #4f46e5;
+      cursor: pointer;
+    }
+    /* Responsive improvements */
+    @media (min-width: 640px) {
+      #wheel {
+        width: 360px;
+        height: 360px;
+      }
+      #wheel span {
+        font-size: 1.1rem;
+      }
+    }
+  </style>
+ </head>
+ <body class="flex flex-col min-h-screen bg-gradient-to-b from-indigo-900 via-indigo-800 to-indigo-700 text-indigo-100">
+  <!-- Navbar -->
+  <nav class="sticky top-0 z-50 bg-indigo-900/95 backdrop-blur-md shadow-lg border-b border-indigo-700">
+   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+    <a aria-label="Voltar para Classes" class="flex items-center space-x-2 text-indigo-300 hover:text-white transition select-none" href="../classes.html">
+     <i class="fas fa-arrow-left fa-lg">
+     </i>
+     <span class="font-bold text-lg">
+      Voltar para Classes
+     </span>
+    </a>
+    <h1 aria-label="Cross Arise - Dragon Slayers" class="text-white text-xl sm:text-2xl font-orbitron tracking-wide select-none text-center flex-1">
+     
+    </h1>
+    <div class="w-28 sm:w-32">
+    </div>
+   </div>
+  </nav>
+  <!-- Intro Section -->
+  <header class="max-w-3xl mx-auto mt-8 px-6 text-center bg-indigo-900/70 rounded-3xl py-8 shadow-lg border border-indigo-700">
+   <h2 class="text-3xl sm:text-4xl font-orbitron font-extrabold mb-4 text-indigo-300 drop-shadow-lg">
+    Magias e Poderes dos Dragon Slayers
+   </h2>
+   <p class="text-indigo-200 text-base sm:text-lg leading-relaxed">
+    Apesar do nome
+    <span class="font-semibold text-indigo-100">
+     "Magia Dragon Slayer"
+    </span>
+    ,
+      a fonte do poder não é mana, pois não é mágica. É algo que vem de
+      dentro dos escolhidos para ter a força de um dragão, uma energia vital,
+      mas uma energia vital única dos Dragon Slayers. Essa energia transcende o
+      comum, conectando o guerreiro à essência dos dragões, concedendo
+      habilidades únicas, mas também consequências para seu uso excessivo.
+   </p>
+  </header>
+  <!-- Roleta Section -->
+  <section aria-label="Roleta para escolher Dragon Slayer" class="max-w-md mx-auto mt-12 bg-indigo-900/80 rounded-3xl p-6 shadow-lg border border-indigo-700">
+   <h3 class="text-2xl font-orbitron font-bold text-indigo-300 mb-6 text-center select-none">
+    Descubra seu Dragon Slayer!
+   </h3>
+   <div class="relative">
+    <div aria-hidden="true" id="pointer">
+    </div>
+    <div aria-label="Roleta de Dragon Slayers" id="wheel" role="img" tabindex="0">
+     <span>
+      Fogo
+     </span>
+     <span>
+      Gelo
+     </span>
+     <span>
+      Luz
+     </span>
+     <span>
+      Sombra
+     </span>
+     <span>
+      Terra
+     </span>
+     <span>
+      Feras
+     </span>
+     <span>
+      Corpo de Ferro
+     </span>
+     <span>
+      Gravidade
+     </span>
+    </div>
+   </div>
+   <button aria-atomic="true" aria-label="Girar a roleta para escolher um Dragon Slayer" aria-live="polite" class="mt-8 w-full" id="spinBtn">
+    Girar Roleta
+   </button>
+  </section>
+  <!-- Unique Dragon Slayer Functions -->
+  <section aria-label="Funções únicas dos Dragon Slayers" class="max-w-7xl mx-auto px-6 mt-16 mb-16">
+   <h3 class="text-3xl font-orbitron font-bold text-indigo-300 mb-10 text-center">
+    Funções Únicas dos Dragon Slayers
+   </h3>
+   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8" role="list">
+    <article class="bg-indigo-800 rounded-xl p-6 shadow-lg hover:shadow-indigo-500 transition flex flex-col items-center text-center" role="listitem" tabindex="0">
+     <i class="fas fa-dragon fa-4x text-indigo-400 mb-4">
+     </i>
+     <h4 class="text-xl font-semibold mb-2 text-indigo-100">
+      Comunicação com Dragões
+     </h4>
+     <p class="text-indigo-200 leading-relaxed">
+      Dragon Slayers possuem a rara habilidade de se comunicar
+          telepaticamente com dragões, entendendo suas emoções e intenções,
+          podendo até negociar alianças ou evitar conflitos.
+     </p>
+    </article>
+    <article class="bg-indigo-800 rounded-xl p-6 shadow-lg hover:shadow-indigo-500 transition flex flex-col items-center text-center" role="listitem" tabindex="0">
+     <i class="fas fa-heartbeat fa-4x text-indigo-400 mb-4">
+     </i>
+     <h4 class="text-xl font-semibold mb-2 text-indigo-100">
+      Energia Vital Amplificada
+     </h4>
+     <p class="text-indigo-200 leading-relaxed">
+      A energia vital dos Dragon Slayers é muito mais resistente,
+          permitindo recuperação acelerada de ferimentos e resistência a
+          venenos e doenças, mas o uso excessivo pode causar exaustão profunda.
+     </p>
+    </article>
+    <article class="bg-indigo-800 rounded-xl p-6 shadow-lg hover:shadow-indigo-500 transition flex flex-col items-center text-center" role="listitem" tabindex="0">
+     <i class="fas fa-fist-raised fa-4x text-indigo-400 mb-4">
+     </i>
+     <h4 class="text-xl font-semibold mb-2 text-indigo-100">
+      Fúria Dracônica
+     </h4>
+     <p class="text-indigo-200 leading-relaxed">
+      Em momentos críticos, o Dragon Slayer pode liberar uma fúria que
+          aumenta força e velocidade drasticamente, porém, após o efeito,
+          sofre fraqueza e confusão temporária.
+     </p>
+    </article>
+    <article class="bg-indigo-800 rounded-xl p-6 shadow-lg hover:shadow-indigo-500 transition flex flex-col items-center text-center" role="listitem" tabindex="0">
+     <i class="fas fa-wind fa-4x text-indigo-400 mb-4">
+     </i>
+     <h4 class="text-xl font-semibold mb-2 text-indigo-100">
+      Sentidos Aguçados
+     </h4>
+     <p class="text-indigo-200 leading-relaxed">
+      Os sentidos do Dragon Slayer são aprimorados, podendo detectar
+          presenças e perigos a grandes distâncias, mas o uso prolongado pode
+          causar dores de cabeça e vertigens.
+     </p>
+    </article>
+   </div>
+  </section>
+  <!-- Dragon Slayer Types and Their Magias -->
+  <section aria-label="Tipos de Dragon Slayer e suas magias" class="max-w-7xl mx-auto px-6 mb-20 space-y-12">
+   <!-- Dragon Slayer Card Template -->
+   <article aria-label="Dragon Slayer de Fogo" class="bg-gradient-to-r from-yellow-600 via-yellow-500 to-yellow-400 rounded-3xl shadow-2xl p-6 sm:p-10 flex flex-col sm:flex-row items-center gap-6 sm:gap-10 border border-yellow-300" tabindex="0">
+    <img alt="Dragon Slayer de Fogo: Guerreiro com armadura escura envolto em chamas intensas, emanando calor e poder flamejante" class="rounded-2xl shadow-lg w-full sm:w-1/2 object-cover" height="300" loading="lazy" src="https://storage.googleapis.com/a1aa/image/4fde83d5-ecba-4124-4de2-0b4a2d4ac0c4.jpg" width="400"/>
+    <div class="text-indigo-900 flex-1">
+     <h4 class="text-3xl font-orbitron font-extrabold mb-4 drop-shadow-lg">
+      Dragon Slayer de Fogo
+     </h4>
+     <p class="mb-5 text-yellow-900 font-semibold leading-relaxed">
+      Mestre das chamas ardentes, o Dragon Slayer de Fogo manipula o calor
+          e o fogo com maestria, podendo incinerar inimigos e criar barreiras
+          flamejantes. Suas habilidades são devastadoras, mas o uso excessivo
+          pode causar queimaduras internas e fadiga extrema.
+     </p>
+     <h5 class="text-2xl font-bold mb-3 text-yellow-800">
+      Habilidades:
+     </h5>
+     <ul class="list-disc list-inside space-y-2 text-yellow-900 font-semibold">
+      <li>
+       <strong>
+        Chama Dracônica:
+       </strong>
+       Libera uma explosão de fogo
+            concentrado que queima tudo em seu caminho.
+      </li>
+      <li>
+       <strong>
+        Barreira de Fogo:
+       </strong>
+       Cria um escudo flamejante que
+            reduz danos físicos e mágicos.
+      </li>
+      <li>
+       <strong>
+        Toque Incandescente:
+       </strong>
+       Aumenta o dano corpo a corpo
+            com chamas que queimam o inimigo lentamente.
+      </li>
+      <li>
+       <strong>
+        Explosão Solar:
+       </strong>
+       Uma rajada de fogo que cega e
+            desorienta os adversários.
+      </li>
+     </ul>
+     <h5 class="text-2xl font-bold mt-6 mb-3 text-yellow-800">
+      Consequências do Uso Excessivo:
+     </h5>
+     <p class="text-yellow-900 font-semibold leading-relaxed">
+      O corpo do Dragon Slayer pode sofrer queimaduras internas, fadiga
+          extrema e até perda temporária da capacidade de controlar o fogo,
+          tornando-o vulnerável.
+     </p>
+    </div>
+   </article>
+   <article aria-label="Dragon Slayer de Gelo" class="bg-gradient-to-r from-cyan-700 via-cyan-600 to-cyan-400 rounded-3xl shadow-2xl p-6 sm:p-10 flex flex-col sm:flex-row-reverse items-center gap-6 sm:gap-10 border border-cyan-300" tabindex="0">
+    <img alt="Dragon Slayer de Gelo: Guerreiro envolto em cristais de gelo brilhantes, emanando uma aura fria e letal" class="rounded-2xl shadow-lg w-full sm:w-1/2 object-cover" height="300" loading="lazy" src="https://storage.googleapis.com/a1aa/image/4d628e91-9ea4-4778-5ff9-15833d23e33b.jpg" width="400"/>
+    <div class="text-indigo-900 flex-1">
+     <h4 class="text-3xl font-orbitron font-extrabold mb-4 drop-shadow-lg">
+      Dragon Slayer de Gelo
+     </h4>
+     <p class="mb-5 text-cyan-900 font-semibold leading-relaxed">
+      Controla o frio e o gelo, capaz de congelar inimigos e criar armadilhas
+          congelantes. Suas magias são precisas e frias como a morte, mas o uso
+          excessivo pode causar rigidez muscular e lentidão.
+     </p>
+     <h5 class="text-2xl font-bold mb-3 text-cyan-800">
+      Habilidades:
+     </h5>
+     <ul class="list-disc list-inside space-y-2 text-cyan-900 font-semibold">
+      <li>
+       <strong>
+        Rajada Glacial:
+       </strong>
+       Dispara uma onda de gelo que
+            congela tudo em seu caminho.
+      </li>
+      <li>
+       <strong>
+        Prisão de Gelo:
+       </strong>
+       Envolve inimigos em blocos de gelo,
+            imobilizando-os temporariamente.
+      </li>
+      <li>
+       <strong>
+        Escudo de Cristal:
+       </strong>
+       Cria uma barreira de gelo
+            resistente a ataques físicos.
+      </li>
+      <li>
+       <strong>
+        Nevasca Dracônica:
+       </strong>
+       Invoca uma tempestade de neve
+            que reduz a visibilidade e a velocidade dos adversários.
+      </li>
+     </ul>
+     <h5 class="text-2xl font-bold mt-6 mb-3 text-cyan-800">
+      Consequências do Uso Excessivo:
+     </h5>
+     <p class="text-cyan-900 font-semibold leading-relaxed">
+      Pode causar rigidez muscular, lentidão nos movimentos e até
+          congelamento parcial dos membros, dificultando a mobilidade.
+     </p>
+    </div>
+   </article>
+   <article aria-label="Dragon Slayer de Luz" class="bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-200 rounded-3xl shadow-2xl p-6 sm:p-10 flex flex-col sm:flex-row items-center gap-6 sm:gap-10 border border-yellow-300" tabindex="0">
+    <img alt="Dragon Slayer de Luz: Guerreiro envolto em raios de luz brilhante, empunhando uma espada luminescente que irradia energia pura" class="rounded-2xl shadow-lg w-full sm:w-1/2 object-cover" height="300" loading="lazy" src="https://storage.googleapis.com/a1aa/image/00f07079-26be-4400-ecc8-f849f480e6f8.jpg" width="400"/>
+    <div class="text-indigo-900 flex-1">
+     <h4 class="text-3xl font-orbitron font-extrabold mb-4 drop-shadow-lg">
+      Dragon Slayer de Luz
+     </h4>
+     <p class="mb-5 text-yellow-900 font-semibold leading-relaxed">
+      Manipula a luz para cegar inimigos, curar aliados e criar ilusões.
+          Suas habilidades são versáteis, mas o uso excessivo pode causar
+          enxaquecas e desorientação.
+     </p>
+     <h5 class="text-2xl font-bold mb-3 text-yellow-800">
+      Habilidades:
+     </h5>
+     <ul class="list-disc list-inside space-y-2 text-yellow-900 font-semibold">
+      <li>
+       <strong>
+        Raio Cegante:
+       </strong>
+       Emite um flash de luz intensa que
+            temporariamente cega os inimigos.
+      </li>
+      <li>
+       <strong>
+        Curar Luz:
+       </strong>
+       Usa a energia da luz para acelerar a
+            regeneração de ferimentos.
+      </li>
+      <li>
+       <strong>
+        Ilusão Luminescente:
+       </strong>
+       Cria imagens ilusórias para
+            confundir adversários.
+      </li>
+      <li>
+       <strong>
+        Escudo Radiante:
+       </strong>
+       Forma uma barreira de luz que
+            reflete ataques.
+      </li>
+     </ul>
+     <h5 class="text-2xl font-bold mt-6 mb-3 text-yellow-800">
+      Consequências do Uso Excessivo:
+     </h5>
+     <p class="text-yellow-900 font-semibold leading-relaxed">
+      Pode causar enxaquecas severas, visão turva e desorientação, deixando
+          o Dragon Slayer vulnerável.
+     </p>
+    </div>
+   </article>
+   <article aria-label="Dragon Slayer de Sombra" class="bg-gradient-to-r from-gray-700 via-gray-600 to-gray-500 rounded-3xl shadow-2xl p-6 sm:p-10 flex flex-col sm:flex-row-reverse items-center gap-6 sm:gap-10 border border-gray-400" tabindex="0">
+    <img alt="Dragon Slayer de Sombra: Figura misteriosa envolta em sombras ondulantes, com olhos vermelhos brilhantes e aura sombria" class="rounded-2xl shadow-lg w-full sm:w-1/2 object-cover" height="300" loading="lazy" src="https://storage.googleapis.com/a1aa/image/8b0b0d75-60e3-4761-e808-6cf5624d9ca4.jpg" width="400"/>
+    <div class="text-indigo-900 flex-1">
+     <h4 class="text-3xl font-orbitron font-extrabold mb-4 drop-shadow-lg">
+      Dragon Slayer de Sombra
+     </h4>
+     <p class="mb-5 text-gray-300 font-semibold leading-relaxed">
+      Mestre das trevas, manipula sombras para furtividade, ataques
+          surpresa e confusão. Suas habilidades são furtivas, mas o uso
+          excessivo pode corromper a mente e causar paranoia.
+     </p>
+     <h5 class="text-2xl font-bold mb-3 text-gray-300">
+      Habilidades:
+     </h5>
+     <ul class="list-disc list-inside space-y-2 text-gray-200 font-semibold">
+      <li>
+       <strong>
+        Passo Sombrio:
+       </strong>
+       Permite mover-se silenciosamente e
+            desaparecer nas sombras.
+      </li>
+      <li>
+       <strong>
+        Corrente de Trevas:
+       </strong>
+       Ataca inimigos com tentáculos
+            de sombra que drenam energia.
+      </li>
+      <li>
+       <strong>
+        Véu da Noite:
+       </strong>
+       Cria uma área de escuridão
+            impenetrável para confundir adversários.
+      </li>
+      <li>
+       <strong>
+        Olhar Penetrante:
+       </strong>
+       Revela inimigos ocultos e
+            ilusões.
+      </li>
+     </ul>
+     <h5 class="text-2xl font-bold mt-6 mb-3 text-gray-300">
+      Consequências do Uso Excessivo:
+     </h5>
+     <p class="text-gray-200 font-semibold leading-relaxed">
+      Pode causar corrupção mental, paranoia, alucinações e perda temporária
+          do controle das habilidades.
+     </p>
+    </div>
+   </article>
+   <article aria-label="Dragon Slayer de Terra" class="bg-gradient-to-r from-green-700 via-green-600 to-green-400 rounded-3xl shadow-2xl p-6 sm:p-10 flex flex-col sm:flex-row items-center gap-6 sm:gap-10 border border-green-300" tabindex="0">
+    <img alt="Dragon Slayer de Terra: Guerreiro robusto com pele de pedra e rochas flutuantes ao seu redor, emanando força e estabilidade" class="rounded-2xl shadow-lg w-full sm:w-1/2 object-cover" height="300" loading="lazy" src="https://storage.googleapis.com/a1aa/image/9d90a448-7104-4cdd-67e4-07ff1c57c485.jpg" width="400"/>
+    <div class="text-indigo-900 flex-1">
+     <h4 class="text-3xl font-orbitron font-extrabold mb-4 drop-shadow-lg">
+      Dragon Slayer de Terra
+     </h4>
+     <p class="mb-5 text-green-900 font-semibold leading-relaxed">
+      Controla a terra e as rochas, criando defesas impenetráveis e ataques
+          esmagadores. Suas habilidades aumentam a resistência, mas o uso
+          excessivo pode causar lentidão e rigidez.
+     </p>
+     <h5 class="text-2xl font-bold mb-3 text-green-800">
+      Habilidades:
+     </h5>
+     <ul class="list-disc list-inside space-y-2 text-green-900 font-semibold">
+      <li>
+       <strong>
+        Punho de Pedra:
+       </strong>
+       Golpes que causam tremores e danos
+            massivos.
+      </li>
+      <li>
+       <strong>
+        Barreira Rochosa:
+       </strong>
+       Cria muros de pedra para
+            proteção.
+      </li>
+      <li>
+       <strong>
+        Terremoto Dracônico:
+       </strong>
+       Abala o chão, derrubando
+            inimigos e estruturas.
+      </li>
+      <li>
+       <strong>
+        Armadura de Terra:
+       </strong>
+       Endurece a pele, aumentando a
+            defesa física.
+      </li>
+     </ul>
+     <h5 class="text-2xl font-bold mt-6 mb-3 text-green-800">
+      Consequências do Uso Excessivo:
+     </h5>
+     <p class="text-green-900 font-semibold leading-relaxed">
+      Pode causar lentidão nos movimentos, rigidez muscular e fadiga,
+          tornando o Dragon Slayer vulnerável a ataques rápidos.
+     </p>
+    </div>
+   </article>
+   <article aria-label="Dragon Slayer de Feras" class="bg-gradient-to-r from-amber-600 via-amber-500 to-amber-400 rounded-3xl shadow-2xl p-6 sm:p-10 flex flex-col sm:flex-row-reverse items-center gap-6 sm:gap-10 border border-amber-300" tabindex="0">
+    <img alt="Dragon Slayer de Feras: Guerreiro com traços animais, como garras e presas, emanando uma aura selvagem e primal" class="rounded-2xl shadow-lg w-full sm:w-1/2 object-cover" height="300" loading="lazy" src="https://storage.googleapis.com/a1aa/image/72d54b7c-c1fc-4842-a809-13f0340f2a7e.jpg" width="400"/>
+    <div class="text-indigo-900 flex-1">
+     <h4 class="text-3xl font-orbitron font-extrabold mb-4 drop-shadow-lg">
+      Dragon Slayer de Feras
+     </h4>
+     <p class="mb-5 text-amber-900 font-semibold leading-relaxed">
+      Canaliza a força e instintos das feras, aumentando agilidade, sentidos
+          e ferocidade. Suas habilidades são brutais, mas o uso excessivo pode
+          levar à perda de controle e comportamento selvagem.
+     </p>
+     <h5 class="text-2xl font-bold mb-3 text-amber-800">
+      Habilidades:
+     </h5>
+     <ul class="list-disc list-inside space-y-2 text-amber-900 font-semibold">
+      <li>
+       <strong>
+        Garras Dracônicas:
+       </strong>
+       Ataques corpo a corpo com
+            garras afiadas que rasgam armaduras.
+      </li>
+      <li>
+       <strong>
+        Rugido Selvagem:
+       </strong>
+       Intimida inimigos e aumenta a
+            moral dos aliados.
+      </li>
+      <li>
+       <strong>
+        Sentidos Aguçados:
+       </strong>
+       Detecta inimigos escondidos e
+            armadilhas.
+      </li>
+      <li>
+       <strong>
+        Fúria Animal:
+       </strong>
+       Aumenta temporariamente força e
+            velocidade, mas pode causar exaustão.
+      </li>
+     </ul>
+     <h5 class="text-2xl font-bold mt-6 mb-3 text-amber-800">
+      Consequências do Uso Excessivo:
+     </h5>
+     <p class="text-amber-900 font-semibold leading-relaxed">
+      Pode levar à perda de controle, ataques indiscriminados e comportamento
+          agressivo que prejudica aliados.
+     </p>
+    </div>
+   </article>
+   <article aria-label="Dragon Slayer Corpo de Ferro" class="bg-gradient-to-r from-gray-600 via-gray-500 to-gray-400 rounded-3xl shadow-2xl p-6 sm:p-10 flex flex-col sm:flex-row items-center gap-6 sm:gap-10 border border-gray-400" tabindex="0">
+    <img alt="Dragon Slayer Corpo de Ferro: Guerreiro com pele metálica brilhante, postura imponente e aura de invulnerabilidade" class="rounded-2xl shadow-lg w-full sm:w-1/2 object-cover" height="300" loading="lazy" src="https://storage.googleapis.com/a1aa/image/0c3e7034-544c-4818-4e86-558d48a15391.jpg" width="400"/>
+    <div class="text-indigo-900 flex-1">
+     <h4 class="text-3xl font-orbitron font-extrabold mb-4 drop-shadow-lg">
+      Dragon Slayer Corpo de Ferro
+     </h4>
+     <p class="mb-5 text-gray-800 font-semibold leading-relaxed">
+      Sua pele se torna tão dura quanto ferro, tornando-o quase
+          invulnerável a ataques físicos. Suas habilidades focam em defesa e
+          resistência, mas o uso excessivo pode causar rigidez e lentidão.
+     </p>
+     <h5 class="text-2xl font-bold mb-3 text-gray-700">
+      Habilidades:
+     </h5>
+     <ul class="list-disc list-inside space-y-2 text-gray-800 font-semibold">
+      <li>
+       <strong>
+        Armadura Metálica:
+       </strong>
+       Endurece a pele, reduzindo danos
+            físicos drasticamente.
+      </li>
+      <li>
+       <strong>
+        Impacto de Ferro:
+       </strong>
+       Golpes poderosos que atordoam
+            inimigos.
+      </li>
+      <li>
+       <strong>
+        Resistência Inabalável:
+       </strong>
+       Reduz efeitos de status
+            negativos.
+      </li>
+      <li>
+       <strong>
+        Postura Imponente:
+       </strong>
+       Intimida inimigos, reduzindo sua
+            vontade de atacar.
+      </li>
+     </ul>
+     <h5 class="text-2xl font-bold mt-6 mb-3 text-gray-700">
+      Consequências do Uso Excessivo:
+     </h5>
+     <p class="text-gray-800 font-semibold leading-relaxed">
+      Pode causar rigidez muscular, lentidão e dificuldade em movimentos
+          ágeis, tornando o Dragon Slayer vulnerável a ataques rápidos.
+     </p>
+    </div>
+   </article>
+   <article aria-label="Dragon Slayer de Gravidade" class="bg-gradient-to-r from-purple-700 via-purple-600 to-purple-400 rounded-3xl shadow-2xl p-6 sm:p-10 flex flex-col sm:flex-row-reverse items-center gap-6 sm:gap-10 border border-purple-300" tabindex="0">
+    <img alt="Dragon Slayer de Gravidade: Guerreiro envolto em uma aura de força gravitacional, com partículas flutuantes ao redor e postura poderosa" class="rounded-2xl shadow-lg w-full sm:w-1/2 object-cover" height="300" loading="lazy" src="https://storage.googleapis.com/a1aa/image/0b61a815-b770-41de-eeaf-785ab2f47f08.jpg" width="400"/>
+    <div class="text-indigo-900 flex-1">
+     <h4 class="text-3xl font-orbitron font-extrabold mb-4 drop-shadow-lg">
+      Dragon Slayer de Gravidade
+     </h4>
+     <p class="mb-5 text-purple-900 font-semibold leading-relaxed">
+      Manipula a gravidade para controlar o campo de batalha, podendo
+          aumentar ou diminuir o peso de objetos e inimigos. Suas habilidades
+          são estratégicas, mas o uso excessivo pode causar tontura e
+          desorientação.
+     </p>
+     <h5 class="text-2xl font-bold mb-3 text-purple-800">
+      Habilidades:
+     </h5>
+     <ul class="list-disc list-inside space-y-2 text-purple-900 font-semibold">
+      <li>
+       <strong>
+        Campo Gravitacional:
+       </strong>
+       Aumenta o peso dos inimigos,
+            dificultando seus movimentos.
+      </li>
+      <li>
+       <strong>
+        Leveza Dracônica:
+       </strong>
+       Reduz o peso próprio para saltos
+            e esquivas aprimoradas.
+      </li>
+      <li>
+       <strong>
+        Explosão Gravitacional:
+       </strong>
+       Libera uma onda que empurra
+            e desestabiliza adversários.
+      </li>
+      <li>
+       <strong>
+        Prisão Gravitacional:
+       </strong>
+       Imobiliza inimigos ao aumentar
+            a gravidade local.
+      </li>
+     </ul>
+     <h5 class="text-2xl font-bold mt-6 mb-3 text-purple-800">
+      Consequências do Uso Excessivo:
+     </h5>
+     <p class="text-purple-900 font-semibold leading-relaxed">
+      Pode causar tontura, náuseas e desorientação, prejudicando a capacidade
+          de combate e raciocínio.
+     </p>
+    </div>
+   </article>
+  </section>
+  <!-- Footer -->
+  <footer class="bg-indigo-900 text-indigo-300 py-8 border-t border-indigo-700 text-center select-none">
+   <div class="max-w-7xl mx-auto px-6 space-y-4">
+    <p class="text-sm sm:text-base">
+     © 2024 Cross Arise. Todos os direitos reservados.
+    </p>
+    <p class="text-xs sm:text-sm italic max-w-xl mx-auto">
+     "A verdadeira força dos Dragon Slayers não está na magia, mas na energia
+        vital que arde dentro deles, a chama eterna dos dragões."
+    </p>
+   </div>
+  </footer>
+  <!-- Result Modal -->
+  <div aria-describedby="resultDesc" aria-labelledby="resultTitle" aria-modal="true" id="resultModal" role="dialog">
+   <div id="resultContent">
+    <h3 id="resultTitle">
+    </h3>
+    <p id="resultDesc">
+    </p>
+    <button aria-label="Fechar resultado da roleta" id="closeResultBtn">
+     Fechar
+    </button>
+   </div>
+  </div>
+  <script>
+   (() => {
+      const wheel = document.getElementById("wheel");
+      const spinBtn = document.getElementById("spinBtn");
+      const resultModal = document.getElementById("resultModal");
+      const resultTitle = document.getElementById("resultTitle");
+      const resultDesc = document.getElementById("resultDesc");
+      const closeResultBtn = document.getElementById("closeResultBtn");
+
+      // Dragon Slayer data for result descriptions
+      const dragonSlayers = [
+        {
+          name: "Dragon Slayer de Fogo",
+          color: "#fbbf24",
+          description:
+            "Mestre das chamas ardentes, capaz de incinerar inimigos e criar barreiras flamejantes. Uso excessivo pode causar queimaduras internas e fadiga extrema.",
+        },
+        {
+          name: "Dragon Slayer de Gelo",
+          color: "#22d3ee",
+          description:
+            "Controla o frio e o gelo, capaz de congelar inimigos e criar armadilhas congelantes. Uso excessivo pode causar rigidez muscular e lentidão.",
+        },
+        {
+          name: "Dragon Slayer de Luz",
+          color: "#fde68a",
+          description:
+            "Manipula a luz para cegar inimigos, curar aliados e criar ilusões. Uso excessivo pode causar enxaquecas e desorientação.",
+        },
+        {
+          name: "Dragon Slayer de Sombra",
+          color: "#9ca3af",
+          description:
+            "Mestre das trevas, manipula sombras para furtividade e ataques surpresa. Uso excessivo pode corromper a mente e causar paranoia.",
+        },
+        {
+          name: "Dragon Slayer de Terra",
+          color: "#34d399",
+          description:
+            "Controla a terra e as rochas, criando defesas impenetráveis e ataques esmagadores. Uso excessivo pode causar lentidão e rigidez.",
+        },
+        {
+          name: "Dragon Slayer de Feras",
+          color: "#fbbf24",
+          description:
+            "Canaliza a força e instintos das feras, aumentando agilidade e ferocidade. Uso excessivo pode levar à perda de controle e comportamento selvagem.",
+        },
+        {
+          name: "Dragon Slayer Corpo de Ferro",
+          color: "#9ca3af",
+          description:
+            "Sua pele se torna tão dura quanto ferro, tornando-o quase invulnerável a ataques físicos. Uso excessivo pode causar rigidez e lentidão.",
+        },
+        {
+          name: "Dragon Slayer de Gravidade",
+          color: "#a78bfa",
+          description:
+            "Manipula a gravidade para controlar o campo de batalha. Uso excessivo pode causar tontura e desorientação.",
+        },
+      ];
+
+      let spinning = false;
+      let currentRotation = 0;
+
+      function spinWheel() {
+        if (spinning) return;
+        spinning = true;
+        spinBtn.disabled = true;
+
+        // Random spin between 3 and 6 full rotations + random slice offset
+        const spins = Math.floor(Math.random() * 3) + 3;
+        const sliceAngle = 360 / dragonSlayers.length;
+        const randomSlice = Math.floor(Math.random() * dragonSlayers.length);
+        const finalRotation =
+          spins * 360 + randomSlice * sliceAngle + sliceAngle / 2;
+
+        currentRotation = (currentRotation + finalRotation) % 360;
+
+        wheel.style.transition = "transform 4s cubic-bezier(0.33, 1, 0.68, 1)";
+        wheel.style.transform = `rotate(-${currentRotation}deg)`;
+
+        // After animation ends show result
+        setTimeout(() => {
+          spinning = false;
+          spinBtn.disabled = false;
+          showResult(randomSlice);
+        }, 4200);
+      }
+
+      function showResult(index) {
+        const ds = dragonSlayers[index];
+        resultTitle.textContent = ds.name;
+        resultDesc.textContent = ds.description;
+        resultModal.classList.add("show");
+        closeResultBtn.focus();
+      }
+
+      function closeResult() {
+        resultModal.classList.remove("show");
+        spinBtn.focus();
+      }
+
+      spinBtn.addEventListener("click", spinWheel);
+      closeResultBtn.addEventListener("click", closeResult);
+
+      // Accessibility: close modal on Escape key
+      window.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && resultModal.classList.contains("show")) {
+          closeResult();
+        }
+      });
+
+      // Keyboard support for wheel (Enter or Space spins)
+      wheel.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          spinWheel();
+        }
+      });
+    })();
+  </script>
+ </body>
+</html>
