@@ -1,0 +1,770 @@
+<html class="scroll-smooth" lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <title>Mestre das Runas - Cross Arise</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    rel="stylesheet"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Slab&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    body {
+      font-family: "Montserrat", sans-serif;
+      background: #0f172a;
+      color: #e0e7ff;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    h1,
+    h2,
+    h3 {
+      font-family: "Roboto Slab", serif;
+    }
+    nav {
+      padding-left: 1rem;
+      padding-right: 1rem;
+      background-color: #4c1d95;
+      box-shadow: 0 2px 8px rgb(124 58 237 / 0.8);
+      position: sticky;
+      top: 0;
+      z-index: 60;
+    }
+    .nav-container {
+      max-width: 1024px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+      padding: 0 1rem;
+    }
+    .nav-link {
+      color: #e0e7ff;
+      font-weight: 700;
+      font-size: 1.125rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+      user-select: none;
+    }
+    .nav-link:hover,
+    .nav-link:focus {
+      color: #d8b4fe;
+      outline: none;
+    }
+    .hamburger-container {
+      width: 40px;
+      display: flex;
+      justify-content: flex-end;
+    }
+    #menuDropdown {
+      position: absolute;
+      right: 1rem;
+      top: 56px;
+      width: 180px;
+      background-color: #5b21b6;
+      border-radius: 0.5rem;
+      box-shadow: 0 4px 12px rgb(124 58 237 / 0.9);
+      z-index: 70;
+    }
+    #menuDropdown a {
+      display: block;
+      padding: 0.75rem 1rem;
+      font-size: 0.95rem;
+      color: #ddd6fe;
+      text-decoration: none;
+      user-select: none;
+    }
+    #menuDropdown a:hover,
+    #menuDropdown a:focus {
+      background-color: #7c3aed;
+      color: white;
+      outline: none;
+    }
+    main {
+      max-width: 640px;
+      margin: 1.5rem auto 3rem;
+      padding: 0 1rem;
+      scroll-padding-top: 72px;
+    }
+    section {
+      margin-bottom: 3rem;
+      background-color: #3b0764;
+      border-radius: 1rem;
+      padding: 1.5rem 1.75rem;
+      box-shadow: 0 0 20px rgb(124 58 237 / 0.7);
+    }
+    section:focus {
+      outline: 3px solid #a78bfa;
+      outline-offset: 3px;
+    }
+    section h2 {
+      font-size: 1.875rem;
+      font-weight: 700;
+      color: #d8b4fe;
+      border-bottom: 4px solid #7c3aed;
+      padding-bottom: 0.3rem;
+      margin-bottom: 1.25rem;
+      text-align: center;
+    }
+    section h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #c4b5fd;
+      margin-top: 1.75rem;
+      margin-bottom: 0.75rem;
+      border-bottom: 2px solid #a78bfa;
+      padding-bottom: 0.2rem;
+    }
+    p {
+      color: #c7d2fe;
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+      white-space: pre-line;
+    }
+    ul {
+      list-style-type: disc;
+      padding-left: 1.5rem;
+      color: #a78bfa;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+    li {
+      margin-bottom: 0.5rem;
+    }
+    .rune-block {
+      background-color: #4c1d95;
+      border-radius: 0.75rem;
+      padding: 1rem 1.25rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 0 15px rgb(167 139 250 / 0.8);
+      color: #d8b4fe;
+      user-select: text;
+    }
+    .rune-symbol {
+      font-family: "Roboto Slab", serif;
+      font-size: 2.75rem;
+      color: #a78bfa;
+      margin-bottom: 0.4rem;
+      user-select: text;
+      letter-spacing: 0.1em;
+    }
+    .rune-name {
+      font-weight: 700;
+      font-size: 1.3rem;
+      margin-bottom: 0.3rem;
+      color: #fbbf24;
+      user-select: text;
+    }
+    .rune-subtitle {
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin-bottom: 0.4rem;
+      color: #c4b5fd;
+      user-select: text;
+    }
+    .rune-desc {
+      font-size: 1rem;
+      line-height: 1.5;
+      color: #d8b4fe;
+      user-select: text;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      border-radius: 0.75rem;
+      overflow: hidden;
+      box-shadow: 0 0 15px rgb(124 58 237 / 0.7);
+      margin-top: 1rem;
+      margin-bottom: 2rem;
+      font-size: 0.95rem;
+      color: #ddd6fe;
+    }
+    thead tr {
+      background-color: #4c1d95;
+    }
+    th,
+    td {
+      border: 1px solid #7c3aed;
+      padding: 0.75rem 1rem;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      font-weight: 700;
+    }
+    tbody tr:hover {
+      background-color: #6d28d9;
+      cursor: default;
+    }
+    footer {
+      background-color: #3b0764;
+      color: #a78bfa;
+      text-align: center;
+      padding: 1.5rem 1rem;
+      user-select: none;
+      font-size: 0.9rem;
+      box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.1);
+    }
+    /* Accessibility focus */
+    button:focus,
+    a:focus {
+      outline: 2px solid #a78bfa;
+      outline-offset: 2px;
+    }
+    /* Responsive */
+    @media (max-width: 480px) {
+      main {
+        max-width: 100%;
+        margin: 1rem auto 2rem;
+        padding: 0 1rem;
+      }
+      section {
+        padding: 1rem 1rem;
+        margin-bottom: 2rem;
+      }
+      .rune-symbol {
+        font-size: 2rem;
+      }
+      .rune-name {
+        font-size: 1.1rem;
+      }
+      section h2 {
+        font-size: 1.5rem;
+      }
+      section h3 {
+        font-size: 1.1rem;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+  <nav>
+    <div class="nav-container">
+      <a href="../classes.html" class="nav-link" aria-label="Voltar para Classes">
+        <i class="fas fa-arrow-left" aria-hidden="true"></i> Voltar
+      </a>
+      <div class="hamburger-container md:hidden">
+        <button
+          id="menuBtn"
+          aria-label="Abrir menu"
+          aria-expanded="false"
+          aria-controls="menuDropdown"
+          class="text-white focus:outline-none focus:ring-2 focus:ring-purple-400 rounded-md"
+        >
+          <i class="fas fa-bars fa-lg"></i>
+        </button>
+      </div>
+    </div>
+    <div
+      id="menuDropdown"
+      class="hidden"
+      role="menu"
+      aria-orientation="vertical"
+      aria-labelledby="menuBtn"
+    >
+      <a href="#introducao" role="menuitem" tabindex="-1"
+        >Introdução</a
+      >
+      <a href="#graus" role="menuitem" tabindex="-1"
+        >Graus e Níveis</a
+      >
+      <a href="#tipos-runas" role="menuitem" tabindex="-1"
+        >Tipos de Runas</a
+      >
+      <a href="#funcionamento" role="menuitem" tabindex="-1"
+        >Funcionamento das Runas</a
+      >
+      <a href="#alternativa" role="menuitem" tabindex="-1"
+        >Alternativa: Grimórios</a
+      >
+    </div>
+  </nav>
+
+  <main>
+    <section id="introducao" tabindex="0" aria-label="Introdução ao Mestre das Runas">
+      <h2>Introdução ao Mestre das Runas</h2>
+      <p>
+        Mestres de runas são indivíduos que utilizam sua mana para materializar símbolos mágicos chamados runas. Essas runas permitem a criação e manipulação de elementos naturais como fogo, gelo, água, terra, ar e luz, além de possibilitar a dobra e combinação desses elementos conforme a vontade do mestre. 
+      </p>
+      <p>
+        A classe dos mestres de runas é caracterizada por seu grande potencial e versatilidade, sendo que seu poder e habilidades são diretamente proporcionais ao seu conhecimento e domínio das runas.
+      </p>
+      <p>
+        Para organizar esse domínio, a classe é dividida em sete graus hierárquicos, que definem a proficiência e as habilidades do mestre:
+      </p>
+      <ul>
+        <li><strong>Iniciante</strong></li>
+        <li><strong>1° Grau</strong></li>
+        <li><strong>2° Grau</strong></li>
+        <li><strong>3° Grau</strong></li>
+        <li><strong>Veterano</strong></li>
+        <li><strong>Graduado</strong></li>
+        <li><strong>Superior</strong></li>
+      </ul>
+      <p>
+        Cada grau permite a criação de runas e sigilos de complexidade crescente, e embora graus inferiores possam usar runas avançadas, isso exige maior tempo e concentração para a escrita correta.
+      </p>
+    </section>
+
+    <section id="graus" tabindex="0" aria-label="Descrição detalhada dos graus e níveis dos mestres de runas">
+      <h2>Graus e Níveis dos Mestres de Runas</h2>
+
+      <div class="rune-block" aria-label="Iniciante">
+        <h3>Iniciante</h3>
+        <p>
+          - Tempo para manifestar uma runa: aproximadamente 10 segundos, requer concentração total.<br />
+          - Capacidade máxima de sigilos: até 3 runas por sigilo.<br />
+          - Conhecimento: básico, pouco superior ao de um leigo, ainda em aprendizado inicial.
+        </p>
+      </div>
+
+      <div class="rune-block" aria-label="1° grau">
+        <h3>1° Grau</h3>
+        <p>
+          - Tempo para manifestar uma runa: cerca de 7 segundos, exige que o mestre permaneça imóvel.<br />
+          - Capacidade máxima de sigilos: até 4 runas.<br />
+          - Conhecimento: superior ao iniciante, com maior familiaridade e controle.
+        </p>
+      </div>
+
+      <div class="rune-block" aria-label="2° grau">
+        <h3>2° Grau</h3>
+        <p>
+          - Tempo para manifestar uma runa: cerca de 6 segundos.<br />
+          - Pode conversar e caminhar devagar enquanto manifesta.<br />
+          - Capacidade máxima de sigilos: até 5 runas.<br />
+          - Conhecimento: mais aprofundado, domínio crescente das runas.
+        </p>
+      </div>
+
+      <div class="rune-block" aria-label="3° grau">
+        <h3>3° Grau</h3>
+        <p>
+          - Tempo para manifestar uma runa: cerca de 6 segundos.<br />
+          - Pode correr enquanto manifesta runas.<br />
+          - Capacidade máxima de sigilos: até 6 runas.<br />
+          - Conhecimento: permite uso de runas intermediárias com segurança.
+        </p>
+      </div>
+
+      <div class="rune-block" aria-label="Veterano">
+        <h3>Veterano</h3>
+        <p>
+          - Tempo para manifestar runas: até 2 runas em 5 segundos.<br />
+          - Capacidade máxima de sigilos: até 7 runas.<br />
+          - Conhecimento: domínio sólido de runas intermediárias, conhecimento básico de runas superiores.
+        </p>
+      </div>
+
+      <div class="rune-block" aria-label="Graduado">
+        <h3>Graduado</h3>
+        <p>
+          - Tempo para manifestar runas: 2 runas em 4 segundos.<br />
+          - Pode correr e conversar enquanto manifesta.<br />
+          - Se parado, o tempo de manifestação reduz em 50%.<br />
+          - Capacidade máxima de sigilos: até 8 runas.<br />
+          - Conhecimento: domínio total de runas primárias e intermediárias, conhecimento mediano de runas superiores.
+        </p>
+      </div>
+
+      <div class="rune-block" aria-label="Superior">
+        <h3>Superior</h3>
+        <p>
+          - Tempo para manifestar runas: 3 runas em cerca de 2 segundos.<br />
+          - Pode manifestar runas enquanto troca golpes em combate.<br />
+          - Com foco total, pode manifestar runas praticamente instantaneamente.<br />
+          - Capacidade máxima de sigilos: até 10 runas.<br />
+          - Conhecimento: domínio absoluto de runas primárias, intermediárias e superiores, capaz de criar runas híbridas complexas.
+        </p>
+      </div>
+    </section>
+
+    <section id="tipos-runas" tabindex="0" aria-label="Descrição detalhada dos tipos de runas">
+      <h2>Tipos de Runas</h2>
+      <p>
+        As runas são classificadas em quatro categorias principais, cada uma com características e usos específicos:
+      </p>
+
+      <h3>Runas Naturais (Primárias)</h3>
+      <p>
+        Originadas diretamente da natureza, representam os elementos fundamentais do mundo.
+      </p>
+
+      <div class="rune-block" aria-label="Fogo">
+        <div class="rune-symbol" aria-hidden="true">ᛋᛞ</div>
+        <div class="rune-name">Fogo</div>
+        <p class="rune-desc">
+          Forma: Baseada nas runas Sowilo (sol) e Dagaz (transição), apresenta uma linha curva central ascendente com dois traços cruzados.<br />
+          Simbolismo: Chama crescente, transformação e energia ativa.
+        </p>
+      </div>
+
+      <div class="rune-block" aria-label="Água">
+        <div class="rune-symbol" aria-hidden="true">ᚹᛁ</div>
+        <div class="rune-name">Água</div>
+        <p class="rune-desc">
+          Forma: Inspirada na runa Laguz (água) com adaptação fluida, possui forma ondulada descendente com base em gotejamento.<br />
+          Simbolismo: Fluxo, adaptação e purificação.
+        </p>
+      </div>
+
+      <div class="rune-block" aria-label="Planta">
+        <div class="rune-symbol" aria-hidden="true">ᛜᚦ</div>
+        <div class="rune-name">Planta</div>
+        <p class="rune-desc">
+          Forma: Combinação das runas Ingwaz (fertilidade) e Thurisaz (força natural), com dois losangos empilhados e um broto lateral.<br />
+          Simbolismo: Crescimento, renovação e ligação com a terra viva.
+        </p>
+      </div>
+
+      <div class="rune-block" aria-label="Gelo">
+        <div class="rune-symbol" aria-hidden="true">ᛁᚾ</div>
+        <div class="rune-name">Gelo</div>
+        <p class="rune-desc">
+          Forma: Baseada nas runas Isa (gelo) e Nauthiz (resistência), apresenta um traço vertical com corte em “X” central.<br />
+          Simbolismo: Frieza, contenção e cristalização.
+        </p>
+      </div>
+
+      <div class="rune-block" aria-label="Ar">
+        <div class="rune-symbol" aria-hidden="true">ᚨᚾ</div>
+        <div class="rune-name">Ar</div>
+        <p class="rune-desc">
+          Forma: Derivada das runas Ansuz (espírito) e Naudhiz, com traços finos e ascendentes, simulando correntes de vento.<br />
+          Simbolismo: Movimento invisível, intelecto e liberdade.
+        </p>
+      </div>
+
+      <div class="rune-block" aria-label="Terra">
+        <div class="rune-symbol" aria-hidden="true">ᚱᛃ</div>
+        <div class="rune-name">Terra</div>
+        <p class="rune-desc">
+          Forma: Combinação das runas Raidho (caminho) e Jera (colheita), com duas curvas opostas em torno de um ponto fixo.<br />
+          Simbolismo: Estabilidade, ciclo e base firme.
+        </p>
+      </div>
+
+      <div class="rune-block" aria-label="Luz">
+        <div class="rune-symbol" aria-hidden="true">ᛞᛇ</div>
+        <div class="rune-name">Luz</div>
+        <p class="rune-desc">
+          Forma: Combinação das runas Dagaz (alvorada) e Eiwaz (equilíbrio vertical), formando uma espiral radial interna.<br />
+          Simbolismo: Iluminação, revelação e ordem.
+        </p>
+      </div>
+
+      <div class="rune-block" aria-label="Trevas">
+        <div class="rune-symbol" aria-hidden="true">ᛇᚾ</div>
+        <div class="rune-name">Trevas</div>
+        <p class="rune-desc">
+          Forma: Eiwaz invertida combinada com Naudhiz, simbolizando convergência para dentro com linhas fechadas.<br />
+          Simbolismo: Mistério, poder oculto e abismo.
+        </p>
+      </div>
+
+      <h3>Runas Anti Naturais</h3>
+      <p>
+        Criadas pelo homem a partir de conceitos abstratos, essas runas representam ideias e forças artificiais, muitas vezes classificadas como grau intermediário ou superior.
+      </p>
+
+      <div class="rune-block" aria-label="Destruição - Skoraz">
+        <div class="rune-symbol" aria-hidden="true">ᛞᛁᚾ</div>
+        <div class="rune-name">Destruição (Skoraz)</div>
+        <p class="rune-desc">
+          Grau: Intermediário/Superior<br />
+          Forma: Fragmentação em três partes irregulares, com linhas quebradas.<br />
+          Simbolismo: Ruptura, caos e colapso da ordem.
+        </p>
+      </div>
+
+      <div class="rune-block" aria-label="Metal - Tharnil">
+        <div class="rune-symbol" aria-hidden="true">ᚾᛒ</div>
+        <div class="rune-name">Metal (Tharnil)</div>
+        <p class="rune-desc">
+          Forma: Linhas duras e paralelas, com vértices pontiagudos e núcleo fechado.<br />
+          Simbolismo: Frieza, indústria e transformação do bruto em arma.
+        </p>
+      </div>
+
+      <div class="rune-block" aria-label="Direções - Eylkar">
+        <div class="rune-symbol" aria-hidden="true">ᛗᚾᛁ</div>
+        <div class="rune-name">Direções (Eylkar)</div>
+        <p class="rune-desc">
+          Forma: Cruz de setas apontando para os quatro cantos cardeais.<br />
+          Simbolismo: Orientação, dispersão e multiplicidade de caminhos.
+        </p>
+      </div>
+
+      <div class="rune-block" aria-label="Geometria - Ormind">
+        <div class="rune-symbol" aria-hidden="true">ᛞᛇᛃ</div>
+        <div class="rune-name">Geometria (Ormind)</div>
+        <p class="rune-desc">
+          Forma: Hexágono central envolto por triângulos simétricos.<br />
+          Simbolismo: Ordem matemática, perfeição abstrata e lógica.
+        </p>
+      </div>
+
+      <div class="rune-block" aria-label="Máquina - Grakhen">
+        <div class="rune-symbol" aria-hidden="true">ᚦᚠᛟ</div>
+        <div class="rune-name">Máquina (Grakhen)</div>
+        <p class="rune-desc">
+          Grau: Intermediário/Superior<br />
+          Forma: Engrenagem de seis dentes com centro espiralado.<br />
+          Simbolismo: Repetição mecânica, controle e produção.
+        </p>
+      </div>
+
+      <div class="rune-block" aria-label="Vazio - Nullis">
+        <div class="rune-symbol" aria-hidden="true">ᛁᚹᛃ</div>
+        <div class="rune-name">Vazio (Nullis)</div>
+        <p class="rune-desc">
+          Grau: Superior<br />
+          Forma: Círculo incompleto cercado por marcas dispersas.<br />
+          Simbolismo: Ausência, silêncio cósmico e antítese do ser.
+        </p>
+      </div>
+
+      <div class="rune-block" aria-label="Ilusão - Veskar">
+        <div class="rune-symbol" aria-hidden="true">ᛃᛇᚠ</div>
+        <div class="rune-name">Ilusão (Veskar)</div>
+        <p class="rune-desc">
+          Grau: Intermediário<br />
+          Forma: Linha curva serpenteante entre dois espelhos.<br />
+          Simbolismo: Aparência falsa, percepção distorcida e engano.
+        </p>
+      </div>
+
+      <div class="rune-block" aria-label="Controle - Valtraz">
+        <div class="rune-symbol" aria-hidden="true">ᛏᛉᚱ</div>
+        <div class="rune-name">Controle (Valtraz)</div>
+        <p class="rune-desc">
+          Forma: Círculo com linhas que convergem ao centro como correntes.<br />
+          Simbolismo: Domínio, repressão e foco absoluto.
+        </p>
+      </div>
+
+      <h3>Runas Híbridas</h3>
+      <p>
+        As runas híbridas são combinações poderosas e instáveis de runas naturais e anti naturais, criadas para ampliar o poder e a versatilidade dos mestres. Seu uso exige alto domínio e concentração, pois a instabilidade pode causar falhas catastróficas.
+      </p>
+      <div class="rune-block" aria-label="Nulvaris - Runa da Transformação">
+        <div class="rune-symbol" aria-hidden="true">ᚾᚢᛚ</div>
+        <div class="rune-name">Nulvaris (Runa da Transformação)</div>
+        <p class="rune-desc">
+          Forma: Losango central com extremidades curvas apontando em direções opostas, simbolizando o fluxo entre estados.<br />
+          Simbolismo: Mutação, evolução e transição consciente entre formas.<br />
+          <strong>Importante:</strong> Para criar runas híbridas, a runa de transformação deve estar presente no sigilo, garantindo compatibilidade entre elementos opostos (ex: fogo e água).
+        </p>
+      </div>
+
+      <h3>Runas Espirituais</h3>
+      <p>
+        As runas espirituais são focadas em proteção, cura e fortalecimento espiritual, divididas em níveis básicos e avançados.
+      </p>
+
+      <h4 class="rune-subtitle">Grau Básico</h4>
+      <div class="rune-block" aria-label="Halgrin - Escudo Espiritual">
+        <div class="rune-symbol" aria-hidden="true">ᛉᛏ</div>
+        <div class="rune-name">Halgrin (Escudo Espiritual)</div>
+        <p class="rune-desc">
+          Cria uma barreira invisível que reduz em 40% os efeitos de ataques mágicos por até 10 segundos.<br />
+          Uso: ativação instantânea em situações de perigo.
+        </p>
+      </div>
+      <div class="rune-block" aria-label="Linveth - Cura Interior">
+        <div class="rune-symbol" aria-hidden="true">ᚨᛃ</div>
+        <div class="rune-name">Linveth (Cura Interior)</div>
+        <p class="rune-desc">
+          Restaura gradualmente feridas leves e estabiliza sangramentos em 20 segundos.<br />
+          Uso: aplicação pós-batalha ou durante pausas.
+        </p>
+      </div>
+      <div class="rune-block" aria-label="Nûris - Purificação">
+        <div class="rune-symbol" aria-hidden="true">ᛇᚾ</div>
+        <div class="rune-name">Nûris (Purificação)</div>
+        <p class="rune-desc">
+          Dissolve venenos e maldições fracas ou intermediárias do corpo do usuário.<br />
+          Uso: requer concentração e um ciclo respiratório profundo.
+        </p>
+      </div>
+      <div class="rune-block" aria-label="Thoren - Coragem">
+        <div class="rune-symbol" aria-hidden="true">ᚱᚨ</div>
+        <div class="rune-name">Thoren (Coragem)</div>
+        <p class="rune-desc">
+          Anula efeitos de medo e aumenta a resistência a ilusões por 30 segundos.<br />
+          Uso: ideal antes de confrontos ou testes mentais.
+        </p>
+      </div>
+      <div class="rune-block" aria-label="Vereil - Empatia">
+        <div class="rune-symbol" aria-hidden="true">ᛗᛝ</div>
+        <div class="rune-name">Vereil (Empatia)</div>
+        <p class="rune-desc">
+          Permite sentir emoções superficiais de aliados próximos e criar vínculos temporários.<br />
+          Uso: útil em diplomacia ou trabalho em grupo.
+        </p>
+      </div>
+      <div class="rune-block" aria-label="Auralis - Meditação">
+        <div class="rune-symbol" aria-hidden="true">ᛞᚨ</div>
+        <div class="rune-name">Auralis (Meditação)</div>
+        <p class="rune-desc">
+          Acelera a recuperação de energia espiritual em 2x durante repouso ou oração.<br />
+          Uso: funciona em ambientes silenciosos e seguros.
+        </p>
+      </div>
+      <div class="rune-block" aria-label="Zaleth - Resistência Espiritual">
+        <div class="rune-symbol" aria-hidden="true">ᛃᛇᛗ</div>
+        <div class="rune-name">Zaleth (Resistência Espiritual)</div>
+        <p class="rune-desc">
+          Protege contra controle mental, pesadelos e pressão psíquica por até 1 minuto.<br />
+          Uso: consome energia interior proporcional ao tempo de uso.
+        </p>
+      </div>
+
+      <h4 class="rune-subtitle">Runas Espirituais – Versão Avançada (Essência Elevada)</h4>
+      <div class="rune-block" aria-label="Halvarin - Escudo de Alma">
+        <div class="rune-symbol" aria-hidden="true">ᛉᛞ</div>
+        <div class="rune-name">Halvarin (Escudo de Alma)</div>
+        <p class="rune-desc">
+          Repele feitiços diretamente lançados no usuário e reduz 60% do dano mental.<br />
+          Duração: 12 segundos. Requer foco total.
+        </p>
+      </div>
+      <div class="rune-block" aria-label="Linvetha - Cura Profunda">
+        <div class="rune-symbol" aria-hidden="true">ᚨᚠᚾ</div>
+        <div class="rune-name">Linvetha (Cura Profunda)</div>
+        <p class="rune-desc">
+          Cura feridas internas e remove efeitos colaterais como febres, fadiga e paralisia leve.<br />
+          Limite: uma vez a cada 6 horas.
+        </p>
+      </div>
+      <div class="rune-block" aria-label="Nûrhal - Luz Purificadora">
+        <div class="rune-symbol" aria-hidden="true">ᛇᚨᛃ</div>
+        <div class="rune-name">Nûrhal (Luz Purificadora)</div>
+        <p class="rune-desc">
+          Cria uma aura luminosa que purifica um raio de até 2 metros, útil contra espectros, possessões e corrupção espiritual.<br />
+          Tempo ativo: 15 segundos.
+        </p>
+      </div>
+      <div class="rune-block" aria-label="Thoryn - Coração Incandescente">
+        <div class="rune-symbol" aria-hidden="true">ᚱᛗᚨ</div>
+        <div class="rune-name">Thoryn (Coração Incandescente)</div>
+        <p class="rune-desc">
+          Aumenta a resistência física e espiritual, ignorando ferimentos leves por pura força de vontade.<br />
+          Duração: 20 segundos. Exige estado emocional elevado.
+        </p>
+      </div>
+      <div class="rune-block" aria-label="Velmir - Vínculo Sagrado">
+        <div class="rune-symbol" aria-hidden="true">ᛗᚹ</div>
+        <div class="rune-name">Velmir (Vínculo Sagrado)</div>
+        <p class="rune-desc">
+          Permite que dois usuários compartilhem sentidos básicos ou energia espiritual por 1 minuto.<br />
+          Uso: requer aceitação mútua.
+        </p>
+      </div>
+      <div class="rune-block" aria-label="Auryn - Olho da Calma">
+        <div class="rune-symbol" aria-hidden="true">ᛞᚠᛃ</div>
+        <div class="rune-name">Auryn (Olho da Calma)</div>
+        <p class="rune-desc">
+          Garante concentração absoluta e imunidade a distrações mentais durante encantamentos ou rituais.<br />
+          Limite: até 30 segundos. Pode ser desativada manualmente.
+        </p>
+      </div>
+      <div class="rune-block" aria-label="Zalveth - Muralha Interior">
+        <div class="rune-symbol" aria-hidden="true">ᛗᛇᚨ</div>
+        <div class="rune-name">Zalveth (Muralha Interior)</div>
+        <p class="rune-desc">
+          Cria camadas internas de resistência contra dano de alma, impedindo interferência espiritual por 1 minuto.<br />
+          Uso: exige pré-ativação e respiração lenta.
+        </p>
+      </div>
+      <div class="rune-block" aria-label="Niralis - Lótus da Alma">
+        <div class="rune-symbol" aria-hidden="true">ᛁᛃᚾ</div>
+        <div class="rune-name">Niralis (Lótus da Alma)</div>
+        <p class="rune-desc">
+          Transforma emoções negativas em serenidade, curando trauma emocional e estabilizando aliados próximos.<br />
+          Área: raio de 3 metros. Pode ser usada em grupo.
+        </p>
+      </div>
+    </section>
+
+    <section id="funcionamento" tabindex="0" aria-label="Funcionamento das runas">
+      <h2>Funcionamento das Runas</h2>
+      <p>
+        Para que as runas funcionem, é necessário conjurá-las corretamente. Porém, a simples manifestação de uma runa isolada não é suficiente para realizar um ataque ou efeito complexo.
+      </p>
+      <p>
+        Runas devem ser combinadas em conjuntos chamados sigilos, que possuem sinergia entre seus componentes para maximizar o efeito. A combinação correta potencializa o poder, enquanto combinações incompatíveis resultam em efeitos fracos ou falhas.
+      </p>
+      <p>
+        Exemplos práticos:
+      </p>
+      <ul>
+        <li><strong>ᛋᛞ (Fogo) + ᚨᚾ (Ar) = ᛋᛞᚨᚾ</strong> — Runa híbrida que potencializa o fogo com o ar, criando efeitos mais poderosos e dinâmicos.</li>
+        <li><strong>ᛋᛞ (Fogo) + ᚹᛁ (Água) = ᛋᛞᚹᛁ</strong> — Combinação incompatível, pois fogo e água são opostos, resultando em efeito reduzido ou falha.</li>
+        <li><strong>ᛋᛞ (Fogo) + ᚨᚾ (Ar) + ᚾᚢᛚ (Transformação)</strong> — Uso da runa de transformação para criar uma runa híbrida complexa, como vapor, unindo elementos opostos de forma estável.</li>
+      </ul>
+      <p>
+        A correta escrita e conjuração das runas é fundamental para o sucesso dos efeitos mágicos.
+      </p>
+    </section>
+
+    <section id="alternativa" tabindex="0" aria-label="Alternativa de uso de grimórios">
+      <h2>Alternativa: Uso de Grimórios</h2>
+      <p>
+        Para facilitar o uso das runas, mestres podem criar grimórios contendo sigilos previamente escritos. Essa prática acelera a conjuração, mas possui vantagens e desvantagens importantes:
+      </p>
+      <ul>
+        <li>
+          <strong>Vantagem:</strong> O uso do grimório pode acelerar o processo de conjuração em até 25%, funcionando como uma "cola" que elimina a necessidade de lembrar cada detalhe do sigilo.
+        </li>
+        <li>
+          <strong>Desvantagem:</strong> A eficiência da habilidade cai em até 40%, pois a escrita manual e a concentração na criação do sigilo são fundamentais para o poder máximo.
+        </li>
+      </ul>
+      <p>
+        Portanto, o grimório é uma ferramenta útil para situações que exigem rapidez, mas não substitui o domínio completo da escrita rúnica.
+      </p>
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    <p>© 2024 Cross Arise - Todos os direitos reservados.</p>
+  </footer>
+
+  <script>
+    // Menu hamburger toggle
+    const menuBtn = document.getElementById("menuBtn");
+    const menuDropdown = document.getElementById("menuDropdown");
+
+    menuBtn.addEventListener("click", () => {
+      const expanded =
+        menuBtn.getAttribute("aria-expanded") === "true" ? "false" : "true";
+      menuBtn.setAttribute("aria-expanded", expanded);
+      menuDropdown.classList.toggle("hidden");
+    });
+
+    // Close menu if click outside
+    document.addEventListener("click", (e) => {
+      if (
+        !menuBtn.contains(e.target) &&
+        !menuDropdown.contains(e.target) &&
+        !menuDropdown.classList.contains("hidden")
+      ) {
+        menuDropdown.classList.add("hidden");
+        menuBtn.setAttribute("aria-expanded", "false");
+      }
+    });
+  </script>
+</body>
+</html>
