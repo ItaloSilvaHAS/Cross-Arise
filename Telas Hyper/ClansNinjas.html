@@ -1,737 +1,832 @@
 <html class="scroll-smooth" lang="pt-BR">
  <head>
-  <meta charset="utf-8" />
-  <meta content="width=device-width, initial-scale=1" name="viewport" />
-  <title>Monarcas - Cross Arise</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-    rel="stylesheet"
-  />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&amp;family=Roboto&amp;display=swap"
-    rel="stylesheet"
-  />
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Cross Arise - Escolha do Clã e Elemento Ninja
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&amp;family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"/>
   <style>
-    body {
+   body {
       font-family: "Roboto", sans-serif;
-      background: #0f172a;
-      scroll-padding-top: 80px; /* offset for sticky header */
-    }
-    h1,
-    h2 {
-      font-family: "Montserrat", sans-serif;
-    }
-    /* Scrollbar for cycle container */
-    .scrollbar-hide::-webkit-scrollbar {
-      display: none;
-    }
-    .scrollbar-hide {
-      -ms-overflow-style: none;
-      scrollbar-width: none;
-    }
-    /* Carousel animation */
-    @keyframes scroll-left {
-      0% {
-        transform: translateX(0);
-      }
-      100% {
-        transform: translateX(-50%);
-      }
     }
   </style>
-  <script>
-    // Toggle mobile menu
-    function toggleMenu() {
-      const menu = document.getElementById("mobile-menu");
-      menu.classList.toggle("hidden");
-      // Update aria-expanded
-      const btn = document.getElementById("menu-button");
-      btn.setAttribute(
-        "aria-expanded",
-        menu.classList.contains("hidden") ? "false" : "true"
-      );
-    }
-    // Smooth scroll to section
-    function scrollToSection(id) {
-      const el = document.getElementById(id);
-      if (el) {
-        el.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-      // Close mobile menu if open
-      const menu = document.getElementById("mobile-menu");
-      if (!menu.classList.contains("hidden")) {
-        menu.classList.add("hidden");
-        const btn = document.getElementById("menu-button");
-        btn.setAttribute("aria-expanded", "false");
-      }
-    }
-  </script>
  </head>
- <body class="min-h-screen flex flex-col text-gray-100">
-  <!-- Navbar -->
-  <header
-    class="bg-gray-900/95 backdrop-blur-md sticky top-0 z-50 shadow-md border-b border-gray-700"
-  >
-    <div
-      class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between"
-    >
-      <button
-        aria-label="Voltar para a página anterior"
-        class="text-yellow-400 hover:text-yellow-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded-md"
-        onclick="location.href='../classes.html'"
-        title="Voltar"
-      >
-        <i class="fas fa-arrow-left text-2xl"></i>
-      </button>
-
-      <h1
-        class="text-yellow-400 font-bold text-xl sm:text-2xl tracking-wide cursor-default select-none mx-auto md:mx-0 md:hidden"
-        title="Monarcas de Cross Arise"
-      >
-        Monarcas
-      </h1>
-
-      <h1
-        class="text-yellow-400 font-bold text-xl sm:text-2xl tracking-wide cursor-default select-none hidden md:block"
-        title="Monarcas de Cross Arise"
-      >
-        Monarcas de Cross Arise
-      </h1>
-
-      <button
-        aria-label="Abrir menu"
-        class="text-yellow-400 hover:text-yellow-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded-md md:hidden"
-        onclick="toggleMenu()"
-        id="menu-button"
-        aria-expanded="false"
-        aria-controls="mobile-menu"
-        title="Menu"
-      >
-        <i class="fas fa-bars text-2xl"></i>
-      </button>
-    </div>
-    <nav
-      class="hidden md:flex max-w-7xl mx-auto px-6 pb-4 space-x-8 font-semibold text-yellow-400 text-lg border-t border-gray-700"
-      aria-label="Menu principal"
-    >
-      <button
-        class="hover:text-yellow-300 transition duration-200"
-        onclick="scrollToSection('monarca-chamas')"
-        type="button"
-      >
-        Chamas
-      </button>
-      <button
-        class="hover:text-yellow-300 transition duration-200"
-        onclick="scrollToSection('monarca-gelo')"
-        type="button"
-      >
-        Gelo
-      </button>
-      <button
-        class="hover:text-yellow-300 transition duration-200"
-        onclick="scrollToSection('monarca-luz')"
-        type="button"
-      >
-        Luz
-      </button>
-      <button
-        class="hover:text-yellow-300 transition duration-200"
-        onclick="scrollToSection('monarca-sombra')"
-        type="button"
-      >
-        Sombras
-      </button>
-      <button
-        class="hover:text-yellow-300 transition duration-200"
-        onclick="scrollToSection('monarca-vazio')"
-        type="button"
-      >
-        Vazio
-      </button>
-      <button
-        class="hover:text-yellow-300 transition duration-200"
-        onclick="scrollToSection('monarca-infinito')"
-        type="button"
-      >
-        Infinito
-      </button>
-      <button
-        class="hover:text-yellow-300 transition duration-200"
-        onclick="scrollToSection('monarca-destruicao')"
-        type="button"
-      >
-        Destruição
-      </button>
-      <button
-        class="hover:text-yellow-300 transition duration-200"
-        onclick="scrollToSection('monarca-criacao')"
-        type="button"
-      >
-        Criação
-      </button>
-      <button
-        class="hover:text-yellow-300 transition duration-200"
-        onclick="scrollToSection('ciclo-monarcas')"
-        type="button"
-      >
-        Ciclo
-      </button>
-    </nav>
-    <!-- Mobile menu -->
-    <nav
-      id="mobile-menu"
-      class="md:hidden hidden bg-gray-800 border-t border-gray-700"
-      aria-label="Menu móvel"
-    >
-      <div class="flex flex-col space-y-1 px-4 py-3 font-semibold text-yellow-400 text-base">
-        <button
-          class="text-left w-full hover:text-yellow-300 transition duration-200 py-2 border-b border-gray-700"
-          onclick="scrollToSection('monarca-chamas')"
-          type="button"
-        >
-          Chamas
-        </button>
-        <button
-          class="text-left w-full hover:text-yellow-300 transition duration-200 py-2 border-b border-gray-700"
-          onclick="scrollToSection('monarca-gelo')"
-          type="button"
-        >
-          Gelo
-        </button>
-        <button
-          class="text-left w-full hover:text-yellow-300 transition duration-200 py-2 border-b border-gray-700"
-          onclick="scrollToSection('monarca-luz')"
-          type="button"
-        >
-          Luz
-        </button>
-        <button
-          class="text-left w-full hover:text-yellow-300 transition duration-200 py-2 border-b border-gray-700"
-          onclick="scrollToSection('monarca-sombra')"
-          type="button"
-        >
-          Sombras
-        </button>
-        <button
-          class="text-left w-full hover:text-yellow-300 transition duration-200 py-2 border-b border-gray-700"
-          onclick="scrollToSection('monarca-vazio')"
-          type="button"
-        >
-          Vazio
-        </button>
-        <button
-          class="text-left w-full hover:text-yellow-300 transition duration-200 py-2 border-b border-gray-700"
-          onclick="scrollToSection('monarca-infinito')"
-          type="button"
-        >
-          Infinito
-        </button>
-        <button
-          class="text-left w-full hover:text-yellow-300 transition duration-200 py-2 border-b border-gray-700"
-          onclick="scrollToSection('monarca-destruicao')"
-          type="button"
-        >
-          Destruição
-        </button>
-        <button
-          class="text-left w-full hover:text-yellow-300 transition duration-200 py-2 border-b border-gray-700"
-          onclick="scrollToSection('monarca-criacao')"
-          type="button"
-        >
-          Criação
-        </button>
-        <button
-          class="text-left w-full hover:text-yellow-300 transition duration-200 py-2"
-          onclick="scrollToSection('ciclo-monarcas')"
-          type="button"
-        >
-          Ciclo
-        </button>
-      </div>
-    </nav>
-  </header>
-
-  <main
-    class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
-  >
-    <!-- Monarca Chamas -->
-    <section
-      id="monarca-chamas"
-      aria-label="Monarca das Chamas"
-      class="bg-gradient-to-tr from-red-700 via-orange-600 to-yellow-500 rounded-3xl shadow-2xl overflow-hidden flex flex-col transform transition-transform hover:scale-[1.05] hover:shadow-yellow-400/70 duration-300"
-    >
-      <img
-        src="ImagensMonarcas/MonarcaChama.jpg"
-        class="w-full h-48 object-cover"
-        height="400"
-        loading="lazy"
-        src="https://storage.googleapis.com/a1aa/image/65a5f17c-b89b-4a43-0156-24f8f8668c9b.jpg"
-        width="600"
-      />
-      <div class="p-6 flex flex-col flex-grow">
-        <h2
-          class="text-2xl font-semibold mb-3 text-white drop-shadow-md tracking-wide"
-        >
-          Monarca das Chamas
-        </h2>
-        <p class="flex-grow text-yellow-50/90 mb-5 leading-relaxed">
-          Mestre absoluto do fogo, capaz de manipular chamas em qualquer forma,
-          criando tempestades de fogo e escudos incandescentes.
-        </p>
-        <h3 class="font-semibold text-yellow-100 mb-1 tracking-wide">
-          Habilidade:
-        </h3>
-        <p class="mb-3 text-yellow-200 leading-snug">
-          Controle total sobre o fogo, incluindo ignição instantânea e absorção
-          de calor.
-        </p>
-        <h3 class="font-semibold text-yellow-100 mb-1 tracking-wide">
-          Peculiaridade:
-        </h3>
-        <p class="text-yellow-200 leading-snug">
-          Sua presença aquece o ambiente, podendo derreter armas e armaduras
-          inimigas.
-        </p>
-      </div>
-    </section>
-    <!-- Monarca Gelo -->
-    <section
-      id="monarca-gelo"
-      aria-label="Monarca do Gelo"
-      class="bg-gradient-to-tr from-cyan-700 via-blue-600 to-sky-400 rounded-3xl shadow-2xl overflow-hidden flex flex-col transform transition-transform hover:scale-[1.05] hover:shadow-sky-400/70 duration-300"
-    >
-      <img
-        src="ImagensMonarcas/MonarcaGelo.jpg"
-        class="w-full h-48 object-cover"
-        height="400"
-        loading="lazy"
-        src="https://storage.googleapis.com/a1aa/image/0323025d-ad8b-466c-0b5e-9bb9698cbbc6.jpg"
-        width="600"
-      />
-      <div class="p-6 flex flex-col flex-grow">
-        <h2
-          class="text-2xl font-semibold mb-3 text-white drop-shadow-md tracking-wide"
-        >
-          Monarca do Gelo
-        </h2>
-        <p class="flex-grow text-sky-50/90 mb-5 leading-relaxed">
-          Controla o frio absoluto, capaz de congelar o ar e criar estruturas de
-          gelo impenetráveis em segundos.
-        </p>
-        <h3 class="font-semibold text-sky-100 mb-1 tracking-wide">Habilidade:</h3>
-        <p class="mb-3 text-sky-200 leading-snug">
-          Manipulação do gelo e do frio, podendo criar tempestades congelantes e
-          armaduras de gelo.
-        </p>
-        <h3 class="font-semibold text-sky-100 mb-1 tracking-wide">
-          Peculiaridade:
-        </h3>
-        <p class="text-sky-200 leading-snug">
-          Sua respiração congela tudo ao redor, e seu toque pode paralisar
-          inimigos.
-        </p>
-      </div>
-    </section>
-    <!-- Monarca Luz -->
-    <section
-      id="monarca-luz"
-      aria-label="Monarca da Luz"
-      class="bg-gradient-to-tr from-yellow-400 via-yellow-300 to-yellow-200 rounded-3xl shadow-2xl overflow-hidden flex flex-col transform transition-transform hover:scale-[1.05] hover:shadow-yellow-400/70 duration-300"
-    >
-      <img
-        src="ImagensMonarcas/MonarcaLuz.webp"
-        class="w-full h-48 object-cover"
-        height="400"
-        loading="lazy"
-        src="https://storage.googleapis.com/a1aa/image/5f18fb5e-9fd1-44c5-c06d-6173b1ee3cb3.jpg"
-        width="600"
-      />
-      <div class="p-6 flex flex-col flex-grow">
-        <h2
-          class="text-2xl font-semibold mb-3 text-gray-900 drop-shadow-md tracking-wide"
-        >
-          Monarca da Luz
-        </h2>
-        <p class="flex-grow text-yellow-900/90 mb-5 leading-relaxed">
-          Detentor do poder da luz pura, capaz de curar feridas, cegar inimigos
-          e criar barreiras de energia luminosa.
-        </p>
-        <h3 class="font-semibold text-yellow-700 mb-1 tracking-wide">Habilidade:</h3>
-        <p class="mb-3 text-yellow-800 leading-snug">
-          Manipulação da luz para cura, ataque e defesa, incluindo explosões
-          cegantes.
-        </p>
-        <h3 class="font-semibold text-yellow-700 mb-1 tracking-wide">
-          Peculiaridade:
-        </h3>
-        <p class="text-yellow-800 leading-snug">
-          Sua presença inspira esperança e coragem nos aliados próximos.
-        </p>
-      </div>
-    </section>
-    <!-- Monarca Sombra -->
-    <section
-      id="monarca-sombra"
-      aria-label="Monarca da Sombra"
-      class="bg-gradient-to-tr from-gray-800 via-gray-900 to-black rounded-3xl shadow-2xl overflow-hidden flex flex-col transform transition-transform hover:scale-[1.05] hover:shadow-purple-600/70 duration-300"
-    >
-      <img
-        src="ImagensMonarcas/MonarcaSombras.jfif"
-        class="w-full h-48 object-cover"
-        height="400"
-        loading="lazy"
-        src="https://storage.googleapis.com/a1aa/image/631d6b9f-72d8-4869-c02d-67401c2c13e6.jpg"
-        width="600"
-      />
-      <div class="p-6 flex flex-col flex-grow">
-        <h2
-          class="text-2xl font-semibold mb-3 text-gray-100 drop-shadow-md tracking-wide"
-        >
-          Monarca da Sombra
-        </h2>
-        <p class="flex-grow text-gray-300 mb-5 leading-relaxed">
-          Mestre das trevas, capaz de manipular sombras para se camuflar,
-          atacar e criar ilusões aterrorizantes.
-        </p>
-        <h3 class="font-semibold text-purple-300 mb-1 tracking-wide">Habilidade:</h3>
-        <p class="mb-3 text-purple-400 leading-snug">
-          Controle absoluto das sombras, incluindo teletransporte por elas e
-          criação de clones sombrios.
-        </p>
-        <h3 class="font-semibold text-purple-300 mb-1 tracking-wide">
-          Peculiaridade:
-        </h3>
-        <p class="text-purple-400 leading-snug">
-          Sua presença causa inquietação e medo nos inimigos, enfraquecendo sua
-          vontade de lutar.
-        </p>
-      </div>
-    </section>
-
-    <h2
-      class="col-span-full text-center text-3xl font-bold mt-12 mb-6 tracking-wide text-yellow-400 drop-shadow-lg"
-    >
-      Monarcas NPCs
+ <body class="bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 min-h-screen text-gray-100 flex flex-col">
+  <nav class="bg-gray-900 shadow-md">
+   <div class="container mx-auto px-4 py-4 flex items-center">
+    <a aria-label="Voltar para Classes" class="text-yellow-400 hover:text-yellow-300 flex items-center space-x-2 font-semibold" href="../classes.html">
+     <i class="fas fa-arrow-left">
+     </i>
+     <span>
+      Voltar para Classes
+     </span>
+    </a>
+   </div>
+  </nav>
+  <main class="container mx-auto px-4 py-10 flex-grow">
+   <h1 class="text-4xl font-extrabold font-['Roboto_Slab'] tracking-wide text-yellow-400 text-center mb-8">
+    Cross Arise - Escolha seu Clã e Elemento Ninja
+   </h1>
+   <p class="text-center max-w-3xl mx-auto mb-12 text-lg text-gray-300">
+    Escolha um dos clãs lendários do universo Naruto para seu personagem, e
+      também selecione até dois elementos naturais para potencializar suas
+      habilidades. Cada escolha traz poderes únicos, peculiaridades e
+      consequências severas. Prepare-se para dominar o campo de batalha!
+   </p>
+   <!-- Clans Section -->
+   <section>
+    <h2 class="text-3xl font-bold text-yellow-400 mb-6 border-b border-yellow-600 pb-2 max-w-max mx-auto">
+     Clãs Ninja
     </h2>
-    <!-- Monarca Vazio -->
-    <section
-      id="monarca-vazio"
-      aria-label="Monarca do Vazio"
-      class="bg-gradient-to-tr from-gray-700 via-gray-600 to-gray-500 rounded-3xl shadow-2xl overflow-hidden flex flex-col transform transition-transform hover:scale-[1.05] hover:shadow-gray-400/70 duration-300"
-    >
-      <img
-        src="ImagensMonarcas/VazioMonarca.webp"
-        class="w-full h-48 object-cover"
-        height="400"
-        loading="lazy"
-        src="https://storage.googleapis.com/a1aa/image/3d2a1530-a9c9-4186-8f44-2560bd5f6365.jpg"
-        width="600"
-      />
-      <div class="p-6 flex flex-col flex-grow">
-        <h2
-          class="text-2xl font-semibold mb-3 text-gray-100 drop-shadow-md tracking-wide"
-        >
-          Monarca do Vazio
-        </h2>
-        <p class="flex-grow text-gray-200 mb-5 leading-relaxed">
-          Controla o vazio absoluto, capaz de anular magias, criar buracos
-          negros e manipular a ausência de matéria.
-        </p>
-        <h3 class="font-semibold text-gray-300 mb-1 tracking-wide">Habilidade:</h3>
-        <p class="mb-3 text-gray-400 leading-snug">
-          Manipulação do vazio para absorver energia e criar zonas de anulação
-          total.
-        </p>
-        <h3 class="font-semibold text-gray-300 mb-1 tracking-wide">
-          Peculiaridade:
-        </h3>
-        <p class="text-gray-400 leading-snug">
-          Sua presença suprime poderes ao redor e causa sensação de vazio
-          existencial.
-        </p>
-      </div>
-    </section>
-    <!-- Monarca Infinito -->
-    <section
-      id="monarca-infinito"
-      aria-label="Monarca do Infinito"
-      class="bg-gradient-to-tr from-indigo-700 via-purple-700 to-pink-600 rounded-3xl shadow-2xl overflow-hidden flex flex-col transform transition-transform hover:scale-[1.05] hover:shadow-pink-400/70 duration-300"
-    >
-      <img
-        src="ImagensMonarcas/MonarcaInfinito.png"
-        class="w-full h-48 object-cover"
-        height="400"
-        loading="lazy"
-        src="https://storage.googleapis.com/a1aa/image/3bd666cc-0636-423a-1a55-6fee4c52a67a.jpg"
-        width="600"
-      />
-      <div class="p-6 flex flex-col flex-grow">
-        <h2
-          class="text-2xl font-semibold mb-3 text-white drop-shadow-md tracking-wide"
-        >
-          Monarca do Infinito
-        </h2>
-        <p class="flex-grow text-gray-100/90 mb-5 leading-relaxed">
-          Detém o poder do infinito, manipulando espaço-tempo, criando
-          realidades alternativas e controlando o cosmos.
-        </p>
-        <h3 class="font-semibold text-pink-200 mb-1 tracking-wide">Habilidade:</h3>
-        <p class="mb-3 text-pink-300 leading-snug">
-          Manipulação do espaço-tempo, viagens dimensionais e criação de ilusões
-          cósmicas.
-        </p>
-        <h3 class="font-semibold text-pink-200 mb-1 tracking-wide">
-          Peculiaridade:
-        </h3>
-        <p class="text-pink-300 leading-snug">
-          Sua presença distorce a realidade e o tempo ao seu redor, confundindo
-          inimigos.
-        </p>
-      </div>
-    </section>
-    <!-- Monarca Destruição -->
-    <section
-      id="monarca-destruicao"
-      aria-label="Monarca da Destruição"
-      class="bg-gradient-to-tr from-red-900 via-red-800 to-red-700 rounded-3xl shadow-2xl overflow-hidden flex flex-col transform transition-transform hover:scale-[1.05] hover:shadow-red-500/70 duration-300"
-    >
-      <img
-        src="ImagensMonarcas/MonarcaDestruicao.webp"
-        class="w-full h-48 object-cover"
-        height="400"
-        loading="lazy"
-        src="https://storage.googleapis.com/a1aa/image/5d4c4153-6f6b-42aa-3f4a-98226f77f266.jpg"
-        width="600"
-      />
-      <div class="p-6 flex flex-col flex-grow">
-        <h2
-          class="text-2xl font-semibold mb-3 text-white drop-shadow-md tracking-wide"
-        >
-          Monarca da Destruição
-        </h2>
-        <p class="flex-grow text-gray-100/90 mb-5 leading-relaxed">
-          Incorpora o poder da destruição, capaz de causar terremotos,
-          explosões massivas e desintegrar matéria.
-        </p>
-        <h3 class="font-semibold text-red-300 mb-1 tracking-wide">Habilidade:</h3>
-        <p class="mb-3 text-red-400 leading-snug">
-          Manipulação de energia destrutiva para devastar áreas e aniquilar
-          inimigos.
-        </p>
-        <h3 class="font-semibold text-red-300 mb-1 tracking-wide">
-          Peculiaridade:
-        </h3>
-        <p class="text-red-400 leading-snug">
-          Sua presença causa instabilidade e medo, enfraquecendo a resistência
-          dos adversários.
-        </p>
-      </div>
-    </section>
-    <!-- Monarca Criação -->
-    <section
-      id="monarca-criacao"
-      aria-label="Monarca da Criação"
-      class="bg-gradient-to-tr from-green-700 via-green-600 to-green-400 rounded-3xl shadow-2xl overflow-hidden flex flex-col transform transition-transform hover:scale-[1.05] hover:shadow-green-400/70 duration-300"
-    >
-      <img
-        src="ImagensMonarcas/MonarcaCriacao.webp"
-        class="w-full h-48 object-cover"
-        height="400"
-        loading="lazy"
-        src="https://storage.googleapis.com/a1aa/image/8b72ccac-7727-4c2b-e12d-f9ca37de91d6.jpg"
-        width="600"
-      />
-      <div class="p-6 flex flex-col flex-grow">
-        <h2
-          class="text-2xl font-semibold mb-3 text-white drop-shadow-md tracking-wide"
-        >
-          Monarca da Criação
-        </h2>
-        <p class="flex-grow text-gray-100/90 mb-5 leading-relaxed">
-          Detentor do poder da criação, capaz de gerar vida, construir
-          estruturas e restaurar o que foi destruído.
-        </p>
-        <h3 class="font-semibold text-green-200 mb-1 tracking-wide">Habilidade:</h3>
-        <p class="mb-3 text-green-300 leading-snug">
-          Manipulação da energia da criação, para criar seres, gerar vida e
-          afins.
-        </p>
-        <h3 class="font-semibold text-green-200 mb-1 tracking-wide">
-          Peculiaridade:
-        </h3>
-        <p class="text-green-300 leading-snug">
-          Sua presença traz paz e crescimento, acelerando a regeneração natural
-          ao redor.
-        </p>
-      </div>
-    </section>
-  </main>
-
-  <!-- Carousel Cycle Section -->
-  <section
-    id="ciclo-monarcas"
-    aria-label="Ciclo animado dos Monarcas"
-    class="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 py-10 px-4 sm:px-6 lg:px-8 mt-12 rounded-t-3xl shadow-inner overflow-hidden"
-  >
-    <h2
-      class="text-center text-3xl font-bold text-yellow-400 mb-8 tracking-wide drop-shadow-lg"
-    >
-      O Ciclo Infinito dos Monarcas
-    </h2>
-    <div class="relative w-full overflow-hidden">
-      <div
-        class="flex space-x-8 whitespace-nowrap animate-scroll-left"
-        style="animation: scroll-left 40s linear infinite;"
-      >
-        <!-- Each item repeated twice for seamless loop -->
-        <div
-          aria-label="Monarca das Chamas"
-          class="flex flex-col items-center min-w-[100px] sm:min-w-[120px] bg-gradient-to-tr from-red-700 via-orange-600 to-yellow-500 rounded-2xl p-4 shadow-lg text-center cursor-default select-none"
-          role="listitem"
-          tabindex="0"
-        >
-          <img
-            alt="Ícone representando o Monarca das Chamas com chamas vivas"
-            class="w-20 h-20 rounded-full mb-2 object-cover shadow-md"
-            height="100"
-            loading="lazy"
-            src="https://storage.googleapis.com/a1aa/image/484da3b9-bfc8-470a-437e-ecb6d98d3d3f.jpg"
-            width="100"
-          />
-          <span class="font-semibold text-yellow-100 tracking-wide">Chamas</span>
-        </div>
-        <div
-          aria-label="Monarca do Gelo"
-          class="flex flex-col items-center min-w-[100px] sm:min-w-[120px] bg-gradient-to-tr from-cyan-700 via-blue-600 to-sky-400 rounded-2xl p-4 shadow-lg text-center cursor-default select-none"
-          role="listitem"
-          tabindex="0"
-        >
-          <img
-            alt="Ícone representando o Monarca do Gelo com cristais de gelo"
-            class="w-20 h-20 rounded-full mb-2 object-cover shadow-md"
-            height="100"
-            loading="lazy"
-            src="https://storage.googleapis.com/a1aa/image/bbf31737-d139-4243-1276-b151a592389a.jpg"
-            width="100"
-          />
-          <span class="font-semibold text-sky-100 tracking-wide">Gelo</span>
-        </div>
-        <div
-          aria-label="Monarca da Luz"
-          class="flex flex-col items-center min-w-[100px] sm:min-w-[120px] bg-gradient-to-tr from-yellow-400 via-yellow-300 to-yellow-200 rounded-2xl p-4 shadow-lg text-center cursor-default select-none"
-          role="listitem"
-          tabindex="0"
-        >
-          <img
-            alt="Ícone representando o Monarca da Luz com uma aura brilhante"
-            class="w-20 h-20 rounded-full mb-2 object-cover shadow-md"
-            height="100"
-            loading="lazy"
-            src="https://storage.googleapis.com/a1aa/image/d9213306-1163-4374-f333-f08c24a97281.jpg"
-            width="100"
-          />
-          <span class="font-semibold text-yellow-700 tracking-wide">Luz</span>
-        </div>
-        <div
-          aria-label="Monarca da Sombra"
-          class="flex flex-col items-center min-w-[100px] sm:min-w-[120px] bg-gradient-to-tr from-gray-800 via-gray-900 to-black rounded-2xl p-4 shadow-lg text-center cursor-default select-none"
-          role="listitem"
-          tabindex="0"
-        >
-          <img
-            alt="Ícone representando o Monarca da Sombra com sombras profundas"
-            class="w-20 h-20 rounded-full mb-2 object-cover shadow-md"
-            height="100"
-            loading="lazy"
-            src="https://storage.googleapis.com/a1aa/image/5d2ae428-8712-49f2-ba48-5155d3ae9c04.jpg"
-            width="100"
-          />
-          <span class="font-semibold text-gray-300 tracking-wide">Sombras</span>
-        </div>
-        <div
-          aria-label="Monarca do Vazio"
-          class="flex flex-col items-center min-w-[100px] sm:min-w-[120px] bg-gradient-to-tr from-gray-700 via-gray-600 to-gray-500 rounded-2xl p-4 shadow-lg text-center cursor-default select-none"
-          role="listitem"
-          tabindex="0"
-        >
-          <img
-            alt="Ícone representando o Monarca do Vazio com uma esfera vazia"
-            class="w-20 h-20 rounded-full mb-2 object-cover shadow-md"
-            height="100"
-            loading="lazy"
-            src="https://storage.googleapis.com/a1aa/image/ef0dcefb-1b89-4880-f5a3-210bc59eaa41.jpg"
-            width="100"
-          />
-          <span class="font-semibold text-gray-300 tracking-wide">Vazio</span>
-        </div>
-        <div
-          aria-label="Monarca do Infinito"
-          class="flex flex-col items-center min-w-[100px] sm:min-w-[120px] bg-gradient-to-tr from-indigo-700 via-purple-700 to-pink-600 rounded-2xl p-4 shadow-lg text-center cursor-default select-none"
-          role="listitem"
-          tabindex="0"
-        >
-          <img
-            alt="Ícone representando o Monarca do Infinito com galáxias e estrelas"
-            class="w-20 h-20 rounded-full mb-2 object-cover shadow-md"
-            height="100"
-            loading="lazy"
-            src="https://storage.googleapis.com/a1aa/image/b0455a8d-b864-4d52-9ccb-4c4a0f31a25d.jpg"
-            width="100"
-          />
-          <span class="font-semibold text-pink-200 tracking-wide">Infinito</span>
-        </div>
-        <div
-          aria-label="Monarca da Criação"
-          class="flex flex-col items-center min-w-[100px] sm:min-w-[120px] bg-gradient-to-tr from-green-700 via-green-600 to-green-400 rounded-2xl p-4 shadow-lg text-center cursor-default select-none"
-          role="listitem"
-          tabindex="0"
-        >
-          <img
-            alt="Ícone representando o Monarca da Criação com energia verde e folhagens"
-            class="w-20 h-20 rounded-full mb-2 object-cover shadow-md"
-            height="100"
-            loading="lazy"
-            src="https://storage.googleapis.com/a1aa/image/9f5d15a0-909a-4e62-4c51-9ef23fd213e1.jpg"
-            width="100"
-          />
-          <span class="font-semibold text-green-200 tracking-wide">Criação</span>
-        </div>
-        <div
-          aria-label="Monarca da Destruição"
-          class="flex flex-col items-center min-w-[100px] sm:min-w-[120px] bg-gradient-to-tr from-red-900 via-red-800 to-red-700 rounded-2xl p-4 shadow-lg text-center cursor-default select-none"
-          role="listitem"
-          tabindex="0"
-        >
-          <img
-            alt="Ícone representando o Monarca da Destruição com explosões e energia vermelha"
-            class="w-20 h-20 rounded-full mb-2 object-cover shadow-md"
-            height="100"
-            loading="lazy"
-            src="https://storage.googleapis.com/a1aa/image/0ce89bfe-9bfe-4d99-dfc2-460aef26381f.jpg"
-            width="100"
-          />
-          <span class="font-semibold text-red-300 tracking-wide">Destruição</span>
-        </div>
-      </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+     <!-- Uchiha Clan -->
+     <article class="bg-gray-800 rounded-xl shadow-lg p-6 flex flex-col hover:scale-[1.03] transition-transform duration-300">
+      <img src="ClansElementosNinjasImagens/Uchiha.webp" height="250" loading="lazy" src="https://storage.googleapis.com/a1aa/image/5ff2f6c3-2b5e-4339-7256-2089a2b0a984.jpg" width="400"/>
+      <h3 class="text-2xl font-semibold text-red-600 mb-3 font-['Roboto_Slab']">
+       Clã Uchiha
+      </h3>
+      <p class="flex-grow text-gray-300 mb-4">
+       <span class="font-semibold text-yellow-400">
+        Habilidade Especial:
+       </span>
+       Sharingan - Permite copiar técnicas, prever movimentos inimigos e
+            lançar genjutsus poderosos.
+      </p>
+      <p class="mb-4 text-gray-400 italic">
+       <span class="font-semibold">
+        Peculiaridade:
+       </span>
+       O Sharingan
+            evolui com o uso em batalha, desbloqueando níveis mais avançados
+            como Mangekyou, que concede técnicas devastadoras.
+      </p>
+      <p class="mb-4 text-red-400 font-semibold">
+       <i class="fas fa-exclamation-triangle mr-2">
+       </i>
+       Consequência:
+            O uso intenso do Sharingan causa fadiga ocular extrema, dores de
+            cabeça lancinantes, perda progressiva da visão e, em casos
+            extremos, cegueira permanente. Além disso, técnicas avançadas
+            drenam a energia vital, podendo levar a colapsos físicos.
+      </p>
+     </article>
+     <!-- Hyuga Clan -->
+     <article class="bg-gray-800 rounded-xl shadow-lg p-6 flex flex-col hover:scale-[1.03] transition-transform duration-300">
+      <img src="ClansElementosNinjasImagens/Hyuga.webp" class="rounded-md mb-4 object-contain h-48 w-full" height="250" loading="lazy" src="https://storage.googleapis.com/a1aa/image/66fff3ce-817b-4bf7-13a7-196b2cd69230.jpg" width="400"/>
+      <h3 class="text-2xl font-semibold text-blue-400 mb-3 font-['Roboto_Slab']">
+       Clã Hyuga
+      </h3>
+      <p class="flex-grow text-gray-300 mb-4">
+       <span class="font-semibold text-yellow-400">
+        Habilidade Especial:
+       </span>
+       Byakugan - Visão de 360 graus, capacidade de enxergar o sistema de
+            chakra e pontos vitais do inimigo.
+      </p>
+      <p class="mb-4 text-gray-400 italic">
+       <span class="font-semibold">
+        Peculiaridade:
+       </span>
+       Permite ataques
+            precisos nos pontos de chakra, bloqueando o fluxo de energia do
+            adversário e desabilitando suas técnicas.
+      </p>
+      <p class="mb-4 text-red-400 font-semibold">
+       <i class="fas fa-exclamation-triangle mr-2">
+       </i>
+       Consequência:
+            O uso prolongado do Byakugan causa dores de cabeça severas,
+            visão turva, náuseas e, em casos extremos, pode levar a
+            desorientação e perda temporária da visão, deixando o usuário
+            vulnerável.
+      </p>
+     </article>
+     <!-- Senju Clan -->
+     <article class="bg-gray-800 rounded-xl shadow-lg p-6 flex flex-col hover:scale-[1.03] transition-transform duration-300">
+      <img src="ClansElementosNinjasImagens/Senju.webp" class="rounded-md mb-4 object-contain h-48 w-full" height="250" loading="lazy" src="https://storage.googleapis.com/a1aa/image/625150b8-8090-4d71-2375-71d47db23b58.jpg" width="400"/>
+      <h3 class="text-2xl font-semibold text-green-500 mb-3 font-['Roboto_Slab']">
+       Clã Senju
+      </h3>
+      <p class="flex-grow text-gray-300 mb-4">
+       <span class="font-semibold text-yellow-400">
+        Habilidade Especial:
+       </span>
+       Vitalidade e Controle de Chakra - Regeneração acelerada e grande
+            reserva de chakra.
+      </p>
+      <p class="mb-4 text-gray-400 italic">
+       <span class="font-semibold">
+        Peculiaridade:
+       </span>
+       Capacidade de
+            curar ferimentos rapidamente e usar técnicas poderosas por mais
+            tempo, mantendo alta resistência física.
+      </p>
+      <p class="mb-4 text-red-400 font-semibold">
+       <i class="fas fa-exclamation-triangle mr-2">
+       </i>
+       Consequência:
+            Excesso de uso pode causar exaustão extrema, colapsos temporários,
+            falhas no sistema imunológico e vulnerabilidade a ataques
+            surpresa durante a recuperação.
+      </p>
+     </article>
+     <!-- Nara Clan -->
+     <article class="bg-gray-800 rounded-xl shadow-lg p-6 flex flex-col hover:scale-[1.03] transition-transform duration-300">
+      <img src="ClansElementosNinjasImagens/Nara.webp" class="rounded-md mb-4 object-contain h-48 w-full" height="250" loading="lazy" src="https://storage.googleapis.com/a1aa/image/a90ff5c2-d36f-4ec7-fb31-e673a675679b.jpg" width="400"/>
+      <h3 class="text-2xl font-semibold text-gray-400 mb-3 font-['Roboto_Slab']">
+       Clã Nara
+      </h3>
+      <p class="flex-grow text-gray-300 mb-4">
+       <span class="font-semibold text-yellow-400">
+        Habilidade Especial:
+       </span>
+       Controle das Sombras - Manipula sombras para prender e imobilizar
+            inimigos.
+      </p>
+      <p class="mb-4 text-gray-400 italic">
+       <span class="font-semibold">
+        Peculiaridade:
+       </span>
+       Pode estender
+            sombras para longas distâncias, criar armadilhas e manipular o
+            ambiente para controle tático.
+      </p>
+      <p class="mb-4 text-red-400 font-semibold">
+       <i class="fas fa-exclamation-triangle mr-2">
+       </i>
+       Consequência:
+            Uso prolongado causa fadiga muscular intensa, dores nas articulações,
+            rigidez e perda temporária de mobilidade, podendo deixar o usuário
+            incapacitado em combates longos.
+      </p>
+     </article>
+     <!-- Akimichi Clan -->
+     <article class="bg-gray-800 rounded-xl shadow-lg p-6 flex flex-col hover:scale-[1.03] transition-transform duration-300">
+      <img src="ClansElementosNinjasImagens/Akimichi.webp" class="rounded-md mb-4 object-contain h-48 w-full" height="250" loading="lazy" src="https://storage.googleapis.com/a1aa/image/6a3270a1-6484-41dc-f52e-b789b38b701d.jpg" width="400"/>
+      <h3 class="text-2xl font-semibold text-red-400 mb-3 font-['Roboto_Slab']">
+       Clã Akimichi
+      </h3>
+      <p class="flex-grow text-gray-300 mb-4">
+       <span class="font-semibold text-yellow-400">
+        Habilidade Especial:
+       </span>
+       Expansão Corporal - Pode aumentar partes do corpo para ataques
+            poderosos e defesa temporária.
+      </p>
+      <p class="mb-4 text-gray-400 italic">
+       <span class="font-semibold">
+        Peculiaridade:
+       </span>
+       Aumenta força,
+            alcance e resistência dos golpes, podendo esmagar inimigos e
+            absorver impactos.
+      </p>
+      <p class="mb-4 text-red-400 font-semibold">
+       <i class="fas fa-exclamation-triangle mr-2">
+       </i>
+       Consequência:
+            Uso excessivo causa gasto energético massivo, lentidão extrema,
+            dores musculares severas e risco de ruptura muscular, deixando o
+            usuário vulnerável após o efeito passar.
+      </p>
+     </article>
+     <!-- Inuzuka Clan -->
+     <article class="bg-gray-800 rounded-xl shadow-lg p-6 flex flex-col hover:scale-[1.03] transition-transform duration-300">
+      <img src="ClansElementosNinjasImagens/Inuzuka.webp" class="rounded-md mb-4 object-contain h-48 w-full" height="250" loading="lazy" src="https://storage.googleapis.com/a1aa/image/aa92fe96-e8ec-40f9-03e8-d201c6e77b54.jpg" width="400"/>
+      <h3 class="text-2xl font-semibold text-red-500 mb-3 font-['Roboto_Slab']">
+       Clã Inuzuka
+      </h3>
+      <p class="flex-grow text-gray-300 mb-4">
+       <span class="font-semibold text-yellow-400">
+        Habilidade Especial:
+       </span>
+       Sinergia com Cães - Aumenta sentidos, força e velocidade em
+            parceria com cães de caça.
+      </p>
+      <p class="mb-4 text-gray-400 italic">
+       <span class="font-semibold">
+        Peculiaridade:
+       </span>
+       Pode farejar
+            inimigos a grandes distâncias e realizar ataques coordenados
+            com seu cão, aumentando a eficácia em emboscadas.
+      </p>
+      <p class="mb-4 text-red-400 font-semibold">
+       <i class="fas fa-exclamation-triangle mr-2">
+       </i>
+       Consequência:
+            Dependência extrema do parceiro canino. Se separados, o usuário
+            sofre queda drástica nos sentidos, perda de força e queda de
+            moral, podendo entrar em estado de desespero.
+      </p>
+     </article>
+     <!-- Aburame Clan -->
+     <article class="bg-gray-800 rounded-xl shadow-lg p-6 flex flex-col hover:scale-[1.03] transition-transform duration-300">
+      <img src="ClansElementosNinjasImagens/Aburame.webp" class="rounded-md mb-4 object-contain h-48 w-full" height="250" loading="lazy" src="https://storage.googleapis.com/a1aa/image/0c1436fb-9f0c-40c9-4505-34561e58f292.jpg" width="400"/>
+      <h3 class="text-2xl font-semibold text-green-400 mb-3 font-['Roboto_Slab']">
+       Clã Aburame
+      </h3>
+      <p class="flex-grow text-gray-300 mb-4">
+       <span class="font-semibold text-yellow-400">
+        Habilidade Especial:
+       </span>
+       Controle de Insetos - Usa insetos para espionagem, ataque e defesa.
+      </p>
+      <p class="mb-4 text-gray-400 italic">
+       <span class="font-semibold">
+        Peculiaridade:
+       </span>
+       Insetos podem
+            se infiltrar em áreas inimigas, atacar em enxame e proteger o
+            usuário de ataques surpresa.
+      </p>
+      <p class="mb-4 text-red-400 font-semibold">
+       <i class="fas fa-exclamation-triangle mr-2">
+       </i>
+       Consequência:
+            Uso excessivo pode enfraquecer o usuário, causar reações alérgicas
+            graves, infecções e até intoxicação, comprometendo a saúde a
+            longo prazo.
+      </p>
+     </article>
+     <!-- Sarutobi Clan -->
+     <article class="bg-gray-800 rounded-xl shadow-lg p-6 flex flex-col hover:scale-[1.03] transition-transform duration-300">
+      <img src="ClansElementosNinjasImagens/Sarutobi.webp" class="rounded-md mb-4 object-contain h-48 w-full" height="250" loading="lazy" src="https://storage.googleapis.com/a1aa/image/36bbd1b3-9435-4507-8254-219956ba6df6.jpg" width="400"/>
+      <h3 class="text-2xl font-semibold text-yellow-400 mb-3 font-['Roboto_Slab']">
+       Clã Sarutobi
+      </h3>
+      <p class="flex-grow text-gray-300 mb-4">
+       <span class="font-semibold text-yellow-400">
+        Habilidade Especial:
+       </span>
+       Mestre em Jutsus - Versatilidade em técnicas ninjas e combate corpo
+            a corpo.
+      </p>
+      <p class="mb-4 text-gray-400 italic">
+       <span class="font-semibold">
+        Peculiaridade:
+       </span>
+       Pode adaptar
+            rapidamente estratégias em batalha, combinando ninjutsus, taijutsus
+            e genjutsus com maestria.
+      </p>
+      <p class="mb-4 text-red-400 font-semibold">
+       <i class="fas fa-exclamation-triangle mr-2">
+       </i>
+       Consequência:
+            Uso intenso e constante pode causar desgaste mental severo,
+            estresse crônico, insônia e fadiga física, reduzindo a eficácia
+            em combates prolongados.
+      </p>
+     </article>
+     <!-- Yamanaka Clan -->
+     <article class="bg-gray-800 rounded-xl shadow-lg p-6 flex flex-col hover:scale-[1.03] transition-transform duration-300">
+      <img src="ClansElementosNinjasImagens/Yamanaka.jpg" class="rounded-md mb-4 object-contain h-48 w-full" height="250" loading="lazy" src="https://storage.googleapis.com/a1aa/image/1e640790-cb9d-40ad-2600-68064f403e3b.jpg" width="400"/>
+      <h3 class="text-2xl font-semibold text-purple-400 mb-3 font-['Roboto_Slab']">
+       Clã Yamanaka
+      </h3>
+      <p class="flex-grow text-gray-300 mb-4">
+       <span class="font-semibold text-yellow-400">
+        Habilidade Especial:
+       </span>
+       Técnicas Mentais - Controle mental, telepatia e leitura de mentes
+            para espionagem e manipulação.
+      </p>
+      <p class="mb-4 text-gray-400 italic">
+       <span class="font-semibold">
+        Peculiaridade:
+       </span>
+       Pode acessar
+            mentes inimigas, compartilhar informações instantaneamente com
+            aliados e manipular emoções.
+      </p>
+      <p class="mb-4 text-red-400 font-semibold">
+       <i class="fas fa-exclamation-triangle mr-2">
+       </i>
+       Consequência:
+            Uso prolongado pode causar dores de cabeça intensas, confusão
+            mental, perda temporária da consciência e risco de danos
+            permanentes ao sistema nervoso.
+      </p>
+     </article>
+     <!-- Kaguya Clan -->
+     <article class="bg-gray-800 rounded-xl shadow-lg p-6 flex flex-col hover:scale-[1.03] transition-transform duration-300">
+      <img src="ClansElementosNinjasImagens/Kaguya.webp" class="rounded-md mb-4 object-contain h-48 w-full" height="250" loading="lazy" src="https://storage.googleapis.com/a1aa/image/e59ddbc0-7ad0-4a75-62dd-0fbdbc76cb79.jpg" width="400"/>
+      <h3 class="text-2xl font-semibold text-gray-400 mb-3 font-['Roboto_Slab']">
+       Clã Kaguya
+      </h3>
+      <p class="flex-grow text-gray-300 mb-4">
+       <span class="font-semibold text-yellow-400">
+        Habilidade Especial:
+       </span>
+       Manipulação Óssea - Pode criar armas e armaduras com ossos do
+            próprio corpo, aumentando defesa e ataque.
+      </p>
+      <p class="mb-4 text-gray-400 italic">
+       <span class="font-semibold">
+        Peculiaridade:
+       </span>
+       Oferece defesa
+            quase impenetrável e ataques devastadores, podendo moldar ossos
+            em diversas formas.
+      </p>
+      <p class="mb-4 text-red-400 font-semibold">
+       <i class="fas fa-exclamation-triangle mr-2">
+       </i>
+       Consequência:
+            Uso excessivo causa dores intensas, fraturas internas, redução
+            severa da mobilidade e risco de danos permanentes ao esqueleto.
+      </p>
+     </article>
     </div>
-    <p
-      class="mt-8 max-w-xl mx-auto text-center text-gray-300 text-sm sm:text-base leading-relaxed"
-    >
-      Cada Monarca domina um poder único que supera e é superado por outro,
-      formando um ciclo eterno de equilíbrio e conflito, onde o fogo aquece o
-      gelo, o gelo apaga a luz, a luz dissipa as sombras, as sombras engolem o
-      vazio, o vazio consome o infinito, o infinito cria a destruição, a
-      destruição alimenta a criação, e a criação renasce nas chamas.
+   </section>
+   <!-- Elements Section -->
+   <section>
+    <h2 class="text-3xl font-bold text-yellow-400 mb-6 border-b border-yellow-600 pb-2 max-w-max mx-auto">
+     Elementos Naturais
+    </h2>
+    <p class="text-center max-w-3xl mx-auto mb-10 text-gray-300 text-lg">
+     Escolha até dois elementos naturais para complementar seu clã. Cada
+        elemento oferece habilidades únicas, peculiaridades e consequências
+        severas para o uso.
     </p>
-  </section>
-
-  <footer
-    aria-label="Rodapé do site"
-    class="bg-gray-800 text-gray-400 text-center py-6 mt-16 select-none"
-  >
-    <p class="text-sm">© 2024 Cross Arise - Todos os direitos reservados</p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+     <!-- Fogo -->
+     <article class="bg-gray-800 rounded-xl shadow-lg p-6 flex flex-col hover:scale-[1.03] transition-transform duration-300">
+      <img src="ClansElementosNinjasImagens/Fogo.webp" class="rounded-md mb-4 object-contain h-48 w-full" height="250" loading="lazy" src="https://storage.googleapis.com/a1aa/image/79d68a8c-7fef-4a85-a182-e341ea0e6db2.jpg" width="400"/>
+      <h3 class="text-2xl font-semibold text-red-500 mb-3 font-['Roboto_Slab']">
+       Elemento Fogo
+      </h3>
+      <p class="flex-grow text-gray-300 mb-4">
+       <span class="font-semibold text-yellow-400">
+        Habilidade Especial:
+       </span>
+       Técnicas de fogo poderosas que causam queimaduras e explosões.
+      </p>
+      <p class="mb-4 text-gray-400 italic">
+       <span class="font-semibold">
+        Peculiaridade:
+       </span>
+       Pode manipular
+            chamas para ataques em área e criar barreiras de fogo.
+      </p>
+      <p class="mb-4 text-red-400 font-semibold">
+       <i class="fas fa-exclamation-triangle mr-2">
+       </i>
+       Consequência:
+            Uso excessivo pode causar queimaduras no próprio usuário,
+            desidratação severa, fadiga extrema e risco de incêndios
+            descontrolados que podem ferir aliados.
+      </p>
+     </article>
+     <!-- Água -->
+     <article class="bg-gray-800 rounded-xl shadow-lg p-6 flex flex-col hover:scale-[1.03] transition-transform duration-300">
+      <img src="ClansElementosNinjasImagens/Agua.png" class="rounded-md mb-4 object-contain h-48 w-full" height="250" loading="lazy" src="https://storage.googleapis.com/a1aa/image/c51c19a7-2f85-4ca6-f66b-67fa32503377.jpg" width="400"/>
+      <h3 class="text-2xl font-semibold text-blue-400 mb-3 font-['Roboto_Slab']">
+       Elemento Água
+      </h3>
+      <p class="flex-grow text-gray-300 mb-4">
+       <span class="font-semibold text-yellow-400">
+        Habilidade Especial:
+       </span>
+       Controle de água para ataques fluidos, cura e manipulação do ambiente.
+      </p>
+      <p class="mb-4 text-gray-400 italic">
+       <span class="font-semibold">
+        Peculiaridade:
+       </span>
+       Pode criar
+            escudos líquidos, redirecionar ataques e curar ferimentos leves.
+      </p>
+      <p class="mb-4 text-red-400 font-semibold">
+       <i class="fas fa-exclamation-triangle mr-2">
+       </i>
+       Consequência:
+            Uso prolongado pode causar hipotermia, fadiga muscular e
+            vulnerabilidade a ataques elétricos.
+      </p>
+     </article>
+     <!-- Terra -->
+     <article class="bg-gray-800 rounded-xl shadow-lg p-6 flex flex-col hover:scale-[1.03] transition-transform duration-300">
+      <img src="ClansElementosNinjasImagens/Terra.webp" class="rounded-md mb-4 object-contain h-48 w-full" height="250" loading="lazy" src="https://storage.googleapis.com/a1aa/image/00227624-8a1a-4594-2bc9-6c076648a8cc.jpg" width="400"/>
+      <h3 class="text-2xl font-semibold text-yellow-700 mb-3 font-['Roboto_Slab']">
+       Elemento Terra
+      </h3>
+      <p class="flex-grow text-gray-300 mb-4">
+       <span class="font-semibold text-yellow-400">
+        Habilidade Especial:
+       </span>
+       Manipulação de terra para criar barreiras, armas e alterar o terreno.
+      </p>
+      <p class="mb-4 text-gray-400 italic">
+       <span class="font-semibold">
+        Peculiaridade:
+       </span>
+       Pode endurecer
+            a pele temporariamente e controlar o solo para ataques defensivos
+            e ofensivos.
+      </p>
+      <p class="mb-4 text-red-400 font-semibold">
+       <i class="fas fa-exclamation-triangle mr-2">
+       </i>
+       Consequência:
+            Uso excessivo causa rigidez muscular, lentidão nos movimentos,
+            dores articulares e risco de fraturas por esforço.
+      </p>
+     </article>
+     <!-- Vento -->
+     <article class="bg-gray-800 rounded-xl shadow-lg p-6 flex flex-col hover:scale-[1.03] transition-transform duration-300">
+      <img SRC="ClansElementosNinjasImagens/Vento.webp" class="rounded-md mb-4 object-contain h-48 w-full" height="250" loading="lazy" src="https://storage.googleapis.com/a1aa/image/80c30274-e618-443b-e6c4-8376fb8f0054.jpg" width="400"/>
+      <h3 class="text-2xl font-semibold text-cyan-400 mb-3 font-['Roboto_Slab']">
+       Elemento Vento
+      </h3>
+      <p class="flex-grow text-gray-300 mb-4">
+       <span class="font-semibold text-yellow-400">
+        Habilidade Especial:
+       </span>
+       Técnicas de vento que cortam, empurram e aumentam a velocidade.
+      </p>
+      <p class="mb-4 text-gray-400 italic">
+       <span class="font-semibold">
+        Peculiaridade:
+       </span>
+       Pode criar
+            lâminas de vento afiadas e aumentar a agilidade em combate.
+      </p>
+      <p class="mb-4 text-red-400 font-semibold">
+       <i class="fas fa-exclamation-triangle mr-2">
+       </i>
+       Consequência:
+            Uso excessivo pode causar tontura, desorientação, perda de
+            equilíbrio e fadiga respiratória.
+      </p>
+     </article>
+     <!-- Relâmpago -->
+     <article class="bg-gray-800 rounded-xl shadow-lg p-6 flex flex-col hover:scale-[1.03] transition-transform duration-300">
+      <img src="ClansElementosNinjasImagens/Raio.webp" class="rounded-md mb-4 object-contain h-48 w-full" height="250" loading="lazy" src="https://storage.googleapis.com/a1aa/image/59d180de-8e2d-4f42-d45a-e756f94f0dc1.jpg" width="400"/>
+      <h3 class="text-2xl font-semibold text-yellow-300 mb-3 font-['Roboto_Slab']">
+       Elemento Relâmpago
+      </h3>
+      <p class="flex-grow text-gray-300 mb-4">
+       <span class="font-semibold text-yellow-400">
+        Habilidade Especial:
+       </span>
+       Técnicas elétricas que paralisam, causam choques e aumentam a
+            velocidade.
+      </p>
+      <p class="mb-4 text-gray-400 italic">
+       <span class="font-semibold">
+        Peculiaridade:
+       </span>
+       Pode eletrificar
+            armas e criar campos de choque para defesa.
+      </p>
+      <p class="mb-4 text-red-400 font-semibold">
+       <i class="fas fa-exclamation-triangle mr-2">
+       </i>
+       Consequência:
+            Uso excessivo pode causar queimaduras internas, paralisia
+            temporária, danos ao sistema nervoso e risco de ataques cardíacos.
+      </p>
+     </article>
+     <!-- Gelo -->
+     <article class="bg-gray-800 rounded-xl shadow-lg p-6 flex flex-col hover:scale-[1.03] transition-transform duration-300">
+      <img src="ClansElementosNinjasImagens/Gelo.webp" class="rounded-md mb-4 object-contain h-48 w-full" height="250" loading="lazy" src="https://storage.googleapis.com/a1aa/image/1872e24d-9259-4884-60d3-b2a74dbb2204.jpg" width="400"/>
+      <h3 class="text-2xl font-semibold text-blue-300 mb-3 font-['Roboto_Slab']">
+       Elemento Gelo
+      </h3>
+      <p class="flex-grow text-gray-300 mb-4">
+       <span class="font-semibold text-yellow-400">
+        Habilidade Especial:
+       </span>
+       Técnicas de congelamento que retardam inimigos e criam barreiras
+            sólidas.
+      </p>
+      <p class="mb-4 text-gray-400 italic">
+       <span class="font-semibold">
+        Peculiaridade:
+       </span>
+       Pode formar
+            armas e armaduras de gelo, além de diminuir a velocidade dos
+            adversários.
+      </p>
+      <p class="mb-4 text-red-400 font-semibold">
+       <i class="fas fa-exclamation-triangle mr-2">
+       </i>
+       Consequência:
+            Uso prolongado pode causar hipotermia, rigidez muscular,
+            tremores incontroláveis e danos permanentes aos tecidos.
+      </p>
+     </article>
+     <!-- Madeira -->
+     <article class="bg-gray-800 rounded-xl shadow-lg p-6 flex flex-col hover:scale-[1.03] transition-transform duration-300">
+      <img src="ClansElementosNinjasImagens/Madeira.jpg" class="rounded-md mb-4 object-contain h-48 w-full" height="250" loading="lazy" src="https://storage.googleapis.com/a1aa/image/bbbde408-528f-4c12-067c-0e7c4c9bb672.jpg" width="400"/>
+      <h3 class="text-2xl font-semibold text-green-600 mb-3 font-['Roboto_Slab']">
+       Elemento Madeira
+      </h3>
+      <p class="flex-grow text-gray-300 mb-4">
+       <span class="font-semibold text-yellow-400">
+        Habilidade Especial:
+       </span>
+       Controle de plantas para ataques, defesa e cura natural.
+      </p>
+      <p class="mb-4 text-gray-400 italic">
+       <span class="font-semibold">
+        Peculiaridade:
+       </span>
+       Pode criar
+            vinhas para prender inimigos, curar ferimentos e formar escudos
+            naturais.
+      </p>
+      <p class="mb-4 text-red-400 font-semibold">
+       <i class="fas fa-exclamation-triangle mr-2">
+       </i>
+       Consequência:
+            Uso excessivo pode causar exaustão, intoxicação por seiva,
+            reações alérgicas graves e perda temporária da mobilidade.
+      </p>
+     </article>
+    </div>
+   </section>
+   <!-- Roleta Section -->
+   <section class="max-w-4xl mx-auto bg-gray-800 rounded-xl shadow-lg p-8">
+    <h2 class="text-3xl font-bold text-yellow-400 mb-6 border-b border-yellow-600 pb-2 text-center font-['Roboto_Slab']">
+     Roleta de Sorteio
+    </h2>
+    <p class="text-center text-gray-300 mb-6">
+     Clique no botão para sortear aleatoriamente seu clã e até dois elementos
+        naturais. Boa sorte, ninja!
+    </p>
+    <div aria-live="polite" class="bg-gray-900 rounded-lg p-6 mb-6 text-center text-yellow-400 text-xl font-semibold min-h-[6rem] flex flex-col justify-center" id="result">
+     Seu clã e elementos aparecerão aqui.
+    </div>
+    <div class="flex justify-center space-x-4">
+     <button aria-label="Girar a roleta para sortear clã e elementos" class="bg-yellow-500 hover:bg-yellow-400 text-gray-900 font-bold py-3 px-8 rounded-lg shadow-lg transition-colors duration-300 flex items-center space-x-3" id="spinBtn">
+      <i class="fas fa-dice">
+      </i>
+      <span>
+       Girar Roleta
+      </span>
+     </button>
+    </div>
+   </section>
+  </main>
+  <footer class="bg-gray-900 py-6 mt-16">
+   <div class="container mx-auto px-4 text-center text-gray-500 text-sm">
+    © 2024 Cross Arise RPG. Todos os direitos reservados.
+   </div>
   </footer>
- </body>
+  <script>
+   (() => {
+      const clans = [
+        {
+          name: "Clã Uchiha",
+          color: "red-600",
+          description:
+            "Sharingan - Permite copiar técnicas, prever movimentos inimigos e lançar genjutsus poderosos.",
+          peculiarity:
+            "O Sharingan evolui com o uso em batalha, desbloqueando níveis mais avançados como Mangekyou, que concede técnicas devastadoras.",
+          consequence:
+            "O uso intenso do Sharingan causa fadiga ocular extrema, dores de cabeça lancinantes, perda progressiva da visão e, em casos extremos, cegueira permanente. Além disso, técnicas avançadas drenam a energia vital, podendo levar a colapsos físicos.",
+        },
+        {
+          name: "Clã Hyuga",
+          color: "blue-400",
+          description:
+            "Byakugan - Visão de 360 graus, capacidade de enxergar o sistema de chakra e pontos vitais do inimigo.",
+          peculiarity:
+            "Permite ataques precisos nos pontos de chakra, bloqueando o fluxo de energia do adversário e desabilitando suas técnicas.",
+          consequence:
+            "O uso prolongado do Byakugan causa dores de cabeça severas, visão turva, náuseas e, em casos extremos, pode levar a desorientação e perda temporária da visão, deixando o usuário vulnerável.",
+        },
+        {
+          name: "Clã Senju",
+          color: "green-500",
+          description:
+            "Vitalidade e Controle de Chakra - Regeneração acelerada e grande reserva de chakra.",
+          peculiarity:
+            "Capacidade de curar ferimentos rapidamente e usar técnicas poderosas por mais tempo, mantendo alta resistência física.",
+          consequence:
+            "Excesso de uso pode causar exaustão extrema, colapsos temporários, falhas no sistema imunológico e vulnerabilidade a ataques surpresa durante a recuperação.",
+        },
+        {
+          name: "Clã Nara",
+          color: "gray-400",
+          description:
+            "Controle das Sombras - Manipula sombras para prender e imobilizar inimigos.",
+          peculiarity:
+            "Pode estender sombras para longas distâncias, criar armadilhas e manipular o ambiente para controle tático.",
+          consequence:
+            "Uso prolongado causa fadiga muscular intensa, dores nas articulações, rigidez e perda temporária de mobilidade, podendo deixar o usuário incapacitado em combates longos.",
+        },
+        {
+          name: "Clã Akimichi",
+          color: "red-400",
+          description:
+            "Expansão Corporal - Pode aumentar partes do corpo para ataques poderosos e defesa temporária.",
+          peculiarity:
+            "Aumenta força, alcance e resistência dos golpes, podendo esmagar inimigos e absorver impactos.",
+          consequence:
+            "Uso excessivo causa gasto energético massivo, lentidão extrema, dores musculares severas e risco de ruptura muscular, deixando o usuário vulnerável após o efeito passar.",
+        },
+        {
+          name: "Clã Inuzuka",
+          color: "red-500",
+          description:
+            "Sinergia com Cães - Aumenta sentidos, força e velocidade em parceria com cães de caça.",
+          peculiarity:
+            "Pode farejar inimigos a grandes distâncias e realizar ataques coordenados com seu cão, aumentando a eficácia em emboscadas.",
+          consequence:
+            "Dependência extrema do parceiro canino. Se separados, o usuário sofre queda drástica nos sentidos, perda de força e queda de moral, podendo entrar em estado de desespero.",
+        },
+        {
+          name: "Clã Aburame",
+          color: "green-400",
+          description:
+            "Controle de Insetos - Usa insetos para espionagem, ataque e defesa.",
+          peculiarity:
+            "Insetos podem se infiltrar em áreas inimigas, atacar em enxame e proteger o usuário de ataques surpresa.",
+          consequence:
+            "Uso excessivo pode enfraquecer o usuário, causar reações alérgicas graves, infecções e até intoxicação, comprometendo a saúde a longo prazo.",
+        },
+        {
+          name: "Clã Sarutobi",
+          color: "yellow-400",
+          description:
+            "Mestre em Jutsus - Versatilidade em técnicas ninjas e combate corpo a corpo.",
+          peculiarity:
+            "Pode adaptar rapidamente estratégias em batalha, combinando ninjutsus, taijutsus e genjutsus com maestria.",
+          consequence:
+            "Uso intenso e constante pode causar desgaste mental severo, estresse crônico, insônia e fadiga física, reduzindo a eficácia em combates prolongados.",
+        },
+        {
+          name: "Clã Yamanaka",
+          color: "purple-400",
+          description:
+            "Técnicas Mentais - Controle mental, telepatia e leitura de mentes para espionagem e manipulação.",
+          peculiarity:
+            "Pode acessar mentes inimigas, compartilhar informações instantaneamente com aliados e manipular emoções.",
+          consequence:
+            "Uso prolongado pode causar dores de cabeça intensas, confusão mental, perda temporária da consciência e risco de danos permanentes ao sistema nervoso.",
+        },
+        {
+          name: "Clã Kaguya",
+          color: "gray-400",
+          description:
+            "Manipulação Óssea - Pode criar armas e armaduras com ossos do próprio corpo, aumentando defesa e ataque.",
+          peculiarity:
+            "Oferece defesa quase impenetrável e ataques devastadores, podendo moldar ossos em diversas formas.",
+          consequence:
+            "Uso excessivo causa dores intensas, fraturas internas, redução severa da mobilidade e risco de danos permanentes ao esqueleto.",
+        },
+      ];
+
+      const elements = [
+        {
+          name: "Fogo",
+          color: "red-500",
+          description:
+            "Técnicas de fogo poderosas que causam queimaduras e explosões.",
+          peculiarity:
+            "Pode manipular chamas para ataques em área e criar barreiras de fogo.",
+          consequence:
+            "Uso excessivo pode causar queimaduras no próprio usuário, desidratação severa, fadiga extrema e risco de incêndios descontrolados que podem ferir aliados.",
+        },
+        {
+          name: "Água",
+          color: "blue-400",
+          description:
+            "Controle de água para ataques fluidos, cura e manipulação do ambiente.",
+          peculiarity:
+            "Pode criar escudos líquidos, redirecionar ataques e curar ferimentos leves.",
+          consequence:
+            "Uso prolongado pode causar hipotermia, fadiga muscular e vulnerabilidade a ataques elétricos.",
+        },
+        {
+          name: "Terra",
+          color: "yellow-700",
+          description:
+            "Manipulação de terra para criar barreiras, armas e alterar o terreno.",
+          peculiarity:
+            "Pode endurecer a pele temporariamente e controlar o solo para ataques defensivos e ofensivos.",
+          consequence:
+            "Uso excessivo causa rigidez muscular, lentidão nos movimentos, dores articulares e risco de fraturas por esforço.",
+        },
+        {
+          name: "Vento",
+          color: "cyan-400",
+          description:
+            "Técnicas de vento que cortam, empurram e aumentam a velocidade.",
+          peculiarity:
+            "Pode criar lâminas de vento afiadas e aumentar a agilidade em combate.",
+          consequence:
+            "Uso excessivo pode causar tontura, desorientação, perda de equilíbrio e fadiga respiratória.",
+        },
+        {
+          name: "Relâmpago",
+          color: "yellow-300",
+          description:
+            "Técnicas elétricas que paralisam, causam choques e aumentam a velocidade.",
+          peculiarity:
+            "Pode eletrificar armas e criar campos de choque para defesa.",
+          consequence:
+            "Uso excessivo pode causar queimaduras internas, paralisia temporária, danos ao sistema nervoso e risco de ataques cardíacos.",
+        },
+        {
+          name: "Gelo",
+          color: "blue-300",
+          description:
+            "Técnicas de congelamento que retardam inimigos e criam barreiras sólidas.",
+          peculiarity:
+            "Pode formar armas e armaduras de gelo, além de diminuir a velocidade dos adversários.",
+          consequence:
+            "Uso prolongado pode causar hipotermia, rigidez muscular, tremores incontroláveis e danos permanentes aos tecidos.",
+        },
+        {
+          name: "Madeira",
+          color: "green-600",
+          description:
+            "Controle de plantas para ataques, defesa e cura natural.",
+          peculiarity:
+            "Pode criar vinhas para prender inimigos, curar ferimentos e formar escudos naturais.",
+          consequence:
+            "Uso excessivo pode causar exaustão, intoxicação por seiva, reações alérgicas graves e perda temporária da mobilidade.",
+        },
+      ];
+
+      const spinBtn = document.getElementById("spinBtn");
+      const resultDiv = document.getElementById("result");
+
+      function getRandomInt(max) {
+        return Math.floor(Math.random() * max);
+      }
+
+      function pickRandomClans() {
+        const clan = clans[getRandomInt(clans.length)];
+        return clan;
+      }
+
+      function pickRandomElements() {
+        // Pick 1 or 2 unique elements
+        const first = elements[getRandomInt(elements.length)];
+        let second = null;
+        if (elements.length > 1) {
+          do {
+            second = elements[getRandomInt(elements.length)];
+          } while (second.name === first.name);
+        }
+        return second ? [first, second] : [first];
+      }
+
+      function createColoredSpan(text, color) {
+        return `<span class="font-semibold text-yellow-400">${text}</span>`;
+      }
+
+      function createResultHTML(clan, elementsPicked) {
+        let html = `<div class="mb-4">
+          <h3 class="text-2xl font-bold mb-2 text-yellow-400 font-['Roboto_Slab']">Clã Sorteado:</h3>
+          <p class="text-${clan.color} font-semibold text-xl mb-1">${clan.name}</p>
+          <p class="text-gray-300 mb-1"><strong>Habilidade Especial:</strong> ${clan.description}</p>
+          <p class="text-gray-400 italic mb-1"><strong>Peculiaridade:</strong> ${clan.peculiarity}</p>
+          <p class="text-red-400 font-semibold"><i class="fas fa-exclamation-triangle mr-2"></i><strong>Consequência:</strong> ${clan.consequence}</p>
+        </div>`;
+
+        html += `<div>
+          <h3 class="text-2xl font-bold mb-2 text-yellow-400 font-['Roboto_Slab']">Elemento(s) Sorteado(s):</h3>`;
+
+        elementsPicked.forEach((el) => {
+          html += `<div class="mb-4">
+            <p class="text-${el.color} font-semibold text-xl mb-1">${el.name}</p>
+            <p class="text-gray-300 mb-1"><strong>Habilidade Especial:</strong> ${el.description}</p>
+            <p class="text-gray-400 italic mb-1"><strong>Peculiaridade:</strong> ${el.peculiarity}</p>
+            <p class="text-red-400 font-semibold"><i class="fas fa-exclamation-triangle mr-2"></i><strong>Consequência:</strong> ${el.consequence}</p>
+          </div>`;
+        });
+
+        return html;
+      }
+
+      spinBtn.addEventListener("click", () => {
+        spinBtn.disabled = true;
+        spinBtn.classList.add("opacity-50", "cursor-not-allowed");
+        resultDiv.innerHTML = `<p class="text-gray-400 animate-pulse">Girando a roleta...</p>`;
+
+        setTimeout(() => {
+          const clan = pickRandomClans();
+          const elementsPicked = pickRandomElements();
+
+          resultDiv.innerHTML = createResultHTML(clan, elementsPicked);
+
+          spinBtn.disabled = false;
+          spinBtn.classList.remove("opacity-50", "cursor-not-allowed");
+        }, 1500);
+      });
+    })();
+  </script>
+ </body> 
 </html>
