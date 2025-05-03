@@ -1,19 +1,16 @@
 <html class="scroll-smooth" lang="pt-BR">
  <head>
-  <meta charset="utf-8" />
-  <meta content="width=device-width, initial-scale=1" name="viewport" />
-  <title>Cross Arise - Magias dos Magos</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-    rel="stylesheet"
-  />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Slab&display=swap"
-    rel="stylesheet"
-  />
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Cross Arise - Magias dos Magos
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&amp;family=Roboto+Slab&amp;display=swap" rel="stylesheet"/>
   <style>
-    body {
+   body {
       font-family: "Montserrat", sans-serif;
       background: #0f172a;
       color: #e0e7ff;
@@ -235,68 +232,45 @@
  <body class="min-h-screen flex flex-col">
   <!-- Navbar -->
   <nav class="bg-purple-900 shadow-lg sticky top-0 z-50">
-   <div
-     class="max-w-7xl mx-auto flex items-center justify-between h-16 px-4 sm:px-6 lg:px-8"
-   >
-    <a
-      href="../classes.html"
-      class="flex items-center text-white hover:text-purple-300 transition flex-shrink-0"
-      aria-label="Voltar para Classes"
-    >
-     <i class="fas fa-arrow-left mr-2"></i>
-     <span class="font-bold text-lg truncate max-w-[140px]">Voltar</span>
+   <div class="max-w-7xl mx-auto flex items-center justify-between h-16 px-4 sm:px-6 lg:px-8">
+    <a aria-label="Voltar para Classes" class="flex items-center text-white hover:text-purple-300 transition flex-shrink-0" href="../classes.html">
+     <i class="fas fa-arrow-left mr-2">
+     </i>
+     <span class="font-bold text-lg truncate max-w-[140px]">
+      Voltar
+     </span>
     </a>
     <div class="hamburger-container md:hidden">
-     <button
-       id="menuBtn"
-       aria-label="Abrir menu"
-       aria-expanded="false"
-       aria-controls="menuDropdown"
-       class="text-white focus:outline-none focus:ring-2 focus:ring-purple-400 rounded-md"
-     >
-      <i class="fas fa-bars fa-lg"></i>
+     <button aria-controls="menuDropdown" aria-expanded="false" aria-label="Abrir menu" class="text-white focus:outline-none focus:ring-2 focus:ring-purple-400 rounded-md" id="menuBtn">
+      <i class="fas fa-bars fa-lg">
+      </i>
      </button>
     </div>
    </div>
-   <div
-     id="menuDropdown"
-     class="hidden absolute right-4 top-16 w-48 bg-purple-800 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none z-50"
-     role="menu"
-     aria-orientation="vertical"
-     aria-labelledby="menuBtn"
-   >
-    <a
-      href="#grimorios"
-      class="block px-4 py-2 text-sm text-purple-200 hover:bg-purple-700 hover:text-white"
-      role="menuitem"
-      >Grimórios</a
-    >
-    <a
-      href="#feiticos-simples"
-      class="block px-4 py-2 text-sm text-purple-200 hover:bg-purple-700 hover:text-white"
-      role="menuitem"
-      >Feitiços Simples</a
-    >
-    <a
-      href="#roleta"
-      class="block px-4 py-2 text-sm text-purple-200 hover:bg-purple-700 hover:text-white"
-      role="menuitem"
-      >Roleta de Magia</a
-    >
+   <div aria-labelledby="menuBtn" aria-orientation="vertical" class="hidden absolute right-4 top-16 w-48 bg-purple-800 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none z-50" id="menuDropdown" role="menu">
+    <a class="block px-4 py-2 text-sm text-purple-200 hover:bg-purple-700 hover:text-white" href="#grimorios" role="menuitem">
+     Grimórios
+    </a>
+    <a class="block px-4 py-2 text-sm text-purple-200 hover:bg-purple-700 hover:text-white" href="#feiticos-simples" role="menuitem">
+     Feitiços Simples
+    </a>
+    <a class="block px-4 py-2 text-sm text-purple-200 hover:bg-purple-700 hover:text-white" href="#roleta" role="menuitem">
+     Roleta de Magia
+    </a>
    </div>
   </nav>
-
   <main class="flex-grow max-w-7xl mx-auto py-8 space-y-20">
    <!-- Introdução e Tipos de Magia -->
    <section>
-    <h2
-      class="text-3xl font-bold mb-6 border-b-4 border-purple-700 inline-block pb-1 text-center"
-    >
+    <h2 class="text-3xl font-bold mb-6 border-b-4 border-purple-700 inline-block pb-1 text-center">
      Tipos de Magia dos Magos
     </h2>
     <p class="mb-6 max-w-3xl text-purple-200 leading-relaxed mx-auto text-center">
      No universo de
-     <span class="font-semibold text-purple-400">Cross Arise</span>, os magos
+     <span class="font-semibold text-purple-400">
+      Cross Arise
+     </span>
+     , os magos
      dominam diversas formas de magia, cada uma com suas peculiaridades,
      habilidades e níveis de perícia específicos. Abaixo, exploramos as principais
      escolas de magia que um mago pode dominar:
@@ -304,17 +278,12 @@
     <div class="card-grid">
      <!-- Magia de Fogo -->
      <article aria-labelledby="fogo-title">
-      <h3
-        class="text-xl font-semibold mb-3 text-yellow-400 flex items-center"
-        id="fogo-title"
-      >
-       <i class="fas fa-fire mr-2" aria-hidden="true"></i> Magia de Fogo
+      <h3 class="text-xl font-semibold mb-3 text-yellow-400 flex items-center" id="fogo-title">
+       <i aria-hidden="true" class="fas fa-fire mr-2">
+       </i>
+       Magia de Fogo
       </h3>
-      <img
-        alt="Bola de fogo explodindo em uma floresta, com chamas intensas e faíscas voando"
-        src="https://storage.googleapis.com/a1aa/image/b12d04bb-c653-4eb7-ae82-da70f3b38526.jpg"
-        loading="lazy"
-      />
+      <img SRC="MagoMagias/Fogo.webp" loading="lazy" src="https://storage.googleapis.com/a1aa/image/b12d04bb-c653-4eb7-ae82-da70f3b38526.jpg"/>
       <p class="text-purple-200 mb-3">
        A magia de fogo é a manifestação do poder destrutivo e ardente. Mago que
        domina essa escola possui alta perícia em manipular chamas, causando
@@ -323,24 +292,25 @@
        tornando cada chama única.
       </p>
       <ul class="list-disc list-inside text-yellow-300 mb-2">
-       <li>Explosões, chamas contínuas, manipulação de calor.</li>
-       <li>Perícia: Alta, exige controle e experiência.</li>
-       <li>Periculosidade: Alta, pode causar danos colaterais.</li>
+       <li>
+        Explosões, chamas contínuas, manipulação de calor.
+       </li>
+       <li>
+        Perícia: Alta, exige controle e experiência.
+       </li>
+       <li>
+        Periculosidade: Alta, pode causar danos colaterais.
+       </li>
       </ul>
      </article>
      <!-- Magia de Água -->
      <article aria-labelledby="agua-title">
-      <h3
-        class="text-xl font-semibold mb-3 text-blue-400 flex items-center"
-        id="agua-title"
-      >
-       <i class="fas fa-tint mr-2" aria-hidden="true"></i> Magia de Água
+      <h3 class="text-xl font-semibold mb-3 text-blue-400 flex items-center" id="agua-title">
+       <i aria-hidden="true" class="fas fa-tint mr-2">
+       </i>
+       Magia de Água
       </h3>
-      <img
-        alt="Ondas de água cristalina se formando em um círculo mágico, com gotas brilhantes e reflexos"
-        src="https://storage.googleapis.com/a1aa/image/13520c8f-5a26-48e0-0bdc-242f75721309.jpg"
-        loading="lazy"
-      />
+      <img src="MagoMagias/Agua.webp" loading="lazy" src="https://storage.googleapis.com/a1aa/image/13520c8f-5a26-48e0-0bdc-242f75721309.jpg"/>
       <p class="text-purple-200 mb-3">
        A magia de água é fluida e versátil, permitindo ao mago controlar líquidos,
        curar ferimentos e criar barreiras defensivas. Assim como na magia de fogo,
@@ -348,135 +318,258 @@
        tornando cada manipulação única e pessoal.
       </p>
       <ul class="list-disc list-inside text-blue-300 mb-2">
-       <li>Manipulação de líquidos, cura, escudos de água.</li>
-       <li>Perícia: Média a alta, requer equilíbrio e concentração.</li>
-       <li>Periculosidade: Média, mais defensiva e utilitária.</li>
+       <li>
+        Manipulação de líquidos, cura, escudos de água.
+       </li>
+       <li>
+        Perícia: Média a alta, requer equilíbrio e concentração.
+       </li>
+       <li>
+        Periculosidade: Média, mais defensiva e utilitária.
+       </li>
       </ul>
      </article>
      <!-- Magia de Ar -->
      <article aria-labelledby="ar-title">
-      <h3
-        class="text-xl font-semibold mb-3 text-sky-400 flex items-center"
-        id="ar-title"
-      >
-       <i class="fas fa-wind mr-2" aria-hidden="true"></i> Magia de Ar
+      <h3 class="text-xl font-semibold mb-3 text-sky-400 flex items-center" id="ar-title">
+       <i aria-hidden="true" class="fas fa-wind mr-2">
+       </i>
+       Magia de Ar
       </h3>
-      <img
-        alt="Rajada de vento soprando folhas e poeira, criando um redemoinho mágico"
-        src="https://storage.googleapis.com/a1aa/image/470e1b54-27c2-4a04-e95f-607c5c66d4b7.jpg"
-        loading="lazy"
-      />
+      <img src="MagoMagias/Ventoo.webp" loading="lazy" src="https://storage.googleapis.com/a1aa/image/470e1b54-27c2-4a04-e95f-607c5c66d4b7.jpg"/>
       <p class="text-purple-200 mb-3">
        A magia de ar é rápida e evasiva, permitindo ao mago manipular ventos para
        ataques, defesas e mobilidade. É uma magia que exige agilidade mental e
        física.
       </p>
       <ul class="list-disc list-inside text-sky-300 mb-2">
-       <li>Rajadas de vento, voo, aumento de velocidade.</li>
-       <li>Perícia: Média, requer agilidade e controle.</li>
-       <li>Periculosidade: Média a alta, dependendo da intensidade.</li>
+       <li>
+        Rajadas de vento, voo, aumento de velocidade.
+       </li>
+       <li>
+        Perícia: Média, requer agilidade e controle.
+       </li>
+       <li>
+        Periculosidade: Média a alta, dependendo da intensidade.
+       </li>
       </ul>
      </article>
      <!-- Magia de Terra -->
      <article aria-labelledby="terra-title">
-      <h3
-        class="text-xl font-semibold mb-3 text-emerald-400 flex items-center"
-        id="terra-title"
-      >
-       <i class="fas fa-mountain mr-2" aria-hidden="true"></i> Magia de Terra
+      <h3 class="text-xl font-semibold mb-3 text-emerald-400 flex items-center" id="terra-title">
+       <i aria-hidden="true" class="fas fa-mountain mr-2">
+       </i>
+       Magia de Terra
       </h3>
-      <img
-        alt="Rochas e raízes se movendo magicamente, formando barreiras e ataques"
-        src="https://storage.googleapis.com/a1aa/image/4222d36d-2bbd-4f9c-232a-bd919263c6a6.jpg"
-        loading="lazy"
-      />
+      <img src="MagoMagias/TERRA.webp" loading="lazy" src="https://storage.googleapis.com/a1aa/image/4222d36d-2bbd-4f9c-232a-bd919263c6a6.jpg"/>
       <p class="text-purple-200 mb-3">
        A magia de terra é sólida e resistente, focada em defesa, controle do terreno
        e ataques pesados. O mago que a domina é paciente e forte.
       </p>
       <ul class="list-disc list-inside text-emerald-300 mb-2">
-       <li>Barreira de pedra, terremotos, manipulação de raízes.</li>
-       <li>Perícia: Alta, exige força e paciência.</li>
-       <li>Periculosidade: Alta, com grande poder defensivo e ofensivo.</li>
+       <li>
+        Barreira de pedra, terremotos, manipulação de raízes.
+       </li>
+       <li>
+        Perícia: Alta, exige força e paciência.
+       </li>
+       <li>
+        Periculosidade: Alta, com grande poder defensivo e ofensivo.
+       </li>
       </ul>
      </article>
      <!-- Magia de Gelo -->
      <article aria-labelledby="gelo-title">
-      <h3
-        class="text-xl font-semibold mb-3 text-cyan-400 flex items-center"
-        id="gelo-title"
-      >
-       <i class="fas fa-snowflake mr-2" aria-hidden="true"></i> Magia de Gelo
+      <h3 class="text-xl font-semibold mb-3 text-cyan-400 flex items-center" id="gelo-title">
+       <i aria-hidden="true" class="fas fa-snowflake mr-2">
+       </i>
+       Magia de Gelo
       </h3>
-      <img
-        alt="Cristais de gelo brilhando e neve caindo suavemente em um campo congelado"
-        src="https://storage.googleapis.com/a1aa/image/d280d7a4-86a2-4029-d98d-1cf670e02393.jpg"
-        loading="lazy"
-      />
+      <img src="MagoMagias/Gelo.webp" loading="lazy" src="https://storage.googleapis.com/a1aa/image/d280d7a4-86a2-4029-d98d-1cf670e02393.jpg"/>
       <p class="text-purple-200 mb-3">
        A magia de gelo é fria e controlada, capaz de congelar inimigos, criar armaduras
        e manipular o frio para retardar movimentos.
       </p>
       <ul class="list-disc list-inside text-cyan-300 mb-2">
-       <li>Congelamento, armaduras de gelo, rajadas congelantes.</li>
-       <li>Perícia: Média, requer controle e precisão.</li>
-       <li>Periculosidade: Média, com controle e dano moderado.</li>
+       <li>
+        Congelamento, armaduras de gelo, rajadas congelantes.
+       </li>
+       <li>
+        Perícia: Média, requer controle e precisão.
+       </li>
+       <li>
+        Periculosidade: Média, com controle e dano moderado.
+       </li>
       </ul>
      </article>
      <!-- Magia de Luz -->
      <article aria-labelledby="luz-title">
-      <h3
-        class="text-xl font-semibold mb-3 text-yellow-300 flex items-center"
-        id="luz-title"
-      >
-       <i class="fas fa-lightbulb mr-2" aria-hidden="true"></i> Magia de Luz
+      <h3 class="text-xl font-semibold mb-3 text-yellow-300 flex items-center" id="luz-title">
+       <i aria-hidden="true" class="fas fa-lightbulb mr-2">
+       </i>
+       Magia de Luz
       </h3>
-      <img
-        alt="Raio luminoso brilhando intensamente, iluminando uma caverna escura"
-        src="https://storage.googleapis.com/a1aa/image/f017faf1-f685-4bbb-066c-56a7d8686c78.jpg"
-        loading="lazy"
-      />
+      <img src="MagoMagias/LUZ.webp" loading="lazy" src="https://storage.googleapis.com/a1aa/image/f017faf1-f685-4bbb-066c-56a7d8686c78.jpg"/>
       <p class="text-purple-200 mb-3">
        A magia de luz é pura e sagrada, usada para cura, proteção e ataques que cegam
        ou purificam.
       </p>
       <ul class="list-disc list-inside text-yellow-300 mb-2">
-       <li>Cura, escudos de luz, ataques cegantes.</li>
-       <li>Perícia: Média, focada em suporte e defesa.</li>
-       <li>Periculosidade: Baixa a média.</li>
+       <li>
+        Cura, escudos de luz, ataques cegantes.
+       </li>
+       <li>
+        Perícia: Média, focada em suporte e defesa.
+       </li>
+       <li>
+        Periculosidade: Baixa a média.
+       </li>
       </ul>
      </article>
      <!-- Magia das Sombras -->
      <article aria-labelledby="sombras-title">
-      <h3
-        class="text-xl font-semibold mb-3 text-gray-400 flex items-center"
-        id="sombras-title"
-      >
-       <i class="fas fa-moon mr-2" aria-hidden="true"></i> Magia das Sombras
+      <h3 class="text-xl font-semibold mb-3 text-gray-400 flex items-center" id="sombras-title">
+       <i aria-hidden="true" class="fas fa-moon mr-2">
+       </i>
+       Magia das Sombras
       </h3>
-      <img
-        alt="Neblina escura envolvendo silhuetas misteriosas em um ambiente sombrio"
-        src="https://storage.googleapis.com/a1aa/image/b1441251-b1e1-4418-f3d7-b69bead08759.jpg"
-        loading="lazy"
-      />
+      <img src="MagoMagias/Sombra.webp" loading="lazy" src="https://storage.googleapis.com/a1aa/image/b1441251-b1e1-4418-f3d7-b69bead08759.jpg"/>
       <p class="text-purple-200 mb-3">
        A magia das sombras é furtiva e traiçoeira, permitindo manipulação de escuridão,
        ilusões e ataques furtivos.
       </p>
       <ul class="list-disc list-inside text-gray-400 mb-2">
-       <li>Invisibilidade, ilusões, ataques de escuridão.</li>
-       <li>Perícia: Alta, com potencial para controle mental e dano oculto.</li>
-       <li>Periculosidade: Alta.</li>
+       <li>
+        Invisibilidade, ilusões, ataques de escuridão.
+       </li>
+       <li>
+        Perícia: Alta, com potencial para controle mental e dano oculto.
+       </li>
+       <li>
+        Periculosidade: Alta.
+       </li>
+      </ul>
+     </article>
+     <!-- Magia de Raio -->
+     <article aria-labelledby="raio-title">
+      <h3 class="text-xl font-semibold mb-3 text-indigo-400 flex items-center" id="raio-title">
+       <i aria-hidden="true" class="fas fa-bolt mr-2">
+       </i>
+       Magia de Raio
+      </h3>
+      <img Src="MagoMagias/Raio.webp" height="400" loading="lazy" src="https://storage.googleapis.com/a1aa/image/8e1461c2-fcd3-4cc3-6e9a-312e5938f7c7.jpg" width="600"/>
+      <p class="text-purple-200 mb-3">
+       A magia de raio é rápida e poderosa, capaz de eletrocutar inimigos e desestabilizar equipamentos.
+      </p>
+      <ul class="list-disc list-inside text-indigo-300 mb-2">
+       <li>
+        Descargas elétricas, paralisia, ataques rápidos.
+       </li>
+       <li>
+        Perícia: Alta, requer precisão e controle.
+       </li>
+       <li>
+        Periculosidade: Alta, pode causar danos colaterais.
+       </li>
+      </ul>
+     </article>
+     <!-- Magia de Veneno -->
+     <article aria-labelledby="veneno-title">
+      <h3 class="text-xl font-semibold mb-3 text-green-600 flex items-center" id="veneno-title">
+       <i aria-hidden="true" class="fas fa-skull-crossbones mr-2">
+       </i>
+       Magia de Veneno
+      </h3>
+      <img src="MagoMagias/Veneno.webp" height="400" loading="lazy" src="https://storage.googleapis.com/a1aa/image/122ec9e2-43b4-4a1e-2f42-d8248a2f1775.jpg" width="600"/>
+      <p class="text-purple-200 mb-3">
+       A magia de veneno envenena inimigos, causando danos contínuos e debilitando suas defesas.
+      </p>
+      <ul class="list-disc list-inside text-green-400 mb-2">
+       <li>
+        Envenenamento, debilitação, efeitos prolongados.
+       </li>
+       <li>
+        Perícia: Média, requer conhecimento em toxinas.
+       </li>
+       <li>
+        Periculosidade: Média a alta, perigosa em combates prolongados.
+       </li>
+      </ul>
+     </article>
+     <!-- Magia de Ilusão -->
+     <article aria-labelledby="ilusão-title">
+      <h3 class="text-xl font-semibold mb-3 text-pink-400 flex items-center" id="ilusão-title">
+       <i aria-hidden="true" class="fas fa-eye-slash mr-2">
+       </i>
+       Magia de Ilusão
+      </h3>
+      <img src="MagoMagias/Ilusao.webp" height="400" loading="lazy" src="https://storage.googleapis.com/a1aa/image/c645654b-32c6-4b42-a6f9-a9bed4f7b99e.jpg" width="600"/>
+      <p class="text-purple-200 mb-3">
+       A magia de ilusão engana os sentidos, criando imagens falsas e confundindo inimigos.
+      </p>
+      <ul class="list-disc list-inside text-pink-300 mb-2">
+       <li>
+        Engano visual, manipulação sensorial, distração.
+       </li>
+       <li>
+        Perícia: Alta, exige criatividade e controle mental.
+       </li>
+       <li>
+        Periculosidade: Baixa a média, mais estratégica.
+       </li>
+      </ul>
+     </article>
+     <!-- Magia de Cura -->
+     <article aria-labelledby="cura-title">
+      <h3 class="text-xl font-semibold mb-3 text-emerald-300 flex items-center" id="cura-title">
+       <i aria-hidden="true" class="fas fa-heartbeat mr-2">
+       </i>
+       Magia de Cura
+      </h3>
+      <img src="MagoMagias/Cura.webp" height="400" loading="lazy" src="https://storage.googleapis.com/a1aa/image/3d8fda80-d6e8-4bac-a0ab-54e296facda2.jpg" width="600"/>
+      <p class="text-purple-200 mb-3">
+       A magia de cura restaura ferimentos, remove doenças e revitaliza aliados.
+      </p>
+      <ul class="list-disc list-inside text-emerald-200 mb-2">
+       <li>
+        Restauração, purificação, suporte vital.
+       </li>
+       <li>
+        Perícia: Média, essencial para suporte em batalhas.
+       </li>
+       <li>
+        Periculosidade: Baixa, focada em proteção.
+       </li>
+      </ul>
+     </article>
+     <!-- Magia de Tempo -->
+     <article aria-labelledby="tempo-title">
+      <h3 class="text-xl font-semibold mb-3 text-gray-300 flex items-center" id="tempo-title">
+       <i aria-hidden="true" class="fas fa-clock mr-2">
+       </i>
+       Magia de Tempo
+      </h3>
+      <img src="MagoMagias/tempo.webp" height="400" loading="lazy" src="https://storage.googleapis.com/a1aa/image/7095b068-bc3f-4533-fcd8-7c99b338fab5.jpg" width="600"/>
+      <p class="text-purple-200 mb-3">
+       A magia de tempo manipula a passagem temporal, acelerando ou retardando eventos.
+      </p>
+      <ul class="list-disc list-inside text-gray-400 mb-2">
+       <li>
+        Aceleração, desaceleração, manipulação temporal.
+       </li>
+       <li>
+        Perícia: Muito alta, exige grande controle e concentração.
+       </li>
+       <li>
+        Periculosidade: Muito alta, pode causar efeitos colaterais graves.
+       </li>
       </ul>
      </article>
     </div>
    </section>
-
    <!-- Grimórios -->
    <section id="grimorios">
-    <h2
-      class="text-3xl font-bold mb-6 border-b-4 border-purple-700 inline-block pb-1 text-center"
-    >
+    <h2 class="text-3xl font-bold mb-6 border-b-4 border-purple-700 inline-block pb-1 text-center">
      Grimórios dos Magos
     </h2>
     <p class="mb-6 max-w-3xl text-purple-200 leading-relaxed mx-auto text-center">
@@ -487,166 +580,147 @@
     <div class="card-grid">
      <!-- 3 Trevos -->
      <article aria-labelledby="3trevos-title">
-      <h3
-        class="text-2xl font-semibold mb-3 text-green-400 flex items-center"
-        id="3trevos-title"
-      >
-       <i class="fas fa-clover mr-2" aria-hidden="true"></i> Grimório 3 Trevos
+      <h3 class="text-2xl font-semibold mb-3 text-green-400 flex items-center" id="3trevos-title">
+       <i aria-hidden="true" class="fas fa-clover mr-2">
+       </i>
+       Grimório 3 Trevos
       </h3>
-      <img
-        alt="Livro mágico antigo com capa verde escura e três símbolos de trevo dourados na capa"
-        src="https://storage.googleapis.com/a1aa/image/034374b1-d16b-4b65-b9c0-0fe4069a2266.jpg"
-        loading="lazy"
-      />
+      <img src="MagoMagias/3.jpg" loading="lazy" src="https://storage.googleapis.com/a1aa/image/034374b1-d16b-4b65-b9c0-0fe4069a2266.jpg"/>
       <p class="text-purple-200 mb-3">
        Grimórios comuns, contendo magias básicas e essenciais para o mago iniciante
        ou intermediário. Possuem um equilíbrio entre poder e controle.
       </p>
       <ul class="list-disc list-inside text-green-300">
-       <li>Magias básicas e utilitárias.</li>
-       <li>Perícia: Moderada, ideal para aprendizado e versatilidade.</li>
-       <li>Mana estável e moderada.</li>
+       <li>
+        Magias básicas e utilitárias.
+       </li>
+       <li>
+        Perícia: Moderada, ideal para aprendizado e versatilidade.
+       </li>
+       <li>
+        Mana estável e moderada.
+       </li>
       </ul>
      </article>
      <!-- 4 Trevos -->
      <article aria-labelledby="4trevos-title">
-      <h3
-        class="text-2xl font-semibold mb-3 text-indigo-400 flex items-center"
-        id="4trevos-title"
-      >
-       <i class="fas fa-clover mr-2" aria-hidden="true"></i>
-       <i class="fas fa-clover mr-2" aria-hidden="true"></i>
-       <i class="fas fa-clover mr-2" aria-hidden="true"></i>
-       <i class="fas fa-clover mr-2" aria-hidden="true"></i> Grimório 4 Trevos
+      <h3 class="text-2xl font-semibold mb-3 text-indigo-400 flex items-center" id="4trevos-title">
+       <i aria-hidden="true" class="fas fa-clover mr-2">
+       </i>
+       <i aria-hidden="true" class="fas fa-clover mr-2">
+       </i>
+       <i aria-hidden="true" class="fas fa-clover mr-2">
+       </i>
+       <i aria-hidden="true" class="fas fa-clover mr-2">
+       </i>
+       Grimório 4 Trevos
       </h3>
-      <img
-        alt="Livro mágico antigo com capa azul escura e quatro símbolos de trevo prateados na capa"
-        src="https://storage.googleapis.com/a1aa/image/e6d013cf-3662-45f7-d3bd-5f58f39275d9.jpg"
-        loading="lazy"
-      />
+      <img src="MagoMagias/4.webp" loading="lazy" src="https://storage.googleapis.com/a1aa/image/e6d013cf-3662-45f7-d3bd-5f58f39275d9.jpg"/>
       <p class="text-purple-200 mb-3">
        Grimórios avançados, indicam que o mago possui uma grande reserva de mana.
        Contém magias poderosas e complexas, exigindo perícia e controle.
       </p>
       <ul class="list-disc list-inside text-indigo-300">
-       <li>Magias avançadas e poderosas.</li>
-       <li>Perícia: Alta, exige controle e experiência.</li>
-       <li>Alta reserva de mana.</li>
+       <li>
+        Magias avançadas e poderosas.
+       </li>
+       <li>
+        Perícia: Alta, exige controle e experiência.
+       </li>
+       <li>
+        Alta reserva de mana.
+       </li>
       </ul>
      </article>
      <!-- 5 Trevos -->
      <article aria-labelledby="5trevos-title">
-      <h3
-        class="text-2xl font-semibold mb-3 text-red-500 flex items-center"
-        id="5trevos-title"
-      >
-       <i class="fas fa-clover mr-2" aria-hidden="true"></i>
-       <i class="fas fa-clover mr-2" aria-hidden="true"></i>
-       <i class="fas fa-clover mr-2" aria-hidden="true"></i>
-       <i class="fas fa-clover mr-2" aria-hidden="true"></i>
-       <i class="fas fa-clover mr-2" aria-hidden="true"></i> Grimório 5 Trevos
+      <h3 class="text-2xl font-semibold mb-3 text-red-500 flex items-center" id="5trevos-title">
+       <i aria-hidden="true" class="fas fa-clover mr-2">
+       </i>
+       <i aria-hidden="true" class="fas fa-clover mr-2">
+       </i>
+       <i aria-hidden="true" class="fas fa-clover mr-2">
+       </i>
+       <i aria-hidden="true" class="fas fa-clover mr-2">
+       </i>
+       <i aria-hidden="true" class="fas fa-clover mr-2">
+       </i>
+       Grimório 5 Trevos
       </h3>
-      <img
-        alt="Livro mágico antigo com capa vermelha escura e cinco símbolos de trevo negros com detalhes demoníacos na capa"
-        src="https://storage.googleapis.com/a1aa/image/75a5ee26-1297-4e83-80be-84e535563a6e.jpg"
-        loading="lazy"
-      />
+      <img src="MagoMagias/5.webp" loading="lazy" src="https://storage.googleapis.com/a1aa/image/75a5ee26-1297-4e83-80be-84e535563a6e.jpg"/>
       <p class="text-purple-200 mb-3">
        Grimórios lendários, contendo poderes demoníacos e magias proibidas. O mago
        que os possui tem uma mana avassaladora, mas corre riscos enormes.
       </p>
       <ul class="list-disc list-inside text-red-400">
-       <li>Magias demoníacas e proibidas.</li>
-       <li>Perícia: Muito alta, risco de corrupção e perda de controle.</li>
-       <li>Mana avassaladora e instável.</li>
+       <li>
+        Magias demoníacas e proibidas.
+       </li>
+       <li>
+        Perícia: Muito alta, risco de corrupção e perda de controle.
+       </li>
+       <li>
+        Mana avassaladora e instável.
+       </li>
       </ul>
      </article>
     </div>
    </section>
-
-  
-
    <!-- Roleta de Magia -->
-   <section
-     id="roleta"
-     class="max-w-4xl mx-auto bg-purple-900 rounded-xl p-8 shadow-2xl text-center"
-   >
-    <h2
-      class="text-3xl font-bold mb-6 border-b-4 border-purple-700 inline-block pb-1"
-    >
+   <section class="max-w-4xl mx-auto bg-purple-900 rounded-xl p-8 shadow-2xl text-center" id="roleta">
+    <h2 class="text-3xl font-bold mb-6 border-b-4 border-purple-700 inline-block pb-1">
      Roleta de Magia do Mago
     </h2>
     <p class="mb-6 text-purple-300 max-w-xl mx-auto">
      Clique no botão para sortear o tipo de magia do seu mago, a quantidade de
      trevos do grimório e a intensidade do poder mágico!
     </p>
-    <div
-      class="flex flex-col sm:flex-row justify-center items-center gap-6 mb-8"
-      role="region"
-      aria-live="polite"
-      aria-atomic="true"
-    >
-     <div
-       class="bg-purple-800 rounded-lg p-6 w-full sm:w-1/3 shadow-lg glow-pulse"
-       aria-label="Tipo de Magia sorteado"
-     >
-      <h3 class="text-xl font-semibold mb-3 text-yellow-400">Tipo de Magia</h3>
-      <p
-        class="text-purple-200 text-lg min-h-[4rem] flex items-center justify-center px-2"
-        id="tipoMagia"
-      ></p>
+    <div aria-atomic="true" aria-live="polite" class="flex flex-col sm:flex-row justify-center items-center gap-6 mb-8" role="region">
+     <div aria-label="Tipo de Magia sorteado" class="bg-purple-800 rounded-lg p-6 w-full sm:w-1/3 shadow-lg glow-pulse">
+      <h3 class="text-xl font-semibold mb-3 text-yellow-400">
+       Tipo de Magia
+      </h3>
+      <p class="text-purple-200 text-lg min-h-[4rem] flex items-center justify-center px-2" id="tipoMagia">
+      </p>
      </div>
-     <div
-       class="bg-purple-800 rounded-lg p-6 w-full sm:w-1/3 shadow-lg glow-pulse"
-       aria-label="Trevos do Grimório sorteados"
-     >
-      <h3 class="text-xl font-semibold mb-3 text-green-400">Trevos do Grimório</h3>
-      <p
-        class="text-purple-200 text-lg min-h-[4rem] flex items-center justify-center px-2"
-        id="trevosGrimorio"
-      ></p>
+     <div aria-label="Trevos do Grimório sorteados" class="bg-purple-800 rounded-lg p-6 w-full sm:w-1/3 shadow-lg glow-pulse">
+      <h3 class="text-xl font-semibold mb-3 text-green-400">
+       Trevos do Grimório
+      </h3>
+      <p class="text-purple-200 text-lg min-h-[4rem] flex items-center justify-center px-2" id="trevosGrimorio">
+      </p>
      </div>
-     <div
-       class="bg-purple-800 rounded-lg p-6 w-full sm:w-1/3 shadow-lg glow-pulse"
-       aria-label="Intensidade do Poder sorteada"
-     >
-      <h3 class="text-xl font-semibold mb-3 text-pink-400">Intensidade do Poder</h3>
-      <p
-        class="text-purple-200 text-lg min-h-[4rem] flex items-center justify-center px-2"
-        id="intensidadePoder"
-      ></p>
+     <div aria-label="Intensidade do Poder sorteada" class="bg-purple-800 rounded-lg p-6 w-full sm:w-1/3 shadow-lg glow-pulse">
+      <h3 class="text-xl font-semibold mb-3 text-pink-400">
+       Intensidade do Poder
+      </h3>
+      <p class="text-purple-200 text-lg min-h-[4rem] flex items-center justify-center px-2" id="intensidadePoder">
+      </p>
      </div>
     </div>
-    <button
-      class="bg-purple-700 hover:bg-purple-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition flex items-center justify-center mx-auto focus:outline-none focus:ring-2 focus:ring-purple-400"
-      id="btnSortear"
-      aria-label="Sortear magia"
-    >
-     <i class="fas fa-dice mr-3" aria-hidden="true"></i> Sortear Magia
+    <button aria-label="Sortear magia" class="bg-purple-700 hover:bg-purple-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition flex items-center justify-center mx-auto focus:outline-none focus:ring-2 focus:ring-purple-400" id="btnSortear">
+     <i aria-hidden="true" class="fas fa-dice mr-3">
+     </i>
+     Sortear Magia
     </button>
     <div class="mt-10 overflow-x-auto rounded-lg">
-     <h3
-       class="text-2xl font-bold mb-4 border-b-2 border-purple-600 inline-block pb-1"
-     >
+     <h3 class="text-2xl font-bold mb-4 border-b-2 border-purple-600 inline-block pb-1">
       Tabela de Tipos de Magia
      </h3>
-     <table
-       class="w-full text-left border-collapse border border-purple-700 rounded-lg overflow-hidden min-w-[320px]"
-       role="table"
-       aria-label="Tabela de tipos de magia e suas descrições"
-     >
+     <table aria-label="Tabela de tipos de magia e suas descrições" class="w-full text-left border-collapse border border-purple-700 rounded-lg overflow-hidden min-w-[320px]" role="table">
       <thead class="bg-purple-800">
        <tr>
-        <th class="border border-purple-700 px-4 py-2" scope="col">Tipo</th>
-        <th class="border border-purple-700 px-4 py-2" scope="col">Descrição</th>
+        <th class="border border-purple-700 px-4 py-2" scope="col">
+         Tipo
+        </th>
+        <th class="border border-purple-700 px-4 py-2" scope="col">
+         Descrição
+        </th>
        </tr>
       </thead>
       <tbody>
        <tr class="hover:bg-purple-700 transition cursor-default">
-        <td
-          class="border border-purple-700 px-4 py-2 font-semibold text-yellow-400"
-          scope="row"
-        >
+        <td class="border border-purple-700 px-4 py-2 font-semibold text-yellow-400" scope="row">
          Pouco
         </td>
         <td class="border border-purple-700 px-4 py-2 text-purple-300">
@@ -655,10 +729,7 @@
         </td>
        </tr>
        <tr class="hover:bg-purple-700 transition cursor-default">
-        <td
-          class="border border-purple-700 px-4 py-2 font-semibold text-green-400"
-          scope="row"
-        >
+        <td class="border border-purple-700 px-4 py-2 font-semibold text-green-400" scope="row">
          Média
         </td>
         <td class="border border-purple-700 px-4 py-2 text-purple-300">
@@ -666,10 +737,7 @@
         </td>
        </tr>
        <tr class="hover:bg-purple-700 transition cursor-default">
-        <td
-          class="border border-purple-700 px-4 py-2 font-semibold text-indigo-400"
-          scope="row"
-        >
+        <td class="border border-purple-700 px-4 py-2 font-semibold text-indigo-400" scope="row">
          Grande
         </td>
         <td class="border border-purple-700 px-4 py-2 text-purple-300">
@@ -678,10 +746,7 @@
         </td>
        </tr>
        <tr class="hover:bg-purple-700 transition cursor-default">
-        <td
-          class="border border-purple-700 px-4 py-2 font-semibold text-pink-400"
-          scope="row"
-        >
+        <td class="border border-purple-700 px-4 py-2 font-semibold text-pink-400" scope="row">
          Muito Alta
         </td>
         <td class="border border-purple-700 px-4 py-2 text-purple-300">
@@ -690,10 +755,7 @@
         </td>
        </tr>
        <tr class="hover:bg-purple-700 transition cursor-default">
-        <td
-          class="border border-purple-700 px-4 py-2 font-semibold text-red-500"
-          scope="row"
-        >
+        <td class="border border-purple-700 px-4 py-2 font-semibold text-red-500" scope="row">
          Avassaladora
         </td>
         <td class="border border-purple-700 px-4 py-2 text-purple-300">
@@ -706,16 +768,13 @@
     </div>
    </section>
   </main>
-
-  <footer
-    class="bg-purple-900 text-purple-300 text-center py-6 mt-12 select-none"
-    role="contentinfo"
-  >
-   <p>© 2024 Cross Arise - Todos os direitos reservados.</p>
+  <footer class="bg-purple-900 text-purple-300 text-center py-6 mt-12 select-none" role="contentinfo">
+   <p>
+    © 2024 Cross Arise - Todos os direitos reservados.
+   </p>
   </footer>
-
   <script>
-    // Menu hamburger toggle
+   // Menu hamburger toggle
     const menuBtn = document.getElementById("menuBtn");
     const menuDropdown = document.getElementById("menuDropdown");
 
@@ -755,12 +814,17 @@
       { tipo: "Magia de Gelo", descricao: "Congelamento e controle do frio.", peso: 1 },
       { tipo: "Magia de Luz", descricao: "Cura, proteção e ataques sagrados.", peso: 1 },
       { tipo: "Magia das Sombras", descricao: "Furtividade, ilusões e ataques ocultos.", peso: 1 },
+      { tipo: "Magia de Raio", descricao: "Descargas elétricas e ataques rápidos.", peso: 1 },
+      { tipo: "Magia de Veneno", descricao: "Envenenamento e debilitação.", peso: 1 },
+      { tipo: "Magia de Ilusão", descricao: "Engano visual e manipulação sensorial.", peso: 1 },
+      { tipo: "Magia de Cura", descricao: "Restauração e purificação.", peso: 1 },
+      { tipo: "Magia de Tempo", descricao: "Manipulação da passagem temporal.", peso: 1 },
     ];
 
     const trevosGrimorio = [
-      { quantidade: "3 Trevos", descricao: "Grimório comum com magias básicas e mana estável.", peso: 3 },
-      { quantidade: "4 Trevos", descricao: "Grimório avançado com magias poderosas e alta reserva de mana.", peso: 2 },
-      { quantidade: "5 Trevos", descricao: "Grimório lendário com magias demoníacas e mana avassaladora.", peso: 1 },
+      { quantidade: "3 Trevos", descricao: "Grimório comum com magias básicas e mana estável.", peso: 5 },
+      { quantidade: "4 Trevos", descricao: "Grimório avançado com magias poderosas e alta reserva de mana.", peso: 3 },
+      { quantidade: "5 Trevos", descricao: "Grimório lendário com magias demoníacas e mana avassaladora.", peso: 0 },
     ];
 
     const intensidadesPoder = [
