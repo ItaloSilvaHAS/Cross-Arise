@@ -1,239 +1,730 @@
 <html class="scroll-smooth" lang="pt-BR">
  <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1" name="viewport"/>
-  <title>
-   Monarcas - Cross Arise
-  </title>
-  <script src="https://cdn.tailwindcss.com">
-  </script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&amp;family=Roboto&amp;display=swap" rel="stylesheet"/>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <title>Monarcas - Cross Arise</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    rel="stylesheet"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&amp;family=Roboto&amp;display=swap"
+    rel="stylesheet"
+  />
   <style>
-   body {
-      font-family: 'Roboto', sans-serif;
+    body {
+      font-family: "Roboto", sans-serif;
+      background: #0f172a;
+      scroll-padding-top: 80px; /* offset for sticky header */
     }
-    h1, h2 {
-      font-family: 'Montserrat', sans-serif;
+    h1,
+    h2 {
+      font-family: "Montserrat", sans-serif;
+    }
+    /* Scrollbar for cycle container */
+    .scrollbar-hide::-webkit-scrollbar {
+      display: none;
+    }
+    .scrollbar-hide {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    /* Carousel animation */
+    @keyframes scroll-left {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
     }
   </style>
+  <script>
+    // Toggle mobile menu
+    function toggleMenu() {
+      const menu = document.getElementById("mobile-menu");
+      menu.classList.toggle("hidden");
+      // Update aria-expanded
+      const btn = document.getElementById("menu-button");
+      btn.setAttribute(
+        "aria-expanded",
+        menu.classList.contains("hidden") ? "false" : "true"
+      );
+    }
+    // Smooth scroll to section
+    function scrollToSection(id) {
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+      // Close mobile menu if open
+      const menu = document.getElementById("mobile-menu");
+      if (!menu.classList.contains("hidden")) {
+        menu.classList.add("hidden");
+        const btn = document.getElementById("menu-button");
+        btn.setAttribute("aria-expanded", "false");
+      }
+    }
+  </script>
  </head>
- <body class="bg-gray-900 text-gray-100 min-h-screen flex flex-col">
-  <header class="bg-red-900 shadow-md">
-   <div class="max-w-7xl mx-auto px-6 py-6 flex items-center justify-between">
-    <button aria-label="Voltar para a página anterior" class="flex items-center space-x-2 text-gray-100 hover:text-yellow-400 transition" onclick="location.href='../classes.html'">
-     <i class="fas fa-arrow-left text-lg"></i>
-     <span class="text-lg font-semibold select-none">Voltar</span>
-    </button>
-    <h1 class="text-3xl sm:text-4xl font-bold tracking-wide drop-shadow-lg text-white text-center flex-grow">
-     Monarcas de Cross Arise
-    </h1>
-    <div class="w-16"></div>
-   </div>
+ <body class="min-h-screen flex flex-col text-gray-100">
+  <!-- Navbar -->
+  <header
+    class="bg-gray-900/95 backdrop-blur-md sticky top-0 z-50 shadow-md border-b border-gray-700"
+  >
+    <div
+      class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between"
+    >
+      <div class="flex items-center space-x-3">
+        <button
+          aria-label="Voltar para a página anterior"
+          class="text-yellow-400 hover:text-yellow-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded-md mr-4"
+          onclick="location.href='../classes.html'"
+          title="Voltar"
+        >
+          <i class="fas fa-arrow-left text-2xl"></i>
+        </button>
+        <button
+          aria-label="Abrir menu"
+          class="text-yellow-400 hover:text-yellow-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded-md md:hidden"
+          onclick="toggleMenu()"
+          id="menu-button"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+          title="Menu"
+        >
+          <i class="fas fa-bars text-2xl"></i>
+        </button>
+        <h1
+          class="text-yellow-400 font-bold text-xl sm:text-2xl tracking-wide cursor-default select-none ml-3 md:ml-0"
+          title="Monarcas de Cross Arise"
+        >
+          Monarcas de Cross Arise
+        </h1>
+      </div>
+      <nav
+        class="hidden md:flex space-x-8 font-semibold text-yellow-400 text-lg"
+        aria-label="Menu principal"
+      >
+        <button
+          class="hover:text-yellow-300 transition duration-200"
+          onclick="scrollToSection('monarca-chamas')"
+          type="button"
+        >
+          Chamas
+        </button>
+        <button
+          class="hover:text-yellow-300 transition duration-200"
+          onclick="scrollToSection('monarca-gelo')"
+          type="button"
+        >
+          Gelo
+        </button>
+        <button
+          class="hover:text-yellow-300 transition duration-200"
+          onclick="scrollToSection('monarca-luz')"
+          type="button"
+        >
+          Luz
+        </button>
+        <button
+          class="hover:text-yellow-300 transition duration-200"
+          onclick="scrollToSection('monarca-sombra')"
+          type="button"
+        >
+          Sombras
+        </button>
+        <button
+          class="hover:text-yellow-300 transition duration-200"
+          onclick="scrollToSection('monarca-vazio')"
+          type="button"
+        >
+          Vazio
+        </button>
+        <button
+          class="hover:text-yellow-300 transition duration-200"
+          onclick="scrollToSection('monarca-infinito')"
+          type="button"
+        >
+          Infinito
+        </button>
+        <button
+          class="hover:text-yellow-300 transition duration-200"
+          onclick="scrollToSection('monarca-destruicao')"
+          type="button"
+        >
+          Destruição
+        </button>
+        <button
+          class="hover:text-yellow-300 transition duration-200"
+          onclick="scrollToSection('monarca-criacao')"
+          type="button"
+        >
+          Criação
+        </button>
+        <button
+          class="hover:text-yellow-300 transition duration-200"
+          onclick="scrollToSection('ciclo-monarcas')"
+          type="button"
+        >
+          Ciclo
+        </button>
+      </nav>
+    </div>
+    <!-- Mobile menu -->
+    <nav
+      id="mobile-menu"
+      class="md:hidden hidden bg-gray-800 border-t border-gray-700"
+      aria-label="Menu móvel"
+    >
+      <div class="flex flex-col space-y-1 px-4 py-3 font-semibold text-yellow-400 text-base">
+        <button
+          class="text-left w-full hover:text-yellow-300 transition duration-200 py-2 border-b border-gray-700"
+          onclick="scrollToSection('monarca-chamas')"
+          type="button"
+        >
+          Chamas
+        </button>
+        <button
+          class="text-left w-full hover:text-yellow-300 transition duration-200 py-2 border-b border-gray-700"
+          onclick="scrollToSection('monarca-gelo')"
+          type="button"
+        >
+          Gelo
+        </button>
+        <button
+          class="text-left w-full hover:text-yellow-300 transition duration-200 py-2 border-b border-gray-700"
+          onclick="scrollToSection('monarca-luz')"
+          type="button"
+        >
+          Luz
+        </button>
+        <button
+          class="text-left w-full hover:text-yellow-300 transition duration-200 py-2 border-b border-gray-700"
+          onclick="scrollToSection('monarca-sombra')"
+          type="button"
+        >
+          Sombras
+        </button>
+        <button
+          class="text-left w-full hover:text-yellow-300 transition duration-200 py-2 border-b border-gray-700"
+          onclick="scrollToSection('monarca-vazio')"
+          type="button"
+        >
+          Vazio
+        </button>
+        <button
+          class="text-left w-full hover:text-yellow-300 transition duration-200 py-2 border-b border-gray-700"
+          onclick="scrollToSection('monarca-infinito')"
+          type="button"
+        >
+          Infinito
+        </button>
+        <button
+          class="text-left w-full hover:text-yellow-300 transition duration-200 py-2 border-b border-gray-700"
+          onclick="scrollToSection('monarca-destruicao')"
+          type="button"
+        >
+          Destruição
+        </button>
+        <button
+          class="text-left w-full hover:text-yellow-300 transition duration-200 py-2 border-b border-gray-700"
+          onclick="scrollToSection('monarca-criacao')"
+          type="button"
+        >
+          Criação
+        </button>
+        <button
+          class="text-left w-full hover:text-yellow-300 transition duration-200 py-2"
+          onclick="scrollToSection('ciclo-monarcas')"
+          type="button"
+        >
+          Ciclo
+        </button>
+      </div>
+    </nav>
   </header>
-  <h1 class="text-3xl sm:text-4xl font-bold tracking-wide drop-shadow-lg text-white text-center flex-grow">
-    
-   </h1>
-  <main class="flex-grow max-w-7xl mx-auto px-6 py-10 grid gap-10 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-   <!-- Monarca Chamas -->
-   <section class="bg-gradient-to-tr from-red-700 via-orange-600 to-yellow-500 rounded-xl shadow-lg overflow-hidden flex flex-col">
-    <img src="ImagensMonarcas/MonarcaChama.jpg" class="w-full h-48 object-cover" height="400" loading="lazy" src="https://storage.googleapis.com/a1aa/image/fe47def3-4638-401f-b266-535e4221c8ce.jpg" width="600"/>
-    <div class="p-6 flex flex-col flex-grow">
-     <h2 class="text-2xl font-semibold mb-2 text-white drop-shadow-md">
-      Monarca das Chamas
-     </h2>
-     <p class="flex-grow text-gray-100/90 mb-4">
-      Mestre absoluto do fogo, capaz de manipular chamas em qualquer forma, criando tempestades de fogo e escudos incandescentes.
-     </p>
-     <h3 class="font-semibold text-yellow-100 mb-1">
-      Habilidade:
-     </h3>
-     <p class="mb-3 text-yellow-200">
-      Controle total sobre o fogo, incluindo ignição instantânea e absorção de calor.
-     </p>
-     <h3 class="font-semibold text-yellow-100 mb-1">
-      Peculiaridade:
-     </h3>
-     <p class="text-yellow-200">
-      Sua presença aquece o ambiente, podendo derreter armas e armaduras inimigas.
-     </p>
-    </div>
-   </section>
-   <!-- Monarca Gelo -->
-   <section class="bg-gradient-to-tr from-cyan-700 via-blue-600 to-sky-400 rounded-xl shadow-lg overflow-hidden flex flex-col">
-    <img src="ImagensMonarcas/MonarcaGelo.jpg" class="w-full h-48 object-cover" height="400" loading="lazy" src="https://storage.googleapis.com/a1aa/image/d4d991c9-eb86-4424-3488-8f3d9deb5b36.jpg" width="600"/>
-    <div class="p-6 flex flex-col flex-grow">
-     <h2 class="text-2xl font-semibold mb-2 text-white drop-shadow-md">
-      Monarca do Gelo
-     </h2>
-     <p class="flex-grow text-gray-100/90 mb-4">
-      Controla o frio absoluto, capaz de congelar o ar e criar estruturas de gelo impenetráveis em segundos.
-     </p>
-     <h3 class="font-semibold text-sky-100 mb-1">
-      Habilidade:
-     </h3>
-     <p class="mb-3 text-sky-200">
-      Manipulação do gelo e do frio, podendo criar tempestades congelantes e armaduras de gelo.
-     </p>
-     <h3 class="font-semibold text-sky-100 mb-1">
-      Peculiaridade:
-     </h3>
-     <p class="text-sky-200">
-      Sua respiração congela tudo ao redor, e seu toque pode paralisar inimigos.
-     </p>
-    </div>
-   </section>
-   <!-- Monarca Luz -->
-   <section class="bg-gradient-to-tr from-yellow-400 via-yellow-300 to-yellow-200 rounded-xl shadow-lg overflow-hidden flex flex-col">
-    <img src="ImagensMonarcas/MonarcaLuz.webp" class="w-full h-48 object-cover" height="400" loading="lazy" src="https://storage.googleapis.com/a1aa/image/10ca30ac-b24a-4e97-9818-323ad721622c.jpg" width="600"/>
-    <div class="p-6 flex flex-col flex-grow">
-     <h2 class="text-2xl font-semibold mb-2 text-gray-900 drop-shadow-md">
-      Monarca da Luz
-     </h2>
-     <p class="flex-grow text-gray-900/90 mb-4">
-      Detentor do poder da luz pura, capaz de curar feridas, cegar inimigos e criar barreiras de energia luminosa.
-     </p>
-     <h3 class="font-semibold text-yellow-700 mb-1">
-      Habilidade:
-     </h3>
-     <p class="mb-3 text-yellow-800">
-      Manipulação da luz para cura, ataque e defesa, incluindo explosões cegantes.
-     </p>
-     <h3 class="font-semibold text-yellow-700 mb-1">
-      Peculiaridade:
-     </h3>
-     <p class="text-yellow-800">
-      Sua presença inspira esperança e coragem nos aliados próximos.
-     </p>
-    </div>
-   </section>
-   <!-- Monarca Sombra -->
-   <section class="bg-gradient-to-tr from-gray-800 via-gray-900 to-black rounded-xl shadow-lg overflow-hidden flex flex-col">
-    <img src="ImagensMonarcas/MonarcaSombras.jfif" class="w-full h-48 object-cover" height="400" loading="lazy" src="https://storage.googleapis.com/a1aa/image/93940ecc-46a0-40c7-da11-8c2e30a7e997.jpg" width="600"/>
-    <div class="p-6 flex flex-col flex-grow">
-     <h2 class="text-2xl font-semibold mb-2 text-gray-100 drop-shadow-md">
-      Monarca da Sombra
-     </h2>
-     <p class="flex-grow text-gray-300 mb-4">
-      Mestre das trevas, capaz de manipular sombras para se camuflar, atacar e criar ilusões aterrorizantes.
-     </p>
-     <h3 class="font-semibold text-purple-300 mb-1">
-      Habilidade:
-     </h3>
-     <p class="mb-3 text-purple-400">
-      Controle absoluto das sombras, incluindo teletransporte por elas e criação de clones sombrios.
-     </p>
-     <h3 class="font-semibold text-purple-300 mb-1">
-      Peculiaridade:
-     </h3>
-     <p class="text-purple-400">
-      Sua presença causa inquietação e medo nos inimigos, enfraquecendo sua vontade de lutar.
-     </p>
-    </div>
-   </section>
 
-   <h2>Monarcas NPCs:</h2>
-   <!-- Monarca Vazio -->
-   <section class="bg-gradient-to-tr from-gray-700 via-gray-600 to-gray-500 rounded-xl shadow-lg overflow-hidden flex flex-col">
-    <img src="ImagensMonarcas/VazioMonarca.webp" class="w-full h-48 object-cover" height="400" loading="lazy" src="https://storage.googleapis.com/a1aa/image/f7868fdd-0949-4b22-2550-b61bab786d2b.jpg" width="600"/>
-    <div class="p-6 flex flex-col flex-grow">
-     <h2 class="text-2xl font-semibold mb-2 text-gray-100 drop-shadow-md">
-      Monarca do Vazio
-     </h2>
-     <p class="flex-grow text-gray-200 mb-4">
-      Controla o vazio absoluto, capaz de anular magias, criar buracos negros e manipular a ausência de matéria.
-     </p>
-     <h3 class="font-semibold text-gray-300 mb-1">
-      Habilidade:
-     </h3>
-     <p class="mb-3 text-gray-400">
-      Manipulação do vazio para absorver energia e criar zonas de anulação total.
-     </p>
-     <h3 class="font-semibold text-gray-300 mb-1">
-      Peculiaridade:
-     </h3>
-     <p class="text-gray-400">
-      Sua presença suprime poderes ao redor e causa sensação de vazio existencial.
-     </p>
-    </div>
-   </section>
-   <!-- Monarca Infinito -->
-   <section class="bg-gradient-to-tr from-indigo-700 via-purple-700 to-pink-600 rounded-xl shadow-lg overflow-hidden flex flex-col">
-    <img src="ImagensMonarcas/MonarcaInfinito.png" class="w-full h-48 object-cover" height="400" loading="lazy" src="https://storage.googleapis.com/a1aa/image/7d78c5db-a0a0-4c94-fd0a-d7a03fbdf764.jpg" width="600"/>
-    <div class="p-6 flex flex-col flex-grow">
-     <h2 class="text-2xl font-semibold mb-2 text-white drop-shadow-md">
-      Monarca do Infinito
-     </h2>
-     <p class="flex-grow text-gray-100/90 mb-4">
-      Detém o poder do infinito, manipulando espaço-tempo, criando realidades alternativas e controlando o cosmos.
-     </p>
-     <h3 class="font-semibold text-pink-200 mb-1">
-      Habilidade:
-     </h3>
-     <p class="mb-3 text-pink-300">
-      Manipulação do espaço-tempo, viagens dimensionais e criação de ilusões cósmicas.
-     </p>
-     <h3 class="font-semibold text-pink-200 mb-1">
-      Peculiaridade:
-     </h3>
-     <p class="text-pink-300">
-      Sua presença distorce a realidade e o tempo ao seu redor, confundindo inimigos.
-     </p>
-    </div>
-   </section>
-   <!-- Monarca Destruição -->
-   <section class="bg-gradient-to-tr from-red-900 via-red-800 to-red-700 rounded-xl shadow-lg overflow-hidden flex flex-col">
-    <img src="ImagensMonarcas/MonarcaDestruicao.webp" class="w-full h-48 object-cover" height="400" loading="lazy" src="https://storage.googleapis.com/a1aa/image/b776a5d8-8b1a-4120-d005-40897333bea8.jpg" width="600"/>
-    <div class="p-6 flex flex-col flex-grow">
-     <h2 class="text-2xl font-semibold mb-2 text-white drop-shadow-md">
-      Monarca da Destruição
-     </h2>
-     <p class="flex-grow text-gray-100/90 mb-4">
-      Incorpora o poder da destruição, capaz de causar terremotos, explosões massivas e desintegrar matéria.
-     </p>
-     <h3 class="font-semibold text-red-300 mb-1">
-      Habilidade:
-     </h3>
-     <p class="mb-3 text-red-400">
-      Manipulação de energia destrutiva para devastar áreas e aniquilar inimigos.
-     </p>
-     <h3 class="font-semibold text-red-300 mb-1">
-      Peculiaridade:
-     </h3>
-     <p class="text-red-400">
-      Sua presença causa instabilidade e medo, enfraquecendo a resistência dos adversários.
-     </p>
-    </div>
-   </section>
-   <!-- Monarca Criação -->
-   <section class="bg-gradient-to-tr from-green-700 via-green-600 to-green-400 rounded-xl shadow-lg overflow-hidden flex flex-col">
-    <img src="ImagensMonarcas/MonarcaCriacao.webp" class="w-full h-48 object-cover" height="400" loading="lazy" src="https://storage.googleapis.com/a1aa/image/466d77f7-a411-41a9-9032-885db1bdb284.jpg" width="600"/>
-    <div class="p-6 flex flex-col flex-grow">
-     <h2 class="text-2xl font-semibold mb-2 text-white drop-shadow-md">
-      Monarca da Criação
-     </h2>
-     <p class="flex-grow text-gray-100/90 mb-4">
-      Detentor do poder da criação, capaz de gerar vida, construir estruturas e restaurar o que foi destruído.
-     </p>
-     <h3 class="font-semibold text-green-200 mb-1">
-      Habilidade:
-     </h3>
-     <p class="mb-3 text-green-300">
-      Manipulação da energia da criação, para criar seres, gerar vida e afins.
-     </p>
-     <h3 class="font-semibold text-green-200 mb-1">
-      Peculiaridade:
-     </h3>
-     <p class="text-green-300">
-      Sua presença traz paz e crescimento, acelerando a regeneração natural ao redor.
-     </p>
-    </div>
-   </section>
+  <main
+    class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+  >
+    <!-- Monarca Chamas -->
+    <section
+      id="monarca-chamas"
+      aria-label="Monarca das Chamas"
+      class="bg-gradient-to-tr from-red-700 via-orange-600 to-yellow-500 rounded-3xl shadow-2xl overflow-hidden flex flex-col transform transition-transform hover:scale-[1.05] hover:shadow-yellow-400/70 duration-300"
+    >
+      <img
+        alt="Monarca das Chamas, um monarca com chamas vivas envolvendo seu corpo em um ambiente ardente"
+        class="w-full h-48 object-cover"
+        height="400"
+        loading="lazy"
+        src="https://storage.googleapis.com/a1aa/image/65a5f17c-b89b-4a43-0156-24f8f8668c9b.jpg"
+        width="600"
+      />
+      <div class="p-6 flex flex-col flex-grow">
+        <h2
+          class="text-2xl font-semibold mb-3 text-white drop-shadow-md tracking-wide"
+        >
+          Monarca das Chamas
+        </h2>
+        <p class="flex-grow text-yellow-50/90 mb-5 leading-relaxed">
+          Mestre absoluto do fogo, capaz de manipular chamas em qualquer forma,
+          criando tempestades de fogo e escudos incandescentes.
+        </p>
+        <h3 class="font-semibold text-yellow-100 mb-1 tracking-wide">
+          Habilidade:
+        </h3>
+        <p class="mb-3 text-yellow-200 leading-snug">
+          Controle total sobre o fogo, incluindo ignição instantânea e absorção
+          de calor.
+        </p>
+        <h3 class="font-semibold text-yellow-100 mb-1 tracking-wide">
+          Peculiaridade:
+        </h3>
+        <p class="text-yellow-200 leading-snug">
+          Sua presença aquece o ambiente, podendo derreter armas e armaduras
+          inimigas.
+        </p>
+      </div>
+    </section>
+    <!-- Monarca Gelo -->
+    <section
+      id="monarca-gelo"
+      aria-label="Monarca do Gelo"
+      class="bg-gradient-to-tr from-cyan-700 via-blue-600 to-sky-400 rounded-3xl shadow-2xl overflow-hidden flex flex-col transform transition-transform hover:scale-[1.05] hover:shadow-sky-400/70 duration-300"
+    >
+      <img
+        alt="Monarca do Gelo, um monarca feito de gelo com cristais brilhantes em um ambiente congelado"
+        class="w-full h-48 object-cover"
+        height="400"
+        loading="lazy"
+        src="https://storage.googleapis.com/a1aa/image/0323025d-ad8b-466c-0b5e-9bb9698cbbc6.jpg"
+        width="600"
+      />
+      <div class="p-6 flex flex-col flex-grow">
+        <h2
+          class="text-2xl font-semibold mb-3 text-white drop-shadow-md tracking-wide"
+        >
+          Monarca do Gelo
+        </h2>
+        <p class="flex-grow text-sky-50/90 mb-5 leading-relaxed">
+          Controla o frio absoluto, capaz de congelar o ar e criar estruturas de
+          gelo impenetráveis em segundos.
+        </p>
+        <h3 class="font-semibold text-sky-100 mb-1 tracking-wide">Habilidade:</h3>
+        <p class="mb-3 text-sky-200 leading-snug">
+          Manipulação do gelo e do frio, podendo criar tempestades congelantes e
+          armaduras de gelo.
+        </p>
+        <h3 class="font-semibold text-sky-100 mb-1 tracking-wide">
+          Peculiaridade:
+        </h3>
+        <p class="text-sky-200 leading-snug">
+          Sua respiração congela tudo ao redor, e seu toque pode paralisar
+          inimigos.
+        </p>
+      </div>
+    </section>
+    <!-- Monarca Luz -->
+    <section
+      id="monarca-luz"
+      aria-label="Monarca da Luz"
+      class="bg-gradient-to-tr from-yellow-400 via-yellow-300 to-yellow-200 rounded-3xl shadow-2xl overflow-hidden flex flex-col transform transition-transform hover:scale-[1.05] hover:shadow-yellow-400/70 duration-300"
+    >
+      <img
+        alt="Monarca da Luz, um monarca radiante envolto em uma aura de luz brilhante"
+        class="w-full h-48 object-cover"
+        height="400"
+        loading="lazy"
+        src="https://storage.googleapis.com/a1aa/image/5f18fb5e-9fd1-44c5-c06d-6173b1ee3cb3.jpg"
+        width="600"
+      />
+      <div class="p-6 flex flex-col flex-grow">
+        <h2
+          class="text-2xl font-semibold mb-3 text-gray-900 drop-shadow-md tracking-wide"
+        >
+          Monarca da Luz
+        </h2>
+        <p class="flex-grow text-yellow-900/90 mb-5 leading-relaxed">
+          Detentor do poder da luz pura, capaz de curar feridas, cegar inimigos
+          e criar barreiras de energia luminosa.
+        </p>
+        <h3 class="font-semibold text-yellow-700 mb-1 tracking-wide">Habilidade:</h3>
+        <p class="mb-3 text-yellow-800 leading-snug">
+          Manipulação da luz para cura, ataque e defesa, incluindo explosões
+          cegantes.
+        </p>
+        <h3 class="font-semibold text-yellow-700 mb-1 tracking-wide">
+          Peculiaridade:
+        </h3>
+        <p class="text-yellow-800 leading-snug">
+          Sua presença inspira esperança e coragem nos aliados próximos.
+        </p>
+      </div>
+    </section>
+    <!-- Monarca Sombra -->
+    <section
+      id="monarca-sombra"
+      aria-label="Monarca da Sombra"
+      class="bg-gradient-to-tr from-gray-800 via-gray-900 to-black rounded-3xl shadow-2xl overflow-hidden flex flex-col transform transition-transform hover:scale-[1.05] hover:shadow-purple-600/70 duration-300"
+    >
+      <img
+        alt="Monarca da Sombra, um monarca envolto em sombras profundas com olhos brilhantes"
+        class="w-full h-48 object-cover"
+        height="400"
+        loading="lazy"
+        src="https://storage.googleapis.com/a1aa/image/631d6b9f-72d8-4869-c02d-67401c2c13e6.jpg"
+        width="600"
+      />
+      <div class="p-6 flex flex-col flex-grow">
+        <h2
+          class="text-2xl font-semibold mb-3 text-gray-100 drop-shadow-md tracking-wide"
+        >
+          Monarca da Sombra
+        </h2>
+        <p class="flex-grow text-gray-300 mb-5 leading-relaxed">
+          Mestre das trevas, capaz de manipular sombras para se camuflar,
+          atacar e criar ilusões aterrorizantes.
+        </p>
+        <h3 class="font-semibold text-purple-300 mb-1 tracking-wide">Habilidade:</h3>
+        <p class="mb-3 text-purple-400 leading-snug">
+          Controle absoluto das sombras, incluindo teletransporte por elas e
+          criação de clones sombrios.
+        </p>
+        <h3 class="font-semibold text-purple-300 mb-1 tracking-wide">
+          Peculiaridade:
+        </h3>
+        <p class="text-purple-400 leading-snug">
+          Sua presença causa inquietação e medo nos inimigos, enfraquecendo sua
+          vontade de lutar.
+        </p>
+      </div>
+    </section>
+
+    <h2
+      class="col-span-full text-center text-3xl font-bold mt-12 mb-6 tracking-wide text-yellow-400 drop-shadow-lg"
+    >
+      Monarcas NPCs
+    </h2>
+    <!-- Monarca Vazio -->
+    <section
+      id="monarca-vazio"
+      aria-label="Monarca do Vazio"
+      class="bg-gradient-to-tr from-gray-700 via-gray-600 to-gray-500 rounded-3xl shadow-2xl overflow-hidden flex flex-col transform transition-transform hover:scale-[1.05] hover:shadow-gray-400/70 duration-300"
+    >
+      <img
+        alt="Monarca do Vazio, um monarca envolto em uma esfera vazia e abstrata"
+        class="w-full h-48 object-cover"
+        height="400"
+        loading="lazy"
+        src="https://storage.googleapis.com/a1aa/image/3d2a1530-a9c9-4186-8f44-2560bd5f6365.jpg"
+        width="600"
+      />
+      <div class="p-6 flex flex-col flex-grow">
+        <h2
+          class="text-2xl font-semibold mb-3 text-gray-100 drop-shadow-md tracking-wide"
+        >
+          Monarca do Vazio
+        </h2>
+        <p class="flex-grow text-gray-200 mb-5 leading-relaxed">
+          Controla o vazio absoluto, capaz de anular magias, criar buracos
+          negros e manipular a ausência de matéria.
+        </p>
+        <h3 class="font-semibold text-gray-300 mb-1 tracking-wide">Habilidade:</h3>
+        <p class="mb-3 text-gray-400 leading-snug">
+          Manipulação do vazio para absorver energia e criar zonas de anulação
+          total.
+        </p>
+        <h3 class="font-semibold text-gray-300 mb-1 tracking-wide">
+          Peculiaridade:
+        </h3>
+        <p class="text-gray-400 leading-snug">
+          Sua presença suprime poderes ao redor e causa sensação de vazio
+          existencial.
+        </p>
+      </div>
+    </section>
+    <!-- Monarca Infinito -->
+    <section
+      id="monarca-infinito"
+      aria-label="Monarca do Infinito"
+      class="bg-gradient-to-tr from-indigo-700 via-purple-700 to-pink-600 rounded-3xl shadow-2xl overflow-hidden flex flex-col transform transition-transform hover:scale-[1.05] hover:shadow-pink-400/70 duration-300"
+    >
+      <img
+        alt="Monarca do Infinito, um monarca envolto em galáxias e estrelas brilhantes"
+        class="w-full h-48 object-cover"
+        height="400"
+        loading="lazy"
+        src="https://storage.googleapis.com/a1aa/image/3bd666cc-0636-423a-1a55-6fee4c52a67a.jpg"
+        width="600"
+      />
+      <div class="p-6 flex flex-col flex-grow">
+        <h2
+          class="text-2xl font-semibold mb-3 text-white drop-shadow-md tracking-wide"
+        >
+          Monarca do Infinito
+        </h2>
+        <p class="flex-grow text-gray-100/90 mb-5 leading-relaxed">
+          Detém o poder do infinito, manipulando espaço-tempo, criando
+          realidades alternativas e controlando o cosmos.
+        </p>
+        <h3 class="font-semibold text-pink-200 mb-1 tracking-wide">Habilidade:</h3>
+        <p class="mb-3 text-pink-300 leading-snug">
+          Manipulação do espaço-tempo, viagens dimensionais e criação de ilusões
+          cósmicas.
+        </p>
+        <h3 class="font-semibold text-pink-200 mb-1 tracking-wide">
+          Peculiaridade:
+        </h3>
+        <p class="text-pink-300 leading-snug">
+          Sua presença distorce a realidade e o tempo ao seu redor, confundindo
+          inimigos.
+        </p>
+      </div>
+    </section>
+    <!-- Monarca Destruição -->
+    <section
+      id="monarca-destruicao"
+      aria-label="Monarca da Destruição"
+      class="bg-gradient-to-tr from-red-900 via-red-800 to-red-700 rounded-3xl shadow-2xl overflow-hidden flex flex-col transform transition-transform hover:scale-[1.05] hover:shadow-red-500/70 duration-300"
+    >
+      <img
+        alt="Monarca da Destruição, um monarca envolto em explosões e energia vermelha intensa"
+        class="w-full h-48 object-cover"
+        height="400"
+        loading="lazy"
+        src="https://storage.googleapis.com/a1aa/image/5d4c4153-6f6b-42aa-3f4a-98226f77f266.jpg"
+        width="600"
+      />
+      <div class="p-6 flex flex-col flex-grow">
+        <h2
+          class="text-2xl font-semibold mb-3 text-white drop-shadow-md tracking-wide"
+        >
+          Monarca da Destruição
+        </h2>
+        <p class="flex-grow text-gray-100/90 mb-5 leading-relaxed">
+          Incorpora o poder da destruição, capaz de causar terremotos,
+          explosões massivas e desintegrar matéria.
+        </p>
+        <h3 class="font-semibold text-red-300 mb-1 tracking-wide">Habilidade:</h3>
+        <p class="mb-3 text-red-400 leading-snug">
+          Manipulação de energia destrutiva para devastar áreas e aniquilar
+          inimigos.
+        </p>
+        <h3 class="font-semibold text-red-300 mb-1 tracking-wide">
+          Peculiaridade:
+        </h3>
+        <p class="text-red-400 leading-snug">
+          Sua presença causa instabilidade e medo, enfraquecendo a resistência
+          dos adversários.
+        </p>
+      </div>
+    </section>
+    <!-- Monarca Criação -->
+    <section
+      id="monarca-criacao"
+      aria-label="Monarca da Criação"
+      class="bg-gradient-to-tr from-green-700 via-green-600 to-green-400 rounded-3xl shadow-2xl overflow-hidden flex flex-col transform transition-transform hover:scale-[1.05] hover:shadow-green-400/70 duration-300"
+    >
+      <img
+        alt="Monarca da Criação, um monarca envolto em energia verde viva e folhagens"
+        class="w-full h-48 object-cover"
+        height="400"
+        loading="lazy"
+        src="https://storage.googleapis.com/a1aa/image/8b72ccac-7727-4c2b-e12d-f9ca37de91d6.jpg"
+        width="600"
+      />
+      <div class="p-6 flex flex-col flex-grow">
+        <h2
+          class="text-2xl font-semibold mb-3 text-white drop-shadow-md tracking-wide"
+        >
+          Monarca da Criação
+        </h2>
+        <p class="flex-grow text-gray-100/90 mb-5 leading-relaxed">
+          Detentor do poder da criação, capaz de gerar vida, construir
+          estruturas e restaurar o que foi destruído.
+        </p>
+        <h3 class="font-semibold text-green-200 mb-1 tracking-wide">Habilidade:</h3>
+        <p class="mb-3 text-green-300 leading-snug">
+          Manipulação da energia da criação, para criar seres, gerar vida e
+          afins.
+        </p>
+        <h3 class="font-semibold text-green-200 mb-1 tracking-wide">
+          Peculiaridade:
+        </h3>
+        <p class="text-green-300 leading-snug">
+          Sua presença traz paz e crescimento, acelerando a regeneração natural
+          ao redor.
+        </p>
+      </div>
+    </section>
   </main>
-  <footer class="bg-gray-800 text-gray-400 text-center py-6 mt-12">
-   <p class="text-sm">
-    © 2024 Cross Arise - Todos os direitos reservados
-   </p>
+
+  <!-- Carousel Cycle Section -->
+  <section
+    id="ciclo-monarcas"
+    aria-label="Ciclo animado dos Monarcas"
+    class="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 py-10 px-4 sm:px-6 lg:px-8 mt-12 rounded-t-3xl shadow-inner overflow-hidden"
+  >
+    <h2
+      class="text-center text-3xl font-bold text-yellow-400 mb-8 tracking-wide drop-shadow-lg"
+    >
+      O Ciclo Infinito dos Monarcas
+    </h2>
+    <div class="relative w-full overflow-hidden">
+      <div
+        class="flex space-x-8 whitespace-nowrap animate-scroll-left"
+        style="animation: scroll-left 40s linear infinite;"
+      >
+        <!-- Each item repeated twice for seamless loop -->
+        <div
+          aria-label="Monarca das Chamas"
+          class="flex flex-col items-center min-w-[100px] sm:min-w-[120px] bg-gradient-to-tr from-red-700 via-orange-600 to-yellow-500 rounded-2xl p-4 shadow-lg text-center cursor-default select-none"
+          role="listitem"
+          tabindex="0"
+        >
+          <img
+            alt="Ícone representando o Monarca das Chamas com chamas vivas"
+            class="w-20 h-20 rounded-full mb-2 object-cover shadow-md"
+            height="100"
+            loading="lazy"
+            src="https://storage.googleapis.com/a1aa/image/484da3b9-bfc8-470a-437e-ecb6d98d3d3f.jpg"
+            width="100"
+          />
+          <span class="font-semibold text-yellow-100 tracking-wide">Chamas</span>
+        </div>
+        <div
+          aria-label="Monarca do Gelo"
+          class="flex flex-col items-center min-w-[100px] sm:min-w-[120px] bg-gradient-to-tr from-cyan-700 via-blue-600 to-sky-400 rounded-2xl p-4 shadow-lg text-center cursor-default select-none"
+          role="listitem"
+          tabindex="0"
+        >
+          <img
+            alt="Ícone representando o Monarca do Gelo com cristais de gelo"
+            class="w-20 h-20 rounded-full mb-2 object-cover shadow-md"
+            height="100"
+            loading="lazy"
+            src="https://storage.googleapis.com/a1aa/image/bbf31737-d139-4243-1276-b151a592389a.jpg"
+            width="100"
+          />
+          <span class="font-semibold text-sky-100 tracking-wide">Gelo</span>
+        </div>
+        <div
+          aria-label="Monarca da Luz"
+          class="flex flex-col items-center min-w-[100px] sm:min-w-[120px] bg-gradient-to-tr from-yellow-400 via-yellow-300 to-yellow-200 rounded-2xl p-4 shadow-lg text-center cursor-default select-none"
+          role="listitem"
+          tabindex="0"
+        >
+          <img
+            alt="Ícone representando o Monarca da Luz com uma aura brilhante"
+            class="w-20 h-20 rounded-full mb-2 object-cover shadow-md"
+            height="100"
+            loading="lazy"
+            src="https://storage.googleapis.com/a1aa/image/d9213306-1163-4374-f333-f08c24a97281.jpg"
+            width="100"
+          />
+          <span class="font-semibold text-yellow-700 tracking-wide">Luz</span>
+        </div>
+        <div
+          aria-label="Monarca da Sombra"
+          class="flex flex-col items-center min-w-[100px] sm:min-w-[120px] bg-gradient-to-tr from-gray-800 via-gray-900 to-black rounded-2xl p-4 shadow-lg text-center cursor-default select-none"
+          role="listitem"
+          tabindex="0"
+        >
+          <img
+            alt="Ícone representando o Monarca da Sombra com sombras profundas"
+            class="w-20 h-20 rounded-full mb-2 object-cover shadow-md"
+            height="100"
+            loading="lazy"
+            src="https://storage.googleapis.com/a1aa/image/5d2ae428-8712-49f2-ba48-5155d3ae9c04.jpg"
+            width="100"
+          />
+          <span class="font-semibold text-gray-300 tracking-wide">Sombras</span>
+        </div>
+        <div
+          aria-label="Monarca do Vazio"
+          class="flex flex-col items-center min-w-[100px] sm:min-w-[120px] bg-gradient-to-tr from-gray-700 via-gray-600 to-gray-500 rounded-2xl p-4 shadow-lg text-center cursor-default select-none"
+          role="listitem"
+          tabindex="0"
+        >
+          <img
+            alt="Ícone representando o Monarca do Vazio com uma esfera vazia"
+            class="w-20 h-20 rounded-full mb-2 object-cover shadow-md"
+            height="100"
+            loading="lazy"
+            src="https://storage.googleapis.com/a1aa/image/ef0dcefb-1b89-4880-f5a3-210bc59eaa41.jpg"
+            width="100"
+          />
+          <span class="font-semibold text-gray-300 tracking-wide">Vazio</span>
+        </div>
+        <div
+          aria-label="Monarca do Infinito"
+          class="flex flex-col items-center min-w-[100px] sm:min-w-[120px] bg-gradient-to-tr from-indigo-700 via-purple-700 to-pink-600 rounded-2xl p-4 shadow-lg text-center cursor-default select-none"
+          role="listitem"
+          tabindex="0"
+        >
+          <img
+            alt="Ícone representando o Monarca do Infinito com galáxias e estrelas"
+            class="w-20 h-20 rounded-full mb-2 object-cover shadow-md"
+            height="100"
+            loading="lazy"
+            src="https://storage.googleapis.com/a1aa/image/b0455a8d-b864-4d52-9ccb-4c4a0f31a25d.jpg"
+            width="100"
+          />
+          <span class="font-semibold text-pink-200 tracking-wide">Infinito</span>
+        </div>
+        <div
+          aria-label="Monarca da Criação"
+          class="flex flex-col items-center min-w-[100px] sm:min-w-[120px] bg-gradient-to-tr from-green-700 via-green-600 to-green-400 rounded-2xl p-4 shadow-lg text-center cursor-default select-none"
+          role="listitem"
+          tabindex="0"
+        >
+          <img
+            alt="Ícone representando o Monarca da Criação com energia verde e folhagens"
+            class="w-20 h-20 rounded-full mb-2 object-cover shadow-md"
+            height="100"
+            loading="lazy"
+            src="https://storage.googleapis.com/a1aa/image/9f5d15a0-909a-4e62-4c51-9ef23fd213e1.jpg"
+            width="100"
+          />
+          <span class="font-semibold text-green-200 tracking-wide">Criação</span>
+        </div>
+        <div
+          aria-label="Monarca da Destruição"
+          class="flex flex-col items-center min-w-[100px] sm:min-w-[120px] bg-gradient-to-tr from-red-900 via-red-800 to-red-700 rounded-2xl p-4 shadow-lg text-center cursor-default select-none"
+          role="listitem"
+          tabindex="0"
+        >
+          <img
+            alt="Ícone representando o Monarca da Destruição com explosões e energia vermelha"
+            class="w-20 h-20 rounded-full mb-2 object-cover shadow-md"
+            height="100"
+            loading="lazy"
+            src="https://storage.googleapis.com/a1aa/image/0ce89bfe-9bfe-4d99-dfc2-460aef26381f.jpg"
+            width="100"
+          />
+          <span class="font-semibold text-red-300 tracking-wide">Destruição</span>
+        </div>
+      </div>
+    </div>
+    <p
+      class="mt-8 max-w-xl mx-auto text-center text-gray-300 text-sm sm:text-base leading-relaxed"
+    >
+      Cada Monarca domina um poder único que supera e é superado por outro,
+      formando um ciclo eterno de equilíbrio e conflito, onde o fogo aquece o
+      gelo, o gelo apaga a luz, a luz dissipa as sombras, as sombras engolem o
+      vazio, o vazio consome o infinito, o infinito cria a destruição, a
+      destruição alimenta a criação, e a criação renasce nas chamas.
+    </p>
+  </section>
+
+  <footer
+    aria-label="Rodapé do site"
+    class="bg-gray-800 text-gray-400 text-center py-6 mt-16 select-none"
+  >
+    <p class="text-sm">© 2024 Cross Arise - Todos os direitos reservados</p>
   </footer>
  </body>
 </html>
