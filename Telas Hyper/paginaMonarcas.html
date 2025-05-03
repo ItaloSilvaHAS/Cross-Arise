@@ -76,102 +76,109 @@
     <div
       class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between"
     >
-      <div class="flex items-center space-x-3">
-        <button
-          aria-label="Voltar para a página anterior"
-          class="text-yellow-400 hover:text-yellow-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded-md mr-4"
-          onclick="location.href='../classes.html'"
-          title="Voltar"
-        >
-          <i class="fas fa-arrow-left text-2xl"></i>
-        </button>
-        <button
-          aria-label="Abrir menu"
-          class="text-yellow-400 hover:text-yellow-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded-md md:hidden"
-          onclick="toggleMenu()"
-          id="menu-button"
-          aria-expanded="false"
-          aria-controls="mobile-menu"
-          title="Menu"
-        >
-          <i class="fas fa-bars text-2xl"></i>
-        </button>
-        <h1
-          class="text-yellow-400 font-bold text-xl sm:text-2xl tracking-wide cursor-default select-none ml-3 md:ml-0"
-          title="Monarcas de Cross Arise"
-        >
-          Monarcas de Cross Arise
-        </h1>
-      </div>
-      <nav
-        class="hidden md:flex space-x-8 font-semibold text-yellow-400 text-lg"
-        aria-label="Menu principal"
+      <button
+        aria-label="Voltar para a página anterior"
+        class="text-yellow-400 hover:text-yellow-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded-md"
+        onclick="location.href='../classes.html'"
+        title="Voltar"
       >
-        <button
-          class="hover:text-yellow-300 transition duration-200"
-          onclick="scrollToSection('monarca-chamas')"
-          type="button"
-        >
-          Chamas
-        </button>
-        <button
-          class="hover:text-yellow-300 transition duration-200"
-          onclick="scrollToSection('monarca-gelo')"
-          type="button"
-        >
-          Gelo
-        </button>
-        <button
-          class="hover:text-yellow-300 transition duration-200"
-          onclick="scrollToSection('monarca-luz')"
-          type="button"
-        >
-          Luz
-        </button>
-        <button
-          class="hover:text-yellow-300 transition duration-200"
-          onclick="scrollToSection('monarca-sombra')"
-          type="button"
-        >
-          Sombras
-        </button>
-        <button
-          class="hover:text-yellow-300 transition duration-200"
-          onclick="scrollToSection('monarca-vazio')"
-          type="button"
-        >
-          Vazio
-        </button>
-        <button
-          class="hover:text-yellow-300 transition duration-200"
-          onclick="scrollToSection('monarca-infinito')"
-          type="button"
-        >
-          Infinito
-        </button>
-        <button
-          class="hover:text-yellow-300 transition duration-200"
-          onclick="scrollToSection('monarca-destruicao')"
-          type="button"
-        >
-          Destruição
-        </button>
-        <button
-          class="hover:text-yellow-300 transition duration-200"
-          onclick="scrollToSection('monarca-criacao')"
-          type="button"
-        >
-          Criação
-        </button>
-        <button
-          class="hover:text-yellow-300 transition duration-200"
-          onclick="scrollToSection('ciclo-monarcas')"
-          type="button"
-        >
-          Ciclo
-        </button>
-      </nav>
+        <i class="fas fa-arrow-left text-2xl"></i>
+      </button>
+
+      <h1
+        class="text-yellow-400 font-bold text-xl sm:text-2xl tracking-wide cursor-default select-none mx-auto md:mx-0 md:hidden"
+        title="Monarcas de Cross Arise"
+      >
+        Monarcas
+      </h1>
+
+      <h1
+        class="text-yellow-400 font-bold text-xl sm:text-2xl tracking-wide cursor-default select-none hidden md:block"
+        title="Monarcas de Cross Arise"
+      >
+        Monarcas de Cross Arise
+      </h1>
+
+      <button
+        aria-label="Abrir menu"
+        class="text-yellow-400 hover:text-yellow-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded-md md:hidden"
+        onclick="toggleMenu()"
+        id="menu-button"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+        title="Menu"
+      >
+        <i class="fas fa-bars text-2xl"></i>
+      </button>
     </div>
+    <nav
+      class="hidden md:flex max-w-7xl mx-auto px-6 pb-4 space-x-8 font-semibold text-yellow-400 text-lg border-t border-gray-700"
+      aria-label="Menu principal"
+    >
+      <button
+        class="hover:text-yellow-300 transition duration-200"
+        onclick="scrollToSection('monarca-chamas')"
+        type="button"
+      >
+        Chamas
+      </button>
+      <button
+        class="hover:text-yellow-300 transition duration-200"
+        onclick="scrollToSection('monarca-gelo')"
+        type="button"
+      >
+        Gelo
+      </button>
+      <button
+        class="hover:text-yellow-300 transition duration-200"
+        onclick="scrollToSection('monarca-luz')"
+        type="button"
+      >
+        Luz
+      </button>
+      <button
+        class="hover:text-yellow-300 transition duration-200"
+        onclick="scrollToSection('monarca-sombra')"
+        type="button"
+      >
+        Sombras
+      </button>
+      <button
+        class="hover:text-yellow-300 transition duration-200"
+        onclick="scrollToSection('monarca-vazio')"
+        type="button"
+      >
+        Vazio
+      </button>
+      <button
+        class="hover:text-yellow-300 transition duration-200"
+        onclick="scrollToSection('monarca-infinito')"
+        type="button"
+      >
+        Infinito
+      </button>
+      <button
+        class="hover:text-yellow-300 transition duration-200"
+        onclick="scrollToSection('monarca-destruicao')"
+        type="button"
+      >
+        Destruição
+      </button>
+      <button
+        class="hover:text-yellow-300 transition duration-200"
+        onclick="scrollToSection('monarca-criacao')"
+        type="button"
+      >
+        Criação
+      </button>
+      <button
+        class="hover:text-yellow-300 transition duration-200"
+        onclick="scrollToSection('ciclo-monarcas')"
+        type="button"
+      >
+        Ciclo
+      </button>
+    </nav>
     <!-- Mobile menu -->
     <nav
       id="mobile-menu"
@@ -256,7 +263,7 @@
       class="bg-gradient-to-tr from-red-700 via-orange-600 to-yellow-500 rounded-3xl shadow-2xl overflow-hidden flex flex-col transform transition-transform hover:scale-[1.05] hover:shadow-yellow-400/70 duration-300"
     >
       <img
-        alt="Monarca das Chamas, um monarca com chamas vivas envolvendo seu corpo em um ambiente ardente"
+        src="ImagensMonarcas/MonarcaChama.jpg"
         class="w-full h-48 object-cover"
         height="400"
         loading="lazy"
@@ -296,7 +303,7 @@
       class="bg-gradient-to-tr from-cyan-700 via-blue-600 to-sky-400 rounded-3xl shadow-2xl overflow-hidden flex flex-col transform transition-transform hover:scale-[1.05] hover:shadow-sky-400/70 duration-300"
     >
       <img
-        alt="Monarca do Gelo, um monarca feito de gelo com cristais brilhantes em um ambiente congelado"
+        src="ImagensMonarcas/MonarcaGelo.jpg"
         class="w-full h-48 object-cover"
         height="400"
         loading="lazy"
@@ -334,7 +341,7 @@
       class="bg-gradient-to-tr from-yellow-400 via-yellow-300 to-yellow-200 rounded-3xl shadow-2xl overflow-hidden flex flex-col transform transition-transform hover:scale-[1.05] hover:shadow-yellow-400/70 duration-300"
     >
       <img
-        alt="Monarca da Luz, um monarca radiante envolto em uma aura de luz brilhante"
+        src="ImagensMonarcas/MonarcaLuz.webp"
         class="w-full h-48 object-cover"
         height="400"
         loading="lazy"
@@ -371,7 +378,7 @@
       class="bg-gradient-to-tr from-gray-800 via-gray-900 to-black rounded-3xl shadow-2xl overflow-hidden flex flex-col transform transition-transform hover:scale-[1.05] hover:shadow-purple-600/70 duration-300"
     >
       <img
-        alt="Monarca da Sombra, um monarca envolto em sombras profundas com olhos brilhantes"
+        src="ImagensMonarcas/MonarcaSombras.jfif"
         class="w-full h-48 object-cover"
         height="400"
         loading="lazy"
@@ -415,7 +422,7 @@
       class="bg-gradient-to-tr from-gray-700 via-gray-600 to-gray-500 rounded-3xl shadow-2xl overflow-hidden flex flex-col transform transition-transform hover:scale-[1.05] hover:shadow-gray-400/70 duration-300"
     >
       <img
-        alt="Monarca do Vazio, um monarca envolto em uma esfera vazia e abstrata"
+        src="ImagensMonarcas/VazioMonarca.webp"
         class="w-full h-48 object-cover"
         height="400"
         loading="lazy"
@@ -453,7 +460,7 @@
       class="bg-gradient-to-tr from-indigo-700 via-purple-700 to-pink-600 rounded-3xl shadow-2xl overflow-hidden flex flex-col transform transition-transform hover:scale-[1.05] hover:shadow-pink-400/70 duration-300"
     >
       <img
-        alt="Monarca do Infinito, um monarca envolto em galáxias e estrelas brilhantes"
+        src="ImagensMonarcas/MonarcaInfinito.png"
         class="w-full h-48 object-cover"
         height="400"
         loading="lazy"
@@ -491,7 +498,7 @@
       class="bg-gradient-to-tr from-red-900 via-red-800 to-red-700 rounded-3xl shadow-2xl overflow-hidden flex flex-col transform transition-transform hover:scale-[1.05] hover:shadow-red-500/70 duration-300"
     >
       <img
-        alt="Monarca da Destruição, um monarca envolto em explosões e energia vermelha intensa"
+        src="ImagensMonarcas/MonarcaDestruicao.webp"
         class="w-full h-48 object-cover"
         height="400"
         loading="lazy"
@@ -529,7 +536,7 @@
       class="bg-gradient-to-tr from-green-700 via-green-600 to-green-400 rounded-3xl shadow-2xl overflow-hidden flex flex-col transform transition-transform hover:scale-[1.05] hover:shadow-green-400/70 duration-300"
     >
       <img
-        alt="Monarca da Criação, um monarca envolto em energia verde viva e folhagens"
+        src="ImagensMonarcas/MonarcaCriacao.webp"
         class="w-full h-48 object-cover"
         height="400"
         loading="lazy"
@@ -586,7 +593,7 @@
           tabindex="0"
         >
           <img
-            alt="Ícone representando o Monarca das Chamas com chamas vivas"
+            SRC="ImagensMonarcas/CHAAAMAAAAAAA.webp"
             class="w-20 h-20 rounded-full mb-2 object-cover shadow-md"
             height="100"
             loading="lazy"
@@ -602,7 +609,7 @@
           tabindex="0"
         >
           <img
-            alt="Ícone representando o Monarca do Gelo com cristais de gelo"
+            src="ImagensMonarcas/geloooooooooo.jpg"
             class="w-20 h-20 rounded-full mb-2 object-cover shadow-md"
             height="100"
             loading="lazy"
@@ -618,7 +625,7 @@
           tabindex="0"
         >
           <img
-            alt="Ícone representando o Monarca da Luz com uma aura brilhante"
+            src="ImagensMonarcas/luzzzzzzzzzzzz.jpg"
             class="w-20 h-20 rounded-full mb-2 object-cover shadow-md"
             height="100"
             loading="lazy"
@@ -634,7 +641,7 @@
           tabindex="0"
         >
           <img
-            alt="Ícone representando o Monarca da Sombra com sombras profundas"
+            src="ImagensMonarcas/sombra.webp"
             class="w-20 h-20 rounded-full mb-2 object-cover shadow-md"
             height="100"
             loading="lazy"
@@ -650,7 +657,7 @@
           tabindex="0"
         >
           <img
-            alt="Ícone representando o Monarca do Vazio com uma esfera vazia"
+            src="ImagensMonarcas/vazio.jpg"
             class="w-20 h-20 rounded-full mb-2 object-cover shadow-md"
             height="100"
             loading="lazy"
@@ -666,7 +673,7 @@
           tabindex="0"
         >
           <img
-            alt="Ícone representando o Monarca do Infinito com galáxias e estrelas"
+            src="ImagensMonarcas/Infinito.webp"
             class="w-20 h-20 rounded-full mb-2 object-cover shadow-md"
             height="100"
             loading="lazy"
@@ -682,7 +689,7 @@
           tabindex="0"
         >
           <img
-            alt="Ícone representando o Monarca da Criação com energia verde e folhagens"
+            src="ImagensMonarcas/cria.jpeg"
             class="w-20 h-20 rounded-full mb-2 object-cover shadow-md"
             height="100"
             loading="lazy"
@@ -698,7 +705,7 @@
           tabindex="0"
         >
           <img
-            alt="Ícone representando o Monarca da Destruição com explosões e energia vermelha"
+            SRC="ImagensMonarcas/DESTROI.webp"
             class="w-20 h-20 rounded-full mb-2 object-cover shadow-md"
             height="100"
             loading="lazy"
