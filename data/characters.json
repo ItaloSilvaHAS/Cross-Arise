@@ -1,0 +1,100 @@
+
+{
+  "characters": [
+    {
+      "id": "blue",
+      "nome": "Blue",
+      "senha": "Lawrence",
+      "imagem": "assets/images/misc/Blue.jpg",
+      "alcunha": "O Guerreiro Azul",
+      "raca": "Humano",
+      "alinhamento": "Neutro Bom",
+      "tipoEnergia": "Mana Arcana",
+      "dinheiro": "1500 G",
+      "classes": ["Guerreiro", "Mago"],
+      "poderes": [
+        "Corte Arcano",
+        "Escudo de Mana",
+        "Golpe Relâmpago"
+      ],
+      "habilidades": [
+        "Espada Longa",
+        "Magia Elemental",
+        "Resistência Física"
+      ],
+      "inventario": [
+        "Espada Longa +1",
+        "Poção de Mana",
+        "Capa de Proteção"
+      ],
+      "transformacao": [
+        "Forma Arcana: Aumenta o poder mágico em 50%",
+        "Forma de Batalha: Aumenta a força e agilidade em 30%"
+      ],
+      "passivas": [
+        "Regeneração de Mana: Recupera 5% de mana por segundo",
+        "Resistência a Fogo: Reduz dano de fogo em 20%",
+        "Aura de Proteção: Aumenta defesa em 10%"
+      ],
+      "atributos": {
+        "inteligencia": 85,
+        "forca": 70,
+        "resistencia": 65,
+        "velocidade": 75,
+        "agilidade": 80,
+        "energia": 90
+      },
+      "nivel": 1,
+      "exp": 0,
+      "expMax": 100,
+      "moralidade": "Bom"
+    },
+    {
+      "id": "gabimaru",
+      "nome": "Gabimaru",
+      "senha": "Thai",
+      "imagem": "assets/images/misc/gabimaru.jpg",
+      "alcunha": "Imortal",
+      "raca": "Humano",
+      "alinhamento": "Neutro Bom",
+      "tipoEnergia": "Mana Arcana",
+      "dinheiro": "1500 G",
+      "classes": ["Ninja", "Assassino"],
+      "poderes": [
+        "Técnicas de Fogo",
+        "Invisibilidade",
+        "Regeneração"
+      ],
+      "habilidades": [
+        "Artes Marciais",
+        "Furtividade",
+        "Resistência Mental"
+      ],
+      "inventario": [
+        "Kunais Especiais",
+        "Pergaminhos Explosivos",
+        "Roupa de Ninja"
+      ],
+      "transformacao": [
+        "Modo Imortal: Regeneração extrema por tempo limitado"
+      ],
+      "passivas": [
+        "Aura Sombria: Aumenta dano de maldição em 25%",
+        "Regeneração de Vida: Recupera 3% de vida por segundo",
+        "Resistência a Veneno: Reduz dano de veneno em 30%"
+      ],
+      "atributos": {
+        "inteligencia": 75,
+        "forca": 80,
+        "resistencia": 85,
+        "velocidade": 90,
+        "agilidade": 95,
+        "energia": 70
+      },
+      "nivel": 1,
+      "exp": 0,
+      "expMax": 100,
+      "moralidade": "Neutro"
+    }
+  ]
+}
